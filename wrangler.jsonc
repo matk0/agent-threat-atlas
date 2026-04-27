@@ -2,6 +2,9 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "agent-threat-atlas",
   "compatibility_date": "2026-04-27",
+  "routes": [
+    { "pattern": "atlas.clawforceone.ai", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./out",
     "not_found_handling": "404-page"
