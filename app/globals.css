@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: #ffffff;
+  color: theme("colors.ink.900");
+  font-family: theme("fontFamily.sans");
+  font-feature-settings: "ss01", "cv11";
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+  .container-narrow {
+    @apply mx-auto w-full max-w-3xl px-6 sm:px-8;
+  }
+  .h-display {
+    @apply font-semibold tracking-tight text-ink-900;
+    font-size: clamp(2.25rem, 4vw + 1rem, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .h-section {
+    @apply font-semibold tracking-tight text-ink-900;
+    font-size: clamp(1.5rem, 1.4vw + 1rem, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-accent-600;
+  }
+  .lede {
+    @apply text-lg sm:text-xl text-ink-600 leading-relaxed;
+  }
+  .prose-body p {
+    @apply text-ink-700 leading-relaxed;
+  }
+  .prose-body p + p {
+    @apply mt-4;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset;
+  }
+  .card {
+    @apply rounded-2xl border border-ink-100 bg-white p-6 shadow-card transition hover:border-ink-200;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-ink-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-ink-200 bg-white px-5 py-3 text-sm font-semibold text-ink-900 transition hover:border-ink-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2;
+  }
+  .link-quiet {
+    @apply text-ink-900 underline decoration-ink-200 underline-offset-4 transition hover:decoration-ink-900;
+  }
+  .grid-section {
+    @apply py-16 sm:py-24;
+  }
+  .divider {
+    @apply h-px w-full bg-ink-100;
+  }
+}
