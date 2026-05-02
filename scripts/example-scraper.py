@@ -20,6 +20,7 @@ Environment:
   NVIDIA_API_KEY     NVIDIA API key. Required for full runs (not for --smoke).
                      Get one at https://build.nvidia.com.
   NVIDIA_MODEL       Defaults to stepfun-ai/step-3.5-flash.
+  SCRAPER_LIMIT      Defaults to 80 candidates per production run.
   GITHUB_TOKEN       Optional. Raises GitHub Advisory rate limit.
   USER_AGENT         Override the HTTP User-Agent.
 
@@ -88,6 +89,7 @@ DEFAULT_NVIDIA_MODEL = "stepfun-ai/step-3.5-flash"
 
 MAX_ITEMS_PER_SOURCE = 20
 MAX_ITEM_AGE_DAYS = 30       # skip items older than this
+DEFAULT_CANDIDATE_LIMIT = 80
 THIN_SUMMARY_THRESHOLD = 200  # fetch article body when summary is shorter
 ARTICLE_FETCH_CHARS = 600    # how much of the article body to use
 LLM_CALL_DELAY = 0.1         # seconds between categorization calls
@@ -627,6 +629,26 @@ def parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
+def _candidate_limit(cli_limit: Optional[int]) -> int:
+    if cli_limit is not None:
+        if cli_limit < 1:
+            raise SystemExit("--limit must be a positive integer.")
+        return cli_limit
+
+    raw = os.environ.get("SCRAPER_LIMIT")
+    if raw is None:
+        return DEFAULT_CANDIDATE_LIMIT
+
+    try:
+        limit = int(raw)
+    except ValueError as e:
+        raise SystemExit("SCRAPER_LIMIT must be a positive integer.") from e
+
+    if limit < 1:
+        raise SystemExit("SCRAPER_LIMIT must be a positive integer.")
+    return limit
+
+
 def main() -> int:
     args = parse_args()
     sources = enabled_sources()
@@ -681,8 +703,8 @@ def main() -> int:
         if not (_extract_cve_ids(c.headline + " " + c.summary) & seen_cves)
     ]
 
-    if args.limit:
-        queue = queue[: args.limit]
+    limit = _candidate_limit(args.limit)
+    queue = queue[:limit]
 
     # Enrich thin summaries with a quick article body fetch before LLM calls.
     thin = [c for c in queue if len(c.summary.strip()) < THIN_SUMMARY_THRESHOLD]
@@ -693,7 +715,7 @@ def main() -> int:
             if body:
                 c.summary = body
 
-    print(f"Categorizing {len(queue)} new candidates…")
+    print(f"Categorizing {len(queue)} new candidates with limit {limit}…")
     prompt = load_prompt()
     new: list[Incident] = []
     run_cves: set[str] = set()  # CVEs accepted in this run (cross-source dedup)

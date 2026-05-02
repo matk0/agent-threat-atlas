@@ -2,10 +2,12 @@
 from __future__ import annotations
 
 import importlib.util
+import os
 import sys
 import types
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -75,6 +77,23 @@ class ScraperContractTest(unittest.TestCase):
         self.assertEqual(payload["messages"][0]["role"], "system")
         self.assertEqual(payload["messages"][1]["role"], "user")
         self.assertIn("Agentic AI incident", payload["messages"][1]["content"])
+
+    def test_candidate_limit_defaults_to_production_budget(self) -> None:
+        with patch.dict(os.environ, {}, clear=True):
+            self.assertEqual(scraper_mod._candidate_limit(None), 80)
+
+    def test_candidate_limit_prefers_cli_over_environment(self) -> None:
+        with patch.dict(os.environ, {"SCRAPER_LIMIT": "40"}):
+            self.assertEqual(scraper_mod._candidate_limit(12), 12)
+
+    def test_candidate_limit_uses_environment_override(self) -> None:
+        with patch.dict(os.environ, {"SCRAPER_LIMIT": "35"}):
+            self.assertEqual(scraper_mod._candidate_limit(None), 35)
+
+    def test_candidate_limit_rejects_invalid_environment_override(self) -> None:
+        with patch.dict(os.environ, {"SCRAPER_LIMIT": "zero"}):
+            with self.assertRaises(SystemExit):
+                scraper_mod._candidate_limit(None)
 
 
 if __name__ == "__main__":
