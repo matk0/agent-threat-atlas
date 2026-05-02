@@ -55,3 +55,14 @@ test("threat detail pages explain the category end to end", () => {
   assert.match(threatPage, /threat\.howItHappens\.map/);
   assert.match(threatPage, /bestPracticesFor\(threat\)/);
 });
+
+test("workflow opts into Node 24 actions runtime", () => {
+  const workflow = read(".github/workflows/scraper.yml");
+
+  assert.match(workflow, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24:\s+true/);
+  assert.match(workflow, /actions\/setup-python@v6/);
+  assert.match(workflow, /actions\/setup-node@v6/);
+  assert.match(workflow, /cloudflare\/wrangler-action@v3\.15\.0/);
+  assert.doesNotMatch(workflow, /actions\/setup-python@v5/);
+  assert.doesNotMatch(workflow, /actions\/setup-node@v4/);
+});
