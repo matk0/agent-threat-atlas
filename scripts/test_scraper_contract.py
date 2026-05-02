@@ -80,7 +80,7 @@ class ScraperContractTest(unittest.TestCase):
 
     def test_candidate_limit_defaults_to_production_budget(self) -> None:
         with patch.dict(os.environ, {}, clear=True):
-            self.assertEqual(scraper_mod._candidate_limit(None), 80)
+            self.assertEqual(scraper_mod._candidate_limit(None), 20)
 
     def test_candidate_limit_prefers_cli_over_environment(self) -> None:
         with patch.dict(os.environ, {"SCRAPER_LIMIT": "40"}):

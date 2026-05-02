@@ -20,7 +20,7 @@ Environment:
   NVIDIA_API_KEY     NVIDIA API key. Required for full runs (not for --smoke).
                      Get one at https://build.nvidia.com.
   NVIDIA_MODEL       Defaults to stepfun-ai/step-3.5-flash.
-  SCRAPER_LIMIT      Defaults to 80 candidates per production run.
+  SCRAPER_LIMIT      Defaults to 20 candidates per production run.
   GITHUB_TOKEN       Optional. Raises GitHub Advisory rate limit.
   USER_AGENT         Override the HTTP User-Agent.
 
@@ -89,7 +89,7 @@ DEFAULT_NVIDIA_MODEL = "stepfun-ai/step-3.5-flash"
 
 MAX_ITEMS_PER_SOURCE = 20
 MAX_ITEM_AGE_DAYS = 30       # skip items older than this
-DEFAULT_CANDIDATE_LIMIT = 80
+DEFAULT_CANDIDATE_LIMIT = 20
 THIN_SUMMARY_THRESHOLD = 200  # fetch article body when summary is shorter
 ARTICLE_FETCH_CHARS = 600    # how much of the article body to use
 LLM_CALL_DELAY = 0.1         # seconds between categorization calls

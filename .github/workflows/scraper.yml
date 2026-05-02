@@ -24,7 +24,7 @@ on:
       limit:
         description: 'Max candidates to classify'
         required: false
-        default: '80'
+        default: '20'
 
 permissions:
   contents: write           # needed to commit incidents.ts back to main
@@ -55,7 +55,7 @@ jobs:
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           NVIDIA_MODEL: stepfun-ai/step-3.5-flash
-          SCRAPER_LIMIT: ${{ github.event.inputs.limit || '80' }}
+          SCRAPER_LIMIT: ${{ github.event.inputs.limit || '20' }}
         run: python3 scripts/example-scraper.py
 
       - name: Commit and push updated incidents
