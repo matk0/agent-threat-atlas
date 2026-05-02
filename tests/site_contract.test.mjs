@@ -40,3 +40,18 @@ test("navigation is focused and sends contact off-site", () => {
   assert.match(wrangler, /"run_worker_first": \["\/contact\*"\]/);
   assert.match(worker, /Response\.redirect\("https:\/\/matejlukasik\.com\/contact", 302\)/);
 });
+
+test("threat detail pages explain the category end to end", () => {
+  const threatPage = read("app/threats/[slug]/page.tsx");
+
+  assert.match(threatPage, /heading="What it is"/);
+  assert.match(threatPage, /heading="How attacks happen"/);
+  assert.match(threatPage, /heading="How to prevent it"/);
+  assert.match(threatPage, /heading="Best practices"/);
+  assert.match(threatPage, /heading="Known examples"/);
+  assert.match(threatPage, /heading="Framework mapping"/);
+  assert.match(threatPage, /heading="Related incidents"/);
+  assert.match(threatPage, /threat\.whatItIs\.map/);
+  assert.match(threatPage, /threat\.howItHappens\.map/);
+  assert.match(threatPage, /bestPracticesFor\(threat\)/);
+});
