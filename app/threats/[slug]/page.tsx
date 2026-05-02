@@ -105,10 +105,10 @@ export default function ThreatDetail({ params }: { params: Params }) {
             <SeverityPill severity={threat.severity} />
             <Pill tone="ink">{related.length} linked incidents</Pill>
           </div>
-          <h1 className="mt-4 max-w-4xl text-3xl font-semibold tracking-tight text-ink-900 sm:text-5xl">
+          <h1 className="mt-4 max-w-4xl break-words text-3xl font-semibold leading-tight tracking-tight text-ink-900 sm:text-4xl lg:text-5xl">
             {threat.title}
           </h1>
-          <p className="mt-4 max-w-3xl text-base leading-7 text-ink-600 sm:text-lg">
+          <p className="mt-4 max-w-3xl break-words text-base leading-7 text-ink-600 sm:text-lg">
             {threat.summary}
           </p>
         </div>
