@@ -51,6 +51,31 @@ class ScraperContractTest(unittest.TestCase):
         self.assertIn("human approval", entry.lower())
         self.assertNotIn('"vendor": null', entry)
 
+    def test_uses_nvidia_nim_by_default(self) -> None:
+        self.assertEqual(scraper_mod.DEFAULT_NVIDIA_MODEL, "stepfun-ai/step-3.5-flash")
+        self.assertEqual(
+            scraper_mod.NVIDIA_CHAT_COMPLETIONS_URL,
+            "https://integrate.api.nvidia.com/v1/chat/completions",
+        )
+
+    def test_nvidia_payload_is_openai_compatible(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="Unit test",
+            url="https://example.com/incident",
+            headline="Agentic AI incident",
+            summary="A named agent took a risky autonomous action.",
+            date="2026-05-02",
+        )
+
+        payload = scraper_mod._nvidia_payload(candidate, "System prompt")
+
+        self.assertEqual(payload["model"], "stepfun-ai/step-3.5-flash")
+        self.assertEqual(payload["temperature"], 0)
+        self.assertEqual(payload["max_tokens"], 900)
+        self.assertEqual(payload["messages"][0]["role"], "system")
+        self.assertEqual(payload["messages"][1]["role"], "user")
+        self.assertIn("Agentic AI incident", payload["messages"][1]["content"])
+
 
 if __name__ == "__main__":
     unittest.main()

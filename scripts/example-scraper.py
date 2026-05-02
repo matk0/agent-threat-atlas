@@ -17,9 +17,9 @@ Modes:
   python scripts/example-scraper.py --dry      categorize but don't write file
 
 Environment:
-  ANTHROPIC_API_KEY  Anthropic API key. Required for full runs (not for --smoke).
-                     Get one at https://console.anthropic.com.
-  ANTHROPIC_MODEL    Defaults to claude-haiku-4-5-20251001.
+  NVIDIA_API_KEY     NVIDIA API key. Required for full runs (not for --smoke).
+                     Get one at https://build.nvidia.com.
+  NVIDIA_MODEL       Defaults to stepfun-ai/step-3.5-flash.
   GITHUB_TOKEN       Optional. Raises GitHub Advisory rate limit.
   USER_AGENT         Override the HTTP User-Agent.
 
@@ -49,9 +49,6 @@ from bs4 import BeautifulSoup  # type: ignore
 # Local module
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from sources import ALL_SOURCES, Source, enabled_sources  # noqa: E402
-
-# The Anthropic SDK is imported lazily inside categorize() so that --smoke
-# runs don't require it to be installed.
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -86,6 +83,8 @@ FALLBACK_PREVENTION_NOTES = {
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_FILE = ROOT / "content" / "incidents.ts"
 PROMPT_FILE = ROOT / "scripts" / "scraper-prompt.md"
+NVIDIA_CHAT_COMPLETIONS_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
+DEFAULT_NVIDIA_MODEL = "stepfun-ai/step-3.5-flash"
 
 MAX_ITEMS_PER_SOURCE = 20
 MAX_ITEM_AGE_DAYS = 30       # skip items older than this
@@ -419,42 +418,83 @@ def _fallback_prevention_note(threats: list[str]) -> str:
 
 
 # ---------------------------------------------------------------------------
-# LLM categorization (official Anthropic SDK)
+# LLM categorization (NVIDIA NIM hosted endpoint)
 # ---------------------------------------------------------------------------
-
-_anthropic_client = None  # lazily initialized
-
 
 def load_prompt() -> str:
     return PROMPT_FILE.read_text(encoding="utf-8")
 
 
-def _get_client():
-    """Lazy-initialize the Anthropic client.
+def _nvidia_model() -> str:
+    return os.environ.get("NVIDIA_MODEL", DEFAULT_NVIDIA_MODEL)
 
-    The SDK reads ANTHROPIC_API_KEY from the environment automatically.
-    `max_retries=3` covers transient 5xx and rate-limit responses with
-    exponential backoff so individual blips don't kill the whole run.
-    """
-    global _anthropic_client
-    if _anthropic_client is None:
-        try:
-            from anthropic import Anthropic
-        except ImportError as e:
-            raise SystemExit(
-                "The 'anthropic' package is required. Run:\n"
-                "  pip install -r scripts/requirements.txt"
-            ) from e
-        if not os.environ.get("ANTHROPIC_API_KEY"):
-            raise SystemExit(
-                "ANTHROPIC_API_KEY is not set.\n"
-                "Get a key at https://console.anthropic.com and either:\n"
-                "  export ANTHROPIC_API_KEY=sk-ant-...\n"
-                "or copy scripts/.env.example to .env and source it.\n"
-                "Use --smoke to test fetching without making LLM calls."
+
+def _nvidia_payload(item: Candidate, prompt: str) -> dict:
+    dated_prompt = f"Today's date: {_today()}\n\n{prompt}"
+    return {
+        "model": _nvidia_model(),
+        "messages": [
+            {"role": "system", "content": dated_prompt},
+            {"role": "user", "content": json.dumps(asdict(item))},
+        ],
+        "max_tokens": 900,
+        "temperature": 0,
+        "top_p": 1,
+        "stream": False,
+    }
+
+
+def _nvidia_headers() -> dict[str, str]:
+    api_key = os.environ.get("NVIDIA_API_KEY")
+    if not api_key:
+        raise SystemExit(
+            "NVIDIA_API_KEY is not set.\n"
+            "Get a key at https://build.nvidia.com and either:\n"
+            "  export NVIDIA_API_KEY=nvapi-...\n"
+            "or copy scripts/.env.example to .env and source it.\n"
+            "Use --smoke to test fetching without making LLM calls."
+        )
+    return {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+    }
+
+
+def _call_nvidia(item: Candidate, prompt: str) -> Optional[str]:
+    try:
+        with http_client() as c:
+            r = c.post(
+                NVIDIA_CHAT_COMPLETIONS_URL,
+                headers=_nvidia_headers(),
+                json=_nvidia_payload(item, prompt),
             )
-        _anthropic_client = Anthropic(max_retries=3, timeout=30.0)
-    return _anthropic_client
+            r.raise_for_status()
+            data = r.json()
+    except httpx.HTTPStatusError as e:
+        status = e.response.status_code
+        if status == 429:
+            print("[rate-limit] backing off 30s; this item will be retried tomorrow", file=sys.stderr)
+            time.sleep(30)
+            return None
+        print(f"[api-status {status}] {item.url} — {e.response.text[:200]}", file=sys.stderr)
+        return None
+    except httpx.HTTPError as e:
+        print(f"[api-error] {item.url} — {e}", file=sys.stderr)
+        return None
+
+    if data.get("requestId") and not data.get("choices"):
+        print(f"[api-pending] {item.url} — NVIDIA returned requestId {data['requestId']}", file=sys.stderr)
+        return None
+
+    choices = data.get("choices") or []
+    if not choices:
+        print(f"[parse-error] {item.url} — NVIDIA returned no choices", file=sys.stderr)
+        return None
+
+    message = choices[0].get("message") or {}
+    content = message.get("content")
+    return content.strip() if isinstance(content, str) else None
 
 
 def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
@@ -462,37 +502,9 @@ def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
     Classify one candidate. Returns an Incident if the model accepts it as a
     confirmed agentic-AI security incident, or None to skip.
     """
-    from anthropic import APIError, RateLimitError, APIStatusError
-
-    client = _get_client()
-    model = os.environ.get("ANTHROPIC_MODEL", "claude-haiku-4-5-20251001")
-
-    dated_prompt = f"Today's date: {_today()}\n\n{prompt}"
-    try:
-        message = client.messages.create(
-            model=model,
-            max_tokens=900,
-            system=dated_prompt,
-            messages=[
-                {"role": "user", "content": json.dumps(asdict(item))},
-            ],
-        )
-    except RateLimitError:
-        # SDK already retried; if we're still rate-limited, sleep & give up on this item.
-        print("[rate-limit] backing off 30s; this item will be retried tomorrow", file=sys.stderr)
-        time.sleep(30)
+    text = _call_nvidia(item, prompt)
+    if text is None:
         return None
-    except APIStatusError as e:
-        print(f"[api-status {e.status_code}] {item.url} — {e.message}", file=sys.stderr)
-        return None
-    except APIError as e:
-        print(f"[api-error] {item.url} — {e}", file=sys.stderr)
-        return None
-
-    # Extract the model's text content.
-    text = "".join(
-        block.text for block in message.content if getattr(block, "type", "") == "text"
-    ).strip()
 
     if not text or text.upper().startswith("SKIP"):
         return None

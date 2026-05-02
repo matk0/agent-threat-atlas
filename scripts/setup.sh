@@ -50,8 +50,8 @@ echo
 if [ ! -f "scripts/.env" ]; then
   bold "[4/4] Creating scripts/.env from scripts/.env.example"
   cp scripts/.env.example scripts/.env
-  yellow "    -> Edit scripts/.env and paste your ANTHROPIC_API_KEY."
-  yellow "    -> Get one at https://console.anthropic.com"
+  yellow "    -> Edit scripts/.env and paste your NVIDIA_API_KEY."
+  yellow "    -> Get one at https://build.nvidia.com"
 else
   green "[4/4] scripts/.env already exists (leaving it alone)"
 fi
