@@ -1,19 +1,40 @@
-name: Daily incident scraper
+name: Daily incident scraper + deploy
 
 on:
   schedule:
     - cron: '0 7 * * *'   # 07:00 UTC every day
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/scraper.yml'
+      - 'app/**'
+      - 'components/**'
+      - 'content/**'
+      - 'lib/**'
+      - 'next.config.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'postcss.config.mjs'
+      - 'public/**'
+      - 'tailwind.config.ts'
+      - 'tsconfig.json'
+      - 'wrangler.jsonc'
   workflow_dispatch:        # manual trigger from GitHub UI
 
 permissions:
   contents: write           # needed to commit incidents.ts back to main
 
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
 jobs:
   scrape:
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: actions/setup-python@v5
         with:
@@ -37,3 +58,36 @@ jobs:
           git diff --staged --quiet && echo "No new incidents." && exit 0
           git commit -m "Update incident feed $(date -u +%Y-%m-%d)"
           git push
+
+  deploy:
+    needs: [scrape]
+    if: >
+      always() &&
+      (github.event_name == 'push' || needs.scrape.result == 'success') &&
+      (github.event_name != 'push' || github.actor != 'github-actions[bot]')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Smoke test production
+        run: curl --fail --silent --show-error --retry 6 --retry-delay 10 --retry-all-errors https://atlas.clawforceone.ai/incidents > /dev/null
