@@ -91,4 +91,6 @@ jobs:
           wranglerVersion: '4.87.0'
 
       - name: Smoke test production
-        run: curl --fail --silent --show-error --retry 6 --retry-delay 10 --retry-all-errors https://atlas.clawforceone.ai/incidents > /dev/null
+        run: |
+          curl --fail --silent --show-error --retry 24 --retry-delay 10 --retry-all-errors https://atlas.clawforceone.ai/incidents > /dev/null
+          curl --fail --silent --show-error --retry 24 --retry-delay 10 --retry-all-errors https://atlas.matejlukasik.com/incidents > /dev/null
