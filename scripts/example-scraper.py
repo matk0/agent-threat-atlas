@@ -38,6 +38,7 @@ import re
 import sys
 import time
 import traceback
+from collections import Counter
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -83,6 +84,7 @@ FALLBACK_PREVENTION_NOTES = {
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_FILE = ROOT / "content" / "incidents.ts"
+REJECTED_FILE = ROOT / "content" / "rejected-candidates.json"
 PROMPT_FILE = ROOT / "scripts" / "scraper-prompt.md"
 NVIDIA_CHAT_COMPLETIONS_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 DEFAULT_NVIDIA_MODEL = "stepfun-ai/step-3.5-flash"
@@ -94,6 +96,10 @@ THIN_SUMMARY_THRESHOLD = 200  # fetch article body when summary is shorter
 ARTICLE_FETCH_CHARS = 600    # how much of the article body to use
 LLM_CALL_DELAY = 0.1         # seconds between categorization calls
 HTTP_TIMEOUT = 20.0
+MIN_RELEVANCE_SCORE = 70
+MIN_CONFIDENCE_SCORE = 65
+MIN_SOURCE_QUALITY_SCORE = 45
+MAX_REJECTED_RECORDS = 250
 USER_AGENT = os.environ.get(
     "USER_AGENT",
     "AgentThreatAtlas-Scraper/1.0 (+https://atlas.clawforceone.ai) Mozilla/5.0",
@@ -128,6 +134,34 @@ class Incident:
     severity: str
     threats: list[str] = field(default_factory=list)
     preventionNote: str = ""
+    vendor: Optional[str] = None
+
+
+@dataclass
+class QualityDecision:
+    accepted: bool
+    relevanceScore: int
+    confidenceScore: int
+    sourceQualityScore: int
+    reasons: list[str] = field(default_factory=list)
+
+
+@dataclass
+class RejectedCandidate:
+    id: str
+    rejectedAt: str
+    date: str
+    source: str
+    url: str
+    headline: str
+    summary: str
+    model: str
+    reasons: list[str]
+    relevanceScore: int
+    confidenceScore: int
+    sourceQualityScore: int
+    severity: Optional[str] = None
+    threats: list[str] = field(default_factory=list)
     vendor: Optional[str] = None
 
 
@@ -329,6 +363,44 @@ _RELEVANCE_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
+_SECURITY_SIGNAL_PATTERN = re.compile(
+    r"\b("
+    r"CVE-\d{4}-\d+|GHSA-[a-z0-9-]+|vulnerab\w*|exploit\w*|breach\w*|"
+    r"leak\w*|exfiltrat\w*|unauthorized|malicious|compromis\w*|"
+    r"prompt[- ]injection|jailbreak|remote code execution|RCE|SSRF|SQL injection|"
+    r"XSS|bypass\w*|deleted?|destructive|advisory|patched?|zero[- ]click|"
+    r"credential\w*|secret\w*|data exposure|takeover|security incident|"
+    r"regulator\w*|fine\w*|ban\w*|court|tribunal"
+    r")\b",
+    re.IGNORECASE,
+)
+
+_NEWS_ONLY_PATTERN = re.compile(
+    r"\b("
+    r"announce\w*|launch\w*|release\w*|roadmap|partnership|funding|raises|"
+    r"benchmark|faster|improved|new model|preview|availability"
+    r")\b",
+    re.IGNORECASE,
+)
+
+_SOURCE_QUALITY_OVERRIDES = {
+    "github security advisory database": 95,
+    "nist nvd (recent cves)": 95,
+    "cisa alerts": 90,
+    "bsi (germany) warnings": 90,
+    "the hacker news": 82,
+    "darkreading": 78,
+    "ars technica security": 78,
+    "the register — ai/ml": 76,
+    "the guardian — technology": 74,
+    "ai incident database": 72,
+    "openai blog": 70,
+    "google ai blog": 70,
+    "google deepmind blog": 70,
+    "microsoft security response center": 88,
+    "microsoft security update guide (advisories)": 88,
+}
+
 
 def _looks_relevant(text: str) -> bool:
     """Cheap pre-filter to avoid sending obviously off-topic items to the LLM."""
@@ -417,6 +489,187 @@ def _fallback_prevention_note(threats: list[str]) -> str:
         if threat in FALLBACK_PREVENTION_NOTES:
             return FALLBACK_PREVENTION_NOTES[threat]
     return "This would have been prevented or limited by least-privilege access, human approval for high-impact actions, scoped credentials, monitoring, and rollback-ready operational controls."
+
+
+def assess_quality(
+    candidate: Candidate,
+    incident: Incident,
+    existing: list[Incident],
+    accepted: list[Incident],
+) -> QualityDecision:
+    relevance = _score_relevance(candidate, incident)
+    confidence = _score_confidence(candidate, incident)
+    source_quality = _source_quality_score(candidate.source)
+    reasons: list[str] = []
+
+    if relevance < MIN_RELEVANCE_SCORE:
+        reasons.append("low_relevance")
+    if confidence < MIN_CONFIDENCE_SCORE:
+        reasons.append("low_confidence")
+    if source_quality < MIN_SOURCE_QUALITY_SCORE:
+        reasons.append("low_source_quality")
+    if _is_vague_ai_news(candidate, incident):
+        reasons.append("vague_ai_news")
+    if _is_duplicate_incident(candidate, incident, existing + accepted):
+        reasons.append("duplicate")
+
+    return QualityDecision(
+        accepted=not reasons,
+        relevanceScore=relevance,
+        confidenceScore=confidence,
+        sourceQualityScore=source_quality,
+        reasons=reasons,
+    )
+
+
+def assess_skipped_candidate(
+    candidate: Candidate,
+    existing: list[Incident],
+    accepted: list[Incident],
+) -> QualityDecision:
+    relevance = _score_relevance(candidate, None)
+    source_quality = _source_quality_score(candidate.source)
+    reasons = ["not_confirmed_by_model"]
+
+    if relevance < MIN_RELEVANCE_SCORE:
+        reasons.append("low_relevance")
+    if source_quality < MIN_SOURCE_QUALITY_SCORE:
+        reasons.append("low_source_quality")
+    if _is_vague_ai_news(candidate, None):
+        reasons.append("vague_ai_news")
+    if _is_duplicate_incident(candidate, None, existing + accepted):
+        reasons.append("duplicate")
+
+    return QualityDecision(
+        accepted=False,
+        relevanceScore=relevance,
+        confidenceScore=0,
+        sourceQualityScore=source_quality,
+        reasons=reasons,
+    )
+
+
+def build_rejection(
+    candidate: Candidate,
+    incident: Optional[Incident],
+    decision: QualityDecision,
+) -> RejectedCandidate:
+    return RejectedCandidate(
+        id=f"reject-{candidate.fingerprint()[:10]}",
+        rejectedAt=datetime.now(timezone.utc).isoformat(),
+        date=candidate.date,
+        source=candidate.source,
+        url=candidate.url,
+        headline=candidate.headline[:240],
+        summary=((incident.summary if incident else candidate.summary) or "")[:1000],
+        model=_nvidia_model(),
+        reasons=decision.reasons,
+        relevanceScore=decision.relevanceScore,
+        confidenceScore=decision.confidenceScore,
+        sourceQualityScore=decision.sourceQualityScore,
+        severity=incident.severity if incident else None,
+        threats=list(incident.threats) if incident else [],
+        vendor=incident.vendor if incident else None,
+    )
+
+
+def _score_relevance(candidate: Candidate, incident: Optional[Incident]) -> int:
+    text = _quality_text(candidate, incident)
+    score = 0
+    if _looks_relevant(text):
+        score += 30
+    if _SECURITY_SIGNAL_PATTERN.search(text):
+        score += 35
+    if _extract_cve_ids(text):
+        score += 15
+    if incident and incident.threats:
+        score += 10
+    if incident and incident.vendor:
+        score += 10
+    if len((incident.summary if incident else candidate.summary).strip()) >= 160:
+        score += 10
+    return min(score, 100)
+
+
+def _score_confidence(candidate: Candidate, incident: Optional[Incident]) -> int:
+    if incident is None:
+        return 0
+
+    summary_len = len((incident.summary or candidate.summary).strip())
+    prevention_len = len((incident.preventionNote or "").strip())
+    score = 0
+
+    if incident.severity in {"critical", "high", "medium", "low"}:
+        score += 20
+    if incident.threats:
+        score += 20
+    if summary_len >= 80:
+        score += 20
+    elif summary_len >= 40:
+        score += 10
+    if prevention_len >= 80:
+        score += 20
+    elif prevention_len >= 40:
+        score += 10
+    if incident.vendor:
+        score += 10
+    if candidate.url.startswith("http"):
+        score += 5
+    if re.match(r"\d{4}-\d{2}-\d{2}$", candidate.date):
+        score += 5
+
+    return min(score, 100)
+
+
+def _source_quality_score(source: str) -> int:
+    key = source.strip().lower()
+    if key in _SOURCE_QUALITY_OVERRIDES:
+        return _SOURCE_QUALITY_OVERRIDES[key]
+    if "advisory" in key or "security" in key or "cve" in key:
+        return 80
+    if "blog" in key:
+        return 65
+    return 55
+
+
+def _is_vague_ai_news(candidate: Candidate, incident: Optional[Incident]) -> bool:
+    text = _quality_text(candidate, incident)
+    return bool(_NEWS_ONLY_PATTERN.search(text)) and not bool(_SECURITY_SIGNAL_PATTERN.search(text))
+
+
+def _is_duplicate_incident(
+    candidate: Candidate,
+    incident: Optional[Incident],
+    incidents: list[Incident],
+) -> bool:
+    headline_key = _headline_key(incident.headline if incident else candidate.headline)
+    cve_ids = _extract_cve_ids(_quality_text(candidate, incident))
+
+    for existing in incidents:
+        if candidate.url == existing.url:
+            return True
+        existing_cves = _extract_cve_ids(
+            " ".join([existing.headline, existing.summary, existing.url])
+        )
+        if cve_ids and cve_ids & existing_cves:
+            return True
+        if headline_key and headline_key == _headline_key(existing.headline):
+            return True
+    return False
+
+
+def _headline_key(headline: str) -> str:
+    words = re.findall(r"[a-z0-9]+", (headline or "").lower())
+    key = " ".join(words)
+    return key if len(key) >= 24 else ""
+
+
+def _quality_text(candidate: Candidate, incident: Optional[Incident]) -> str:
+    parts = [candidate.headline, candidate.summary, candidate.source]
+    if incident:
+        parts.extend([incident.headline, incident.summary, incident.vendor or ""])
+        parts.extend(incident.threats)
+    return " ".join(parts)
 
 
 # ---------------------------------------------------------------------------
@@ -605,6 +858,49 @@ def _format_entry(i: Incident) -> str:
     return "  " + json.dumps(obj, ensure_ascii=False, indent=2).replace("\n", "\n  ")
 
 
+def write_rejections(rejections: list[RejectedCandidate]) -> bool:
+    if not rejections:
+        return False
+
+    existing = _load_rejection_records()
+    seen_ids = {str(r.get("id")) for r in existing if isinstance(r, dict)}
+    new_records = [
+        _format_rejection(r)
+        for r in rejections
+        if r.id not in seen_ids
+    ]
+    if not new_records:
+        return False
+
+    merged = (new_records + existing)[:MAX_REJECTED_RECORDS]
+    REJECTED_FILE.write_text(
+        json.dumps(merged, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return True
+
+
+def _load_rejection_records() -> list[dict]:
+    if not REJECTED_FILE.exists():
+        return []
+    try:
+        data = json.loads(REJECTED_FILE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    return data if isinstance(data, list) else []
+
+
+def _format_rejection(rejection: RejectedCandidate) -> dict:
+    obj = asdict(rejection)
+    if obj.get("vendor") is None:
+        obj.pop("vendor", None)
+    if obj.get("severity") is None:
+        obj.pop("severity", None)
+    if not obj.get("threats"):
+        obj.pop("threats", None)
+    return obj
+
+
 def load_existing() -> list[Incident]:
     if not OUTPUT_FILE.exists():
         return []
@@ -617,6 +913,29 @@ def load_existing() -> list[Incident]:
         except Exception:
             continue
     return out
+
+
+def print_run_summary(
+    total_candidates: int,
+    queued_candidates: int,
+    accepted_count: int,
+    rejections: list[RejectedCandidate],
+    failures: list[tuple[str, str]],
+) -> None:
+    reasons = Counter(reason for r in rejections for reason in r.reasons)
+
+    print()
+    print("Run summary")
+    print(f"  Model:            {_nvidia_model()}")
+    print(f"  Candidates found: {total_candidates}")
+    print(f"  Candidates queued:{queued_candidates:2d}")
+    print(f"  Accepted:         {accepted_count}")
+    print(f"  Rejected:         {len(rejections)}")
+    print(f"  Fetch failures:   {len(failures)}")
+    if reasons:
+        print("  Rejection reasons:")
+        for reason, count in reasons.most_common():
+            print(f"    {reason}: {count}")
 
 
 # ---------------------------------------------------------------------------
@@ -722,35 +1041,67 @@ def main() -> int:
     print(f"Categorizing {len(queue)} new candidates with limit {limit}…")
     prompt = load_prompt()
     new: list[Incident] = []
+    rejections: list[RejectedCandidate] = []
     run_cves: set[str] = set()  # CVEs accepted in this run (cross-source dedup)
 
     for c in queue:
         # Skip if a different source already covered this CVE this run.
         cve_ids = _extract_cve_ids(c.headline + " " + c.summary)
         if cve_ids and cve_ids & run_cves:
+            decision = QualityDecision(
+                accepted=False,
+                relevanceScore=_score_relevance(c, None),
+                confidenceScore=0,
+                sourceQualityScore=_source_quality_score(c.source),
+                reasons=["duplicate"],
+            )
+            rejections.append(build_rejection(c, None, decision))
             continue
 
         try:
             inc = categorize(c, prompt)
             if inc:
-                new.append(inc)
-                run_cves |= _extract_cve_ids(inc.headline + " " + inc.url)
-                print(f"  + {inc.severity:8s} {inc.headline[:80]}")
+                decision = assess_quality(c, inc, existing, new)
+                if decision.accepted:
+                    new.append(inc)
+                    run_cves |= _extract_cve_ids(inc.headline + " " + inc.url)
+                    print(f"  + {inc.severity:8s} {inc.headline[:80]}")
+                else:
+                    rejections.append(build_rejection(c, inc, decision))
+                    print(f"  - {','.join(decision.reasons):30s} {c.headline[:80]}")
+            else:
+                decision = assess_skipped_candidate(c, existing, new)
+                rejections.append(build_rejection(c, None, decision))
+                print(f"  - {','.join(decision.reasons):30s} {c.headline[:80]}")
         except Exception as e:
             print(f"  ! {c.url} — {e}", file=sys.stderr)
 
         time.sleep(LLM_CALL_DELAY)
 
     print(f"\nKept {len(new)} of {len(queue)} after categorization.")
+    print_run_summary(
+        total_candidates=len(all_candidates),
+        queued_candidates=len(queue),
+        accepted_count=len(new),
+        rejections=rejections,
+        failures=failures,
+    )
 
     if args.dry:
-        print("--dry: not writing output file.")
+        print("--dry: not writing output or rejection files.")
         return 0
 
-    if write_output(existing, new):
+    wrote_incidents = write_output(existing, new)
+    wrote_rejections = write_rejections(rejections)
+
+    if wrote_incidents:
         print(f"Wrote {OUTPUT_FILE} with {len(existing) + len(new)} total incidents.")
     else:
         print("No new incidents after categorization.")
+    if wrote_rejections:
+        print(f"Wrote {REJECTED_FILE} with {len(rejections)} new rejected candidates.")
+    else:
+        print("No new rejected candidates to record.")
     return 0
 
 

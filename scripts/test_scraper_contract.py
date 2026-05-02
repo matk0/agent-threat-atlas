@@ -2,11 +2,14 @@
 from __future__ import annotations
 
 import importlib.util
+import io
+import json
 import os
 import sys
 import tempfile
 import types
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
@@ -107,6 +110,172 @@ class ScraperContractTest(unittest.TestCase):
                 self.assertEqual(output.read_text(encoding="utf-8"), "original")
             finally:
                 scraper_mod.OUTPUT_FILE = original_output
+
+    def test_quality_gate_accepts_specific_agent_security_incident(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="GitHub Security Advisory Database",
+            url="https://github.com/advisories/GHSA-test-agent",
+            headline="CVE-2026-9999: Agent tool leaks secrets through prompt injection",
+            summary="A confirmed vulnerability in a named AI agent allowed attackers to exfiltrate secrets through an indirect prompt injection and tool call.",
+            date="2026-05-02",
+        )
+        incident = scraper_mod.Incident(
+            id="auto-quality",
+            date=candidate.date,
+            source=candidate.source,
+            url=candidate.url,
+            headline=candidate.headline,
+            summary=candidate.summary,
+            severity="critical",
+            threats=["prompt-injection", "data-exfiltration"],
+            preventionNote="This would have been prevented or limited by treating retrieved content as untrusted input and blocking autonomous outbound disclosure paths.",
+            vendor="Example Agent",
+        )
+
+        decision = scraper_mod.assess_quality(candidate, incident, [], [])
+
+        self.assertTrue(decision.accepted)
+        self.assertEqual(decision.reasons, [])
+        self.assertGreaterEqual(decision.relevanceScore, 70)
+        self.assertGreaterEqual(decision.confidenceScore, 65)
+        self.assertGreaterEqual(decision.sourceQualityScore, 45)
+
+    def test_quality_gate_rejects_vague_ai_news(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="OpenAI blog",
+            url="https://example.com/new-assistant",
+            headline="OpenAI announces a faster AI assistant for enterprises",
+            summary="The company introduced a faster assistant with improved reasoning and a broader product roadmap.",
+            date="2026-05-02",
+        )
+        incident = scraper_mod.Incident(
+            id="auto-vague",
+            date=candidate.date,
+            source=candidate.source,
+            url=candidate.url,
+            headline=candidate.headline,
+            summary=candidate.summary,
+            severity="low",
+            threats=["hallucination-and-reliability"],
+            preventionNote="This would have been prevented or limited by validation controls.",
+            vendor="OpenAI",
+        )
+
+        decision = scraper_mod.assess_quality(candidate, incident, [], [])
+
+        self.assertFalse(decision.accepted)
+        self.assertIn("vague_ai_news", decision.reasons)
+        self.assertIn("low_relevance", decision.reasons)
+
+    def test_quality_gate_rejects_duplicate_headline(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="The Hacker News",
+            url="https://example.com/duplicate-story",
+            headline="Agent deleted production database during autonomous run",
+            summary="A named AI agent deleted a production database during an autonomous run.",
+            date="2026-05-02",
+        )
+        incident = scraper_mod.Incident(
+            id="auto-duplicate",
+            date=candidate.date,
+            source=candidate.source,
+            url=candidate.url,
+            headline=candidate.headline,
+            summary=candidate.summary,
+            severity="critical",
+            threats=["excessive-agency"],
+            preventionNote="This would have been prevented or limited by human approval for destructive database operations.",
+            vendor="Example Agent",
+        )
+        existing = [
+            scraper_mod.Incident(
+                id="auto-existing",
+                date="2026-05-01",
+                source="Another source",
+                url="https://example.com/original-story",
+                headline="Agent deleted production database during autonomous run",
+                summary="A named AI agent deleted a production database during an autonomous run.",
+                severity="critical",
+                threats=["excessive-agency"],
+                preventionNote="This would have been prevented or limited by human approval for destructive database operations.",
+                vendor="Example Agent",
+            )
+        ]
+
+        decision = scraper_mod.assess_quality(candidate, incident, existing, [])
+
+        self.assertFalse(decision.accepted)
+        self.assertIn("duplicate", decision.reasons)
+
+    def test_write_rejections_records_separate_json_file(self) -> None:
+        original_rejected = scraper_mod.REJECTED_FILE
+        with tempfile.TemporaryDirectory() as tmp:
+            rejected_file = Path(tmp) / "rejected-candidates.json"
+            scraper_mod.REJECTED_FILE = rejected_file
+            try:
+                rejection = scraper_mod.RejectedCandidate(
+                    id="reject-test",
+                    rejectedAt="2026-05-02T00:00:00+00:00",
+                    date="2026-05-02",
+                    source="OpenAI blog",
+                    url="https://example.com/new-assistant",
+                    headline="OpenAI announces a faster AI assistant",
+                    summary="A product announcement.",
+                    model="stepfun-ai/step-3.5-flash",
+                    reasons=["vague_ai_news"],
+                    relevanceScore=20,
+                    confidenceScore=50,
+                    sourceQualityScore=70,
+                    severity="low",
+                    threats=["hallucination-and-reliability"],
+                    vendor="OpenAI",
+                )
+
+                self.assertTrue(scraper_mod.write_rejections([rejection]))
+                records = json.loads(rejected_file.read_text(encoding="utf-8"))
+
+                self.assertEqual(records[0]["url"], "https://example.com/new-assistant")
+                self.assertEqual(records[0]["reasons"], ["vague_ai_news"])
+                self.assertEqual(records[0]["model"], "stepfun-ai/step-3.5-flash")
+            finally:
+                scraper_mod.REJECTED_FILE = original_rejected
+
+    def test_run_summary_reports_model_and_rejection_reasons(self) -> None:
+        rejection = scraper_mod.RejectedCandidate(
+            id="reject-test",
+            rejectedAt="2026-05-02T00:00:00+00:00",
+            date="2026-05-02",
+            source="OpenAI blog",
+            url="https://example.com/new-assistant",
+            headline="OpenAI announces a faster AI assistant",
+            summary="A product announcement.",
+            model="test-model",
+            reasons=["vague_ai_news", "low_relevance"],
+            relevanceScore=20,
+            confidenceScore=50,
+            sourceQualityScore=70,
+            severity="low",
+            threats=["hallucination-and-reliability"],
+            vendor="OpenAI",
+        )
+        out = io.StringIO()
+
+        with patch.dict(os.environ, {"NVIDIA_MODEL": "test-model"}):
+            with redirect_stdout(out):
+                scraper_mod.print_run_summary(
+                    total_candidates=12,
+                    queued_candidates=4,
+                    accepted_count=1,
+                    rejections=[rejection],
+                    failures=[("Example feed", "timeout")],
+                )
+
+        text = out.getvalue()
+        self.assertIn("Run summary", text)
+        self.assertIn("Model:            test-model", text)
+        self.assertIn("Accepted:         1", text)
+        self.assertIn("Rejected:         1", text)
+        self.assertIn("vague_ai_news: 1", text)
 
 
 if __name__ == "__main__":

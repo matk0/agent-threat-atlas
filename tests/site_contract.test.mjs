@@ -62,6 +62,7 @@ test("workflow avoids Node 20 actions runtime", () => {
   assert.match(workflow, /actions\/setup-python@v6/);
   assert.match(workflow, /actions\/setup-node@v6/);
   assert.match(workflow, /npx -y wrangler@4\.87\.0 deploy/);
+  assert.match(workflow, /content\/rejected-candidates\.json/);
   assert.doesNotMatch(workflow, /actions\/setup-python@v5/);
   assert.doesNotMatch(workflow, /actions\/setup-node@v4/);
   assert.doesNotMatch(workflow, /cloudflare\/wrangler-action/);
