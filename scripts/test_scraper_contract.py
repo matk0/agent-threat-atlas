@@ -4,6 +4,7 @@ from __future__ import annotations
 import importlib.util
 import os
 import sys
+import tempfile
 import types
 import unittest
 from pathlib import Path
@@ -94,6 +95,18 @@ class ScraperContractTest(unittest.TestCase):
         with patch.dict(os.environ, {"SCRAPER_LIMIT": "zero"}):
             with self.assertRaises(SystemExit):
                 scraper_mod._candidate_limit(None)
+
+    def test_write_output_skips_file_when_no_new_incidents(self) -> None:
+        original_output = scraper_mod.OUTPUT_FILE
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "incidents.ts"
+            output.write_text("original", encoding="utf-8")
+            scraper_mod.OUTPUT_FILE = output
+            try:
+                self.assertFalse(scraper_mod.write_output([], []))
+                self.assertEqual(output.read_text(encoding="utf-8"), "original")
+            finally:
+                scraper_mod.OUTPUT_FILE = original_output
 
 
 if __name__ == "__main__":

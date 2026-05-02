@@ -576,7 +576,10 @@ export const incidents: Incident[] = [
 FOOTER = "];\n"
 
 
-def write_output(existing: list[Incident], new: list[Incident]) -> None:
+def write_output(existing: list[Incident], new: list[Incident]) -> bool:
+    if not new:
+        return False
+
     seen_urls = {i.url for i in existing}
     merged = list(existing)
     for n in new:
@@ -590,6 +593,7 @@ def write_output(existing: list[Incident], new: list[Incident]) -> None:
         HEADER.format(ts=datetime.now(timezone.utc).isoformat()) + body + "\n" + FOOTER,
         encoding="utf-8",
     )
+    return True
 
 
 def _format_entry(i: Incident) -> str:
@@ -743,8 +747,10 @@ def main() -> int:
         print("--dry: not writing output file.")
         return 0
 
-    write_output(existing, new)
-    print(f"Wrote {OUTPUT_FILE} with {len(existing) + len(new)} total incidents.")
+    if write_output(existing, new):
+        print(f"Wrote {OUTPUT_FILE} with {len(existing) + len(new)} total incidents.")
+    else:
+        print("No new incidents after categorization.")
     return 0
 
 
