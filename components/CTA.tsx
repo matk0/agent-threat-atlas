@@ -1,10 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
-/**
- * Quiet byline shown at the end of long pages. Frames the Atlas as a
- * reference asset built by Clawforce One — not a place to buy from.
- */
 export default function CTA() {
   return (
     <section className="border-t border-ink-100 bg-ink-50/40">
@@ -29,12 +25,10 @@ export default function CTA() {
             </p>
           </div>
           <a
-            href={site.consultant.orgUrl}
-            target="_blank"
-            rel="noreferrer"
+            href="https://matejlukasik.com/contact"
             className="btn-secondary whitespace-nowrap"
           >
-            Visit {site.consultant.org} →
+            Contact Matej →
           </a>
         </div>
       </div>

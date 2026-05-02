@@ -70,6 +70,19 @@ THREAT_SLUGS = [
     "insecure-output-handling",
 ]
 
+FALLBACK_PREVENTION_NOTES = {
+    "prompt-injection": "This would have been prevented or limited by treating retrieved content as untrusted data, separating instructions from data, and restricting tool calls that can disclose or modify sensitive information.",
+    "excessive-agency": "This would have been prevented or limited by least-privilege tools, explicit human approval for destructive actions, and short-lived credentials scoped to the agent's task.",
+    "data-exfiltration": "This would have been prevented or limited by egress controls, data-loss prevention checks, scoped retrieval permissions, and approval gates before sensitive data leaves the trusted environment.",
+    "supply-chain": "This would have been prevented or limited by dependency provenance, signed releases, isolated execution, rapid revocation paths, and monitoring for unexpected package or model behavior.",
+    "identity-and-authorization": "This would have been prevented or limited by tenant-aware authorization checks, scoped OAuth grants, short-lived delegated credentials, and audit trails tied to the human principal.",
+    "hallucination-and-reliability": "This would have been prevented or limited by deterministic guardrails around high-impact actions, validation against source systems, human approval, and rollback-ready execution paths.",
+    "multi-agent-coordination": "This would have been prevented or limited by clear agent boundaries, shared state controls, arbitration for conflicting actions, and monitoring that detects runaway coordination loops.",
+    "privacy-and-compliance": "This would have been prevented or limited by data minimization, policy-aware retrieval, residency controls, consent checks, and logging that proves compliant handling of protected data.",
+    "denial-of-service-and-cost": "This would have been prevented or limited by budget caps, rate limits, bounded retries, circuit breakers, and alerts on abnormal tool or token consumption.",
+    "insecure-output-handling": "This would have been prevented or limited by treating model output as untrusted, sanitizing rendered content, parameterizing downstream calls, and isolating execution from privileged systems.",
+}
+
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_FILE = ROOT / "content" / "incidents.ts"
 PROMPT_FILE = ROOT / "scripts" / "scraper-prompt.md"
@@ -113,6 +126,7 @@ class Incident:
     summary: str
     severity: str
     threats: list[str] = field(default_factory=list)
+    preventionNote: str = ""
     vendor: Optional[str] = None
 
 
@@ -397,6 +411,13 @@ def _today() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
+def _fallback_prevention_note(threats: list[str]) -> str:
+    for threat in threats:
+        if threat in FALLBACK_PREVENTION_NOTES:
+            return FALLBACK_PREVENTION_NOTES[threat]
+    return "This would have been prevented or limited by least-privilege access, human approval for high-impact actions, scoped credentials, monitoring, and rollback-ready operational controls."
+
+
 # ---------------------------------------------------------------------------
 # LLM categorization (official Anthropic SDK)
 # ---------------------------------------------------------------------------
@@ -450,7 +471,7 @@ def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
     try:
         message = client.messages.create(
             model=model,
-            max_tokens=600,
+            max_tokens=900,
             system=dated_prompt,
             messages=[
                 {"role": "user", "content": json.dumps(asdict(item))},
@@ -490,6 +511,10 @@ def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
     if severity not in {"critical", "high", "medium", "low"}:
         severity = "medium"
 
+    prevention_note = (
+        data.get("preventionNote") or _fallback_prevention_note(threats)
+    ).strip()
+
     return Incident(
         id=f"auto-{item.fingerprint()[:10]}",
         date=item.date,
@@ -499,6 +524,7 @@ def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
         summary=data.get("summary") or item.summary[:400],
         severity=severity,
         threats=threats,
+        preventionNote=prevention_note,
         vendor=data.get("vendor") or None,
     )
 
@@ -524,6 +550,7 @@ export type Incident = {{
   summary: string;
   severity: Severity;
   threats: string[];
+  preventionNote?: string;
   vendor?: string;
 }};
 
@@ -553,6 +580,8 @@ def write_output(existing: list[Incident], new: list[Incident]) -> None:
 
 def _format_entry(i: Incident) -> str:
     obj = asdict(i)
+    if not obj.get("preventionNote"):
+        obj["preventionNote"] = _fallback_prevention_note(i.threats)
     if obj.get("vendor") is None:
         obj.pop("vendor", None)
     return "  " + json.dumps(obj, ensure_ascii=False, indent=2).replace("\n", "\n  ")

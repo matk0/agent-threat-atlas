@@ -7,6 +7,7 @@ export type Incident = {
   url: string;
   headline: string;
   summary: string;
+  preventionNote?: string;
   severity: Severity;
   threats: string[];
   vendor?: string;

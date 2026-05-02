@@ -1,7 +1,14 @@
-import { redirect } from "next/navigation";
-
-// Removed: contact lives at clawforceone.ai. /about explains the site
-// and links out.
 export default function ContactRedirect() {
-  redirect("/about");
+  return (
+    <section className="container-page py-20">
+      <meta httpEquiv="refresh" content="0; url=https://matejlukasik.com/contact" />
+      <p className="text-sm text-ink-600">
+        Redirecting to{" "}
+        <a className="font-medium text-accent-700 hover:underline" href="https://matejlukasik.com/contact">
+          matejlukasik.com/contact
+        </a>
+        .
+      </p>
+    </section>
+  );
 }

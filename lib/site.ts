@@ -3,10 +3,10 @@ export const site = {
   name: "Agent Threat Atlas",
   shortName: "Atlas",
   tagline:
-    "A live atlas of agentic AI breaches and the controls that prevent them.",
+    "Daily agentic AI incidents mapped to threat categories and prevention guidance.",
   description:
-    "Agent Threat Atlas is a live, public reference of agentic AI security incidents — each one mapped to the threat category it exemplifies and the controls that would have prevented it. Maintained by Matej Lukasik / Clawforce One.",
-  domain: "atlas.clawforceone.ai",
+    "Agent Threat Atlas tracks public agentic AI security incidents, maps them to threat categories, and keeps practical prevention guidance for teams deploying AI agents.",
+  domain: "atlas.matejlukasik.com",
   email: "matej@clawforceone.ai",
   consultant: {
     name: "Matej Lukasik",
@@ -18,12 +18,9 @@ export const site = {
     calendly: "https://calendly.com/matejlukasik/intro",
   },
   nav: [
-    { href: "/threats", label: "Threats" },
-    { href: "/surfaces", label: "Attack Surfaces" },
-    { href: "/playbooks", label: "Playbooks" },
-    { href: "/incidents", label: "Incident Feed" },
-    { href: "/resources", label: "Resources" },
-    { href: "/about", label: "About" },
+    { href: "/", label: "Live Atlas" },
+    { href: "/threats", label: "Threat Categories" },
+    { href: "https://matejlukasik.com/contact", label: "Contact", external: true },
   ],
 };
 

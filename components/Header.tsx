@@ -18,25 +18,25 @@ export default function Header() {
           className="hidden items-center gap-7 text-sm text-ink-600 md:flex"
         >
           {site.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="transition hover:text-ink-900"
-            >
-              {item.label}
-            </Link>
+            item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                className="transition hover:text-ink-900"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition hover:text-ink-900"
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </nav>
-        <a
-          href={site.consultant.orgUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="hidden text-xs text-ink-500 hover:text-ink-900 md:inline-flex md:items-center md:gap-1.5"
-        >
-          <span>by</span>
-          <span className="font-semibold text-ink-700">{site.consultant.org}</span>
-          <span aria-hidden>↗</span>
-        </a>
       </div>
     </header>
   );

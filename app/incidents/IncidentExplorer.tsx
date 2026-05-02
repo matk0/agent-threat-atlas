@@ -7,7 +7,10 @@ import type { Severity } from "@/lib/site";
 import { SeverityPill, Pill } from "@/components/Pill";
 import { formatDate } from "@/lib/format";
 
-type ThreatMap = Record<string, { title: string; short: string }>;
+type ThreatMap = Record<
+  string,
+  { title: string; short: string; mitigation: string }
+>;
 
 const SEVERITIES: Severity[] = ["critical", "high", "medium", "low"];
 
@@ -24,71 +27,78 @@ export default function IncidentExplorer({
 
   const threatOptions = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const i of incidents)
-      for (const t of i.threats) counts.set(t, (counts.get(t) ?? 0) + 1);
+    for (const incident of incidents) {
+      for (const threat of incident.threats) {
+        counts.set(threat, (counts.get(threat) ?? 0) + 1);
+      }
+    }
     return [...counts.entries()].sort((a, b) => b[1] - a[1]);
   }, [incidents]);
 
   const filtered = useMemo(() => {
-    return incidents.filter((i) => {
-      if (activeThreat !== "all" && !i.threats.includes(activeThreat))
+    return incidents.filter((incident) => {
+      if (activeThreat !== "all" && !incident.threats.includes(activeThreat)) {
         return false;
-      if (activeSeverity !== "all" && i.severity !== activeSeverity)
+      }
+      if (activeSeverity !== "all" && incident.severity !== activeSeverity) {
         return false;
+      }
       if (query) {
-        const q = query.toLowerCase();
-        const hay = (i.headline + " " + i.summary + " " + (i.vendor ?? "")).toLowerCase();
-        if (!hay.includes(q)) return false;
+        const needle = query.toLowerCase();
+        const haystack = [
+          incident.headline,
+          incident.summary,
+          incident.vendor,
+          incident.source,
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        if (!haystack.includes(needle)) return false;
       }
       return true;
     });
   }, [incidents, activeThreat, activeSeverity, query]);
 
   return (
-    <div className="container-page grid gap-10 py-14 lg:grid-cols-12">
+    <div className="container-page grid gap-8 py-8 lg:grid-cols-12 lg:py-10">
       <aside className="lg:col-span-3">
-        <div className="sticky top-24 space-y-6">
+        <div className="sticky top-24 space-y-5">
           <div>
             <label className="text-xs font-semibold uppercase tracking-wider text-ink-500">
               Search
             </label>
             <input
               type="search"
-              placeholder="Vendor, headline…"
+              placeholder="Vendor, source, keyword"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(event) => setQuery(event.target.value)}
               className="mt-2 w-full rounded-lg border border-ink-200 bg-white px-3 py-2 text-sm text-ink-900 placeholder-ink-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/20"
             />
           </div>
 
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-ink-500">
-              Severity
-            </div>
-            <div className="mt-2 flex flex-wrap gap-2">
+          <FilterGroup title="Severity">
+            <div className="flex flex-wrap gap-2">
               <FilterChip
                 active={activeSeverity === "all"}
                 onClick={() => setActiveSeverity("all")}
               >
                 All
               </FilterChip>
-              {SEVERITIES.map((s) => (
+              {SEVERITIES.map((severity) => (
                 <FilterChip
-                  key={s}
-                  active={activeSeverity === s}
-                  onClick={() => setActiveSeverity(s)}
+                  key={severity}
+                  active={activeSeverity === severity}
+                  onClick={() => setActiveSeverity(severity)}
                 >
-                  {s}
+                  {severity}
                 </FilterChip>
               ))}
             </div>
-          </div>
+          </FilterGroup>
 
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-ink-500">
-              Threat category
-            </div>
-            <div className="mt-2 flex flex-col gap-1">
+          <FilterGroup title="Threat category">
+            <div className="flex flex-col gap-1">
               <FilterRow
                 active={activeThreat === "all"}
                 onClick={() => setActiveThreat("all")}
@@ -105,70 +115,118 @@ export default function IncidentExplorer({
                 />
               ))}
             </div>
-          </div>
+          </FilterGroup>
         </div>
       </aside>
 
       <section className="lg:col-span-9">
-        <div className="mb-4 text-sm text-ink-500">
-          Showing {filtered.length} of {incidents.length} incidents
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-3 text-sm text-ink-500">
+          <span>
+            Showing {filtered.length} of {incidents.length}
+          </span>
+          <Link href="/threats" className="font-medium text-accent-700 hover:underline">
+            Threat categories →
+          </Link>
         </div>
-        <ul className="space-y-4">
-          {filtered.map((i) => (
-            <li
-              key={i.id}
-              className="rounded-2xl border border-ink-100 bg-white p-6 shadow-card"
-            >
-              <div className="flex flex-wrap items-center gap-3 text-xs">
-                <SeverityPill severity={i.severity} />
-                <time className="text-ink-500">{formatDate(i.date)}</time>
-                <span className="text-ink-400">·</span>
-                <span className="text-ink-500">{i.source}</span>
-                {i.vendor && (
-                  <>
-                    <span className="text-ink-400">·</span>
-                    <span className="text-ink-700">{i.vendor}</span>
-                  </>
-                )}
-              </div>
-              <h2 className="mt-2 text-lg font-semibold text-ink-900">
-                {i.headline}
-              </h2>
-              <p className="mt-2 text-ink-700">{i.summary}</p>
-              <div className="mt-4 flex flex-wrap items-center gap-3">
-                <a
-                  href={i.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-sm font-medium text-accent-700 hover:underline"
-                >
-                  Read source ↗
-                </a>
-                <span className="text-ink-300">|</span>
-                <div className="flex flex-wrap gap-2">
-                  {i.threats.map((slug) => (
-                    <Link
-                      key={slug}
-                      href={`/threats/${slug}`}
-                      className="text-xs"
-                      title={`Open mitigation: ${threatMap[slug]?.title ?? slug}`}
-                    >
-                      <Pill tone="accent">
-                        {threatMap[slug]?.short ?? slug} → mitigation
-                      </Pill>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </li>
+
+        <ul className="divide-y divide-ink-100 overflow-hidden rounded-xl border border-ink-100 bg-white">
+          {filtered.map((incident) => (
+            <IncidentRow
+              key={incident.id}
+              incident={incident}
+              threatMap={threatMap}
+            />
           ))}
           {filtered.length === 0 && (
-            <li className="rounded-2xl border border-ink-100 bg-white p-12 text-center text-ink-500">
+            <li className="p-10 text-center text-sm text-ink-500">
               No incidents match these filters.
             </li>
           )}
         </ul>
       </section>
+    </div>
+  );
+}
+
+function IncidentRow({
+  incident,
+  threatMap,
+}: {
+  incident: Incident;
+  threatMap: ThreatMap;
+}) {
+  const primaryThreat = incident.threats[0];
+  const preventionNote =
+    incident.preventionNote || threatMap[primaryThreat]?.mitigation;
+
+  return (
+    <li className="p-5">
+      <div className="flex flex-wrap items-center gap-2 text-xs">
+        <SeverityPill severity={incident.severity} />
+        <time className="text-ink-500">{formatDate(incident.date)}</time>
+        <span className="text-ink-300">/</span>
+        <span className="text-ink-500">{incident.source}</span>
+        {incident.vendor && (
+          <>
+            <span className="text-ink-300">/</span>
+            <span className="font-medium text-ink-700">{incident.vendor}</span>
+          </>
+        )}
+      </div>
+
+      <h2 className="mt-2 text-base font-semibold leading-6 text-ink-900 sm:text-lg">
+        {incident.headline}
+      </h2>
+      <p className="mt-2 max-w-3xl text-sm leading-6 text-ink-600">
+        {incident.summary}
+      </p>
+
+      {preventionNote && (
+        <p className="mt-3 max-w-3xl rounded-lg bg-ink-50 px-3 py-2 text-sm leading-6 text-ink-700">
+          <span className="font-semibold text-ink-900">Prevention: </span>
+          {preventionNote}
+        </p>
+      )}
+
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        <a
+          href={incident.url}
+          target="_blank"
+          rel="noreferrer"
+          className="text-sm font-medium text-accent-700 hover:underline"
+        >
+          Source ↗
+        </a>
+        <div className="flex flex-wrap gap-2">
+          {incident.threats.map((slug) => (
+            <Link
+              key={slug}
+              href={`/threats/${slug}`}
+              className="text-xs"
+              title={threatMap[slug]?.title ?? slug}
+            >
+              <Pill tone="accent">{threatMap[slug]?.short ?? slug}</Pill>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </li>
+  );
+}
+
+function FilterGroup({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <div className="text-xs font-semibold uppercase tracking-wider text-ink-500">
+        {title}
+      </div>
+      <div className="mt-2">{children}</div>
     </div>
   );
 }

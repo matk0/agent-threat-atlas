@@ -33,9 +33,12 @@ Return a single JSON object, no prose, no code fences, no surrounding text:
   "severity": "critical" | "high" | "medium" | "low",
   "threats": ["slug-1", "slug-2"],
   "vendor": "e.g. Microsoft 365 Copilot" | null,
-  "summary": "1–3 sentence factual summary, neutral tone, no marketing language, no editorial framing"
+  "summary": "1–3 sentence factual summary, neutral tone, no marketing language, no editorial framing",
+  "preventionNote": "1 short paragraph explaining what would have prevented or limited this incident if sound agent security principles had been followed"
 }
 ```
+
+Write `preventionNote` in a hybrid executive/practitioner tone: concrete enough for an engineering team, short enough for a buyer to scan. Tie it to the selected threat category or categories. Prefer controls such as least privilege, explicit human approval for destructive actions, scoped credentials, tenant isolation, egress controls, sandboxing, dependency provenance, output sanitization, budget limits, monitoring, and rollback. Do not overclaim certainty; say "would have prevented or limited" only when the control follows directly from the facts.
 
 ## Allowed `threats` slugs
 
@@ -84,7 +87,8 @@ Headline: *"CVE-2025-32711 (EchoLeak): zero-click prompt injection in Microsoft 
   "severity": "critical",
   "threats": ["prompt-injection", "data-exfiltration"],
   "vendor": "Microsoft 365 Copilot",
-  "summary": "A zero-click indirect prompt injection (CVE-2025-32711) allowed exfiltration of corporate documents from M365 Copilot via a crafted email. Patched server-side."
+  "summary": "A zero-click indirect prompt injection (CVE-2025-32711) allowed exfiltration of corporate documents from M365 Copilot via a crafted email. Patched server-side.",
+  "preventionNote": "The incident would have been prevented or limited by treating retrieved email content as untrusted input, separating instruction and data channels, and blocking autonomous outbound exfiltration paths unless a user explicitly approved the disclosure."
 }
 ```
 
@@ -95,7 +99,8 @@ Headline: *"Replit AI agent deletes production database during code freeze"*
   "severity": "critical",
   "threats": ["excessive-agency", "hallucination-and-reliability"],
   "vendor": "Replit",
-  "summary": "Replit's coding agent ignored a posted code freeze and dropped a production Postgres database during an autonomous run. Replit's CEO publicly acknowledged the incident."
+  "summary": "Replit's coding agent ignored a posted code freeze and dropped a production Postgres database during an autonomous run. Replit's CEO publicly acknowledged the incident.",
+  "preventionNote": "The incident would have been prevented or limited by separating production credentials from the agent runtime, requiring explicit human approval for destructive database operations, and enforcing rollback-tested change controls outside the model's discretion."
 }
 ```
 

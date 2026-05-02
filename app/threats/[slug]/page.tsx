@@ -3,16 +3,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { threats, threatBySlug } from "@/content/threats";
 import { incidents } from "@/content/incidents";
-import { playbooks } from "@/content/playbooks";
-import { surfaces } from "@/content/surfaces";
 import { SeverityPill, Pill } from "@/components/Pill";
-import CTA from "@/components/CTA";
 import { formatDate } from "@/lib/format";
 
 type Params = { slug: string };
 
 export async function generateStaticParams(): Promise<Params[]> {
-  return threats.map((t) => ({ slug: t.slug }));
+  return threats.map((threat) => ({ slug: threat.slug }));
 }
 
 export async function generateMetadata({
@@ -20,87 +17,59 @@ export async function generateMetadata({
 }: {
   params: Params;
 }): Promise<Metadata> {
-  const t = threatBySlug(params.slug);
-  if (!t) return {};
-  return { title: t.title, description: t.summary };
+  const threat = threatBySlug(params.slug);
+  if (!threat) return {};
+  return { title: threat.title, description: threat.summary };
 }
 
 export default function ThreatDetail({ params }: { params: Params }) {
-  const t = threatBySlug(params.slug);
-  if (!t) return notFound();
+  const threat = threatBySlug(params.slug);
+  if (!threat) return notFound();
 
-  const related = incidents.filter((i) => i.threats.includes(t.slug));
-  const relatedPlaybooks = playbooks.filter((p) =>
-    p.relatedThreats.includes(t.slug),
-  );
-  const relatedSurfaces = surfaces.filter((s) => t.surfaces.includes(s.id));
+  const related = incidents
+    .filter((incident) => incident.threats.includes(threat.slug))
+    .sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <>
-      <header className="border-b border-ink-100 bg-ink-50/40">
-        <div className="container-page py-14">
+      <header className="border-b border-ink-100 bg-ink-50/35">
+        <div className="container-page py-10 sm:py-12">
           <Link href="/threats" className="text-sm text-ink-500 hover:text-ink-900">
-            ← Threat catalog
+            ← Threat categories
           </Link>
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            <SeverityPill severity={t.severity} />
-            {t.frameworks.slice(0, 1).map((f) => (
-              <Pill key={f.name} tone="ink">
-                {f.ref}
-              </Pill>
-            ))}
+            <SeverityPill severity={threat.severity} />
+            <Pill tone="ink">{related.length} linked incidents</Pill>
           </div>
-          <h1 className="h-display mt-5">{t.title}</h1>
-          <p className="lede mt-5 max-w-3xl">{t.summary}</p>
+          <h1 className="mt-4 max-w-4xl text-3xl font-semibold tracking-tight text-ink-900 sm:text-5xl">
+            {threat.title}
+          </h1>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-ink-600 sm:text-lg">
+            {threat.summary}
+          </p>
         </div>
       </header>
 
-      <article className="container-page grid gap-12 py-16 lg:grid-cols-12">
-        <div className="lg:col-span-8">
-          <Block heading="What it is">
-            {t.whatItIs.map((p, idx) => (
-              <p key={idx} className="text-ink-700 leading-relaxed">
-                {p}
-              </p>
-            ))}
-          </Block>
-
-          <Block heading="How it happens">
-            <ul className="space-y-5">
-              {t.howItHappens.map((h) => (
-                <li key={h.title} className="rounded-xl border border-ink-100 bg-white p-5">
-                  <div className="font-semibold text-ink-900">{h.title}</div>
-                  <p className="mt-1 text-ink-700">{h.body}</p>
-                </li>
-              ))}
-            </ul>
-          </Block>
-
-          <Block heading="Real-world examples">
-            <ul className="space-y-4">
-              {t.realWorld.map((r) => (
-                <li key={r.name} className="rounded-xl border border-ink-100 bg-white p-5">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="font-semibold text-ink-900">{r.name}</div>
-                    <span className="text-xs text-ink-500">{r.year}</span>
-                  </div>
-                  <p className="mt-1 text-ink-700">{r.note}</p>
-                </li>
-              ))}
-            </ul>
-          </Block>
-
-          <Block heading="How to eliminate it">
-            <ol className="space-y-5">
-              {t.mitigations.map((m, idx) => (
-                <li key={m.title} className="rounded-xl border border-ink-100 bg-white p-5">
+      <article className="container-page grid gap-8 py-10 lg:grid-cols-12">
+        <div className="space-y-10 lg:col-span-8">
+          <Block heading="How to minimize it">
+            <ol className="space-y-3">
+              {threat.mitigations.map((mitigation, index) => (
+                <li
+                  key={mitigation.title}
+                  className="rounded-xl border border-ink-100 bg-white p-5"
+                >
                   <div className="flex items-start gap-4">
-                    <div className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent-50 text-xs font-semibold text-accent-700">
-                      {idx + 1}
+                    <div className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-accent-50 text-xs font-semibold text-accent-700">
+                      {index + 1}
                     </div>
                     <div>
-                      <div className="font-semibold text-ink-900">{m.title}</div>
-                      <p className="mt-1 text-ink-700">{m.body}</p>
+                      <h2 className="font-semibold text-ink-900">
+                        {mitigation.title}
+                      </h2>
+                      <p className="mt-1 text-sm leading-6 text-ink-700">
+                        {mitigation.body}
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -108,91 +77,88 @@ export default function ThreatDetail({ params }: { params: Params }) {
             </ol>
           </Block>
 
-          <Block heading="Framework references">
-            <ul className="grid gap-3 sm:grid-cols-2">
-              {t.frameworks.map((f) => (
-                <li
-                  key={f.name}
-                  className="rounded-xl border border-ink-100 bg-white p-4 text-sm"
+          <Block heading="How it appears in systems">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {threat.howItHappens.slice(0, 4).map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-xl border border-ink-100 bg-white p-5"
                 >
-                  <div className="font-semibold text-ink-900">{f.name}</div>
-                  <div className="mt-1 text-xs uppercase tracking-wider text-ink-500">
-                    {f.ref}
-                  </div>
-                </li>
+                  <h2 className="font-semibold text-ink-900">{item.title}</h2>
+                  <p className="mt-1 text-sm leading-6 text-ink-700">
+                    {item.body}
+                  </p>
+                </div>
               ))}
-            </ul>
+            </div>
           </Block>
+
+          {related.length > 0 && (
+            <Block heading="Recent incidents">
+              <ul className="divide-y divide-ink-100 overflow-hidden rounded-xl border border-ink-100 bg-white">
+                {related.slice(0, 8).map((incident) => (
+                  <li key={incident.id} className="p-4">
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-ink-500">
+                      <SeverityPill severity={incident.severity} />
+                      <time>{formatDate(incident.date)}</time>
+                      <span>/</span>
+                      <span>{incident.source}</span>
+                    </div>
+                    <a
+                      href={incident.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-2 block text-sm font-semibold leading-6 text-ink-900 hover:text-accent-700"
+                    >
+                      {incident.headline}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Block>
+          )}
         </div>
 
         <aside className="lg:col-span-4">
-          <div className="sticky top-24 space-y-6">
-            <SidebarCard title="Affected components">
-              <ul className="space-y-2 text-sm">
-                {relatedSurfaces.map((s) => (
-                  <li key={s.id} className="flex items-center justify-between">
-                    <span className="text-ink-800">{s.title}</span>
-                    <Link
-                      href="/surfaces"
-                      className="text-xs text-accent-700 hover:underline"
-                    >
-                      View →
-                    </Link>
+          <div className="sticky top-24 space-y-5">
+            <SidebarCard title="Why this matters">
+              <p className="text-sm leading-6 text-ink-700">
+                {threat.whatItIs[0]}
+              </p>
+            </SidebarCard>
+
+            <SidebarCard title="Framework mapping">
+              <ul className="space-y-3">
+                {threat.frameworks.map((framework) => (
+                  <li key={framework.name} className="text-sm">
+                    <div className="font-medium text-ink-900">
+                      {framework.name}
+                    </div>
+                    <div className="mt-0.5 text-xs uppercase tracking-wider text-ink-500">
+                      {framework.ref}
+                    </div>
                   </li>
                 ))}
               </ul>
             </SidebarCard>
 
-            {relatedPlaybooks.length > 0 && (
-              <SidebarCard title="Apply a playbook">
-                <ul className="space-y-3 text-sm">
-                  {relatedPlaybooks.map((p) => (
-                    <li key={p.slug}>
-                      <Link
-                        href={`/playbooks/${p.slug}`}
-                        className="font-medium text-ink-900 hover:text-accent-700"
-                      >
-                        {p.title}
-                      </Link>
-                      <p className="text-xs text-ink-500">{p.audience}</p>
+            {threat.realWorld.length > 0 && (
+              <SidebarCard title="Known examples">
+                <ul className="space-y-3">
+                  {threat.realWorld.slice(0, 3).map((example) => (
+                    <li key={example.name} className="text-sm">
+                      <div className="font-medium text-ink-900">
+                        {example.name}
+                      </div>
+                      <div className="text-xs text-ink-500">{example.year}</div>
                     </li>
                   ))}
                 </ul>
-              </SidebarCard>
-            )}
-
-            {related.length > 0 && (
-              <SidebarCard title="Recent incidents">
-                <ul className="space-y-3 text-sm">
-                  {related.slice(0, 5).map((i) => (
-                    <li key={i.id}>
-                      <a
-                        href={i.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="font-medium text-ink-900 hover:text-accent-700"
-                      >
-                        {i.headline}
-                      </a>
-                      <p className="text-xs text-ink-500">
-                        {formatDate(i.date)} · {i.source}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/incidents"
-                  className="mt-4 inline-block text-xs font-medium text-accent-700 hover:underline"
-                >
-                  See all incidents →
-                </Link>
               </SidebarCard>
             )}
           </div>
         </aside>
       </article>
-
-      <CTA />
     </>
   );
 }
@@ -205,11 +171,11 @@ function Block({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mb-12">
+    <section>
       <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-600">
         {heading}
       </h2>
-      <div className="mt-4 space-y-4">{children}</div>
+      <div className="mt-4">{children}</div>
     </section>
   );
 }
@@ -222,7 +188,7 @@ function SidebarCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-ink-100 bg-white p-5 shadow-card">
+    <div className="rounded-xl border border-ink-100 bg-white p-5">
       <div className="text-xs font-semibold uppercase tracking-wider text-ink-500">
         {title}
       </div>

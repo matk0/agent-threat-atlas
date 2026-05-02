@@ -8,11 +8,10 @@ import { incidents } from "@/content/incidents";
 export const metadata: Metadata = {
   title: "Threat catalog",
   description:
-    "Ten categories of agentic AI threats, each with real-world examples, mitigations, and framework references.",
+    "Agentic AI threat categories with practical controls and related incidents.",
 };
 
 export default function ThreatsIndex() {
-  // Count incidents per threat for an at-a-glance signal
   const counts = new Map<string, number>();
   for (const i of incidents) {
     for (const t of i.threats) counts.set(t, (counts.get(t) ?? 0) + 1);
@@ -24,8 +23,8 @@ export default function ThreatsIndex() {
     <>
       <Section
         eyebrow="The catalog"
-        title="The threats your agents face."
-        intro="Ten categories. Each entry maps to OWASP LLM Top 10, NIST AI RMF, and MITRE ATLAS, and links to recent incidents that exemplify it."
+        title="Threat categories and controls."
+        intro="Each category links real incidents to practical ways to reduce exposure."
       >
         <div className="overflow-hidden rounded-2xl border border-ink-100 bg-white">
           <table className="w-full text-left">

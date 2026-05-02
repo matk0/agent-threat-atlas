@@ -1,6 +1,7 @@
 node_modules
 .next
 out
+.wrangler
 .venv
 __pycache__
 *.pyc
