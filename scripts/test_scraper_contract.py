@@ -170,6 +170,84 @@ class ScraperContractTest(unittest.TestCase):
         self.assertIn("vague_ai_news", decision.reasons)
         self.assertIn("low_relevance", decision.reasons)
 
+    def test_quality_gate_rejects_generic_security_advisory_without_ai_system_signal(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="CISA alerts",
+            url="https://www.cisa.gov/news-events/ics-advisories/icsa-26-120-04",
+            headline="ABB Ability OPTIMAX",
+            summary="CVE-2025-14510 allows authentication bypass on ABB Ability OPTIMAX installations using Azure Active Directory Single-Sign-On integration.",
+            date="2026-04-30",
+        )
+        incident = scraper_mod.Incident(
+            id="auto-generic-cisa",
+            date=candidate.date,
+            source=candidate.source,
+            url=candidate.url,
+            headline=candidate.headline,
+            summary=candidate.summary,
+            severity="high",
+            threats=["identity-and-authorization"],
+            preventionNote="This would have been prevented or limited by authorization controls.",
+            vendor="ABB Ability OPTIMAX",
+        )
+
+        decision = scraper_mod.assess_quality(candidate, incident, [], [])
+
+        self.assertFalse(decision.accepted)
+        self.assertIn("low_relevance", decision.reasons)
+
+    def test_quality_gate_rejects_non_ai_agent_advisory(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="GitHub Security Advisory Database",
+            url="https://github.com/advisories/GHSA-rh99-wc69-c255",
+            headline="Contras Affected by CopyFile Policy Subversion via Symlinks",
+            summary="A policy verification flaw in Contrast's Kata agent allowed arbitrary writes to the guest filesystem via CopyFile requests.",
+            date="2026-04-30",
+        )
+        incident = scraper_mod.Incident(
+            id="auto-kata-agent",
+            date=candidate.date,
+            source=candidate.source,
+            url=candidate.url,
+            headline=candidate.headline,
+            summary=candidate.summary,
+            severity="critical",
+            threats=["excessive-agency", "insecure-output-handling"],
+            preventionNote="This would have been prevented or limited by least-privilege tools.",
+            vendor="Contrast",
+        )
+
+        decision = scraper_mod.assess_quality(candidate, incident, [], [])
+
+        self.assertFalse(decision.accepted)
+        self.assertIn("low_relevance", decision.reasons)
+
+    def test_quality_gate_accepts_agentic_ide_advisory(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="AWS security bulletins",
+            url="https://aws.amazon.com/security/security-bulletins/rss/2026-009-aws/",
+            headline="Arbitrary code execution via crafted project files in Kiro IDE",
+            summary="Kiro is an AI-powered IDE for agentic software development. CVE-2026-4295 allowed arbitrary code execution when a user opened a malicious project directory.",
+            date="2026-03-17",
+        )
+        incident = scraper_mod.Incident(
+            id="auto-kiro",
+            date=candidate.date,
+            source=candidate.source,
+            url=candidate.url,
+            headline="Kiro IDE allowed arbitrary code execution via crafted project files",
+            summary=candidate.summary,
+            severity="critical",
+            threats=["supply-chain", "insecure-output-handling", "excessive-agency"],
+            preventionNote="This would have been prevented or limited by sandboxing project files and requiring explicit approval before trusted tool execution.",
+            vendor="AWS Kiro",
+        )
+
+        decision = scraper_mod.assess_quality(candidate, incident, [], [])
+
+        self.assertTrue(decision.accepted)
+        self.assertEqual(decision.reasons, [])
+
     def test_quality_gate_rejects_duplicate_headline(self) -> None:
         candidate = scraper_mod.Candidate(
             source="The Hacker News",

@@ -501,20 +501,24 @@ _RELEVANCE_PATTERN = re.compile(
     r"\b("
     # Models and products
     r"llm|llms|gpt|chatgpt|copilot|claude|gemini|bard|mistral|cohere|"
-    r"chatbot|perplexity|"
+    r"chatbot|perplexity|anthropic|openai|huggingface|hugging[- ]face|"
     # Agent concepts
-    r"agent|agentic|prompt[- ]injection|jailbreak|tool[- ]use|tool[- ]poison|"
-    r"system[- ]prompt|function[- ]call|"
+    r"agentic|ai[- ]agent|ai[- ]assistant|autonomous[- ]agent|coding[- ]agent|"
+    r"browser[- ]agent|agent[- ]gateway|agent[- ]runtime|agent[- ]memory|"
+    r"prompt[- ]injection|jailbreak|tool[- ]use|tool[- ]poison|"
+    r"system[- ]prompt|function[- ]call|function[- ]calling|tool[- ]call|tool[- ]calling|"
     # Frameworks and platforms
     r"mcp|model[- ]context|rag|retrieval[- ]augmented|"
-    r"langchain|lang[- ]chain|autogen|crewai|crew[- ]ai|"
+    r"langchain|lang[- ]chain|langflow|flowise|open[- ]webui|litellm|lmdeploy|"
+    r"n8n[- ]mcp|openclaw|clawhub|autogen|crewai|crew[- ]ai|"
     # Vendors
-    r"openai|anthropic|huggingface|hugging[- ]face|llama|replit|"
+    r"llama|replit|cursor|kiro|antigravity|windsurf|cline|manus|comet|"
+    r"deep[- ]research|"
     # Supply-chain signals
     r"model[- ]weight|fine[- ]tun|"
     # High-level concepts
     r"ai[- ]assistant|ai[- ]agent|generative[- ]ai|gen[- ]ai|"
-    r"ai[- ]security|ai[- ]safety"
+    r"ai[- ]security|ai[- ]safety|ai[- ]powered|ai[- ]based|\bAI\b"
     r")\b",
     re.IGNORECASE,
 )
@@ -594,6 +598,11 @@ SOURCE_CATEGORY_BY_NAME = {source.name: source.category for source in ALL_SOURCE
 def _looks_relevant(text: str) -> bool:
     """Cheap pre-filter to avoid sending obviously off-topic items to the LLM."""
     return bool(_RELEVANCE_PATTERN.search(text or ""))
+
+
+def _has_ai_system_signal(candidate: Candidate, incident: Optional[Incident] = None) -> bool:
+    _ = incident
+    return _looks_relevant(" ".join([candidate.headline, candidate.summary]))
 
 
 def _is_recent(date_str: str, max_days: int = MAX_ITEM_AGE_DAYS) -> bool:
@@ -700,6 +709,8 @@ def assess_quality(
 
     if relevance < MIN_RELEVANCE_SCORE:
         reasons.append("low_relevance")
+    if not _has_ai_system_signal(candidate, incident) and "low_relevance" not in reasons:
+        reasons.append("low_relevance")
     if confidence < MIN_CONFIDENCE_SCORE:
         reasons.append("low_confidence")
     if source_quality < MIN_SOURCE_QUALITY_SCORE:
@@ -728,6 +739,8 @@ def assess_skipped_candidate(
     reasons = ["not_confirmed_by_model"]
 
     if relevance < MIN_RELEVANCE_SCORE:
+        reasons.append("low_relevance")
+    if not _has_ai_system_signal(candidate) and "low_relevance" not in reasons:
         reasons.append("low_relevance")
     if source_quality < MIN_SOURCE_QUALITY_SCORE:
         reasons.append("low_source_quality")

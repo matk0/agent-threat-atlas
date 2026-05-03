@@ -111,6 +111,18 @@ test("Slovak locale has translated static content and incident news", () => {
   assert.match(localizedThreats, /threatsSk/);
 });
 
+test("accepted incident feed excludes generic security and duplicate campaign items", () => {
+  const incidents = read("content/incidents.en.ts");
+
+  assert.match(incidents, /Yuma AI exposed e-commerce customer order data/);
+  assert.match(incidents, /Claude Code Action Runner allowed RCE/);
+  assert.doesNotMatch(incidents, /ABB Ability OPTIMAX/);
+  assert.doesNotMatch(incidents, /Contras Affected by CopyFile Policy Subversion/);
+  assert.doesNotMatch(incidents, /Sean Plankey withdraws CISA nomination/);
+  assert.doesNotMatch(incidents, /Bitwarden CLI Compromised in Ongoing Checkmarx/);
+  assert.doesNotMatch(incidents, /Vercel Finds More Compromised Accounts/);
+});
+
 test("threat detail pages explain the category end to end", () => {
   const threatPage = read("app/threats/[slug]/page.tsx");
 
