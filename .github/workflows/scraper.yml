@@ -72,6 +72,13 @@ jobs:
           SCRAPER_LIMIT: ${{ github.event.inputs.limit || '100' }}
         run: python3 scripts/example-scraper.py
 
+      - name: Publish source health summary
+        if: always()
+        run: |
+          if test -f tmp/source-health.md; then
+            cat tmp/source-health.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Translate Slovak content
         env:
           DEEPL_AUTH_KEY: ${{ secrets.DEEPL_AUTH_KEY }}

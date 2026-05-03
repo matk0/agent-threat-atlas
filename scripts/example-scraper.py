@@ -4,7 +4,7 @@ example-scraper.py — Agent Threat Atlas daily incident scraper.
 
 Pipeline:
   1. Iterate every enabled source in scripts/sources.py
-  2. Dispatch to the right adapter (rss / atom / nvd_json / ghsa / aid_json / html)
+  2. Dispatch to the right adapter (rss / atom / nvd_json / ghsa / aid_json / osv_package / avid_html / html)
   3. Normalize each candidate to a uniform shape
   4. Send each new candidate to the LLM categorizer (scripts/scraper-prompt.md)
   5. Keep only items that match a known threat slug
@@ -20,7 +20,7 @@ Environment:
   NVIDIA_API_KEY     NVIDIA API key. Required for full runs (not for --smoke).
                      Get one at https://build.nvidia.com.
   NVIDIA_MODEL       Defaults to stepfun-ai/step-3.5-flash.
-  SCRAPER_LIMIT      Defaults to 20 candidates per production run.
+  SCRAPER_LIMIT      Defaults to 100 candidates per production run.
   GITHUB_TOKEN       Optional. Raises GitHub Advisory rate limit.
   USER_AGENT         Override the HTTP User-Agent.
 
@@ -43,6 +43,7 @@ from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable, Optional
+from urllib.parse import parse_qs, urlparse
 
 import feedparser  # type: ignore
 import httpx
@@ -50,7 +51,7 @@ from bs4 import BeautifulSoup  # type: ignore
 
 # Local module
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from sources import ALL_SOURCES, Source, enabled_sources  # noqa: E402
+from sources import ALL_SOURCES, Source  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -85,6 +86,8 @@ FALLBACK_PREVENTION_NOTES = {
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_FILE = ROOT / "content" / "incidents.en.ts"
 REJECTED_FILE = ROOT / "content" / "rejected-candidates.json"
+SOURCE_HEALTH_JSON = ROOT / "tmp" / "source-health.json"
+SOURCE_HEALTH_MARKDOWN = ROOT / "tmp" / "source-health.md"
 PROMPT_FILE = ROOT / "scripts" / "scraper-prompt.md"
 NVIDIA_CHAT_COMPLETIONS_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 DEFAULT_NVIDIA_MODEL = "stepfun-ai/step-3.5-flash"
@@ -166,6 +169,21 @@ class RejectedCandidate:
     vendor: Optional[str] = None
 
 
+@dataclass
+class SourceHealthRecord:
+    checkedAt: str
+    name: str
+    category: str
+    type: str
+    url: str
+    enabled: bool
+    status: str
+    candidateCount: int
+    elapsedMs: int
+    firstHeadline: Optional[str] = None
+    error: Optional[str] = None
+
+
 # ---------------------------------------------------------------------------
 # HTTP
 # ---------------------------------------------------------------------------
@@ -193,6 +211,10 @@ def fetch(source: Source) -> list[Candidate]:
         return _fetch_ghsa(source)
     if source.type == "aid_json":
         return _fetch_aid(source)
+    if source.type == "osv_package":
+        return _fetch_osv_packages(source)
+    if source.type == "avid_html":
+        return _fetch_avid(source)
     if source.type == "html":
         return _fetch_html(source)
     raise ValueError(f"unknown source type: {source.type}")
@@ -308,6 +330,103 @@ def _fetch_aid(source: Source) -> list[Candidate]:
     return []
 
 
+def _fetch_osv_packages(source: Source) -> list[Candidate]:
+    package_specs = parse_qs(urlparse(source.url).query).get("package", [])
+    if not package_specs:
+        raise ValueError(f"osv_package source {source.name} requires package query params")
+
+    queries = []
+    for spec in package_specs:
+        if ":" not in spec:
+            raise ValueError(f"invalid OSV package spec: {spec}")
+        ecosystem, package_name = spec.split(":", 1)
+        queries.append({"package": {"ecosystem": ecosystem, "name": package_name}})
+
+    with http_client() as c:
+        r = c.post("https://api.osv.dev/v1/querybatch", json={"queries": queries})
+        r.raise_for_status()
+        data = r.json()
+
+        vuln_ids: dict[str, str] = {}
+        for result in data.get("results", []):
+            for vuln in result.get("vulns", []):
+                vuln_id = str(vuln.get("id") or "")
+                if vuln_id:
+                    vuln_ids[vuln_id] = str(vuln.get("modified") or "")
+
+        out: list[Candidate] = []
+        for vuln_id, _modified in sorted(
+            vuln_ids.items(),
+            key=lambda item: item[1],
+            reverse=True,
+        )[: MAX_ITEMS_PER_SOURCE * 2]:
+            detail = c.get(f"https://api.osv.dev/v1/vulns/{vuln_id}")
+            detail.raise_for_status()
+            vuln = detail.json()
+
+            aliases = [str(alias) for alias in vuln.get("aliases", [])]
+            affected_packages = [
+                str((affected.get("package") or {}).get("name") or "")
+                for affected in vuln.get("affected", [])
+                if isinstance(affected, dict)
+            ]
+            summary = str(vuln.get("summary") or "").strip()
+            details = str(vuln.get("details") or "").strip()
+            text = " ".join([vuln_id, summary, details, " ".join(aliases), " ".join(affected_packages)])
+            if not _looks_relevant(text):
+                continue
+
+            out.append(
+                Candidate(
+                    source=source.name,
+                    url=f"https://osv.dev/vulnerability/{vuln_id}",
+                    headline=f"{vuln_id}: {summary or _first_sentence(details)}"[:240],
+                    summary=(details or summary)[:1500],
+                    date=(str(vuln.get("published") or vuln.get("modified") or "")[:10] or _today()),
+                )
+            )
+            if len(out) >= MAX_ITEMS_PER_SOURCE:
+                break
+
+    return out
+
+
+def _fetch_avid(source: Source) -> list[Candidate]:
+    with http_client() as c:
+        r = c.get(source.url)
+        r.raise_for_status()
+        html = r.text
+
+    soup = BeautifulSoup(html, "html.parser")
+    out: list[Candidate] = []
+    for row in soup.select("tbody tr"):
+        cells = row.select("td")
+        if len(cells) < 4:
+            continue
+
+        link = cells[0].select_one("a")
+        report_id = link.get_text(" ", strip=True) if link else cells[0].get_text(" ", strip=True)
+        href = str(link.get("href") if link else "")
+        description = cells[1].get_text(" ", strip=True)
+        report_type = cells[2].get_text(" ", strip=True)
+        date = _loose_date(cells[3].get_text(" ", strip=True))
+        if not report_id or not description:
+            continue
+
+        out.append(
+            Candidate(
+                source=source.name,
+                url=_resolve_link(href, "https://avidml.org"),
+                headline=f"{report_id}: {description}"[:240],
+                summary=f"{report_type}: {description}"[:1500],
+                date=date,
+            )
+        )
+
+    out.sort(key=lambda candidate: candidate.date, reverse=True)
+    return out[:MAX_ITEMS_PER_SOURCE]
+
+
 def _fetch_html(source: Source) -> list[Candidate]:
     if not source.selectors:
         raise ValueError(f"html source {source.name} requires selectors")
@@ -324,8 +443,7 @@ def _fetch_html(source: Source) -> list[Candidate]:
         date_el = el.select_one(sel.date) if sel.date else None
         summary_el = el.select_one(sel.summary) if sel.summary else None
         href = (link_el.get("href") if link_el else None) or ""
-        if href and sel.link_base and href.startswith("/"):
-            href = sel.link_base.rstrip("/") + href
+        href = _resolve_link(str(href), sel.link_base)
         out.append(
             Candidate(
                 source=source.name,
@@ -387,8 +505,13 @@ _NEWS_ONLY_PATTERN = re.compile(
 _SOURCE_QUALITY_OVERRIDES = {
     "github security advisory database": 95,
     "nist nvd (recent cves)": 95,
+    "osv.dev ai package vulnerabilities": 95,
+    "agentsecdb": 90,
+    "avid database": 88,
     "cisa alerts": 90,
     "bsi (germany) warnings": 90,
+    "tenable security research": 86,
+    "aikido security blog": 84,
     "the hacker news": 82,
     "darkreading": 78,
     "ars technica security": 78,
@@ -507,6 +630,13 @@ def _loose_date(s: str) -> str:
         except ValueError:
             continue
     return _today()
+
+
+def _resolve_link(href: str, base: Optional[str]) -> str:
+    href = (href or "").strip()
+    if not href or not base or re.match(r"^https?://", href):
+        return href
+    return f"{base.rstrip('/')}/{href.lstrip('/')}"
 
 
 def _today() -> str:
@@ -957,6 +1087,110 @@ def _format_rejection(rejection: RejectedCandidate) -> dict:
     return obj
 
 
+def build_source_health_record(
+    source: Source,
+    checked_at: str,
+    elapsed_ms: int,
+    candidates: Optional[list[Candidate]] = None,
+    error: Optional[str] = None,
+) -> SourceHealthRecord:
+    candidate_count = len(candidates or [])
+    if not source.enabled:
+        status = "disabled"
+    elif error:
+        status = "failed"
+    elif candidate_count == 0:
+        status = "empty"
+    else:
+        status = "ok"
+
+    return SourceHealthRecord(
+        checkedAt=checked_at,
+        name=source.name,
+        category=source.category,
+        type=source.type,
+        url=source.url,
+        enabled=source.enabled,
+        status=status,
+        candidateCount=candidate_count,
+        elapsedMs=max(0, elapsed_ms),
+        firstHeadline=(candidates or [None])[0].headline[:160] if candidates else None,
+        error=error[:240] if error else None,
+    )
+
+
+def write_source_health(records: list[SourceHealthRecord]) -> bool:
+    if not records:
+        return False
+
+    generated_at = datetime.now(timezone.utc).isoformat()
+    statuses = Counter(record.status for record in records)
+    summary = {
+        "sourceCount": len(records),
+        "candidateCount": sum(record.candidateCount for record in records),
+        "ok": statuses.get("ok", 0),
+        "empty": statuses.get("empty", 0),
+        "failed": statuses.get("failed", 0),
+        "disabled": statuses.get("disabled", 0),
+    }
+    payload = {
+        "generatedAt": generated_at,
+        "summary": summary,
+        "sources": [asdict(record) for record in records],
+    }
+
+    SOURCE_HEALTH_JSON.parent.mkdir(parents=True, exist_ok=True)
+    SOURCE_HEALTH_JSON.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    SOURCE_HEALTH_MARKDOWN.write_text(_format_source_health_markdown(payload), encoding="utf-8")
+    return True
+
+
+def _format_source_health_markdown(payload: dict) -> str:
+    summary = payload["summary"]
+    lines = [
+        "## Source health",
+        "",
+        (
+            f"{summary['ok']} ok, {summary['empty']} empty, "
+            f"{summary['failed']} failed, {summary['disabled']} disabled; "
+            f"{summary['candidateCount']} candidates fetched."
+        ),
+        "",
+        "| Status | Source | Category | Candidates | Error |",
+        "| --- | --- | --- | ---: | --- |",
+    ]
+    sources = sorted(
+        payload["sources"],
+        key=lambda record: (
+            {"failed": 0, "empty": 1, "ok": 2, "disabled": 3}.get(record["status"], 4),
+            record["category"],
+            record["name"],
+        ),
+    )
+    for record in sources:
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    _md_cell(str(record["status"])),
+                    _md_cell(str(record["name"])),
+                    _md_cell(str(record["category"])),
+                    str(record["candidateCount"]),
+                    _md_cell(str(record.get("error") or "")),
+                ]
+            )
+            + " |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def _md_cell(value: str) -> str:
+    return value.replace("|", "\\|").replace("\n", " ").strip()
+
+
 def build_candidate_queue(
     all_candidates: list[Candidate],
     existing: list[Incident],
@@ -1124,25 +1358,51 @@ def _candidate_limit(cli_limit: Optional[int]) -> int:
 
 def main() -> int:
     args = parse_args()
-    sources = enabled_sources()
+    registry_sources = ALL_SOURCES
     if args.only:
         needle = args.only.lower()
-        sources = [s for s in sources if needle in s.name.lower()]
+        registry_sources = [s for s in registry_sources if needle in s.name.lower()]
+    sources = [s for s in registry_sources if s.enabled]
 
     print(f"Fetching from {len(sources)} sources…\n")
 
     all_candidates: list[Candidate] = []
     counts: dict[str, int] = {}
     failures: list[tuple[str, str]] = []
+    checked_at = datetime.now(timezone.utc).isoformat()
+    health_records = [
+        build_source_health_record(s, checked_at, elapsed_ms=0)
+        for s in registry_sources
+        if not s.enabled
+    ]
 
     for s in sources:
+        t0 = time.perf_counter()
         try:
             cands = fetch(s)
+            elapsed_ms = round((time.perf_counter() - t0) * 1000)
             counts[s.name] = len(cands)
             all_candidates.extend(cands)
+            health_records.append(
+                build_source_health_record(
+                    s,
+                    checked_at,
+                    elapsed_ms=elapsed_ms,
+                    candidates=cands,
+                )
+            )
             print(f"  {len(cands):3d}  {s.name}")
         except Exception as e:
+            elapsed_ms = round((time.perf_counter() - t0) * 1000)
             failures.append((s.name, str(e)))
+            health_records.append(
+                build_source_health_record(
+                    s,
+                    checked_at,
+                    elapsed_ms=elapsed_ms,
+                    error=str(e),
+                )
+            )
             print(f"  ERR  {s.name} — {e}")
             if os.environ.get("DEBUG"):
                 traceback.print_exc()
@@ -1151,6 +1411,10 @@ def main() -> int:
     print(f"Total candidates: {len(all_candidates)}")
     print(f"Failures:         {len(failures)}")
     print()
+
+    if not args.dry and write_source_health(health_records):
+        print(f"Wrote source health report to {SOURCE_HEALTH_JSON}.")
+        print()
 
     if args.smoke:
         return 0

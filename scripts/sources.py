@@ -3,7 +3,7 @@ sources.py — registry of feeds the Agent Threat Atlas scraper monitors.
 
 Edit freely. Each source is a Source dataclass with:
   name      Human label (shown in incidents.ts as the source attribution)
-  type      Adapter type (rss | atom | nvd_json | aid_json | ghsa | html)
+  type      Adapter type (rss | atom | nvd_json | aid_json | ghsa | osv_package | avid_html | html)
   url       Feed / API / page URL
   selectors For type='html': dict of CSS selectors describing how to extract
             entries from the page (see HtmlSelectors docstring).
@@ -69,6 +69,29 @@ VULN_DBS: list[Source] = [
         name="GitHub Security Advisory Database",
         type="ghsa",
         url="https://api.github.com/advisories?per_page=50&sort=published",
+        category="vulnerability-db",
+    ),
+    Source(
+        name="OSV.dev AI package vulnerabilities",
+        type="osv_package",
+        url=(
+            "https://api.osv.dev/v1/querybatch"
+            "?package=PyPI:langchain"
+            "&package=PyPI:langflow"
+            "&package=PyPI:llama-index"
+            "&package=PyPI:gradio"
+            "&package=PyPI:mlflow"
+            "&package=PyPI:open-webui"
+            "&package=npm:langchain"
+            "&package=npm:%40langchain%2Fcore"
+            "&package=npm:%40modelcontextprotocol%2Fsdk"
+        ),
+        category="vulnerability-db",
+    ),
+    Source(
+        name="AVID database",
+        type="avid_html",
+        url="https://avidml.org/database/",
         category="vulnerability-db",
     ),
     Source(
@@ -300,6 +323,20 @@ RESEARCH: list[Source] = [
         category="research",
     ),
     Source(
+        name="AgentSecDB",
+        type="html",
+        url="https://agentsecdb.com/",
+        category="aggregator",
+        selectors=HtmlSelectors(
+            item="article.incident-card",
+            headline="h3",
+            link="h3 a",
+            date=".incident-meta",
+            summary="p",
+            link_base="https://agentsecdb.com",
+        ),
+    ),
+    Source(
         name="Lakera blog",
         type="rss",
         url="https://www.lakera.ai/blog/rss.xml",
@@ -367,11 +404,24 @@ RESEARCH: list[Source] = [
         type="rss",
         url="https://www.aim.security/blog/rss.xml",  # verify
         category="research",
+        enabled=False,  # 403 blocked by WAF as of 2026-05
     ),
     Source(
         name="JFrog Security Research",
         type="rss",
         url="https://jfrog.com/blog/category/security-research/feed/",  # verify
+        category="research",
+    ),
+    Source(
+        name="Aikido Security blog",
+        type="rss",
+        url="https://www.aikido.dev/blog/rss.xml",
+        category="research",
+    ),
+    Source(
+        name="Tenable Security Research",
+        type="rss",
+        url="https://www.tenable.com/security/research/feed",
         category="research",
     ),
 ]

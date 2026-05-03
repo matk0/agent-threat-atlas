@@ -2,6 +2,7 @@ node_modules
 .next
 out
 dist
+tmp
 .wrangler
 .venv
 __pycache__

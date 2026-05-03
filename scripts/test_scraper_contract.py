@@ -383,6 +383,149 @@ class ScraperContractTest(unittest.TestCase):
             finally:
                 scraper_mod.REJECTED_FILE = original_rejected
 
+    def test_relative_html_links_are_resolved_against_source_base(self) -> None:
+        self.assertEqual(
+            scraper_mod._resolve_link(
+                "incidents/claude-code-source-map-leak/index.html",
+                "https://agentsecdb.com",
+            ),
+            "https://agentsecdb.com/incidents/claude-code-source-map-leak/index.html",
+        )
+        self.assertEqual(
+            scraper_mod._resolve_link("/database/AVID-2026-R0001", "https://avidml.org"),
+            "https://avidml.org/database/AVID-2026-R0001",
+        )
+        self.assertEqual(
+            scraper_mod._resolve_link("https://example.com/item", "https://avidml.org"),
+            "https://example.com/item",
+        )
+
+    def test_osv_package_source_builds_candidates_from_package_query(self) -> None:
+        class FakeResponse:
+            def __init__(self, data: dict) -> None:
+                self._data = data
+
+            def raise_for_status(self) -> None:
+                return None
+
+            def json(self) -> dict:
+                return self._data
+
+        class FakeClient:
+            def __enter__(self) -> "FakeClient":
+                return self
+
+            def __exit__(self, *_args: object) -> None:
+                return None
+
+            def post(self, _url: str, json: dict) -> FakeResponse:
+                self.query_payload = json
+                return FakeResponse(
+                    {
+                        "results": [
+                            {
+                                "vulns": [
+                                    {
+                                        "id": "GHSA-agent-test",
+                                        "modified": "2026-05-02T00:00:00Z",
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                )
+
+            def get(self, url: str) -> FakeResponse:
+                self.detail_url = url
+                return FakeResponse(
+                    {
+                        "id": "GHSA-agent-test",
+                        "aliases": ["CVE-2026-1234"],
+                        "summary": "LangChain agent tool leaks secrets",
+                        "details": "A LangChain AI agent tool could expose credentials through prompt injection.",
+                        "published": "2026-05-01T00:00:00Z",
+                        "affected": [
+                            {"package": {"ecosystem": "PyPI", "name": "langchain"}}
+                        ],
+                    }
+                )
+
+        source = scraper_mod.Source(
+            name="OSV.dev AI package vulnerabilities",
+            type="osv_package",
+            url="https://api.osv.dev/v1/querybatch?package=PyPI:langchain",
+            category="vulnerability-db",
+        )
+
+        with patch.object(scraper_mod.httpx, "Client", return_value=FakeClient(), create=True):
+            candidates = scraper_mod._fetch_osv_packages(source)
+
+        self.assertEqual(len(candidates), 1)
+        self.assertEqual(candidates[0].url, "https://osv.dev/vulnerability/GHSA-agent-test")
+        self.assertIn("LangChain agent tool leaks secrets", candidates[0].headline)
+        self.assertEqual(candidates[0].date, "2026-05-01")
+
+    def test_source_registry_includes_high_signal_incident_sources(self) -> None:
+        source_names = {source.name for source in scraper_mod.ALL_SOURCES}
+
+        self.assertIn("AgentSecDB", source_names)
+        self.assertIn("AVID database", source_names)
+        self.assertIn("OSV.dev AI package vulnerabilities", source_names)
+        self.assertIn("Aikido Security blog", source_names)
+        self.assertIn("Tenable Security Research", source_names)
+
+    def test_source_health_report_summarizes_statuses(self) -> None:
+        original_json = scraper_mod.SOURCE_HEALTH_JSON
+        original_markdown = scraper_mod.SOURCE_HEALTH_MARKDOWN
+        checked_at = "2026-05-03T10:00:00+00:00"
+
+        with tempfile.TemporaryDirectory() as tmp:
+            scraper_mod.SOURCE_HEALTH_JSON = Path(tmp) / "source-health.json"
+            scraper_mod.SOURCE_HEALTH_MARKDOWN = Path(tmp) / "source-health.md"
+            records = [
+                scraper_mod.build_source_health_record(
+                    scraper_mod.Source("Working feed", "rss", "https://example.com/feed", "press"),
+                    checked_at,
+                    elapsed_ms=120,
+                    candidates=[
+                        scraper_mod.Candidate(
+                            source="Working feed",
+                            url="https://example.com/item",
+                            headline="Agent incident",
+                            summary="A confirmed incident.",
+                            date="2026-05-03",
+                        )
+                    ],
+                ),
+                scraper_mod.build_source_health_record(
+                    scraper_mod.Source("Empty feed", "rss", "https://example.com/empty", "press"),
+                    checked_at,
+                    elapsed_ms=90,
+                    candidates=[],
+                ),
+                scraper_mod.build_source_health_record(
+                    scraper_mod.Source("Broken feed", "rss", "https://example.com/broken", "press"),
+                    checked_at,
+                    elapsed_ms=30,
+                    error="timeout",
+                ),
+            ]
+
+            try:
+                scraper_mod.write_source_health(records)
+                report = json.loads(scraper_mod.SOURCE_HEALTH_JSON.read_text(encoding="utf-8"))
+                markdown = scraper_mod.SOURCE_HEALTH_MARKDOWN.read_text(encoding="utf-8")
+
+                self.assertEqual(report["summary"]["ok"], 1)
+                self.assertEqual(report["summary"]["empty"], 1)
+                self.assertEqual(report["summary"]["failed"], 1)
+                self.assertEqual(report["summary"]["candidateCount"], 1)
+                self.assertIn("Broken feed", markdown)
+                self.assertIn("timeout", markdown)
+            finally:
+                scraper_mod.SOURCE_HEALTH_JSON = original_json
+                scraper_mod.SOURCE_HEALTH_MARKDOWN = original_markdown
+
     def test_run_summary_reports_model_and_rejection_reasons(self) -> None:
         rejection = scraper_mod.RejectedCandidate(
             id="reject-test",
