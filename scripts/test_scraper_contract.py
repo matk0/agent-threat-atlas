@@ -304,6 +304,143 @@ class ScraperContractTest(unittest.TestCase):
             finally:
                 scraper_mod.REJECTED_FILE = original_rejected
 
+    def test_candidate_queue_retries_transient_records_but_skips_review_records(self) -> None:
+        original_rejected = scraper_mod.REJECTED_FILE
+        with tempfile.TemporaryDirectory() as tmp:
+            rejected_file = Path(tmp) / "rejected-candidates.json"
+            rejected_file.write_text(
+                json.dumps(
+                    [
+                        {
+                            "id": "retryable",
+                            "status": "transient_error",
+                            "url": "https://example.com/retryable-agent",
+                            "headline": "Claude Code MCP runner timed out",
+                            "summary": "A classifier timeout happened.",
+                        },
+                        {
+                            "id": "review",
+                            "status": "needs_review",
+                            "url": "https://example.com/manual-review-agent",
+                            "headline": "Yuma AI leaked customer order data",
+                            "summary": "A high-signal candidate awaits manual review.",
+                        },
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            scraper_mod.REJECTED_FILE = rejected_file
+            candidates = [
+                scraper_mod.Candidate(
+                    source="Tenable Security Research",
+                    url="https://example.com/retryable-agent",
+                    headline="Claude Code MCP runner timed out",
+                    summary="A classifier timeout happened.",
+                    date="2026-05-02",
+                ),
+                scraper_mod.Candidate(
+                    source="Tenable Security Research",
+                    url="https://example.com/manual-review-agent",
+                    headline="Yuma AI leaked customer order data",
+                    summary="A high-signal candidate awaits manual review.",
+                    date="2026-05-02",
+                ),
+            ]
+
+            try:
+                with patch.object(scraper_mod, "_is_recent", return_value=True):
+                    queue, skipped_processed = scraper_mod.build_candidate_queue(
+                        candidates,
+                        existing=[],
+                        limit=10,
+                    )
+
+                self.assertEqual([c.url for c in queue], ["https://example.com/retryable-agent"])
+                self.assertEqual(skipped_processed, 1)
+            finally:
+                scraper_mod.REJECTED_FILE = original_rejected
+
+    def test_candidate_queue_backfill_only_allows_trusted_incident_sources(self) -> None:
+        original_rejected = scraper_mod.REJECTED_FILE
+        with tempfile.TemporaryDirectory() as tmp:
+            scraper_mod.REJECTED_FILE = Path(tmp) / "rejected-candidates.json"
+            candidates = [
+                scraper_mod.Candidate(
+                    source="AgentSecDB",
+                    url="https://agentsecdb.com/incidents/claude-code-project-load-api-key-exfiltration/",
+                    headline="Claude Code project-load API key exfiltration",
+                    summary="Repository-controlled project loading exposed Anthropic API keys.",
+                    date="2026-01-21",
+                ),
+                scraper_mod.Candidate(
+                    source="OpenAI blog",
+                    url="https://example.com/old-product-news",
+                    headline="OpenAI announces an old agent launch",
+                    summary="A product announcement about AI agents.",
+                    date="2026-01-21",
+                ),
+            ]
+
+            def fake_recent(_date: str, max_days: int = scraper_mod.MAX_ITEM_AGE_DAYS) -> bool:
+                return max_days == 365
+
+            try:
+                with patch.object(scraper_mod, "_is_recent", side_effect=fake_recent):
+                    queue, skipped_processed = scraper_mod.build_candidate_queue(
+                        candidates,
+                        existing=[],
+                        limit=10,
+                        backfill_days=365,
+                    )
+
+                self.assertEqual(skipped_processed, 0)
+                self.assertEqual(
+                    [candidate.url for candidate in queue],
+                    ["https://agentsecdb.com/incidents/claude-code-project-load-api-key-exfiltration/"],
+                )
+            finally:
+                scraper_mod.REJECTED_FILE = original_rejected
+
+    def test_classification_retryable_error_is_deferred_not_rejected(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="Tenable Security Research",
+            url="https://example.com/claude-code-action-runner",
+            headline="Anthropic Claude Code Action Runner Arbitrary Code Execution via Malicious MCP Server Configuration",
+            summary="A malicious MCP configuration can execute commands in a GitHub Actions runner.",
+            date="2026-05-02",
+        )
+
+        with patch.object(
+            scraper_mod,
+            "categorize",
+            side_effect=scraper_mod.RetryableClassificationError("read operation timed out"),
+        ):
+            with patch.object(scraper_mod.time, "sleep"):
+                new, rejections, deferred = scraper_mod.classify_queue([candidate], [], "prompt")
+
+        self.assertEqual(new, [])
+        self.assertEqual(rejections, [])
+        self.assertEqual(deferred, [candidate])
+
+    def test_high_signal_model_skip_is_marked_needs_review(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="Tenable Security Research",
+            url="https://www.tenable.com/security/research/tra-2026-35",
+            headline="Yuma AI - Unauthenticated personal data and order information disclosure",
+            summary="A chatbot integrated into e-commerce websites allowed unauthenticated users to retrieve customer order information and shipping addresses.",
+            date="2026-04-23",
+        )
+
+        with patch.object(scraper_mod, "categorize", return_value=None):
+            with patch.object(scraper_mod.time, "sleep"):
+                new, rejections, deferred = scraper_mod.classify_queue([candidate], [], "prompt")
+
+        self.assertEqual(new, [])
+        self.assertEqual(deferred, [])
+        self.assertEqual(len(rejections), 1)
+        self.assertEqual(rejections[0].status, "needs_review")
+        self.assertIn("not_confirmed_by_model", rejections[0].reasons)
+
     def test_candidate_queue_ranks_security_advisories_before_vendor_news(self) -> None:
         original_rejected = scraper_mod.REJECTED_FILE
         with tempfile.TemporaryDirectory() as tmp:

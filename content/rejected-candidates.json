@@ -1,21 +1,5 @@
 [
   {
-    "id": "reject-a65f00ebb8",
-    "rejectedAt": "2026-05-03T10:26:11.550453+00:00",
-    "date": "2026-04-23",
-    "source": "Tenable Security Research",
-    "url": "https://www.tenable.com/security/research/tra-2026-35",
-    "headline": "Yuma AI - Unauthenticated personal data and order information disclosure",
-    "summary": "Yuma AI - Unauthenticated personal data and order information disclosure\n\n            A vulnerability was identified in Yuma AI Chat AI (a chatbot), a SaaS solution integrated into multiple e-commerce websites. Chat AI allows any unauthenticated user to retrieve sensitive order information including purchased items and shipping addresses belonging to arbitrary customers, simply by providing a customer email address or an order number.\n      \nJoshua Martinelle\n\nThu, 04/23/2026 - 09:22",
-    "model": "stepfun-ai/step-3.5-flash",
-    "reasons": [
-      "not_confirmed_by_model"
-    ],
-    "relevanceScore": 75,
-    "confidenceScore": 0,
-    "sourceQualityScore": 86
-  },
-  {
     "id": "reject-6dfd70c1e2",
     "rejectedAt": "2026-05-03T10:26:20.154359+00:00",
     "date": "2026-04-22",
@@ -63,22 +47,6 @@
     "relevanceScore": 60,
     "confidenceScore": 0,
     "sourceQualityScore": 84
-  },
-  {
-    "id": "reject-0f6b6b03b8",
-    "rejectedAt": "2026-05-03T10:27:20.705616+00:00",
-    "date": "2026-04-09",
-    "source": "Tenable Security Research",
-    "url": "https://www.tenable.com/security/research/tra-2026-27",
-    "headline": "Anthropic Claude Code Action Runner Arbitrary Code Execution via Malicious MCP Server Configuration",
-    "summary": "Anthropic Claude Code Action Runner Arbitrary Code Execution via Malicious MCP Server Configuration\n\n            The claude-code-action GitHub Action checks out the PR head branch when operating in a pull request context, making the working directory attacker-controlled. Combined with the action unconditionally setting 'enableAllProjectMcpServers' to 'true' in Claude Code's user settings and loading settings from project and local source by default '(settingsSource: [\"user\", \"project\", \"local\"])', an attacker can supply a malicious '.mcp.json' file in his PR branch.When a privileged user triggers the GitHub Action (via an 'issue_comment' event for example), the MCP server defined in the attacker-controlled configuration is automatically started without approval, resulting in arbitrary command execution in the runner with access to all workflow secrets.\n      \nRémy Marot\n\nThu, 04/09/2026 - 05:32",
-    "model": "stepfun-ai/step-3.5-flash",
-    "reasons": [
-      "not_confirmed_by_model"
-    ],
-    "relevanceScore": 75,
-    "confidenceScore": 0,
-    "sourceQualityScore": 86
   },
   {
     "id": "reject-57e21e3091",

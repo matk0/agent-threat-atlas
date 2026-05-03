@@ -21,6 +21,8 @@ Environment:
                      Get one at https://build.nvidia.com.
   NVIDIA_MODEL       Defaults to stepfun-ai/step-3.5-flash.
   SCRAPER_LIMIT      Defaults to 100 candidates per production run.
+  SCRAPER_BACKFILL_DAYS
+                     Optional older-candidate window for trusted incident sources.
   GITHUB_TOKEN       Optional. Raises GitHub Advisory rate limit.
   USER_AGENT         Override the HTTP User-Agent.
 
@@ -109,6 +111,36 @@ USER_AGENT = os.environ.get(
     "AgentThreatAtlas-Scraper/1.0 (+https://atlas.clawforceone.ai) Mozilla/5.0",
 )
 
+REJECTION_STATUS_REJECTED = "rejected"
+REJECTION_STATUS_NEEDS_REVIEW = "needs_review"
+REJECTION_STATUS_TRANSIENT_ERROR = "transient_error"
+
+TRUSTED_BACKFILL_SOURCES = {
+    "AgentSecDB",
+    "OSV.dev AI package vulnerabilities",
+    "GitHub Security Advisory Database",
+    "Tenable Security Research",
+    "Embrace The Red (Johann Rehberger)",
+    "Trail of Bits blog",
+    "AWS security bulletins",
+    "huntr.com (AI/ML bug bounty)",
+}
+
+MANUAL_REVIEW_SOURCES = {
+    "AgentSecDB",
+    "OSV.dev AI package vulnerabilities",
+    "GitHub Security Advisory Database",
+    "Tenable Security Research",
+    "Aikido Security blog",
+    "Bishop Fox blog",
+    "Embrace The Red (Johann Rehberger)",
+    "Trail of Bits blog",
+    "Risky Business news",
+    "OWASP GenAI Security Project",
+    "SecurityWeek",
+    "huntr.com (AI/ML bug bounty)",
+}
+
 
 # ---------------------------------------------------------------------------
 # Data shape
@@ -164,9 +196,14 @@ class RejectedCandidate:
     relevanceScore: int
     confidenceScore: int
     sourceQualityScore: int
+    status: str = REJECTION_STATUS_REJECTED
     severity: Optional[str] = None
     threats: list[str] = field(default_factory=list)
     vendor: Optional[str] = None
+
+
+class RetryableClassificationError(RuntimeError):
+    pass
 
 
 @dataclass
@@ -485,10 +522,10 @@ _RELEVANCE_PATTERN = re.compile(
 _SECURITY_SIGNAL_PATTERN = re.compile(
     r"\b("
     r"CVE-\d{4}-\d+|GHSA-[a-z0-9-]+|vulnerab\w*|exploit\w*|breach\w*|"
-    r"leak\w*|exfiltrat\w*|unauthorized|malicious|compromis\w*|"
+    r"leak\w*|exfiltrat\w*|unauthorized|unauthenticated|malicious|compromis\w*|"
     r"prompt[- ]injection|jailbreak|remote code execution|RCE|SSRF|SQL injection|"
     r"XSS|bypass\w*|deleted?|destructive|advisory|patched?|zero[- ]click|"
-    r"credential\w*|secret\w*|data exposure|takeover|security incident|"
+    r"credential\w*|secret\w*|sensitive|personal data|data exposure|takeover|security incident|"
     r"regulator\w*|fine\w*|ban\w*|court|tribunal"
     r")\b",
     re.IGNORECASE,
@@ -726,9 +763,31 @@ def build_rejection(
         relevanceScore=decision.relevanceScore,
         confidenceScore=decision.confidenceScore,
         sourceQualityScore=decision.sourceQualityScore,
+        status=_rejection_status(candidate, decision),
         severity=incident.severity if incident else None,
         threats=list(incident.threats) if incident else [],
         vendor=incident.vendor if incident else None,
+    )
+
+
+def _rejection_status(candidate: Candidate, decision: QualityDecision) -> str:
+    if _needs_manual_review(candidate, decision):
+        return REJECTION_STATUS_NEEDS_REVIEW
+    return REJECTION_STATUS_REJECTED
+
+
+def _needs_manual_review(candidate: Candidate, decision: QualityDecision) -> bool:
+    if "not_confirmed_by_model" not in decision.reasons:
+        return False
+    if "duplicate" in decision.reasons or "vague_ai_news" in decision.reasons:
+        return False
+    if decision.relevanceScore < MIN_RELEVANCE_SCORE - 10:
+        return False
+    if decision.sourceQualityScore < 80:
+        return False
+    return (
+        candidate.source in MANUAL_REVIEW_SOURCES
+        or _source_category(candidate.source) in {"vulnerability-db", "research"}
     )
 
 
@@ -917,21 +976,24 @@ def _call_nvidia(item: Candidate, prompt: str) -> Optional[str]:
         if status == 429:
             print("[rate-limit] backing off 30s; this item will be retried tomorrow", file=sys.stderr)
             time.sleep(30)
-            return None
+            raise RetryableClassificationError("NVIDIA rate limit")
+        if status >= 500:
+            print(f"[api-status {status}] {item.url} — retrying later", file=sys.stderr)
+            raise RetryableClassificationError(f"NVIDIA API status {status}")
         print(f"[api-status {status}] {item.url} — {e.response.text[:200]}", file=sys.stderr)
         return None
     except httpx.HTTPError as e:
         print(f"[api-error] {item.url} — {e}", file=sys.stderr)
-        return None
+        raise RetryableClassificationError(str(e)) from e
 
     if data.get("requestId") and not data.get("choices"):
         print(f"[api-pending] {item.url} — NVIDIA returned requestId {data['requestId']}", file=sys.stderr)
-        return None
+        raise RetryableClassificationError("NVIDIA API returned pending requestId")
 
     choices = data.get("choices") or []
     if not choices:
         print(f"[parse-error] {item.url} — NVIDIA returned no choices", file=sys.stderr)
-        return None
+        raise RetryableClassificationError("NVIDIA API returned no choices")
 
     message = choices[0].get("message") or {}
     content = message.get("content")
@@ -954,7 +1016,7 @@ def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
         data = json.loads(_extract_json(text))
     except json.JSONDecodeError:
         print(f"[parse-error] {item.url} — model returned non-JSON: {text[:120]}", file=sys.stderr)
-        return None
+        raise RetryableClassificationError("model returned non-JSON")
 
     threats = [t for t in data.get("threats", []) if t in THREAT_SLUGS]
     if not threats:
@@ -1195,6 +1257,7 @@ def build_candidate_queue(
     all_candidates: list[Candidate],
     existing: list[Incident],
     limit: int,
+    backfill_days: int = MAX_ITEM_AGE_DAYS,
 ) -> tuple[list[Candidate], int]:
     seen_urls = {i.url for i in existing}
     seen_cves: set[str] = set()
@@ -1207,11 +1270,11 @@ def build_candidate_queue(
     processed_urls = {
         str(r.get("url"))
         for r in processed_records
-        if isinstance(r, dict) and r.get("url")
+        if isinstance(r, dict) and r.get("url") and _is_processed_record(r)
     }
     processed_cves: set[str] = set()
     for record in processed_records:
-        if not isinstance(record, dict):
+        if not isinstance(record, dict) or not _is_processed_record(record):
             continue
         processed_cves |= _extract_cve_ids(
             " ".join(
@@ -1223,7 +1286,7 @@ def build_candidate_queue(
     candidates: list[Candidate] = []
     skipped_processed = 0
     for candidate in all_candidates:
-        if not candidate.url or not _is_recent(candidate.date):
+        if not candidate.url or not _candidate_within_date_window(candidate, backfill_days):
             continue
 
         candidate_cves = _extract_cve_ids(candidate.headline + " " + candidate.summary)
@@ -1237,6 +1300,21 @@ def build_candidate_queue(
         candidates.append(candidate)
 
     return _select_ranked_candidates(candidates, limit), skipped_processed
+
+
+def _is_processed_record(record: dict) -> bool:
+    status = str(record.get("status") or REJECTION_STATUS_REJECTED)
+    return status in {REJECTION_STATUS_REJECTED, REJECTION_STATUS_NEEDS_REVIEW}
+
+
+def _candidate_within_date_window(candidate: Candidate, backfill_days: int) -> bool:
+    if _is_recent(candidate.date):
+        return True
+    if backfill_days <= MAX_ITEM_AGE_DAYS:
+        return False
+    if candidate.source not in TRUSTED_BACKFILL_SOURCES:
+        return False
+    return _is_recent(candidate.date, backfill_days)
 
 
 def _select_ranked_candidates(candidates: list[Candidate], limit: int) -> list[Candidate]:
@@ -1285,6 +1363,55 @@ def _select_ranked_candidates(candidates: list[Candidate], limit: int) -> list[C
     return selected
 
 
+def classify_queue(
+    queue: list[Candidate],
+    existing: list[Incident],
+    prompt: str,
+) -> tuple[list[Incident], list[RejectedCandidate], list[Candidate]]:
+    new: list[Incident] = []
+    rejections: list[RejectedCandidate] = []
+    deferred: list[Candidate] = []
+    run_cves: set[str] = set()
+
+    for c in queue:
+        cve_ids = _extract_cve_ids(c.headline + " " + c.summary)
+        if cve_ids and cve_ids & run_cves:
+            decision = QualityDecision(
+                accepted=False,
+                relevanceScore=_score_relevance(c, None),
+                confidenceScore=0,
+                sourceQualityScore=_source_quality_score(c.source),
+                reasons=["duplicate"],
+            )
+            rejections.append(build_rejection(c, None, decision))
+            continue
+
+        try:
+            inc = categorize(c, prompt)
+            if inc:
+                decision = assess_quality(c, inc, existing, new)
+                if decision.accepted:
+                    new.append(inc)
+                    run_cves |= _extract_cve_ids(inc.headline + " " + inc.url)
+                    print(f"  + {inc.severity:8s} {inc.headline[:80]}")
+                else:
+                    rejections.append(build_rejection(c, inc, decision))
+                    print(f"  - {','.join(decision.reasons):30s} {c.headline[:80]}")
+            else:
+                decision = assess_skipped_candidate(c, existing, new)
+                rejections.append(build_rejection(c, None, decision))
+                print(f"  - {','.join(decision.reasons):30s} {c.headline[:80]}")
+        except RetryableClassificationError as e:
+            deferred.append(c)
+            print(f"  ? retryable_classifier_error       {c.headline[:80]} — {e}", file=sys.stderr)
+        except Exception as e:
+            print(f"  ! {c.url} — {e}", file=sys.stderr)
+
+        time.sleep(LLM_CALL_DELAY)
+
+    return new, rejections, deferred
+
+
 def load_existing() -> list[Incident]:
     if not OUTPUT_FILE.exists():
         return []
@@ -1305,6 +1432,7 @@ def print_run_summary(
     accepted_count: int,
     rejections: list[RejectedCandidate],
     failures: list[tuple[str, str]],
+    deferred_count: int = 0,
 ) -> None:
     reasons = Counter(reason for r in rejections for reason in r.reasons)
 
@@ -1315,6 +1443,7 @@ def print_run_summary(
     print(f"  Candidates queued:{queued_candidates:2d}")
     print(f"  Accepted:         {accepted_count}")
     print(f"  Rejected:         {len(rejections)}")
+    print(f"  Deferred:         {deferred_count}")
     print(f"  Fetch failures:   {len(failures)}")
     if reasons:
         print("  Rejection reasons:")
@@ -1331,6 +1460,12 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Agent Threat Atlas daily incident scraper")
     p.add_argument("--smoke", action="store_true", help="Skip LLM; print fetch counts")
     p.add_argument("--limit", type=int, default=None, help="Cap candidates classified")
+    p.add_argument(
+        "--backfill-days",
+        type=int,
+        default=None,
+        help="Allow older candidates from trusted incident sources up to this many days old",
+    )
     p.add_argument("--dry", action="store_true", help="Categorize but don't write the file")
     p.add_argument("--only", default=None, help="Only run sources whose name contains this string")
     return p.parse_args()
@@ -1354,6 +1489,26 @@ def _candidate_limit(cli_limit: Optional[int]) -> int:
     if limit < 1:
         raise SystemExit("SCRAPER_LIMIT must be a positive integer.")
     return limit
+
+
+def _backfill_days(cli_days: Optional[int]) -> int:
+    if cli_days is not None:
+        if cli_days < MAX_ITEM_AGE_DAYS:
+            raise SystemExit(f"--backfill-days must be at least {MAX_ITEM_AGE_DAYS}.")
+        return cli_days
+
+    raw = os.environ.get("SCRAPER_BACKFILL_DAYS")
+    if raw is None:
+        return MAX_ITEM_AGE_DAYS
+
+    try:
+        days = int(raw)
+    except ValueError as e:
+        raise SystemExit("SCRAPER_BACKFILL_DAYS must be a positive integer.") from e
+
+    if days < MAX_ITEM_AGE_DAYS:
+        raise SystemExit(f"SCRAPER_BACKFILL_DAYS must be at least {MAX_ITEM_AGE_DAYS}.")
+    return days
 
 
 def main() -> int:
@@ -1421,7 +1576,13 @@ def main() -> int:
 
     existing = load_existing()
     limit = _candidate_limit(args.limit)
-    queue, skipped_processed = build_candidate_queue(all_candidates, existing, limit)
+    backfill_days = _backfill_days(args.backfill_days)
+    queue, skipped_processed = build_candidate_queue(
+        all_candidates,
+        existing,
+        limit,
+        backfill_days=backfill_days,
+    )
     if skipped_processed:
         print(f"Skipped {skipped_processed} already processed candidates.")
         print()
@@ -1437,43 +1598,7 @@ def main() -> int:
 
     print(f"Categorizing {len(queue)} new candidates with limit {limit}…")
     prompt = load_prompt()
-    new: list[Incident] = []
-    rejections: list[RejectedCandidate] = []
-    run_cves: set[str] = set()  # CVEs accepted in this run (cross-source dedup)
-
-    for c in queue:
-        # Skip if a different source already covered this CVE this run.
-        cve_ids = _extract_cve_ids(c.headline + " " + c.summary)
-        if cve_ids and cve_ids & run_cves:
-            decision = QualityDecision(
-                accepted=False,
-                relevanceScore=_score_relevance(c, None),
-                confidenceScore=0,
-                sourceQualityScore=_source_quality_score(c.source),
-                reasons=["duplicate"],
-            )
-            rejections.append(build_rejection(c, None, decision))
-            continue
-
-        try:
-            inc = categorize(c, prompt)
-            if inc:
-                decision = assess_quality(c, inc, existing, new)
-                if decision.accepted:
-                    new.append(inc)
-                    run_cves |= _extract_cve_ids(inc.headline + " " + inc.url)
-                    print(f"  + {inc.severity:8s} {inc.headline[:80]}")
-                else:
-                    rejections.append(build_rejection(c, inc, decision))
-                    print(f"  - {','.join(decision.reasons):30s} {c.headline[:80]}")
-            else:
-                decision = assess_skipped_candidate(c, existing, new)
-                rejections.append(build_rejection(c, None, decision))
-                print(f"  - {','.join(decision.reasons):30s} {c.headline[:80]}")
-        except Exception as e:
-            print(f"  ! {c.url} — {e}", file=sys.stderr)
-
-        time.sleep(LLM_CALL_DELAY)
+    new, rejections, deferred = classify_queue(queue, existing, prompt)
 
     print(f"\nKept {len(new)} of {len(queue)} after categorization.")
     print_run_summary(
@@ -1482,6 +1607,7 @@ def main() -> int:
         accepted_count=len(new),
         rejections=rejections,
         failures=failures,
+        deferred_count=len(deferred),
     )
 
     if args.dry:
