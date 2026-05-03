@@ -26,7 +26,7 @@ test("root renders the live incident atlas", () => {
   assert.doesNotMatch(page, /RecentIncidents/);
 });
 
-test("home page reports days since the latest agentic AI incident", async () => {
+test("home page reports days since the last incident", async () => {
   const page = read("app/page.tsx");
   const i18n = read("lib/i18n.ts");
   const { daysSinceDate } = await importTs("lib/format.ts");
@@ -34,9 +34,12 @@ test("home page reports days since the latest agentic AI incident", async () => 
   assert.equal(daysSinceDate("2026-04-30", new Date("2026-05-03T07:34:00Z")), 3);
   assert.equal(daysSinceDate("2026-05-03", new Date("2026-05-03T23:59:00Z")), 0);
   assert.match(page, /daysSinceDate\(latest\)/);
-  assert.match(page, /messages\.home\.daysSinceAgenticAiIncident/);
-  assert.match(i18n, /since Agentic AI incident/);
-  assert.match(i18n, /od incidentu agentickej AI/);
+  assert.match(page, /label=\{messages\.home\.daysSinceLastIncident\}/);
+  assert.match(page, /String\(daysSinceLatest\)/);
+  assert.doesNotMatch(page, /messages\.home\.latest/);
+  assert.doesNotMatch(page, /daysSinceAgenticAiIncident/);
+  assert.match(i18n, /Days since last incident/);
+  assert.match(i18n, /Dní od posledného incidentu/);
 });
 
 test("/incidents aliases the root atlas", () => {

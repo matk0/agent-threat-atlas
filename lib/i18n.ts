@@ -46,9 +46,7 @@ export const ui = {
         "Public incidents, mapped to threat categories and practical prevention principles for teams deploying AI agents.",
       incidents: "Incidents",
       categories: "Categories",
-      latest: "Latest",
-      daysSinceAgenticAiIncident: (days: number) =>
-        `${days} ${days === 1 ? "day" : "days"} since Agentic AI incident`,
+      daysSinceLastIncident: "Days since last incident",
       notAvailable: "n/a",
     },
     incidents: {
@@ -224,11 +222,7 @@ export const ui = {
         "Verejné incidenty mapované na kategórie hrozieb a praktické preventívne princípy pre tímy nasadzujúce AI agentov.",
       incidents: "Incidenty",
       categories: "Kategórie",
-      latest: "Najnovšie",
-      daysSinceAgenticAiIncident: (days: number) => {
-        const unit = days === 1 ? "deň" : days > 1 && days < 5 ? "dni" : "dní";
-        return `${days} ${unit} od incidentu agentickej AI`;
-      },
+      daysSinceLastIncident: "Dní od posledného incidentu",
       notAvailable: "n/a",
     },
     incidents: {

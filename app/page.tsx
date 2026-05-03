@@ -43,11 +43,11 @@ export default function HomePage() {
               <Stat label={messages.home.incidents} value={String(sorted.length)} />
               <Stat label={messages.home.categories} value={String(threats.length)} />
               <Stat
-                label={messages.home.latest}
+                label={messages.home.daysSinceLastIncident}
                 value={
                   daysSinceLatest === undefined
                     ? messages.home.notAvailable
-                    : messages.home.daysSinceAgenticAiIncident(daysSinceLatest)
+                    : String(daysSinceLatest)
                 }
               />
             </dl>
