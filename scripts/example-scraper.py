@@ -91,7 +91,8 @@ DEFAULT_NVIDIA_MODEL = "stepfun-ai/step-3.5-flash"
 
 MAX_ITEMS_PER_SOURCE = 20
 MAX_ITEM_AGE_DAYS = 30       # skip items older than this
-DEFAULT_CANDIDATE_LIMIT = 20
+DEFAULT_CANDIDATE_LIMIT = 100
+MAX_CANDIDATES_PER_SOURCE = 5
 THIN_SUMMARY_THRESHOLD = 200  # fetch article body when summary is shorter
 ARTICLE_FETCH_CHARS = 600    # how much of the article body to use
 LLM_CALL_DELAY = 0.1         # seconds between categorization calls
@@ -401,6 +402,34 @@ _SOURCE_QUALITY_OVERRIDES = {
     "microsoft security update guide (advisories)": 88,
 }
 
+CATEGORY_SCORE = {
+    "vulnerability-db": 45,
+    "aggregator": 40,
+    "research": 35,
+    "regulator": 30,
+    "press": 20,
+    "agent-vendor": 18,
+    "cloud-vendor": 14,
+    "model-vendor": 6,
+    "standards": 6,
+    "academic": 3,
+}
+
+CATEGORY_RESERVE_FRACTIONS = {
+    "vulnerability-db": 0.25,
+    "research": 0.20,
+    "regulator": 0.15,
+    "aggregator": 0.10,
+    "agent-vendor": 0.10,
+    "press": 0.10,
+    "cloud-vendor": 0.05,
+    "model-vendor": 0.03,
+    "standards": 0.02,
+    "academic": 0.02,
+}
+
+SOURCE_CATEGORY_BY_NAME = {source.name: source.category for source in ALL_SOURCES}
+
 
 def _looks_relevant(text: str) -> bool:
     """Cheap pre-filter to avoid sending obviously off-topic items to the LLM."""
@@ -619,6 +648,33 @@ def _score_confidence(candidate: Candidate, incident: Optional[Incident]) -> int
         score += 5
 
     return min(score, 100)
+
+
+def _candidate_priority(candidate: Candidate) -> int:
+    text = _quality_text(candidate, None)
+    score = _score_relevance(candidate, None)
+    score += _source_quality_score(candidate.source)
+    score += CATEGORY_SCORE.get(_source_category(candidate.source), 0)
+
+    if _SECURITY_SIGNAL_PATTERN.search(text):
+        score += 25
+    if _extract_cve_ids(text):
+        score += 25
+    if _NEWS_ONLY_PATTERN.search(text) and not _SECURITY_SIGNAL_PATTERN.search(text):
+        score -= 45
+
+    try:
+        item_date = datetime.strptime(candidate.date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        age_days = max(0, (datetime.now(timezone.utc) - item_date).days)
+        score += max(0, 30 - age_days)
+    except ValueError:
+        pass
+
+    return score
+
+
+def _source_category(source: str) -> str:
+    return SOURCE_CATEGORY_BY_NAME.get(source, "")
 
 
 def _source_quality_score(source: str) -> int:
@@ -930,7 +986,7 @@ def build_candidate_queue(
             )
         )
 
-    queue: list[Candidate] = []
+    candidates: list[Candidate] = []
     skipped_processed = 0
     for candidate in all_candidates:
         if not candidate.url or not _is_recent(candidate.date):
@@ -944,9 +1000,55 @@ def build_candidate_queue(
             skipped_processed += 1
             continue
 
-        queue.append(candidate)
+        candidates.append(candidate)
 
-    return queue[:limit], skipped_processed
+    return _select_ranked_candidates(candidates, limit), skipped_processed
+
+
+def _select_ranked_candidates(candidates: list[Candidate], limit: int) -> list[Candidate]:
+    ranked = sorted(
+        candidates,
+        key=lambda c: (_candidate_priority(c), c.date, c.source, c.headline),
+        reverse=True,
+    )
+    selected: list[Candidate] = []
+    selected_urls: set[str] = set()
+    source_counts: Counter[str] = Counter()
+
+    def add(candidate: Candidate) -> bool:
+        if len(selected) >= limit or candidate.url in selected_urls:
+            return False
+        if source_counts[candidate.source] >= MAX_CANDIDATES_PER_SOURCE:
+            return False
+
+        selected.append(candidate)
+        selected_urls.add(candidate.url)
+        source_counts[candidate.source] += 1
+        return True
+
+    present_categories = {_source_category(candidate.source) for candidate in ranked}
+    reserve_order = sorted(
+        (category for category in present_categories if category),
+        key=lambda category: CATEGORY_RESERVE_FRACTIONS.get(category, 0),
+        reverse=True,
+    )
+    for category in reserve_order:
+        if len(selected) >= limit:
+            break
+        reserve = max(1, round(limit * CATEGORY_RESERVE_FRACTIONS.get(category, 0)))
+        taken = 0
+        for candidate in ranked:
+            if taken >= reserve or len(selected) >= limit:
+                break
+            if _source_category(candidate.source) == category and add(candidate):
+                taken += 1
+
+    for candidate in ranked:
+        if len(selected) >= limit:
+            break
+        add(candidate)
+
+    return selected
 
 
 def load_existing() -> list[Incident]:

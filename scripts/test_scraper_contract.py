@@ -84,7 +84,7 @@ class ScraperContractTest(unittest.TestCase):
 
     def test_candidate_limit_defaults_to_production_budget(self) -> None:
         with patch.dict(os.environ, {}, clear=True):
-            self.assertEqual(scraper_mod._candidate_limit(None), 20)
+            self.assertEqual(scraper_mod._candidate_limit(None), 100)
 
     def test_candidate_limit_prefers_cli_over_environment(self) -> None:
         with patch.dict(os.environ, {"SCRAPER_LIMIT": "40"}):
@@ -301,6 +301,85 @@ class ScraperContractTest(unittest.TestCase):
 
                 self.assertEqual([c.url for c in queue], ["https://example.com/new-agent-incident"])
                 self.assertEqual(skipped_processed, 2)
+            finally:
+                scraper_mod.REJECTED_FILE = original_rejected
+
+    def test_candidate_queue_ranks_security_advisories_before_vendor_news(self) -> None:
+        original_rejected = scraper_mod.REJECTED_FILE
+        with tempfile.TemporaryDirectory() as tmp:
+            scraper_mod.REJECTED_FILE = Path(tmp) / "rejected-candidates.json"
+            candidates = [
+                scraper_mod.Candidate(
+                    source="OpenAI blog",
+                    url=f"https://example.com/product-news-{i}",
+                    headline=f"OpenAI announces faster agent platform {i}",
+                    summary="A product announcement about improved AI assistant availability.",
+                    date="2026-05-02",
+                )
+                for i in range(5)
+            ]
+            candidates.append(
+                scraper_mod.Candidate(
+                    source="GitHub Security Advisory Database",
+                    url="https://github.com/advisories/GHSA-agent-critical",
+                    headline="CVE-2026-7777: Agent MCP tool leaks secrets",
+                    summary="A confirmed vulnerability in an AI agent MCP tool allowed prompt injection and credential exfiltration.",
+                    date="2026-05-02",
+                )
+            )
+
+            try:
+                with patch.object(scraper_mod, "_is_recent", return_value=True):
+                    queue, skipped_processed = scraper_mod.build_candidate_queue(
+                        candidates,
+                        existing=[],
+                        limit=2,
+                    )
+
+                self.assertEqual(skipped_processed, 0)
+                self.assertEqual(queue[0].source, "GitHub Security Advisory Database")
+                self.assertIn("GHSA-agent-critical", queue[0].url)
+            finally:
+                scraper_mod.REJECTED_FILE = original_rejected
+
+    def test_candidate_queue_limits_source_dominance(self) -> None:
+        original_rejected = scraper_mod.REJECTED_FILE
+        with tempfile.TemporaryDirectory() as tmp:
+            scraper_mod.REJECTED_FILE = Path(tmp) / "rejected-candidates.json"
+            candidates = [
+                scraper_mod.Candidate(
+                    source="GitHub Security Advisory Database",
+                    url=f"https://github.com/advisories/GHSA-agent-{i}",
+                    headline=f"CVE-2026-88{i:02d}: Agent tool leaks secrets",
+                    summary="A confirmed vulnerability in an AI agent tool allowed credential exfiltration.",
+                    date="2026-05-02",
+                )
+                for i in range(10)
+            ]
+            candidates.append(
+                scraper_mod.Candidate(
+                    source="AI Incident Database",
+                    url="https://incidentdatabase.ai/cite/agent-incident",
+                    headline="AI agent deleted production database during autonomous run",
+                    summary="A confirmed AI agent incident caused destructive production data loss.",
+                    date="2026-05-02",
+                )
+            )
+
+            try:
+                with patch.object(scraper_mod, "_is_recent", return_value=True):
+                    queue, skipped_processed = scraper_mod.build_candidate_queue(
+                        candidates,
+                        existing=[],
+                        limit=6,
+                    )
+
+                self.assertEqual(skipped_processed, 0)
+                self.assertLessEqual(
+                    sum(1 for candidate in queue if candidate.source == "GitHub Security Advisory Database"),
+                    scraper_mod.MAX_CANDIDATES_PER_SOURCE,
+                )
+                self.assertIn("AI Incident Database", {candidate.source for candidate in queue})
             finally:
                 scraper_mod.REJECTED_FILE = original_rejected
 

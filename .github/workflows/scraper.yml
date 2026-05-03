@@ -17,6 +17,10 @@ on:
       - 'postcss.config.mjs'
       - 'public/**'
       - 'scripts/build-locales.mjs'
+      - 'scripts/example-scraper.py'
+      - 'scripts/requirements.txt'
+      - 'scripts/sources.py'
+      - 'scripts/test_scraper_contract.py'
       - 'scripts/translate-content.mjs'
       - 'tailwind.config.ts'
       - 'tsconfig.json'
@@ -26,7 +30,7 @@ on:
       limit:
         description: 'Max candidates to classify'
         required: false
-        default: '20'
+        default: '100'
 
 permissions:
   contents: write           # needed to commit incidents.ts back to main
@@ -65,7 +69,7 @@ jobs:
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           NVIDIA_MODEL: stepfun-ai/step-3.5-flash
-          SCRAPER_LIMIT: ${{ github.event.inputs.limit || '20' }}
+          SCRAPER_LIMIT: ${{ github.event.inputs.limit || '100' }}
         run: python3 scripts/example-scraper.py
 
       - name: Translate Slovak content

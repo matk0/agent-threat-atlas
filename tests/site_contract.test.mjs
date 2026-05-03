@@ -133,6 +133,11 @@ test("workflow avoids Node 20 actions runtime", () => {
   assert.match(workflow, /actions\/setup-node@v6/);
   assert.match(workflow, /npx -y wrangler@4\.87\.0 deploy/);
   assert.match(workflow, /content\/rejected-candidates\.json/);
+  assert.match(workflow, /scripts\/example-scraper\.py/);
+  assert.match(workflow, /scripts\/sources\.py/);
+  assert.match(workflow, /scripts\/test_scraper_contract\.py/);
+  assert.match(workflow, /scripts\/requirements\.txt/);
+  assert.match(workflow, /default: '100'/);
   assert.doesNotMatch(workflow, /actions\/setup-python@v5/);
   assert.doesNotMatch(workflow, /actions\/setup-node@v4/);
   assert.doesNotMatch(workflow, /cloudflare\/wrangler-action/);
