@@ -1,0 +1,343 @@
+[
+  {
+    "id": "reject-92f8ee26a8",
+    "rejectedAt": "2026-05-03T07:35:32.021470+00:00",
+    "date": "2026-04-30",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/advanced-account-security",
+    "headline": "Introducing Advanced Account Security",
+    "summary": "Introducing Advanced Account Security: phishing-resistant login, stronger recovery, and enhanced protections to safeguard sensitive data and prevent account takeover.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-6ce07af346",
+    "rejectedAt": "2026-05-03T07:35:52.193865+00:00",
+    "date": "2026-04-29",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/where-the-goblins-came-from",
+    "headline": "Where the goblins came from",
+    "summary": "How goblin outputs spread in AI models: timeline, root cause, and fixes behind personality-driven quirks in GPT-5 behavior.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-0889e6f0be",
+    "rejectedAt": "2026-05-03T07:36:09.134318+00:00",
+    "date": "2026-04-29",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/building-the-compute-infrastructure-for-the-intelligence-age",
+    "headline": "Building the compute infrastructure for the Intelligence Age",
+    "summary": "OpenAI scales Stargate to build the compute infrastructure powering AGI, adding new data center capacity to meet growing AI demand.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-6d737041e9",
+    "rejectedAt": "2026-05-03T07:36:13.224626+00:00",
+    "date": "2026-04-29",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/cybersecurity-in-the-intelligence-age",
+    "headline": "Cybersecurity in the Intelligence Age",
+    "summary": "OpenAI outlines a five-part action plan for strengthening cybersecurity in the Intelligence Age, focused on democratizing AI-powered cyber defense and protecting critical systems.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-e6284b864c",
+    "rejectedAt": "2026-05-03T07:36:21.055077+00:00",
+    "date": "2026-04-28",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/our-commitment-to-community-safety",
+    "headline": "Our commitment to community safety",
+    "summary": "Learn how OpenAI protects community safety in ChatGPT through model safeguards, misuse detection, policy enforcement, and collaboration with safety experts.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-368128e6f2",
+    "rejectedAt": "2026-05-03T07:36:33.777122+00:00",
+    "date": "2026-04-28",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/openai-on-aws",
+    "headline": "OpenAI models, Codex, and Managed Agents come to AWS",
+    "summary": "OpenAI GPT models, Codex, and Managed Agents are now available on AWS, enabling enterprises to build secure AI in their AWS environments.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-bc680bc14e",
+    "rejectedAt": "2026-05-03T07:36:38.395994+00:00",
+    "date": "2026-04-27",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/openai-available-at-fedramp-moderate",
+    "headline": "OpenAI available at FedRAMP Moderate",
+    "summary": "OpenAI is available at FedRAMP Moderate authorization for ChatGPT Enterprise and the OpenAI API, enabling secure AI adoption for U.S. federal agencies.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-ce52abc8a3",
+    "rejectedAt": "2026-05-03T07:36:44.548849+00:00",
+    "date": "2026-04-27",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/next-phase-of-microsoft-partnership",
+    "headline": "The next phase of the Microsoft OpenAI partnership",
+    "summary": "OpenAI and Microsoft announce an amended agreement that simplifies the partnership, adds long-term clarity, and supports continued AI innovation at scale.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-29e3d13268",
+    "rejectedAt": "2026-05-03T07:37:01.775548+00:00",
+    "date": "2026-04-27",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/open-source-codex-orchestration-symphony",
+    "headline": "An open-source spec for orchestration: Symphony",
+    "summary": "Learn how Symphony, an open-source spec for Codex orchestration, turns issue trackers into always-on agent systems—boosting engineering output and reducing context switching.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-bc507498ac",
+    "rejectedAt": "2026-05-03T07:37:21.931454+00:00",
+    "date": "2026-04-27",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/choco",
+    "headline": "Choco automates food distribution with AI agents",
+    "summary": "How Choco used OpenAI APIs to streamline food distribution, boost productivity, and unlock growth—an in-depth customer story on real-world AI impact.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-e1e83761f7",
+    "rejectedAt": "2026-05-03T07:37:25.770586+00:00",
+    "date": "2026-04-26",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/our-principles",
+    "headline": "Our principles",
+    "summary": "Our mission is to ensure that AGI benefits all of humanity. Sam Altman shares five principles that guide our work.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-6e6cdaf0d6",
+    "rejectedAt": "2026-05-03T07:37:35.009936+00:00",
+    "date": "2026-04-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/introducing-gpt-5-5",
+    "headline": "Introducing GPT-5.5",
+    "summary": "Introducing GPT-5.5, our smartest model yet—faster, more capable, and built for complex tasks like coding, research, and data analysis across tools.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-cfbb97f4e1",
+    "rejectedAt": "2026-05-03T07:37:55.170557+00:00",
+    "date": "2026-04-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/gpt-5-5-system-card",
+    "headline": "GPT-5.5 System Card",
+    "summary": "",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-8a79aaeb63",
+    "rejectedAt": "2026-05-03T07:37:59.792691+00:00",
+    "date": "2026-04-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/academy/what-is-codex",
+    "headline": "What is Codex?",
+    "summary": "Learn how Codex helps you go beyond chat by automating tasks, connecting tools, and producing real outputs like docs and dashboards.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-eff960ba78",
+    "rejectedAt": "2026-05-03T07:38:07.570064+00:00",
+    "date": "2026-04-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/academy/codex-how-to-start",
+    "headline": "How to get started with Codex",
+    "summary": "Learn how to get started with Codex by setting up projects, creating threads, and completing your first tasks with step-by-step guidance.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-99a0fa5d4a",
+    "rejectedAt": "2026-05-03T07:38:17.567217+00:00",
+    "date": "2026-04-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/academy/codex-settings",
+    "headline": "Codex settings",
+    "summary": "Learn how to configure Codex settings, including personalization, detail level, and permissions, to run tasks smoothly and customize your workflow.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-7fbf7b2c45",
+    "rejectedAt": "2026-05-03T07:38:23.194792+00:00",
+    "date": "2026-04-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/academy/working-with-codex",
+    "headline": "Working with Codex",
+    "summary": "Learn how to set up your Codex workspace, create threads and projects, manage files, and start completing tasks with step-by-step guidance.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-bb94101d86",
+    "rejectedAt": "2026-05-03T07:38:29.822022+00:00",
+    "date": "2026-04-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/academy/codex-plugins-and-skills",
+    "headline": "Plugins and skills",
+    "summary": "Learn how to use Codex plugins and skills to connect tools, access data, and follow repeatable workflows to automate tasks and improve results.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-3533fea541",
+    "rejectedAt": "2026-05-03T07:38:33.173817+00:00",
+    "date": "2026-04-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/academy/top-10-use-cases-codex-for-work",
+    "headline": "Top 10 uses for Codex at work",
+    "summary": "Explore 10 practical Codex use cases to automate tasks, create deliverables, and turn real inputs into outputs across tools, files, and workflows.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-b2acc3c294",
+    "rejectedAt": "2026-05-03T07:38:38.994757+00:00",
+    "date": "2026-04-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/academy/codex-automations",
+    "headline": "Automations",
+    "summary": "Learn how to automate tasks in Codex using schedules and triggers to create reports, summaries, and recurring workflows without manual effort.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  }
+]
