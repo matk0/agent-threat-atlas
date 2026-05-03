@@ -111,6 +111,9 @@ class ScraperContractTest(unittest.TestCase):
             finally:
                 scraper_mod.OUTPUT_FILE = original_output
 
+    def test_scraper_writes_canonical_english_incidents(self) -> None:
+        self.assertEqual(scraper_mod.OUTPUT_FILE.name, "incidents.en.ts")
+
     def test_quality_gate_accepts_specific_agent_security_incident(self) -> None:
         candidate = scraper_mod.Candidate(
             source="GitHub Security Advisory Database",

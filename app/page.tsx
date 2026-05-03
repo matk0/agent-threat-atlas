@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { incidents } from "@/content/incidents";
 import { threats } from "@/content/threats";
+import { daysSinceDate } from "@/lib/format";
+import { locale, messages } from "@/lib/i18n";
 import IncidentExplorer from "./incidents/IncidentExplorer";
 
 export const metadata: Metadata = {
-  title: "Live Atlas",
-  description:
-    "A daily-updated atlas of agentic AI incidents mapped to threat categories and prevention guidance.",
+  title: messages.home.title,
+  description: messages.home.description,
 };
 
 export default function HomePage() {
@@ -22,32 +23,44 @@ export default function HomePage() {
     ]),
   );
   const latest = sorted[0]?.date;
+  const daysSinceLatest = latest ? daysSinceDate(latest) : undefined;
 
   return (
     <>
       <header className="border-b border-ink-100 bg-ink-50/35">
         <div className="container-page py-10 sm:py-12">
-          <div className="eyebrow">Agent Threat Atlas · updated daily</div>
+          <div className="eyebrow">{messages.home.eyebrow}</div>
           <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <h1 className="text-3xl font-semibold tracking-tight text-ink-900 sm:text-5xl">
-                Live atlas of agentic AI incidents.
+                {messages.home.heading}
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-ink-600 sm:text-lg">
-                Public incidents, mapped to threat categories and practical
-                prevention principles for teams deploying AI agents.
+                {messages.home.intro}
               </p>
             </div>
             <dl className="grid grid-cols-3 gap-3 text-right sm:min-w-80">
-              <Stat label="Incidents" value={String(sorted.length)} />
-              <Stat label="Categories" value={String(threats.length)} />
-              <Stat label="Latest" value={latest ?? "n/a"} />
+              <Stat label={messages.home.incidents} value={String(sorted.length)} />
+              <Stat label={messages.home.categories} value={String(threats.length)} />
+              <Stat
+                label={messages.home.latest}
+                value={
+                  daysSinceLatest === undefined
+                    ? messages.home.notAvailable
+                    : messages.home.daysSinceAgenticAiIncident(daysSinceLatest)
+                }
+              />
             </dl>
           </div>
         </div>
       </header>
 
-      <IncidentExplorer incidents={sorted} threatMap={threatMap} />
+      <IncidentExplorer
+        incidents={sorted}
+        threatMap={threatMap}
+        locale={locale}
+        labels={messages.incidents}
+      />
     </>
   );
 }

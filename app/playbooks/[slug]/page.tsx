@@ -5,6 +5,7 @@ import { playbooks, playbookBySlug } from "@/content/playbooks";
 import { threats, threatBySlug } from "@/content/threats";
 import { Pill, SeverityPill } from "@/components/Pill";
 import CTA from "@/components/CTA";
+import { messages } from "@/lib/i18n";
 
 type Params = { slug: string };
 
@@ -35,7 +36,7 @@ export default function PlaybookDetail({ params }: { params: Params }) {
       <header className="border-b border-ink-100 bg-ink-50/40">
         <div className="container-page py-14">
           <Link href="/playbooks" className="text-sm text-ink-500 hover:text-ink-900">
-            ← Playbooks
+            ← {messages.playbooks.back}
           </Link>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <Pill tone="accent">{p.short}</Pill>
@@ -75,7 +76,7 @@ export default function PlaybookDetail({ params }: { params: Params }) {
           <div className="sticky top-24 space-y-6">
             <div className="rounded-2xl border border-ink-100 bg-white p-5 shadow-card">
               <div className="text-xs font-semibold uppercase tracking-wider text-ink-500">
-                Maps to threats
+                {messages.playbooks.mapsToThreats}
               </div>
               <ul className="mt-3 space-y-3 text-sm">
                 {related.map((t) => (
@@ -94,18 +95,16 @@ export default function PlaybookDetail({ params }: { params: Params }) {
 
             <div className="rounded-2xl border border-ink-100 bg-ink-900 p-5 text-white">
               <div className="text-xs font-semibold uppercase tracking-wider text-accent-100/80">
-                Need help applying this?
+                {messages.playbooks.helpTitle}
               </div>
               <p className="mt-2 text-sm text-ink-100/90">
-                We run two-week engagements that turn playbooks like this into
-                shipped controls — code, configs, and dashboards your team can
-                own.
+                {messages.playbooks.helpBody}
               </p>
               <Link
                 href="/contact"
                 className="mt-4 inline-flex items-center justify-center rounded-lg bg-white px-4 py-2 text-xs font-semibold text-ink-900 hover:bg-ink-50"
               >
-                Book an intro call
+                {messages.playbooks.bookCall}
               </Link>
             </div>
           </div>

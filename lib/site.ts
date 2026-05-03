@@ -1,26 +1,29 @@
+import { config, messages } from "./i18n";
+
 // Central site configuration.
 export const site = {
   name: "Agent Threat Atlas",
   shortName: "Atlas",
-  tagline:
-    "Daily agentic AI incidents mapped to threat categories and prevention guidance.",
-  description:
-    "Agent Threat Atlas tracks public agentic AI security incidents, maps them to threat categories, and keeps practical prevention guidance for teams deploying AI agents.",
-  domain: "atlas.matejlukasik.com",
+  tagline: messages.site.tagline,
+  description: messages.site.description,
+  domain: config.domain,
+  domains: {
+    en: "atlas.matejlukasik.com",
+    sk: "atlas.matejlukasik.sk",
+  },
   email: "matej@clawforceone.ai",
   consultant: {
     name: "Matej Lukasik",
     org: "Clawforce One",
     orgUrl: "https://clawforceone.ai",
-    role: "Agentic AI Security Consultant",
-    pitch:
-      "I help engineering teams design, audit, and harden production agent systems before they get into trouble.",
+    role: messages.site.consultantRole,
+    pitch: messages.site.consultantPitch,
     calendly: "https://calendly.com/matejlukasik/intro",
   },
   nav: [
-    { href: "/", label: "Live Atlas" },
-    { href: "/threats", label: "Threat Categories" },
-    { href: "https://matejlukasik.com/contact", label: "Contact", external: true },
+    { href: "/", label: messages.nav.liveAtlas },
+    { href: "/threats", label: messages.nav.threatCategories },
+    { href: "https://matejlukasik.com/contact", label: messages.nav.contact, external: true },
   ],
 };
 
@@ -31,22 +34,22 @@ export const severityMeta: Record<
   { label: string; tone: string; ring: string }
 > = {
   critical: {
-    label: "Critical",
+    label: messages.severity.critical,
     tone: "bg-crit-50 text-crit-700",
     ring: "ring-crit-500/30",
   },
   high: {
-    label: "High",
+    label: messages.severity.high,
     tone: "bg-warn-50 text-warn-700",
     ring: "ring-warn-500/30",
   },
   medium: {
-    label: "Medium",
+    label: messages.severity.medium,
     tone: "bg-accent-50 text-accent-700",
     ring: "ring-accent-500/30",
   },
   low: {
-    label: "Low",
+    label: messages.severity.low,
     tone: "bg-ink-50 text-ink-600",
     ring: "ring-ink-300/40",
   },

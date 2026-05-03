@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
+import { config, messages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: {
@@ -24,13 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang={config.htmlLang}>
       <body className="min-h-screen bg-white text-ink-900">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-ink-900 focus:px-3 focus:py-2 focus:text-white"
         >
-          Skip to content
+          {messages.skipToContent}
         </a>
         <Header />
         <main id="main">{children}</main>

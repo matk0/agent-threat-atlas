@@ -4,11 +4,11 @@ import Section from "@/components/Section";
 import { SeverityPill, Pill } from "@/components/Pill";
 import { threats } from "@/content/threats";
 import { incidents } from "@/content/incidents";
+import { messages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Threat catalog",
-  description:
-    "Agentic AI threat categories with practical controls and related incidents.",
+  title: messages.threats.indexTitle,
+  description: messages.threats.indexDescription,
 };
 
 export default function ThreatsIndex() {
@@ -22,18 +22,18 @@ export default function ThreatsIndex() {
   return (
     <>
       <Section
-        eyebrow="The catalog"
-        title="Threat categories and controls."
-        intro="Each category links real incidents to practical ways to reduce exposure."
+        eyebrow={messages.threats.eyebrow}
+        title={messages.threats.heading}
+        intro={messages.threats.intro}
       >
         <div className="overflow-hidden rounded-2xl border border-ink-100 bg-white">
           <table className="w-full text-left">
             <thead className="bg-ink-50/60 text-xs uppercase tracking-wider text-ink-500">
               <tr>
-                <th className="px-6 py-3">Threat</th>
-                <th className="px-6 py-3">Severity</th>
-                <th className="px-6 py-3">Recent incidents</th>
-                <th className="px-6 py-3">Frameworks</th>
+                <th className="px-6 py-3">{messages.threats.threat}</th>
+                <th className="px-6 py-3">{messages.threats.severity}</th>
+                <th className="px-6 py-3">{messages.threats.recentIncidents}</th>
+                <th className="px-6 py-3">{messages.threats.frameworks}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-ink-100">
@@ -55,7 +55,7 @@ export default function ThreatsIndex() {
                     {counts.get(t.slug) ?? 0}
                   </td>
                   <td className="px-6 py-4 align-top text-xs text-ink-500">
-                    {t.frameworks.length} refs
+                    {t.frameworks.length} {messages.threats.refs}
                   </td>
                 </tr>
               ))}

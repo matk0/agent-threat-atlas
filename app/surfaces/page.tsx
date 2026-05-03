@@ -5,11 +5,11 @@ import { surfaces } from "@/content/surfaces";
 import { threats, threatBySlug } from "@/content/threats";
 import { SeverityPill } from "@/components/Pill";
 import CTA from "@/components/CTA";
+import { messages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Attack surfaces",
-  description:
-    "A component-by-component view of the agentic AI attack surface, from the model to the output handler.",
+  title: messages.surfaces.title,
+  description: messages.surfaces.description,
 };
 
 export default function SurfacesPage() {
@@ -17,13 +17,10 @@ export default function SurfacesPage() {
     <>
       <header className="border-b border-ink-100">
         <div className="container-page py-16">
-          <div className="eyebrow">Attack surfaces</div>
-          <h1 className="h-display mt-4">Where agents get attacked.</h1>
+          <div className="eyebrow">{messages.surfaces.title}</div>
+          <h1 className="h-display mt-4">{messages.surfaces.heading}</h1>
           <p className="lede mt-5 max-w-3xl">
-            Threats don&rsquo;t live in the abstract — they live in components.
-            This is the reverse view of the catalog: walk the agent stack and
-            see, for each surface, what attackers target and what controls
-            close it down.
+            {messages.surfaces.intro}
           </p>
         </div>
       </header>
@@ -42,7 +39,7 @@ export default function SurfacesPage() {
             >
               <div className="lg:col-span-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-accent-600">
-                  Surface
+                  {messages.surfaces.surface}
                 </div>
                 <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink-900">
                   {s.title}
@@ -52,7 +49,7 @@ export default function SurfacesPage() {
 
               <div className="lg:col-span-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-ink-500">
-                  Applicable threats
+                  {messages.surfaces.applicableThreats}
                 </div>
                 <ul className="mt-3 space-y-2">
                   {s.threats.map((slug) => {
@@ -75,7 +72,7 @@ export default function SurfacesPage() {
 
               <div className="lg:col-span-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-ink-500">
-                  Controls
+                  {messages.surfaces.controls}
                 </div>
                 <ul className="mt-3 space-y-2 text-sm text-ink-700">
                   {s.mitigations.map((m, idx) => (
@@ -99,24 +96,23 @@ export default function SurfacesPage() {
 function Diagram() {
   // Compact, text-first system diagram. Uses CSS grid + arrows in pseudo-elements.
   const layers = [
-    { id: "user", label: "User / Caller", tone: "ink" },
-    { id: "identity", label: "Identity & Authz", tone: "accent" },
-    { id: "orchestrator", label: "Orchestrator / Planner", tone: "accent" },
-    { id: "llm", label: "Model", tone: "accent" },
-    { id: "memory", label: "Memory", tone: "accent" },
-    { id: "retrieval", label: "Retrieval / RAG", tone: "accent" },
-    { id: "tools", label: "Tools / MCP", tone: "accent" },
-    { id: "output", label: "Output Handler", tone: "accent" },
-    { id: "world", label: "External world", tone: "ink" },
+    { id: "user", label: messages.surfaces.layers.user, tone: "ink" },
+    { id: "identity", label: messages.surfaces.layers.identity, tone: "accent" },
+    { id: "orchestrator", label: messages.surfaces.layers.orchestrator, tone: "accent" },
+    { id: "llm", label: messages.surfaces.layers.llm, tone: "accent" },
+    { id: "memory", label: messages.surfaces.layers.memory, tone: "accent" },
+    { id: "retrieval", label: messages.surfaces.layers.retrieval, tone: "accent" },
+    { id: "tools", label: messages.surfaces.layers.tools, tone: "accent" },
+    { id: "output", label: messages.surfaces.layers.output, tone: "accent" },
+    { id: "world", label: messages.surfaces.layers.world, tone: "ink" },
   ];
   return (
     <div className="rounded-2xl border border-ink-100 bg-white p-6 sm:p-10">
       <div className="text-xs font-semibold uppercase tracking-wider text-ink-500">
-        Reference architecture
+        {messages.surfaces.referenceArchitecture}
       </div>
       <p className="mt-3 max-w-2xl text-ink-700">
-        A typical agent passes data across nine surfaces. Every arrow is a
-        trust boundary. Click any node to jump to its detail.
+        {messages.surfaces.diagramIntro}
       </p>
       <div className="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-9">
         {layers.map((l) => {
@@ -138,9 +134,7 @@ function Diagram() {
         })}
       </div>
       <p className="mt-6 text-xs text-ink-500">
-        Trust boundaries: every input from a less-trusted layer must be
-        treated as adversarial. The two most-violated boundaries are
-        Retrieval → Model and Tools → Model.
+        {messages.surfaces.trustBoundaries}
       </p>
     </div>
   );

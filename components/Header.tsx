@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { messages } from "@/lib/i18n";
 import Logo from "./Logo";
 
 export default function Header() {
@@ -14,7 +15,7 @@ export default function Header() {
           <span>{site.name}</span>
         </Link>
         <nav
-          aria-label="Primary"
+          aria-label={messages.nav.primary}
           className="hidden items-center gap-7 text-sm text-ink-600 md:flex"
         >
           {site.nav.map((item) => (

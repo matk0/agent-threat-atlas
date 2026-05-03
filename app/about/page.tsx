@@ -5,10 +5,11 @@ import { site } from "@/lib/site";
 import { threats } from "@/content/threats";
 import { incidents } from "@/content/incidents";
 import { playbooks } from "@/content/playbooks";
+import { messages } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: `What ${site.name} is, who maintains it, and how to use it.`,
+  title: messages.about.title,
+  description: messages.about.description,
 };
 
 export default function AboutPage() {
@@ -16,8 +17,8 @@ export default function AboutPage() {
     <>
       <header className="border-b border-ink-100">
         <div className="container-page py-16">
-          <div className="eyebrow">About</div>
-          <h1 className="h-display mt-4">A working reference, kept current.</h1>
+          <div className="eyebrow">{messages.about.eyebrow}</div>
+          <h1 className="h-display mt-4">{messages.about.heading}</h1>
           <p className="lede mt-5 max-w-3xl">{site.tagline}</p>
         </div>
       </header>
@@ -26,67 +27,55 @@ export default function AboutPage() {
         <div className="grid gap-12 lg:grid-cols-12">
           <article className="prose-body lg:col-span-8">
             <h2 className="text-xl font-semibold tracking-tight text-ink-900">
-              What this site is
+              {messages.about.whatTitle}
             </h2>
             <p className="mt-3 text-ink-700 leading-relaxed">
-              {site.name} is a public, evolving reference for engineering and
-              security teams adopting agentic AI. Three things, in one place:
-              a catalog of the threats specific to agentic systems, a daily
-              feed of real incidents from the field, and the controls that
-              would have prevented each one. Every incident links to the
-              threat category that explains it and to a playbook for closing
-              the gap.
+              {messages.about.whatBody}
             </p>
             <p className="mt-3 text-ink-700 leading-relaxed">
-              The Atlas exists because most agent breaches trace to a small
-              set of well-understood failures — prompt injection, over-scoped
-              tools, unsafe output handling, weak identity. Calling them out
-              by name makes them addressable. The site is intentionally
-              boring: no exhortation, no countdown timers, no sales theater.
-              Just the catalog, the incidents, and the controls.
+              {messages.about.whyBody}
             </p>
 
             <h2 className="mt-10 text-xl font-semibold tracking-tight text-ink-900">
-              How to use it
+              {messages.about.useTitle}
             </h2>
             <p className="mt-3 text-ink-700 leading-relaxed">
-              If you&rsquo;re evaluating an agent feature or vendor, start at
-              the <Link href="/threats" className="link-quiet">threat catalog</Link>{" "}
-              and skim the categories that apply. If you&rsquo;re hardening a
-              live system, the{" "}
-              <Link href="/playbooks" className="link-quiet">playbooks</Link>{" "}
-              are checklist-shaped and copy-paste-friendly. The{" "}
-              <Link href="/incidents" className="link-quiet">incident feed</Link>{" "}
-              is worth scanning weekly — it&rsquo;s how you keep your mental
-              model current as the field moves.
+              {messages.about.usePrefix}{" "}
+              <Link href="/threats" className="link-quiet">
+                {messages.nav.threatCategories.toLowerCase()}
+              </Link>{" "}
+              {messages.about.useMiddle}{" "}
+              <Link href="/playbooks" className="link-quiet">
+                {messages.about.playbooks.toLowerCase()}
+              </Link>{" "}
+              {messages.about.useSuffix}
+              <Link href="/incidents" className="link-quiet">
+                {messages.nav.liveAtlas.toLowerCase()}
+              </Link>{" "}
+              {messages.about.useEnd}
             </p>
 
             <h2 className="mt-10 text-xl font-semibold tracking-tight text-ink-900">
-              How it&rsquo;s built
+              {messages.about.builtTitle}
             </h2>
             <p className="mt-3 text-ink-700 leading-relaxed">
-              The threat catalog and playbooks are hand-written. The incident
-              feed is automated: a daily scraper polls roughly seventy
-              sources — CVE feeds, vendor advisories, regulators, security
-              research blogs, trade press — and an LLM categorizer applies a
-              strict &ldquo;confirmed incidents only&rdquo; filter before
-              anything reaches the site. Open source on{" "}
+              {messages.about.builtBody} {messages.about.openSourceOn}{" "}
               <a
                 className="link-quiet"
                 href={`${site.consultant.orgUrl}`}
                 target="_blank"
                 rel="noreferrer"
               >
-                request
+                {messages.about.request}
               </a>
-              . Mapping is to OWASP LLM Top 10, NIST AI RMF, MITRE ATLAS, ISO/IEC 42001, and the EU AI Act.
+              . {messages.about.builtMapping}
             </p>
 
             <h2 className="mt-10 text-xl font-semibold tracking-tight text-ink-900">
-              Who maintains it
+              {messages.about.maintainerTitle}
             </h2>
             <p className="mt-3 text-ink-700 leading-relaxed">
-              The Atlas is maintained by{" "}
+              {messages.about.maintainerBody}{" "}
               <strong className="text-ink-900">{site.consultant.name}</strong>,{" "}
               {site.consultant.role.toLowerCase()} at{" "}
               <a
@@ -97,12 +86,10 @@ export default function AboutPage() {
               >
                 {site.consultant.org}
               </a>
-              . {site.consultant.pitch} If you&rsquo;d like to talk about a
-              specific agent system, the consultancy is the right door.
+              . {site.consultant.pitch} {messages.about.maintainerSuffix}
             </p>
             <p className="mt-3 text-ink-700 leading-relaxed">
-              Spotted an incident or category that&rsquo;s missing? An
-              incorrect mitigation? A source we should be polling? Email{" "}
+              {messages.about.missing}{" "}
               <a className="link-quiet" href={`mailto:${site.email}`}>
                 {site.email}
               </a>
@@ -112,13 +99,13 @@ export default function AboutPage() {
 
           <aside className="lg:col-span-4">
             <div className="sticky top-24 space-y-6">
-              <Stat label="Threat categories" value={threats.length} />
-              <Stat label="Incidents indexed" value={incidents.length} />
-              <Stat label="Playbooks" value={playbooks.length} />
+              <Stat label={messages.about.threatCategories} value={threats.length} />
+              <Stat label={messages.about.incidentsIndexed} value={incidents.length} />
+              <Stat label={messages.about.playbooks} value={playbooks.length} />
 
               <div className="rounded-2xl border border-ink-100 bg-ink-900 p-5 text-white">
                 <div className="text-xs font-semibold uppercase tracking-wider text-accent-100/80">
-                  Built by
+                  {messages.about.builtBy}
                 </div>
                 <p className="mt-2 text-lg font-semibold">
                   {site.consultant.org}
@@ -132,7 +119,7 @@ export default function AboutPage() {
                   rel="noreferrer"
                   className="mt-4 inline-flex items-center justify-center rounded-lg bg-white px-4 py-2 text-xs font-semibold text-ink-900 hover:bg-ink-50"
                 >
-                  Visit {site.consultant.org} →
+                  {messages.about.visit} {site.consultant.org} →
                 </a>
               </div>
             </div>

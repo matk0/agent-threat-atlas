@@ -83,7 +83,7 @@ FALLBACK_PREVENTION_NOTES = {
 }
 
 ROOT = Path(__file__).resolve().parent.parent
-OUTPUT_FILE = ROOT / "content" / "incidents.ts"
+OUTPUT_FILE = ROOT / "content" / "incidents.en.ts"
 REJECTED_FILE = ROOT / "content" / "rejected-candidates.json"
 PROMPT_FILE = ROOT / "scripts" / "scraper-prompt.md"
 NVIDIA_CHAT_COMPLETIONS_URL = "https://integrate.api.nvidia.com/v1/chat/completions"

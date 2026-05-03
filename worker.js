@@ -6,6 +6,11 @@ export default {
       return Response.redirect("https://matejlukasik.com/contact", 302);
     }
 
-    return env.ASSETS.fetch(request);
+    const prefix = url.hostname === "atlas.matejlukasik.sk" ? "/sk" : "/en";
+    if (!url.pathname.startsWith("/sk/") && !url.pathname.startsWith("/en/")) {
+      url.pathname = `${prefix}${url.pathname}`;
+    }
+
+    return env.ASSETS.fetch(new Request(url, request));
   },
 };

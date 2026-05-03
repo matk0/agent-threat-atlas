@@ -1,16 +1,42 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import ts from "typescript";
 
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
+
+async function importTs(path) {
+  const source = read(path);
+  const { outputText } = ts.transpileModule(source, {
+    compilerOptions: {
+      module: ts.ModuleKind.ES2022,
+      target: ts.ScriptTarget.ES2022,
+    },
+  });
+  const encoded = Buffer.from(outputText).toString("base64");
+  return import(`data:text/javascript;base64,${encoded}`);
+}
 
 test("root renders the live incident atlas", () => {
   const page = read("app/page.tsx");
 
   assert.match(page, /IncidentExplorer/);
-  assert.match(page, /updated daily/i);
+  assert.match(page, /messages\.home\.eyebrow/);
   assert.doesNotMatch(page, /function Hero/);
   assert.doesNotMatch(page, /RecentIncidents/);
+});
+
+test("home page reports days since the latest agentic AI incident", async () => {
+  const page = read("app/page.tsx");
+  const i18n = read("lib/i18n.ts");
+  const { daysSinceDate } = await importTs("lib/format.ts");
+
+  assert.equal(daysSinceDate("2026-04-30", new Date("2026-05-03T07:34:00Z")), 3);
+  assert.equal(daysSinceDate("2026-05-03", new Date("2026-05-03T23:59:00Z")), 0);
+  assert.match(page, /daysSinceDate\(latest\)/);
+  assert.match(page, /messages\.home\.daysSinceAgenticAiIncident/);
+  assert.match(i18n, /since Agentic AI incident/);
+  assert.match(i18n, /od incidentu agentickej AI/);
 });
 
 test("/incidents aliases the root atlas", () => {
@@ -26,7 +52,7 @@ test("navigation is focused and sends contact off-site", () => {
   const worker = read("worker.js");
 
   assert.match(site, /href: "\/"/);
-  assert.match(site, /label: "Live Atlas"/);
+  assert.match(site, /label: messages\.nav\.liveAtlas/);
   assert.match(site, /href: "\/threats"/);
   assert.match(site, /href: "https:\/\/matejlukasik\.com\/contact"/);
   assert.doesNotMatch(site, /Attack Surfaces/);
@@ -36,21 +62,62 @@ test("navigation is focused and sends contact off-site", () => {
   assert.match(contactPage, /httpEquiv="refresh"/);
   assert.match(contactPage, /https:\/\/matejlukasik\.com\/contact/);
   assert.match(wrangler, /"main": "\.\/worker\.js"/);
+  assert.match(wrangler, /"directory": "\.\/dist"/);
   assert.match(wrangler, /"binding": "ASSETS"/);
   assert.match(wrangler, /"run_worker_first": \["\/contact\*"\]/);
   assert.match(worker, /Response\.redirect\("https:\/\/matejlukasik\.com\/contact", 302\)/);
 });
 
+test("site builds separate English and Slovak static outputs", () => {
+  const packageJson = read("package.json");
+  const buildScript = read("scripts/build-locales.mjs");
+  const i18n = read("lib/i18n.ts");
+  const site = read("lib/site.ts");
+  const worker = read("worker.js");
+  const workflow = read(".github/workflows/scraper.yml");
+
+  assert.match(packageJson, /"build": "node scripts\/build-locales\.mjs"/);
+  assert.match(buildScript, /SITE_LOCALE: "en"/);
+  assert.match(buildScript, /SITE_LOCALE: "sk"/);
+  assert.match(buildScript, /dist\/en/);
+  assert.match(buildScript, /dist\/sk/);
+  assert.match(i18n, /export type Locale = "en" \| "sk"/);
+  assert.match(site, /atlas\.matejlukasik\.com/);
+  assert.match(site, /atlas\.matejlukasik\.sk/);
+  assert.match(i18n, /Živý atlas bezpečnostných incidentov agentickej AI/);
+  assert.match(worker, /atlas\.matejlukasik\.sk/);
+  assert.match(worker, /\/sk\//);
+  assert.match(worker, /\/en\//);
+  assert.match(workflow, /https:\/\/atlas\.matejlukasik\.sk\/incidents/);
+});
+
+test("Slovak locale has translated static content and incident news", () => {
+  const incidents = read("content/incidents.sk.ts");
+  const threats = read("content/threats.sk.ts");
+  const playbooks = read("content/playbooks.sk.ts");
+  const surfaces = read("content/surfaces.sk.ts");
+  const localizedIncidents = read("content/incidents.ts");
+  const localizedThreats = read("content/threats.ts");
+
+  assert.match(incidents, /export const incidents/);
+  assert.match(incidents, /Prevencia/);
+  assert.match(threats, /export const threats/);
+  assert.match(playbooks, /export const playbooks/);
+  assert.match(surfaces, /export const surfaces/);
+  assert.match(localizedIncidents, /incidentsSk/);
+  assert.match(localizedThreats, /threatsSk/);
+});
+
 test("threat detail pages explain the category end to end", () => {
   const threatPage = read("app/threats/[slug]/page.tsx");
 
-  assert.match(threatPage, /heading="What it is"/);
-  assert.match(threatPage, /heading="How attacks happen"/);
-  assert.match(threatPage, /heading="How to prevent it"/);
-  assert.match(threatPage, /heading="Best practices"/);
-  assert.match(threatPage, /heading="Known examples"/);
-  assert.match(threatPage, /heading="Framework mapping"/);
-  assert.match(threatPage, /heading="Related incidents"/);
+  assert.match(threatPage, /heading=\{messages\.threats\.whatItIs\}/);
+  assert.match(threatPage, /heading=\{messages\.threats\.howAttacksHappen\}/);
+  assert.match(threatPage, /heading=\{messages\.threats\.howToPrevent\}/);
+  assert.match(threatPage, /heading=\{messages\.threats\.bestPractices\}/);
+  assert.match(threatPage, /heading=\{messages\.threats\.knownExamples\}/);
+  assert.match(threatPage, /heading=\{messages\.threats\.frameworkMapping\}/);
+  assert.match(threatPage, /heading=\{messages\.threats\.relatedIncidents\}/);
   assert.match(threatPage, /threat\.whatItIs\.map/);
   assert.match(threatPage, /threat\.howItHappens\.map/);
   assert.match(threatPage, /bestPracticesFor\(threat\)/);

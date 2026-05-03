@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { messages } from "@/lib/i18n";
 
 export default function Footer() {
   return (
@@ -13,16 +14,16 @@ export default function Footer() {
         </div>
         <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-600">
           <Link href="/" className="hover:text-ink-900">
-            Live Atlas
+            {messages.nav.liveAtlas}
           </Link>
           <Link href="/threats" className="hover:text-ink-900">
-            Threat Categories
+            {messages.nav.threatCategories}
           </Link>
           <a
             href="https://matejlukasik.com/contact"
             className="hover:text-ink-900"
           >
-            Contact
+            {messages.nav.contact}
           </a>
         </nav>
       </div>

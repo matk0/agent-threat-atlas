@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Incident } from "@/content/incidents";
+import type { Locale } from "@/lib/i18n";
 import type { Severity } from "@/lib/site";
 import { SeverityPill, Pill } from "@/components/Pill";
 import { formatDate } from "@/lib/format";
@@ -17,9 +18,26 @@ const SEVERITIES: Severity[] = ["critical", "high", "medium", "low"];
 export default function IncidentExplorer({
   incidents,
   threatMap,
+  locale,
+  labels,
 }: {
   incidents: Incident[];
   threatMap: ThreatMap;
+  locale: Locale;
+  labels: {
+    search: string;
+    searchPlaceholder: string;
+    severity: string;
+    all: string;
+    threatCategory: string;
+    allCategories: string;
+    showing: string;
+    of: string;
+    threatCategories: string;
+    noMatches: string;
+    prevention: string;
+    source: string;
+  };
 }) {
   const [activeThreat, setActiveThreat] = useState<string | "all">("all");
   const [activeSeverity, setActiveSeverity] = useState<Severity | "all">("all");
@@ -66,24 +84,24 @@ export default function IncidentExplorer({
         <div className="sticky top-24 space-y-5">
           <div>
             <label className="text-xs font-semibold uppercase tracking-wider text-ink-500">
-              Search
+              {labels.search}
             </label>
             <input
               type="search"
-              placeholder="Vendor, source, keyword"
+              placeholder={labels.searchPlaceholder}
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               className="mt-2 w-full rounded-lg border border-ink-200 bg-white px-3 py-2 text-sm text-ink-900 placeholder-ink-400 focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-500/20"
             />
           </div>
 
-          <FilterGroup title="Severity">
+          <FilterGroup title={labels.severity}>
             <div className="flex flex-wrap gap-2">
               <FilterChip
                 active={activeSeverity === "all"}
                 onClick={() => setActiveSeverity("all")}
               >
-                All
+                {labels.all}
               </FilterChip>
               {SEVERITIES.map((severity) => (
                 <FilterChip
@@ -97,13 +115,13 @@ export default function IncidentExplorer({
             </div>
           </FilterGroup>
 
-          <FilterGroup title="Threat category">
+          <FilterGroup title={labels.threatCategory}>
             <div className="flex flex-col gap-1">
               <FilterRow
                 active={activeThreat === "all"}
                 onClick={() => setActiveThreat("all")}
                 count={incidents.length}
-                label="All categories"
+                label={labels.allCategories}
               />
               {threatOptions.map(([slug, count]) => (
                 <FilterRow
@@ -122,10 +140,10 @@ export default function IncidentExplorer({
       <section className="lg:col-span-9">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3 text-sm text-ink-500">
           <span>
-            Showing {filtered.length} of {incidents.length}
+            {labels.showing} {filtered.length} {labels.of} {incidents.length}
           </span>
           <Link href="/threats" className="font-medium text-accent-700 hover:underline">
-            Threat categories →
+            {labels.threatCategories} →
           </Link>
         </div>
 
@@ -135,11 +153,13 @@ export default function IncidentExplorer({
               key={incident.id}
               incident={incident}
               threatMap={threatMap}
+              locale={locale}
+              labels={labels}
             />
           ))}
           {filtered.length === 0 && (
             <li className="p-10 text-center text-sm text-ink-500">
-              No incidents match these filters.
+              {labels.noMatches}
             </li>
           )}
         </ul>
@@ -151,9 +171,16 @@ export default function IncidentExplorer({
 function IncidentRow({
   incident,
   threatMap,
+  locale,
+  labels,
 }: {
   incident: Incident;
   threatMap: ThreatMap;
+  locale: Locale;
+  labels: {
+    prevention: string;
+    source: string;
+  };
 }) {
   const primaryThreat = incident.threats[0];
   const preventionNote =
@@ -163,7 +190,7 @@ function IncidentRow({
     <li className="p-5">
       <div className="flex flex-wrap items-center gap-2 text-xs">
         <SeverityPill severity={incident.severity} />
-        <time className="text-ink-500">{formatDate(incident.date)}</time>
+        <time className="text-ink-500">{formatDate(incident.date, locale)}</time>
         <span className="text-ink-300">/</span>
         <span className="text-ink-500">{incident.source}</span>
         {incident.vendor && (
@@ -183,7 +210,7 @@ function IncidentRow({
 
       {preventionNote && (
         <p className="mt-3 max-w-3xl rounded-lg bg-ink-50 px-3 py-2 text-sm leading-6 text-ink-700">
-          <span className="font-semibold text-ink-900">Prevention: </span>
+          <span className="font-semibold text-ink-900">{labels.prevention} </span>
           {preventionNote}
         </p>
       )}
@@ -195,7 +222,7 @@ function IncidentRow({
           rel="noreferrer"
           className="text-sm font-medium text-accent-700 hover:underline"
         >
-          Source ↗
+          {labels.source} ↗
         </a>
         <div className="flex flex-wrap gap-2">
           {incident.threats.map((slug) => (
