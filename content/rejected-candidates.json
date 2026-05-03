@@ -1,5 +1,1684 @@
 [
   {
+    "id": "reject-a65f00ebb8",
+    "rejectedAt": "2026-05-03T10:26:11.550453+00:00",
+    "date": "2026-04-23",
+    "source": "Tenable Security Research",
+    "url": "https://www.tenable.com/security/research/tra-2026-35",
+    "headline": "Yuma AI - Unauthenticated personal data and order information disclosure",
+    "summary": "Yuma AI - Unauthenticated personal data and order information disclosure\n\n            A vulnerability was identified in Yuma AI Chat AI (a chatbot), a SaaS solution integrated into multiple e-commerce websites. Chat AI allows any unauthenticated user to retrieve sensitive order information including purchased items and shipping addresses belonging to arbitrary customers, simply by providing a customer email address or an order number.\n      \nJoshua Martinelle\n\nThu, 04/23/2026 - 09:22",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 86
+  },
+  {
+    "id": "reject-6dfd70c1e2",
+    "rejectedAt": "2026-05-03T10:26:20.154359+00:00",
+    "date": "2026-04-22",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/gpt-proxy-backdoor-npm-pypi-chinese-llm-relay",
+    "headline": "GPT-Proxy Backdoor in npm and PyPI turns Servers into Chinese LLM Relays",
+    "summary": "We recently observed two malicious packages across npm ( kube-health-tools ) and PyPI ( kube-node-health ) that appear designed to target Kubernetes environments. Both packages are innocuous on the surface, using names that reference Kubernetes to appear legitimate. But under the hood, they silently install a full LLM proxy service on the victim's machine, allowing the attacker to route LLM traffic through the compromised server as if it were just another relay node in a commercial AI reselling platform. Both packages ship a compiled native binary as their payload carrier. The two stage 1 file",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84
+  },
+  {
+    "id": "reject-ca145f1852",
+    "rejectedAt": "2026-05-03T10:26:40.342657+00:00",
+    "date": "2026-04-17",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/xss-vulnerabilities-in-mailcow",
+    "headline": "Multiple Cross-Site Scripting (XSS) Vulnerabilities in Mailcow",
+    "summary": "Aikido's AI pentest agent found three XSS vulnerabilities in Mailcow, one of which let unauthenticated attackers take over administrator accounts. All issues have been patched as of version 2026-03b.\nCategory: Vulnerabilities & Threats",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84
+  },
+  {
+    "id": "reject-a0584ab4e3",
+    "rejectedAt": "2026-05-03T10:27:00.529651+00:00",
+    "date": "2026-04-14",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/axios-cve-2026-40175-a-critical-bug-thats-not-exploitable",
+    "headline": "Axios CVE-2026-40175: a critical bug that’s… not exploitable",
+    "summary": "It’s been a chaotic few weeks for Axios. First, a major supply chain attack put the package under scrutiny. Then, just days later, headlines started appearing about a “critical 10/10 vulnerability” that could lead to full cloud compromise . If you’ve read the coverage, you’ve probably seen claims like: That sounds bad. But when you look closely at how this vulnerability actually behaves in real environments, the story changes. After analyzing the exploit chain and validating behavior with Raul Vega Del Valle,  the researcher who reported the issue, one thing becomes clear: The reason is simple",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84
+  },
+  {
+    "id": "reject-0f6b6b03b8",
+    "rejectedAt": "2026-05-03T10:27:20.705616+00:00",
+    "date": "2026-04-09",
+    "source": "Tenable Security Research",
+    "url": "https://www.tenable.com/security/research/tra-2026-27",
+    "headline": "Anthropic Claude Code Action Runner Arbitrary Code Execution via Malicious MCP Server Configuration",
+    "summary": "Anthropic Claude Code Action Runner Arbitrary Code Execution via Malicious MCP Server Configuration\n\n            The claude-code-action GitHub Action checks out the PR head branch when operating in a pull request context, making the working directory attacker-controlled. Combined with the action unconditionally setting 'enableAllProjectMcpServers' to 'true' in Claude Code's user settings and loading settings from project and local source by default '(settingsSource: [\"user\", \"project\", \"local\"])', an attacker can supply a malicious '.mcp.json' file in his PR branch.When a privileged user triggers the GitHub Action (via an 'issue_comment' event for example), the MCP server defined in the attacker-controlled configuration is automatically started without approval, resulting in arbitrary command execution in the runner with access to all workflow secrets.\n      \nRémy Marot\n\nThu, 04/09/2026 - 05:32",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 86
+  },
+  {
+    "id": "reject-57e21e3091",
+    "rejectedAt": "2026-05-03T10:27:39.909782+00:00",
+    "date": "2026-04-06",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/anthropic-mythos-cybersecurity-risks-overblown",
+    "headline": "The cybersecurity doomerism around Mythos doesn't match what we see on the ground",
+    "summary": "Anthropic's leaked Mythos model has triggered panic about AI-powered cyberattacks. We ran 1,000 AI penetration tests. The results suggest the threat is more nuanced than the headlines claim.\nCategory: News",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84
+  },
+  {
+    "id": "reject-fac6b4cfea",
+    "rejectedAt": "2026-05-03T10:27:46.313429+00:00",
+    "date": "2026-04-23",
+    "source": "Bishop Fox blog",
+    "url": "https://bishopfox.com/blog/otto-support-an-mcp-agentic-ai-security-challenge",
+    "headline": "Otto Support – An MCP, Agentic-AI Security Challenge",
+    "summary": "Bishop Fox built a vulnerable MCP-based customer support tool and turned it into a security challenge. Explore how AI agents interact with tools, escalate privileges, and expose sensitive data. If you work with AI systems, this CTF shows exactly how these architectures fail in the real world.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-95a0a80cb7",
+    "rejectedAt": "2026-05-03T10:27:51.558132+00:00",
+    "date": "2026-04-30",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/30/zig-anti-ai/#atom-everything",
+    "headline": "The Zig project's rationale for their firm anti-AI contribution policy",
+    "summary": "Zig has one of the most stringent anti-LLM policies of any major open source project:\n\nNo LLMs for issues.\nNo LLMs for pull requests.\nNo LLMs for comments on the bug tracker, including translation. English is encouraged, but not required. You are welcome to post in your native language and rely on others to have their own translation tools of choice to interpret your words.\n\nThe most prominent project written in Zig may be the Bun JavaScript runtime, which was acquired by Anthropic in December 2025 and, unsurprisingly, makes heavy use of AI assistance.\nBun operates its own fork of Zig, and recently achieved a 4x performance improvement on Bun compile after adding \"parallel semantic analysis and multiple codegen units to the llvm backend\". Here's that code. But @bunjavascript says:\n\nWe do not currently plan to upstream this, as Zig has a strict ban on LLM-authored contributions.\n\n(Update: here's a Zig core contributor providing details on why they wouldn't accept that particular patch i",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-f694684c7e",
+    "rejectedAt": "2026-05-03T10:27:58.782739+00:00",
+    "date": "2026-04-30",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/30/gpt-55-cyber-capabilities/#atom-everything",
+    "headline": "Our evaluation of OpenAI's GPT-5.5 cyber capabilities",
+    "summary": "Our evaluation of OpenAI&#x27;s GPT-5.5 cyber capabilities\nThe UK's AI Security Institute previously evaluated Claude Mythos: now they've evaluated GPT-5.5 for finding security vulnerability and found it to be comparable to Mythos, but unlike Mythos it's generally available right now.\n\n\n    Tags: ai, openai, generative-ai, llms, anthropic, claude, ai-security-research, gpt",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-d4f38443c0",
+    "rejectedAt": "2026-05-03T10:28:18.978262+00:00",
+    "date": "2026-04-29",
+    "source": "Tenable Security Research",
+    "url": "https://www.tenable.com/security/research/tra-2026-37",
+    "headline": "wget2 Improper Certificate Validation",
+    "summary": "wget2 Improper Certificate Validation\n\n            Tenable Research discovered that wget2 accepts a server certificate with incorrect Key Usage (KU) or Extended Key Usage (EKU). If the attackers compromise a certificate (with the associated private key) issued for a different purpose, they may be able to reuse it for TLS server authentication.&nbsp;Proof of Concept:&nbsp;In this PoC, we will demonstrate generating private keys and the corresponding X.509 certificates, configuring a TLS server to use them, and then how wget2 fails to properly validate certificates not meant to be used for TLS server authentication. In a real attack, the attackers would reuse the X.509 certificate and its corresponding key they managed to compromise.&nbsp;Generate a set of RSA keys:openssl genrsa -out ca-key.pem 2048openssl genrsa -out server-key.pem 2048&nbsp;Create an OpenSSL config:cat openssl-ca.cfg&nbsp;[ ca ]keyUsage&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = critical,digitalSignature",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 86
+  },
+  {
+    "id": "reject-a112fbbc3b",
+    "rejectedAt": "2026-05-03T10:28:39.153390+00:00",
+    "date": "2026-04-30",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/top-cve-scanners-in-2026-to-identify-known-vulnerabilities",
+    "headline": "Top CVE scanners in 2026 to identify known vulnerabilities",
+    "summary": "We evaluated the top CVE scanners in 2026 on coverage breadth, intelligence sources, signal-to-noise ratio, and auto-fix capability. Here's how they compare and which is right for your stack.\nCategory: DevSec Tools & Comparisons",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84
+  },
+  {
+    "id": "reject-e4fa364dae",
+    "rejectedAt": "2026-05-03T10:28:58.917314+00:00",
+    "date": "2026-04-28",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/28/talkie/#atom-everything",
+    "headline": "Introducing talkie: a 13B vintage language model from 1930",
+    "summary": "Introducing talkie: a 13B vintage language model from 1930\nNew project from Nick Levine, David Duvenaud, and Alec Radford (of GPT, GPT-2, Whisper fame).\ntalkie-1930-13b-base (53.1 GB) is a \"13B language model trained on 260B tokens of historical pre-1931 English text\". \ntalkie-1930-13b-it (26.6 GB) is a checkpoint \"finetuned using a novel dataset of instruction-response pairs extracted from pre-1931 reference works\", designed to power a chat interface. You can try that out here.\nBoth models are Apache 2.0 licensed. Since the training data for the base model is entirely out of copyright (the USA copyright cutoff date is currently January 1, 1931), I'm hoping they later decide to release the training data as well.\nUpdate on that: Nick Levine on Twitter:\n\nWill publish more on the corpus in the future (and do our best to share the data or at least scripts to reproduce it).\n\nTheir report suggests some fascinating research objectives for this class of model, including:\n\nHow good are these mo",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-99679f7e70",
+    "rejectedAt": "2026-05-03T10:29:17.318798+00:00",
+    "date": "2026-04-27",
+    "source": "Tenable Security Research",
+    "url": "https://www.tenable.com/security/research/tra-2026-36",
+    "headline": "Spring AI SQL Injection in PgVectorStore and friends",
+    "summary": "Spring AI SQL Injection in PgVectorStore and friends\n\n            PgVectorStore, OracleVectorStore, and CouchbaseSearchVectorStore concatenate filter expression output directly into SQL without parameterization, enabling tenant isolation bypass, data exfiltration, and deletion of arbitrary rows. The SQL concatenation is in the framework's store classes and converter's&nbsp;doKey() method - even the programmatic&nbsp;FilterExpressionBuilder API is vulnerable.&nbsp;&nbsp;// PgVectorStore.java (main branch) — same pattern in OracleVectorStore and CouchbaseSearchVectorStoreString&nbsp;sql =&nbsp;&nbsp;\"DELETE FROM \"&nbsp;+ getFullyQualifiedTableName() +&nbsp;&nbsp;\" WHERE metadata::jsonb @@ '\"&nbsp;+ nativeFilterExpression +&nbsp;&nbsp;\"'::jsonpath\";this.jdbcTemplate.update(sql);PgVectorFilterExpressionConverter.doKey() concatenates&nbsp;\"$.\" + key.key() with no escaping. A single quote in the key terminates the SQL string literal. Additionally,&nbsp;emitJsonValue() does not escape single ",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 86
+  },
+  {
+    "id": "reject-363d51d0f3",
+    "rejectedAt": "2026-05-03T10:29:26.470401+00:00",
+    "date": "2026-04-14",
+    "source": "Bishop Fox blog",
+    "url": "https://bishopfox.com/blog/anthropics-claude-mythos-preview-the-ai-cybersecurity-inflection-point",
+    "headline": "Anthropic’s Claude Mythos Preview: The AI Cybersecurity Inflection Point",
+    "summary": "AI just crossed a threshold. Anthropic’s Claude Mythos can discover and chain vulnerabilities at scale—faster than teams can remediate. What does this mean for your security program, your providers, and your ability to keep up before attackers do?",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-70b1c7607b",
+    "rejectedAt": "2026-05-03T10:29:46.676158+00:00",
+    "date": "2026-04-21",
+    "source": "Tenable Security Research",
+    "url": "https://www.tenable.com/security/research/tra-2026-30",
+    "headline": "Microsoft GitHub Repository Windows-driver-samples Workflow Remote Code Execution",
+    "summary": "Microsoft GitHub Repository Windows-driver-samples Workflow Remote Code Execution\n\n            The GitHub public repository at https://github.com/microsoft/Windows-driver-samples has a GitHub Action configured which allows for Remote Code Execution on the GitHub runner: https://github.com/microsoft/Windows-driver-samples/blob/main/.github/workflows/tag-codeowner-on-issue.ymlThe vulnerability lies in this part of the GitHub workflow:        run: |\n          python3 - &lt;&lt;EOF\n          import os\n          import re\n          import requests\n\n          issue_body = \"\"\"${{ github.event.issue.body }}\"\"\"\n          selected_path = NoneThe issue body is directly interpolated into a Python here-doc without sanitization. An attacker can then inject arbitrary Python code by crafting a malicious issue body containing string terminators (triple quotes) to break out of the string literal and inject code.By exploiting this vulnerability, an attacker with an unprivileged GItHub account could exfil",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 86
+  },
+  {
+    "id": "reject-295d816b69",
+    "rejectedAt": "2026-05-03T10:30:06.852625+00:00",
+    "date": "2026-04-07",
+    "source": "Bishop Fox blog",
+    "url": "https://bishopfox.com/blog/api-authentication-bypass-in-forticlient-ems-7-4-5-7-4-6-cve-2026-35616",
+    "headline": "API Authentication Bypass in FortiClient EMS 7.4.5-7.4.6–CVE-2026-35616",
+    "summary": "AI-Powered Application Penetration Testing—Scale Security Without Compromise Learn More Share CVE-2026-35616 is an authentication bypass in FortiClient EMS 7.4.5 and 7.4.6. The Django authentication middleware accepts client certificate information from both trusted WSGI environment variables (set by Apache mod_ssl ) and user-controllable HTTP request headers, and Apache was never configured to strip the user-controllable variants. An attacker who can reach the EMS web interface over HTTPS needs no credentials to exploit this. Additionally, the certificate chain validation performs only Distin",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-df2d50a683",
+    "rejectedAt": "2026-05-03T10:30:22.063471+00:00",
+    "date": "2026-04-27",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Apr/27/vibevoice/#atom-everything",
+    "headline": "microsoft/VibeVoice",
+    "summary": "microsoft/VibeVoice\nVibeVoice is Microsoft's Whisper-style audio model for speech-to-text, MIT licensed and with speaker diarization built into the model.\nMicrosoft released it on January 21st, 2026 but I hadn't tried it until today. Here's a one-liner to run it on a Mac with uv, mlx-audio (by Prince Canuma) and the 5.71GB mlx-community/VibeVoice-ASR-4bit MLX conversion of the 17.3GB VibeVoice-ASR model, in this case against a downloaded copy of my recent podcast appearance with Lenny Rachitsky:\nuv run --with mlx-audio mlx_audio.stt.generate \\\n  --model mlx-community/VibeVoice-ASR-4bit \\\n  --audio lenny.mp3 --output-path lenny \\\n  --format json --verbose --max-tokens 32768\n\n\nThe tool reported back:\nProcessing time: 524.79 seconds\nPrompt: 26615 tokens, 50.718 tokens-per-sec\nGeneration: 20248 tokens, 38.585 tokens-per-sec\nPeak memory: 30.44 GB\n\nSo that's 8 minutes 45 seconds for an hour of audio (running on a 128GB M5 Max MacBook Pro).\nI've tested it against .wav and .mp3 files and they ",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-cdff82adb1",
+    "rejectedAt": "2026-05-03T10:30:42.260715+00:00",
+    "date": "2026-04-17",
+    "source": "Trail of Bits blog",
+    "url": "https://blog.trailofbits.com/2026/04/17/we-beat-googles-zero-knowledge-proof-of-quantum-cryptanalysis/",
+    "headline": "We beat Google’s zero-knowledge proof of quantum cryptanalysis",
+    "summary": "Two weeks ago, Google’s Quantum AI group published a zero-knowledge proof of a quantum circuit so optimized, they concluded that first-generation quantum computers will break elliptic curve cryptography keys in as little as 9 minutes. Today, Trail of Bits is publishing our own zero-knowledge proof that significantly improves Google’s on all metrics. Our result is not due to some quantum breakthrough, but rather the exploitation of multiple subtle memory safety and logic vulnerabilities in Google’s Rust prover code. Google has patched their proof, and their scientific claims are unaffected, but this story reflects the unique attack surface that systems introduce when they use zero-knowledge proofs.\nGoogle’s proof uses a zero-knowledge virtual machine (zkVM) to calculate the cost of a quantum circuit on three key metrics. The total number of operations and Toffoli gate count represent the running time of the circuit, and the number of qubits represents the memory requirements. Google, al",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-8087a6be7c",
+    "rejectedAt": "2026-05-03T10:30:56.929005+00:00",
+    "date": "2026-04-30",
+    "source": "Bishop Fox blog",
+    "url": "https://bishopfox.com/blog/introducing-aimap-security-testing-for-ai-agent-infrastructure",
+    "headline": "Introducing AIMap: Security Testing For AI Agent Infrastructure",
+    "summary": "Attackers can already find, connect to, and probe your exposed AI agent infrastructure. AIMap gives defenders that same visibility. Built by Bishop Fox, this open-source tool discovers, scores, and tests exposed AI endpoints so you can understand your real attack surface before someone else does.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-fb7357976e",
+    "rejectedAt": "2026-05-03T10:31:13.527915+00:00",
+    "date": "2026-04-08",
+    "source": "Embrace The Red (Johann Rehberger)",
+    "url": "https://embracethered.com/blog/posts/2026/given-enough-agents-all-bugs-become-shallow/",
+    "headline": "Given Enough Agents, All Bugs Become Shallow",
+    "summary": "Agents are becoming extremely effective at finding security vulnerabilities. They are relentless in analyzing code and you can spin up multiple of them to go through source code quickly.\ngiven enough agents, all bugs are shallow&mdash; Johann Rehberger (@wunderwuzzi23) February 10, 2026\n\n\n\nIt is an emerging capability that many security researchers and bug bounty hunters have observed over the last year.\nGadi Evron posted about the upcoming AI Vulnerability Cataclysm last year to help raise awareness.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-e3e4b9b232",
+    "rejectedAt": "2026-05-03T10:31:22.840404+00:00",
+    "date": "2026-05-01",
+    "source": "CISA alerts",
+    "url": "https://www.cisa.gov/news-events/alerts/2026/05/01/cisa-adds-one-known-exploited-vulnerability-catalog",
+    "headline": "CISA Adds One Known Exploited Vulnerability to Catalog",
+    "summary": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation.\n\nCVE-2026-31431 Linux Kernel Incorrect Resource Transfer Between Spheres Vulnerability\n\nThis type of vulnerability is a frequent attack vector for malicious cyber actors and poses significant risks to the federal enterprise.\nBinding Operational Directive (BOD) 22-01: Reducing the Significant Risk of Known Exploited Vulnerabilities established the KEV Catalog as a living list of known Common Vulnerabilities and Exposures (CVEs) that carry significant risk to the federal enterprise. BOD 22-01 requires Federal Civilian Executive Branch (FCEB) agencies to remediate identified vulnerabilities by the due date to protect FCEB networks against active threats. See the BOD 22-01 Fact Sheet for more information.\nAlthough BOD 22-01 only applies to FCEB agencies, CISA strongly urges all organizations to reduce their exposure to cyberattacks by prioritizing timely reme",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "duplicate"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-ae8b953e5b",
+    "rejectedAt": "2026-05-03T10:31:41.105267+00:00",
+    "date": "2026-04-30",
+    "source": "CISA alerts",
+    "url": "https://www.cisa.gov/news-events/alerts/2026/04/30/cisa-adds-one-known-exploited-vulnerability-catalog",
+    "headline": "CISA Adds One Known Exploited Vulnerability to Catalog",
+    "summary": "CISA has added&nbsp;one&nbsp;new&nbsp;vulnerability&nbsp;to its&nbsp;Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation.&nbsp;\n\nCVE-2026-41940&nbsp;WebPros cPanel &amp; WHM and WP2 (WordPress Squared) Missing Authentication for Critical Function Vulnerability\n\nThis&nbsp;type of vulnerability&nbsp;is a&nbsp;frequent attack vector for malicious cyber actors and poses&nbsp;significant risks to the federal enterprise.\nBinding Operational Directive (BOD) 22-01: Reducing the Significant Risk of Known Exploited Vulnerabilities established the KEV Catalog as a living list of known Common Vulnerabilities and Exposures (CVEs) that carry significant risk to the federal enterprise. BOD 22-01 requires Federal Civilian Executive Branch (FCEB) agencies to remediate identified vulnerabilities by the due date to protect FCEB networks against active threats. See the BOD 22-01 Fact Sheet for more information.&nbsp;\nAlthough BOD 22-01 only applies to FCEB agencies, CIS",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "duplicate"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-93b65e968f",
+    "rejectedAt": "2026-05-03T10:32:01.297278+00:00",
+    "date": "2026-04-30",
+    "source": "CISA alerts",
+    "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-120-02",
+    "headline": "ABB PCM600",
+    "summary": "View CSAF\nSummary\nSuccessful exploitation of this vulnerability could allow an attacker to send specially crafted messages to the system node resulting in execution of arbitrary code.\nThe following versions of ABB PCM600 are affected:\n\nPCM600 &gt;=1.5|&lt;=2.13&nbsp;\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 4.4\nABB\nABB PCM600\nImproper Limitation of a Pathname to a Restricted Directory ('Path Traversal')\n\n\n\n\nBackground\n\nCritical Infrastructure Sectors: Critical Manufacturing\nCountries/Areas Deployed: Worldwide\nCompany Headquarters Location: Switzerland\n\n\nVulnerabilities\n\nExpand All +\n\nCVE-2018-1002208\n\nA vulnerability exists in the SharpZip.dll included in the product versions listed above. An attacker could exploit vulnerability by providing a specially crafted message to the system node, causing insertion, and running of arbitrary code.\nView CVE Details\n\nAffected Products\nABB PCM600\n\nVendor:ABB\nProduct Version:ABB PCM600: &gt;=1.5|&lt;=2.13\nProduct Status:known_affected\n\n\nRem",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-666c40e239",
+    "rejectedAt": "2026-05-03T10:32:14.348489+00:00",
+    "date": "2026-04-30",
+    "source": "CISA alerts",
+    "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-120-03",
+    "headline": "ABB Edgenius Management Portal",
+    "summary": "View CSAF\nSummary\nSuccessful exploitation of this vulnerability could allow an attacker to send a specially crafted message to the system node allowing the attacker to install and run arbitrary code, uninstall applications, and modify the configuration of installed applications.\nThe following versions of ABB Edgenius Management Portal are affected:\n\nEdgenius Management Portal 3.2.0.0|3.2.1.1\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 9.6\nABB\nABB Edgenius Management Portal\nAuthentication Bypass Using an Alternate Path or Channel\n\n\n\n\nBackground\n\nCritical Infrastructure Sectors: Critical Manufacturing, Information Technology\nCountries/Areas Deployed: Worldwide\nCompany Headquarters Location: Switzerland\n\n\nVulnerabilities\n\nExpand All +\n\nCVE-2025-10571\n\nThe Edgenius Management Portal in the affected product versions contains a vulnerability that allows authentication to be bypassed. An attacker could exploit the vulnerability by sending a specially crafted message to the system node a",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-42efc12250",
+    "rejectedAt": "2026-05-03T10:32:25.401279+00:00",
+    "date": "2026-04-30",
+    "source": "CISA alerts",
+    "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-120-06",
+    "headline": "ABB Ability Symphony Plus Engineering",
+    "summary": "View CSAF\nSummary\nABB became aware of vulnerability in the products versions listed as affected in the advisory. The ABB S+ Engineering product versions are affected by vulnerabilities in PostgreSQL version 13.11 and earlier versions. If an attacker gains access to a site’s S+ Client Server network, they could exploit such vulnerabilities by executing arbitrary code and potentially compromising the entire system.\nThe following versions of ABB Ability Symphony Plus Engineering are affected:\n\nAbility Symphony Plus 2.2, 2.3, 2.3_RU1, 2.3_RU2, 2.3_RU3, 2.4, 2.4_SP1, 2.4_SP2, 2.4_SP2_RU1&nbsp;\n\n\n\n\n\nCVSS\nVendor\nEquipment\nVulnerabilities\n\n\n\n\nv3 8.8\nABB\nABB Ability Symphony Plus Engineering\nInteger Overflow or Wraparound, Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection'), Time-of-check Time-of-use (TOCTOU) Race Condition, Privilege Dropping / Lowering Errors\n\n\n\n\nBackground\n\nCritical Infrastructure Sectors: Chemical, Critical Manufacturing, Energy, Water and W",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-013b3fbfd5",
+    "rejectedAt": "2026-05-03T10:32:45.243265+00:00",
+    "date": "2026-04-30",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1322",
+    "headline": "[NEU] [hoch] Acronis Cyber Protect Cloud Agent: Mehrere Schwachstellen ermöglichen Privilegieneskalation",
+    "summary": "Ein lokaler oder entfernter, authentisierter Angreifer kann mehrere Schwachstellen in Acronis Cyber Protect Cloud Agent ausnutzen, um seine Privilegien zu erhöhen.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-5bf1a5dd81",
+    "rejectedAt": "2026-05-03T10:32:52.399187+00:00",
+    "date": "2026-05-01",
+    "source": "FTC press releases",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-urges-tennessee-supreme-court-oppose-abas-law-school-accreditation-monopoly",
+    "headline": "FTC Urges Tennessee Supreme Court to  Oppose the ABA’s Law School Accreditation Monopoly",
+    "summary": "Federal Trade Commission staff urged the Tennessee Supreme Court yesterday to open law school accreditation to competition by reducing its reliance on the American Bar Association (ABA) in determining which law schools provide sufficient education for their graduates to take the Tennessee bar examination. The letter was joined by the U.S.View Press Release",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-e4c7a9b76a",
+    "rejectedAt": "2026-05-03T10:32:56.016838+00:00",
+    "date": "2026-04-23",
+    "source": "EDPB news",
+    "url": "https://www.edpb.europa.eu/news/news/2026/stakeholder-event-competition-and-data-protection_en",
+    "headline": "Stakeholder event on competition and data protection",
+    "summary": "Brussels, 23 April – The EDPB is organising a remote stakeholder event in the context of its joint work with the European Commission on upcoming guidelines on the interplay between competition and data protection.&nbsp;\nThe event is an opportunity for stakeholders to inform and support the ongoing work on this topic. It also reflects the EDPB’s commitment to stakeholder engagement and cross-regulatory cooperation, as outlined in the Helsinki statement and in the EDPB Strategy 2024-2027.\nJoin the event to have your say\nThis is your chance to contribute directly to a fast-evolving and highly relevant policy area. The EDPB will launch a call for expressions of interest to participate in the stakeholder event. Further details on the date and format will be published on the EDPB website.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-4334429b8e",
+    "rejectedAt": "2026-05-03T10:33:05.678620+00:00",
+    "date": "2026-04-20",
+    "source": "FTC press releases",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2026/04/court-orders-operator-timeshare-exit-scheme-pay-140-million-related-ftc-allegations-scheme-took",
+    "headline": "Court Orders Operator of Timeshare Exit Scheme to Pay $140 Million Related to FTC Allegations the Scheme Took Millions from Consumers",
+    "summary": "Following an investigation by the Federal Trade Commission, a federal court has ordered one of the key operators of a timeshare exit operation to pay $140 million and has permanently banned him from marketing similar services in the future over allegations the scheme defrauded consumers—mostly older adults—out of more than $90 million.View Press Release",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-c281eb4d8d",
+    "rejectedAt": "2026-05-03T10:33:11.894820+00:00",
+    "date": "2026-04-09",
+    "source": "EDPB news",
+    "url": "https://www.edpb.europa.eu/news/news/2026/edpb-annual-report-2025-supporting-stakeholders-through-guidance-and-dialogue_en",
+    "headline": "EDPB annual report 2025: supporting stakeholders through guidance and dialogue",
+    "summary": "Brussels, 09 April - The European Data Protection Board (EDPB) has published its&nbsp;2025 Annual Report. The report provides an overview of the EDPB work carried out in 2025 and reflects on important milestones, such as the adoption of the&nbsp;Helsinki Statement on Enhanced Clarity, Support, and Engagement.\n“In 2025, we saw the data protection landscape change significantly. The rapid expansion of the EU’s digital regulatory framework has added complexity to the data protection ecosystem. To help organisations navigate this complexity and support compliance, the EDPB focused on enhancing legal certainty, making compliance more achievable in practice, and strengthening cooperation, both among Data Protection Authorities and with other regulators.&nbsp;\nWe also prioritised meaningful dialogue with stakeholders to ensure our work reflected real-world needs.\nOur achievements support economic growth while continuing to protect individuals’ fundamental rights to privacy and data protection",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-1b0b5c7280",
+    "rejectedAt": "2026-05-03T10:33:32.089638+00:00",
+    "date": "2026-04-30",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1031",
+    "headline": "[UPDATE] [mittel] libTIFF: Schwachstelle ermöglicht Codeausführung und DoS",
+    "summary": "Ein entfernter, anonymer Angreifer kann eine Schwachstelle in libTIFF ausnutzen, um möglicherweise beliebigen Code auszuführen oder einen Denial-of-Service-Zustand herbeizuführen.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-820e957349",
+    "rejectedAt": "2026-05-03T10:33:48.635194+00:00",
+    "date": "2026-04-30",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1295",
+    "headline": "[UPDATE] [hoch] Wazuh: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Wazuh ausnutzen, um einen Denial of Service Angriff durchzuführen, beliebigen Code auszuführen, Daten zu manipulieren, vertrauliche Informationen offenzulegen oder Sicherheitsmaßnahmen zu umgehen.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-19da9ffbe7",
+    "rejectedAt": "2026-05-03T10:34:06.219548+00:00",
+    "date": "2026-04-30",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1232",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Linux Kernel ausnutzen, um seine Privilegien zu erhöhen, um einen Denial of Service Zustand oder andere, nicht näher spezifizierte Auswirkungen zu erzielen.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-72d13bf978",
+    "rejectedAt": "2026-05-03T10:34:20.722753+00:00",
+    "date": "2026-04-30",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1317",
+    "headline": "[NEU] [mittel] IGEL OS: Schwachstelle ermöglicht Umgehen von Sicherheitsvorkehrungen, Manipulation von Dateien, und Denial of Service",
+    "summary": "Ein lokaler Angreifer kann eine Schwachstelle in IGEL OS ausnutzen, um Sicherheitsvorkehrungen zu umgehen, um Dateien zu manipulieren, und um einen Denial of Service Angriff durchzuführen.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90
+  },
+  {
+    "id": "reject-8ca5bf3360",
+    "rejectedAt": "2026-05-03T10:34:24.688263+00:00",
+    "date": "2026-04-27",
+    "source": "EDPB news",
+    "url": "https://www.edpb.europa.eu/news/news/2026/marking-10-years-gdpr-evolution-european-data-protection-landscape_en",
+    "headline": "Marking 10 years of the GDPR: the evolution of the European data protection landscape",
+    "summary": "Brussels, 27 April – Today marks the 10th anniversary of the GDPR’s adoption, the first comprehensive data protection framework spanning an entire continent, establishing clear rights for individuals and obligations for organisations across Europe.\nThe moment that led to the creation of the EDPB\nThe GDPR led to the establishment of the European Data Protection Board (EDPB) on 25 May 2018, replacing the Article 29 Working Party that was previously in charge of dealing with issues relating to the protection of personal data.\nThe GDPR gave the Data Protection Authorities (DPAs) stronger enforcement powers and expanded the scope of their work from focusing mainly on national compliance complaints to routinely dealing with cross-border cases.\nIn the past 10 years, the 31 European DPAs comprising the EDPB have worked together to ensure the consistent enforcement of the GDPR and a harmonised data protection approach across Europe. &nbsp;\nA key role in an evolving digital landscape\nToday, the ",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-12c77eec7a",
+    "rejectedAt": "2026-05-03T10:34:29.481089+00:00",
+    "date": "2026-05-03",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html",
+    "headline": "CISA Adds Actively Exploited Linux Root Access Bug CVE-2026-31431 to KEV",
+    "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Friday added a recently disclosed security flaw impacting various Linux distributions to its Known Exploited Vulnerabilities (KEV) catalog, citing evidence of active exploitation in the wild.\nThe vulnerability, tracked as CVE-2026-31431 (CVSS score: 7.8), is a case of local privilege escalation (LPE) flaw that could allow an",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82
+  },
+  {
+    "id": "reject-8cfd0d3a26",
+    "rejectedAt": "2026-05-03T10:34:47.670239+00:00",
+    "date": "2026-04-30",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/04/new-linux-copy-fail-vulnerability.html",
+    "headline": "New Linux 'Copy Fail' Vulnerability Enables Root Access on Major Distributions",
+    "summary": "Cybersecurity researchers have disclosed details of a Linux local privilege escalation (LPE) flaw that could allow an unprivileged local user to obtain root.\nThe high-severity vulnerability tracked as CVE-2026-31431 (CVSS score: 7.8) has been codenamed Copy Fail by Xint.io and Theori.\n\"An unprivileged local user can write four controlled bytes into the page cache of any readable file on a Linux",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82
+  },
+  {
+    "id": "reject-d6c95d1fc5",
+    "rejectedAt": "2026-05-03T10:35:00.181650+00:00",
+    "date": "2026-05-01",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/dangerous-new-linux-exploit-gives-attackers-root-access-to-countless-computers/",
+    "headline": "Dangerous New Linux Exploit Gives Attackers Root Access to Countless Computers",
+    "summary": "Publicly released exploit code for an effectively unpatched vulnerability that gives root access to virtually all releases of Linux is setting off alarm bells as defenders scramble to ward off severe compromises inside data centers and on personal devices. The vulnerability and exploit code that exploits it were released Wednesday evening by researchers from security firm Theori, five weeks after privately disclosing it to the Linux kernel security team. The team patched the vulnerability in versions 7.0 , 6.19.12 , 6.18.12 , 6.12.85, 6.6.137, 6.1.170, 5.15.204, and 5.10.254) but few of the Li",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-beba9ce494",
+    "rejectedAt": "2026-05-03T10:35:20.366456+00:00",
+    "date": "2026-04-29",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/04/cisa-adds-actively-exploited.html",
+    "headline": "CISA Adds Actively Exploited ConnectWise and Windows Flaws to KEV",
+    "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Tuesday added two security flaws impacting ConnectWise ScreenConnect and Microsoft Windows to its Known Exploited Vulnerabilities (KEV) catalog, based on evidence of active exploitation.\nThe vulnerabilities are listed below -\n\nCVE-2024-1708 (CVSS score: 8.4) - A path traversal vulnerability in&nbsp; ConnectWise ScreenConnect",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82
+  },
+  {
+    "id": "reject-44d4bca874",
+    "rejectedAt": "2026-05-03T10:35:40.560457+00:00",
+    "date": "2026-05-01",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/hugging-face-clawhub-abused-for-malware-distribution/",
+    "headline": "Hugging Face, ClawHub Abused for Malware Distribution",
+    "summary": "Threat actors are relying on social engineering to lure users into downloading files containing malicious instructions.\nThe post Hugging Face, ClawHub Abused for Malware Distribution appeared first on SecurityWeek.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-d2ce01932b",
+    "rejectedAt": "2026-05-03T10:36:00.744993+00:00",
+    "date": "2026-04-29",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/04/new-wave-of-dprk-attacks-uses-ai.html",
+    "headline": "New Wave of DPRK Attacks Uses AI-Inserted npm Malware, Fake Firms, and RATs",
+    "summary": "Cybersecurity researchers have discovered malicious code in an npm package after a malicious package as a dependency to the project by Anthropic's Claude Opus large language model (LLM).\nThe package in question is \"@validate-sdk/v2,\" which is listed on npm as a utility software development kit (SDK) for hashing, validation, encoding/decoding, and secure random generation. However, its real",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82
+  },
+  {
+    "id": "reject-372195a443",
+    "rejectedAt": "2026-05-03T10:36:03.922024+00:00",
+    "date": "2026-04-30",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/anthropic-unveils-claude-security-to-counter-ai-powered-exploit-surge/",
+    "headline": "Anthropic Unveils Claude Security to Counter AI-Powered Exploit Surge",
+    "summary": "With Mythos signaling a new era of near-instant exploitation, Anthropic positions Claude Security to help defenders keep pace.\nThe post Anthropic Unveils Claude Security to Counter AI-Powered Exploit Surge appeared first on SecurityWeek.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-9e31221df6",
+    "rejectedAt": "2026-05-03T10:36:19.944131+00:00",
+    "date": "2026-04-25",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/security-news-this-week-discord-sleuths-gained-unauthorized-access-to-anthropics-mythos/",
+    "headline": "Discord Sleuths Gained Unauthorized Access to Anthropic’s Mythos",
+    "summary": "As researchers and practitioners debate the impact that new AI models will have on cybersecurity, Mozilla said on Tuesday it used early access to Anthropic's Mythos Preview to find and fix 271 vulnerabilities in its new Firefox 150 browser release. Meanwhile, researchers identified a group of moderately successful North Korean hackers using AI for everything from vibe coding malware to creating fake company websites—stealing up to $12 million in three months. Researchers have finally cracked disruptive malware known as Fast16 that predates Stuxnet and may have been used to target Iran’s nuclea",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-6abc02d2c0",
+    "rejectedAt": "2026-05-03T10:36:40.136888+00:00",
+    "date": "2026-04-30",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/games/2026/apr/30/you-can-be-any-bond-you-want-the-inside-story-of-007-first-light",
+    "headline": "‘You can be any Bond you want’: the inside story of 007 First Light",
+    "summary": "Hitman developer IO Interactive’s pluralistic take on the British secret agent – his first video-game outing in almost 15 years – promises a Bond for all eras. Here’s what you need to knowIf you want to tell the tale of a young James Bond, you first need to pick which James Bond he’s going to grow into. This was the task handed to Hitman developer IO Interactive, the studio taking digital custody of the spy in 007 First Light, Bond’s first video game in almost 15 years. So what’s it to be? Will their agent take baby steps towards Sean Connery’s gruff masculinity, or is he practising Roger Moore’s arched eyebrow in the bathroom mirror? That’s if he’s a “movie” Bond at all. For a generation of gamers, the character exists most vividly as a hand at the bottom of the screen in GoldenEye 007.As it turns out, 007 First Light’s Bond, depicted by Patrick Gibson (cornering a specific market, having played the serial killer-to-be in the Dexter origins show) is an amalgam: the facial scar is an I",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74
+  },
+  {
+    "id": "reject-55f2266eba",
+    "rejectedAt": "2026-05-03T10:37:00.307846+00:00",
+    "date": "2026-04-30",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/apr/30/openai-founding-trial-elon-musk-sam-altman",
+    "headline": "Judge cuts off Musk’s AI doomsday talk as his testimony ends in OpenAI case",
+    "summary": "Trial continues after heated back-and-forth during OpenAI’s cross-examination of the Tesla CEOElon Musk’s court case against Sam Altman continued on Thursday, after a day of contentious exchanges during OpenAI’s cross-examination of the Tesla CEO. Musk faced more combative questioning throughout the morning, in a glimpse of what may await other prominent witnesses set to take the stand.Witness testimony and evidence has revealed formerly private emails, text messages and diary entries surrounding the formation of OpenAI, giving a behind-the-scenes look at how the tech behemoth was created. Many of the tech industry’s most powerful players are named as witnesses and will give their accounts on the origins of Musk and Altman’s bitter feud. Altman will testify later in the trial, which will last three weeks. Continue reading...",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74
+  },
+  {
+    "id": "reject-53b546d8e6",
+    "rejectedAt": "2026-05-03T10:37:03.056894+00:00",
+    "date": "2026-04-22",
+    "source": "Replit blog",
+    "url": "https://blog.replit.com/auto-protect",
+    "headline": "Introducing Replit Auto-Protect",
+    "summary": "Modern applications rely heavily on external packages, often open source and maintained by third parties. When new vulnerabilities - tracked as CVEs (Common Vulnerabilities and Exposures) are disclosed, teams need to act quickly before they can be exploited.\n\nPreviously, staying secure required builders to monitor CVEs constantly and manually update dependencies. Now, Replit handles this for you. When a new critical CVE is identified, we automatically check it against your project’s dependencies. If a match is found, once you’ve opted in, we will:\n\nHave Replit Agent automatically prepare and test a patch\n\nSend you a direct link over email to apply the change proposed in the patch\n\nThis new workflow allows you to keep your apps safe in two clicks: one to apply changes from the patch, another to republish your app.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-314ce2a0d8",
+    "rejectedAt": "2026-05-03T10:37:11.347189+00:00",
+    "date": "2026-04-21",
+    "source": "Replit blog",
+    "url": "https://blog.replit.com/meet-replit-security-agent",
+    "headline": "Meet Replit Security Agent",
+    "summary": "Replit gives professionals a secure place to build with AI. Replit Agent already protects your apps as you build by automatically scanning for vulnerabilities, and audits dependencies, before your projects are ever published.\n\nBefore coding agents, a full pre-launch security review meant additional weeks of back-and-forth: coordinating with security engineers, reviewing reports, and manually fixing issues.\n\nToday, we are introducing Replit Security Agent, which lets you you complete a comprehensive security review of your app in under an hour. Security Agent acts on a customizable threat modeling plan to review your entire codebase. It also uses a unique hybrid approach, leveraging Semgrep and HoundDog.ai as tools to improve the accuracy of its findings.\n\n\n\nDaghan Atlas, Head of Product at Semgrep, shares: “The most effective security is the kind that works seamlessly. Replit's Security Agent is a great example of what's possible when you pair the contextual reasoning of LLMs with the ",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-c04a5c9e65",
+    "rejectedAt": "2026-05-03T10:37:15.988005+00:00",
+    "date": "2026-05-03",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/Income-verification-api",
+    "headline": "Income Verification API: How to Automate Document-Based Income Checks at Scale",
+    "summary": "Income verification is straightforward for salaried employees with standard pay stubs. The hard cases are everyone else: gig workers, freelancers, contractors, and self-employed individuals whose income lives in tax returns, bank statements, and platform earnings summaries. This guide covers how income verification APIs work and where the document processing layer determines whether the whole system holds up in production.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-302292f4af",
+    "rejectedAt": "2026-05-03T10:37:20.895803+00:00",
+    "date": "2026-05-03",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/unstructured-data-extraction",
+    "headline": "Unstructured Data Extraction: How to Turn Documents into Structured Insights",
+    "summary": "Unstructured data extraction turns PDFs, emails, and documents into structured, queryable data. This guide breaks down how modern AI pipelines use NLP, NER, and LLMs to extract, validate, and integrate information at scale, so teams can unlock insights hidden in unstructured data.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-944006ef28",
+    "rejectedAt": "2026-05-03T10:37:33.876913+00:00",
+    "date": "2026-05-03",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/ocr-for-kyc",
+    "headline": "OCR for KYC: Why Standard Text Extraction Falls Short of Compliance Requirements",
+    "summary": "Standard OCR was built for clean typed text, not the worn passports, angled phone photos, and multilingual identity documents that real KYC intake looks like. This guide covers why standard text extraction falls short of compliance requirements, where the errors propagate, and what agentic OCR does differently to meet the accuracy threshold that AML regulations actually demand.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-9142cd8cbd",
+    "rejectedAt": "2026-05-03T10:37:38.008191+00:00",
+    "date": "2026-05-03",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/agentic-document-extraction",
+    "headline": "How Agentic AI Improves Document Extraction Accuracy and Automation",
+    "summary": "Traditional OCR transcribes documents — it doesn't understand them. When layouts shift or formats change, pipelines break and manual review queues pile up. Agentic document extraction treats document processing as a reasoning task, using visual grounding, spatial awareness, and self-correction to handle complex documents accurately, without templates or retraining.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-99dc77e487",
+    "rejectedAt": "2026-05-03T10:37:45.579612+00:00",
+    "date": "2026-05-03",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/ocr-for-receipts",
+    "headline": "Agentic OCR for Receipts: Why Traditional Pipelines Break",
+    "summary": "Receipt OCR often looks simple until real-world variability breaks traditional pipelines. Line items drift, totals get misidentified, and rule-based systems accumulate fragile fixes. This article explains why receipts are a stress test for document automation and how agentic OCR architectures preserve structure, validate financial fields, and produce reliable, structured outputs for production systems.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-2ceb67b70c",
+    "rejectedAt": "2026-05-03T10:37:53.204147+00:00",
+    "date": "2026-04-21",
+    "source": "Replit blog",
+    "url": "https://blog.replit.com/google-cloud-partner-award-winner",
+    "headline": "Replit Wins 2026 Google Cloud Partner of the Year Award",
+    "summary": "More than 50 million users around the globe now build apps on Replit. They’re not all engineers. They’re product managers, operators, founders, students, and small business owners, and increasingly, they’re shipping production software that runs real businesses.\n\n\n\nThis week, Google Cloud named Replit its 2026 AI Tooling Partner of the Year. We are thrilled to be honored in this way and are grateful to all of the builders that got us here.\n\n\n\nThis award is given to partners who helped customers leverage AI to achieve outstanding success through Google Cloud. For us, it’s a marker of how far the idea of democratizing software creation has traveled, from an audacious founding belief to a platform used by people across 85% of the Fortune 500.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-a0359763db",
+    "rejectedAt": "2026-05-03T10:37:58.817035+00:00",
+    "date": "2026-04-21",
+    "source": "Replit blog",
+    "url": "https://blog.replit.com/defense-in-depth-how-replit-secures-every-layer-of-the-vibe-coding-stack",
+    "headline": "Defense in Depth: How Replit Secures Every Layer of the Vibe Coding Stack",
+    "summary": "Defense in Depth: How Replit Secures Every Layer of the Vibe Coding Stack\n\nVibe coding is changing how software gets built. But as AI agents write more of our code, the question security teams are asking has shifted from \"Can AI build this?\" to \"Can I trust what AI builds?\".\n\nAt Replit, we believe the answer has to be yes, not through blind faith, but through architecture. Every layer of the Replit infrastructure where customer code runs, from the development sandbox to the production deployment, is designed with defense in depth. The Replit platform itself, our control plane, is also implemented with these principles in mind. No single control is the last line of defense. Every layer assumes the one above it might fail.\n\nThis post is a detailed walkthrough of how we think about security across the stack, written for the people who need to evaluate it: CISOs, security engineers, and teams considering Replit for production workloads.\n\nZero Trust as a Foundation\n\nReplit adheres to Zero T",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-edceb42f6a",
+    "rejectedAt": "2026-05-03T10:38:02.739789+00:00",
+    "date": "2026-04-15",
+    "source": "Weaviate blog",
+    "url": "https://weaviate.io/blog/aws-shared-cloud-launch",
+    "headline": "Weaviate Shared Cloud now generally available on AWS",
+    "summary": "We're happy to announce that Weaviate Shared Cloud is now generally available on Amazon Web Services in US East (N. Virginia) and Europe (Frankfurt). Whether your infrastructure lives on GCP or AWS, you can now build on Weaviate's AI-native platform in the provider and region best suited for you. Select your preferred cloud provider and region under advanced configuration when creating a cluster. Weaviate Shared Cloud takes the operational weight off your team so you can focus on building. Clusters are fully managed and upgrades happen automatically. With granular RBAC , immutable backups , an",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-386a77ed4e",
+    "rejectedAt": "2026-05-03T10:38:12.071392+00:00",
+    "date": "2026-04-25",
+    "source": "AI Incident Database",
+    "url": "https://www.washingtonpost.com/technology/2026/04/24/anthropic-mythos-ai-washington-cybersecurity-hacking-risk/",
+    "headline": "A secretive AI hacking system has sparked a global scramble",
+    "summary": "When security researchers at Mozilla, the maker of the popular web browser Firefox, pointed a powerful new artificial intelligence model at their code, they had a feeling of \"vertigo.\"\n\nBobby Holley, the chief technology officer for the bro ... (report_number: 7166)",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72
+  },
+  {
+    "id": "reject-de98c7fa3b",
+    "rejectedAt": "2026-05-03T10:38:27.454876+00:00",
+    "date": "2026-04-25",
+    "source": "AI Incident Database",
+    "url": "https://theintercept.com/2026/04/23/chatgpt-ai-false-confession-interrogation-crime/",
+    "headline": "ChatGPT Confessed to a Crime It Couldn’t Possibly Have Committed",
+    "summary": "You might spend your Saturday mornings sipping coffee, attending a kids' soccer game, or just recovering from a tough week at work.\n\nNot Paul Heaton. He recently spent a weekend persuading ChatGPT to confess to a crime it didn't commit.\n\n\"W ... (report_number: 7165)",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72
+  },
+  {
+    "id": "reject-238803fbcf",
+    "rejectedAt": "2026-05-03T10:38:32.987094+00:00",
+    "date": "2026-04-30",
+    "source": "AI Incident Database",
+    "url": "https://github.com/monarch-initiative/dismech/issues/1800",
+    "headline": "Curate dyslexia #1800",
+    "summary": "@sagehrke\n\nDescription\n\nsagehrke\n\nopened 3 days ago\n\nMember\n\nCurate dyslexia (MONDO:0005489)\n\nActivity\n\ngithub-actions\n\nadded \n\nenhancementNew feature or request\n\ncurationfor tagging PRs that curate content (human or agentically), ie that m ... (https://incidentdatabase.ai/cite/1470#7168)",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72
+  },
+  {
+    "id": "reject-e4fc1a2485",
+    "rejectedAt": "2026-05-03T10:38:53.170953+00:00",
+    "date": "2026-04-25",
+    "source": "AI Incident Database",
+    "url": "https://www.techpolicy.press/the-real-iranian-women-protesters-trump-made-look-synthetic/",
+    "headline": "The Real Iranian Women Protesters Trump Made Look Synthetic",
+    "summary": "Real Iranian women protesters are being held in Iranian prisons under threat of capital punishment. Their cases are now harder to defend than they were a week ago because the credibility of the documentation that human rights work depends o ... (https://incidentdatabase.ai/cite/1468#7164)",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72
+  },
+  {
+    "id": "reject-f0f6f38224",
+    "rejectedAt": "2026-05-03T10:39:13.355026+00:00",
+    "date": "2026-04-24",
+    "source": "AI Incident Database",
+    "url": "https://factcheck.bg/mrezhi-ot-falshivi-profili-predizborno-razprostranyavat-postove-na-itn-v-socialnite-mrezhi/",
+    "headline": "Мрежи от фалшиви профили предизборно разпространяват постове на ИТН в социалните мрежи",
+    "summary": "Встъпването в длъжност на служебния кабинет с премиер Андрей Гюров предизвика засилена активност от страна на представителите на „Има такъв народ\" (ИТН) срещу членовете му.  Докато зам.-председателят на партията Тошко Йорданов и зам.-предсе ... (https://incidentdatabase.ai/cite/1466#7161)",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72
+  },
+  {
+    "id": "reject-8aca831492",
+    "rejectedAt": "2026-05-03T10:39:33.532123+00:00",
+    "date": "2026-05-03",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-7598",
+    "headline": "CVE-2026-7598 libssh2 userauth.c userauth_password integer overflow",
+    "summary": "Information published.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88
+  },
+  {
+    "id": "reject-9d3198e5c3",
+    "rejectedAt": "2026-05-03T10:39:53.727886+00:00",
+    "date": "2026-05-03",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-6846",
+    "headline": "CVE-2026-6846 Binutils: binutils: arbitrary code execution via malformed xcoff object file processing",
+    "summary": "Information published.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88
+  },
+  {
+    "id": "reject-397ed87ddb",
+    "rejectedAt": "2026-05-03T10:40:05.875787+00:00",
+    "date": "2026-05-03",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-6845",
+    "headline": "CVE-2026-6845 Binutils: binutils: denial of service via crafted elf file",
+    "summary": "Information published.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88
+  },
+  {
+    "id": "reject-914cda9b5f",
+    "rejectedAt": "2026-05-03T10:40:26.052075+00:00",
+    "date": "2026-05-03",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-6843",
+    "headline": "CVE-2026-6843 Nano: nano: format string vulnerability leads to denial of service",
+    "summary": "Information published.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88
+  },
+  {
+    "id": "reject-6ae62300b7",
+    "rejectedAt": "2026-05-03T10:40:41.657779+00:00",
+    "date": "2026-05-03",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-6842",
+    "headline": "CVE-2026-6842 Nano: nano: local attacker can inject malicious .desktop launcher due to insecure directory permissions",
+    "summary": "Information published.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88
+  },
+  {
+    "id": "reject-ebab479a84",
+    "rejectedAt": "2026-05-03T10:40:45.076292+00:00",
+    "date": "2026-04-24",
+    "source": "Google AI blog",
+    "url": "https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/",
+    "headline": "8 Gemini tips for organizing your space (and life)",
+    "summary": "Apr 24, 2026 Whether you want to declutter your inbox, clear your fridge or fix appliances, Gemini can help you get it done. You can use Gemini to simplify your spring cleaning and home organization. Ask it to generate custom checklists, troubleshoot repairs, or identify ways to maximize your storage space. You can also use it to manage your inbox, plan errands, and even get advice on plant care. You can use Gemini to simplify your spring cleaning and home organization. Ask it to generate custom checklists, troubleshoot repairs, or identify ways to maximize your storage space. You can also use",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-6e7bff1b86",
+    "rejectedAt": "2026-05-03T10:41:00.346496+00:00",
+    "date": "2026-04-16",
+    "source": "Google AI blog",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence-nano-banana/",
+    "headline": "New ways to create personalized images in the Gemini app",
+    "summary": "Apr 16, 2026 Use Personal Intelligence to create more relevant, personal images using Nano Banana and your own Google Photos library — no manual uploads or long prompts required. Gemini now uses your Google Photos and personal preferences to generate custom images without requiring long, detailed prompts. You can simply ask for specific scenes featuring yourself or your loved ones, and the app will automatically pull relevant context from your connected accounts. If you are a U.S. subscriber to Google AI Plus, Pro, or Ultra, look for this feature rolling out to your app over the next few days.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-c6cbf678fe",
+    "rejectedAt": "2026-05-03T10:41:08.135457+00:00",
+    "date": "2026-04-15",
+    "source": "Google DeepMind blog",
+    "url": "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/",
+    "headline": "Gemini 3.1 Flash TTS: the next generation of expressive AI speech",
+    "summary": "Apr 15, 2026 Our newest audio model introduces granular audio tags that give you precise control to direct AI speech for expressive audio generation. Gemini 3.1 Flash TTS is here, giving you improved AI speech quality and control. You can now use audio tags to adjust vocal style and pacing in over 70 languages. Test it out in Google AI Studio, Vertex AI, and Google Vids, and know that all audio is watermarked with SynthID to prevent misinformation. Gemini 3.1 Flash TTS is here, giving you improved AI speech quality and control. You can now use audio tags to adjust vocal style and pacing in ove",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70
+  },
+  {
+    "id": "reject-f139688067",
+    "rejectedAt": "2026-05-03T10:41:28.305816+00:00",
+    "date": "2026-04-15",
+    "source": "OWASP GenAI Security Project",
+    "url": "https://genai.owasp.org/2026/04/14/owasp-genai-exploit-round-up-report-q1-2026/?utm_source=rss&utm_medium=rss&utm_campaign=owasp-genai-exploit-round-up-report-q1-2026",
+    "headline": "OWASP GenAI Exploit Round-up Report Q1 2026",
+    "summary": "OWASP GenAI Exploit Round-up Report Q1 2026 Coverage period: January 1, 2026 through April 11, 2026 Overview For the last two years the OWASP GenAI Security Project published a list of the major incidents for the last quarter. This is not designed to be an exhaustive report. This report consolidates major AI-related security incidents and [&#8230;]\nThe post OWASP GenAI Exploit Round-up Report Q1 2026 appeared first on OWASP Gen AI Security Project.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-bb0959548e",
+    "rejectedAt": "2026-05-03T10:41:36.895645+00:00",
+    "date": "2026-04-28",
+    "source": "OWASP GenAI Security Project",
+    "url": "https://genai.owasp.org/2026/04/28/finbot-ctf-is-live-a-hands-on-companion-to-the-owasp-genai-security-project/?utm_source=rss&utm_medium=rss&utm_campaign=finbot-ctf-is-live-a-hands-on-companion-to-the-owasp-genai-security-project",
+    "headline": "FinBot CTF Is Live: A Hands-On Companion to the OWASP GenAI Security Project",
+    "summary": "At RSAC 2026, the community got an early look at FinBot through the OWASP GenAI Security Summit and Open Workshop, including the session “FinBot: An Agentic AI Capture-The-Flag Deep Dive.” FinBot was also showcased at AppSec Village in “AI Risks Through the OWASP GenAI Security Project &#38; FinBot CTF,” where it was used to demonstrate [&#8230;]\nThe post FinBot CTF Is Live: A Hands-On Companion to the OWASP GenAI Security Project appeared first on OWASP Gen AI Security Project.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-3fffca4b7f",
+    "rejectedAt": "2026-05-03T10:41:57.076301+00:00",
+    "date": "2026-04-29",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-021-aws/",
+    "headline": "Issue with FreeRTOS-Plus-TCP - MAC Address Validation Bypass and ICMP Echo Reply Integer Underflow",
+    "summary": "Bulletin ID: 2026-021-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/29 12:00 PM PDT \nDescription: \nFreeRTOS-Plus-TCP is a scalable, open source, and thread-safe TCP/IP stack for FreeRTOS. - CVE-2026-7422: Insufficient packet validation in the IPv4 and IPv6 receive paths allows an adjacent network device to send a packet that bypasses checksum and minimum-size validation by spoofing the Ethernet source MAC address to match one of the target device's own registered endpoints. - CVE-2026-7423: Integer underflow in the ICMP and ICMPv6 echo reply handlers allows an adjacent network device to cause a denial of service (device crash) when outgoing ping support is enabled, because header sizes are subtracted from a packet length field without validating the field is large enough, resulting in a heap out-of-bounds read. \nImpacted versions: &gt;=V4.0.0 AND &lt;=V4.2.5, &gt;=V4.3.0 AND &lt;=V4.4.0 \nPlease refer to the article below for the most up-to-date a",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-1a4b49449f",
+    "rejectedAt": "2026-05-03T10:42:17.241591+00:00",
+    "date": "2026-04-29",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-022-aws/",
+    "headline": "CVE-2026-7424 - Integer Underflow in DHCPv6 Sub-Option Parser in FreeRTOS-Plus-TCP",
+    "summary": "Bulletin ID: 2026-022-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/29 12:20 PM PDT \nDescription: \nFreeRTOS-Plus-TCP is an open-source, scalable TCP/IP stack for FreeRTOS. We identified CVE-2026-7424, where an integer underflow issue in the DHCPv6 sub-option parser could allow an adjacent network user to corrupt the device's IPv6 address assignment, DNS configuration, and lease times, and to cause a denial of service (IP task freeze requiring hardware reset). \nImpacted versions: FreeRTOS-Plus-TCP &gt;=V4.0.0 AND &lt;=V4.2.5, &gt;=V4.3.0 AND &lt;= V4.4.0 \nPlease refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-164ec16583",
+    "rejectedAt": "2026-05-03T10:42:33.612242+00:00",
+    "date": "2026-04-24",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-018-aws/",
+    "headline": "Issue with AWS Ops Wheel (CVE-2026-6911 and CVE-2026-6912",
+    "summary": "Bulletin ID: 2026-018-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/24 09:15 AM PDT \nDescription: \nAWS Ops Wheel is an open-source tool that helps teams make random selections using a virtual spinning wheel, deployed into customer AWS accounts via CloudFormation. \nCVE-2026-6911 relates to an issue where JWT token signature verification was not enforced in the v2 API. CVE-2026-6912 relates to an issue in the v2 Cognito User Pool configuration where attribute write permissions were insufficiently restricted. \nImpacted versions: AWS Ops Wheel v2 deployments PR-163 and earlier \nPlease refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-fadcc3341e",
+    "rejectedAt": "2026-05-03T10:42:40.360281+00:00",
+    "date": "2026-04-20",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-017-aws/",
+    "headline": "CVE-2026-6550 - Key commitment policy bypass via shared key cache in AWS Encryption SDK for Python",
+    "summary": "Bulletin ID: 2026-017-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/20 12:45 PM PDT \nDescription: \nAWS Encryption SDK (ESDK) for Python is a client-side encryption library. We identified CVE-2026-6550, which describes an issue with a key commitment policy bypass via shared key cache. \nCryptographic algorithm downgrade in the caching layer of Amazon AWS Encryption SDK for Python before version 3.3.1 and before version 4.0.5 might allow an authenticated local threat actor to bypass key commitment policy enforcement via a shared key cache, resulting in ciphertext that can be decrypted to multiple different plaintexts. \nImpacted versions: - From 2.0 to 2.5.1 - From 3.0 to 3.3.0 - From 4.0 to 4.0.4 \nPlease refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-b9f936bf3b",
+    "rejectedAt": "2026-05-03T10:42:51.268741+00:00",
+    "date": "2026-05-02",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/security-news-this-week-disneyland-now-uses-face-recognition-on-visitors/",
+    "headline": "Disneyland Now Uses Face Recognition on Visitors",
+    "summary": "A gunman attempted to enter the White House Correspondents’ Dinner in Washington, DC, last weekend, while President Donald Trump, Vice President JD Vance, and other administration officials were in attendance. Media reports and Trump himself quickly identified the suspected shooter as 31-year-old engineer and computer scientist Cole Tomas Allen. The California resident was arrested at the scene on Saturday and appeared Monday in the US District Court for the District of Columbia to face three federal charges : attempting to assassinate the president, transportation of a firearm in interstate c",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-10f6ffb7af",
+    "rejectedAt": "2026-05-03T10:43:11.452911+00:00",
+    "date": "2026-04-14",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-013-aws/",
+    "headline": "Issues with Amazon Athena ODBC Driver",
+    "summary": "Bulletin ID: 2026-013-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 2026/04/03 13:00 PM PDT \nDescription: \nThe Amazon Athena ODBC driver implements standard ODBC application program interfaces (APIs). The ODBC driver provides access to Amazon Athena from any C/C++ application. The Amazon Athena ODBC driver provides 64-bit ODBC drivers for Windows, Linux and MAC operating systems. \nWe identified the following: - CVE-2026-5485: OS command injection in browser-based authentication component (Linux only, fixed in 2.0.5.1) - CVE-2026-35558: Improper neutralization of special elements in authentication components - CVE-2026-35559: Out-of-bounds write in query processing components - CVE-2026-35560: Improper certificate validation in identity provider connection components - CVE-2026-35561: Insufficient authentication security controls in browser-based authentication components - CVE-2026-35562: Allocation of resources without limits in parsing components \nImpa",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-5eedb57e82",
+    "rejectedAt": "2026-05-03T10:43:21.257658+00:00",
+    "date": "2026-05-01",
+    "source": "The Record",
+    "url": "https://therecord.media/cisa-orders-federal-agencies-to-patch-cpanel-bug",
+    "headline": "Federal agencies must patch cPanel bug by Sunday, CISA says",
+    "summary": "Federal agencies have until May 3 to resolve a security issue impacting a critical system for server and website management. The Cybersecurity and Infrastructure Security Agency (CISA) ordered all federal agencies to patch CVE-2026-41940 — a high-severity vulnerability affecting cPanel & WHM. WebPros International owns cPanel and WHM, and the Linux-based tools are part of a web hosting control panel suite of software deployed to manage websites and servers. Millions of domains are run through the cPanel and WHM control panel solutions. Incident responders at Rapid7 said successful exploitation",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-180e24d387",
+    "rejectedAt": "2026-05-03T10:43:29.039766+00:00",
+    "date": "2026-04-21",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/ai/2026/04/mozilla-anthropics-mythos-found-271-zero-day-vulnerabilities-in-firefox-150/",
+    "headline": "Mozilla: Anthropic's Mythos found 271 security vulnerabilities in Firefox 150",
+    "summary": "Earlier this month, Anthropic said its Mythos Preview model was so good at finding cybersecurity vulnerabilities that the company was limiting its initial release to “a limited group of critical industry partners.” Since then, debate has raged over whether the model presages an era of turbocharged AI-aided hacking or if Anthropic is just building hype for what is a relatively normal step up on the ladder of advancing AI capabilities . Mozilla added some important data to that debate Tuesday, writing in a blog post that early access to Mythos Preview had helped it pre-identify 271 security vuln",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78
+  },
+  {
+    "id": "reject-ed860607c7",
+    "rejectedAt": "2026-05-03T10:43:37.896902+00:00",
+    "date": "2026-04-14",
+    "source": "GitHub security blog",
+    "url": "https://github.blog/security/hack-the-ai-agent-build-agentic-ai-security-skills-with-the-github-secure-code-game/",
+    "headline": "Hack the AI agent: Build agentic AI security skills with the GitHub Secure Code Game",
+    "summary": "Learn to find and exploit real-world agentic AI vulnerabilities through five progressive challenges in this free, open source game that over 10,000 developers have already used to sharpen their security skills.\nThe post Hack the AI agent: Build agentic AI security skills with the GitHub Secure Code Game appeared first on The GitHub Blog.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-b102df01b8",
+    "rejectedAt": "2026-05-03T10:43:44.655586+00:00",
+    "date": "2026-05-02",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/critrical-cpanel-flaw-mass-exploited-in-sorry-ransomware-attacks/",
+    "headline": "Critrical cPanel flaw mass-exploited in \"Sorry\" ransomware attacks",
+    "summary": "A new disclosed cPanel flaw tracked as CVE-2026-41940 is being mass-exploited to breach websites and encrypt data in \"Sorry\" ransomware attacks. This week, an emergency update for WHM and cPanel was released to fix a critical authentication bypass flaw that allows attackers to access control panels. WHM and cPanel are Linux-based web hosting control panels for server and website management. While WHM provides server-level control, cPanel provides administrator access to the website backend, webmail, and databases. Soon after its release, it was reported that the flaw was being actively exploit",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-d871604e8f",
+    "rejectedAt": "2026-05-03T10:43:54.666453+00:00",
+    "date": "2026-05-02",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/05/trellix-confirms-source-code-breach.html",
+    "headline": "Trellix Confirms Source Code Breach With Unauthorized Repository Access",
+    "summary": "Cybersecurity company Trellix has announced that it suffered a breach that enabled unauthorized access to a \"portion\" of its source code.\nIt said it \"recently identified\" the compromise of its source code repository and that it began working with \"leading forensic experts\" to resolve the matter immediately. It also said it has notified law enforcement of the matter.\nTrellix did not disclose the",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82
+  },
+  {
+    "id": "reject-6c76e10043",
+    "rejectedAt": "2026-05-03T10:44:01.554263+00:00",
+    "date": "2026-05-01",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/in-other-news-scattered-spider-hacker-arrested-soc-effectiveness-metrics-nsa-tool-vulnerability/",
+    "headline": "In Other News: Scattered Spider Hacker Arrested, SOC Effectiveness Metrics, NSA Tool Vulnerability",
+    "summary": "Other noteworthy stories that might have slipped under the radar: OFAC hits Iranian central bank crypto reserves, ADT data leak, CISA guidance for zero trust in OT.\nThe post In Other News: Scattered Spider Hacker Arrested, SOC Effectiveness Metrics, NSA Tool Vulnerability  appeared first on SecurityWeek.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-685e387fa3",
+    "rejectedAt": "2026-05-03T10:44:17.534296+00:00",
+    "date": "2026-05-01",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/google-adjusts-bug-bounties-chrome-payouts-drop-as-android-rewards-rise-amid-ai-surge/",
+    "headline": "Google Adjusts Bug Bounties: Chrome Payouts Drop as Android Rewards Rise Amid AI Surge",
+    "summary": "The maximum reward for a zero-click Pixel Titan M exploit with persistence has increased to $1.5 million.\nThe post Google Adjusts Bug Bounties: Chrome Payouts Drop as Android Rewards Rise Amid AI Surge appeared first on SecurityWeek.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-62b1d6ada8",
+    "rejectedAt": "2026-05-03T10:44:23.254646+00:00",
+    "date": "2026-05-01",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/cisco-releases-open-source-tool-for-ai-model-provenance/",
+    "headline": "Cisco Releases Open Source Tool for AI Model Provenance",
+    "summary": "The new kit aims to address risks related to poisoned models, regulatory issues, supply chain integrity, and incident response.\nThe post Cisco Releases Open Source Tool for AI Model Provenance  appeared first on SecurityWeek.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-7658a178c3",
+    "rejectedAt": "2026-05-03T10:44:43.437291+00:00",
+    "date": "2026-04-30",
+    "source": "KrebsOnSecurity",
+    "url": "https://krebsonsecurity.com/2026/04/anti-ddos-firm-heaped-attacks-on-brazilian-isps/",
+    "headline": "Anti-DDoS Firm Heaped Attacks on Brazilian ISPs",
+    "summary": "A Brazilian tech firm that specializes in protecting networks from distributed denial-of-service (DDoS) attacks has been enabling a botnet responsible for an extended campaign of massive DDoS attacks against other network operators in Brazil, KrebsOnSecurity has learned. The firm's chief executive says the malicious activity resulted from a security breach and was likely the work of a competitor trying to tarnish his company's public image.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-e6f3b52d06",
+    "rejectedAt": "2026-05-03T10:44:58.531935+00:00",
+    "date": "2026-04-28",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyber-risk/nsa-chief-during-snowden-affair-13-years-later",
+    "headline": "NSA Chief During Snowden Affair Shares Regrets, Reflections 13 Years Later",
+    "summary": "Chris Inglis was the head civilian in charge at the NSA when the Snowden leaks exploded. He gets candid about mistakes the organization made, and what CISOs need to know about spotting potential threats, media disclosures, and &quot;enculturation.&quot;",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78
+  },
+  {
+    "id": "reject-2d17c53ab0",
+    "rejectedAt": "2026-05-03T10:45:11.326328+00:00",
+    "date": "2026-04-17",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/unweight-tensor-compression/",
+    "headline": "Unweight: how we compressed an LLM 22% without sacrificing quality",
+    "summary": "Running LLMs across Cloudflare’s network requires us to be smarter and more efficient about GPU memory bandwidth. That’s why we developed Unweight, a lossless inference-time compression system that achieves up to a 22% model footprint reduction, so that we can deliver faster and cheaper inference than ever before.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-07a128f2dd",
+    "rejectedAt": "2026-05-03T10:45:16.499256+00:00",
+    "date": "2026-04-27",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/vulnerabilities-threats/unpatched-phantomrpc-flaw-windows-privilege-escalation",
+    "headline": "Unpatched 'PhantomRPC' Flaw in Windows Enables Privilege Escalation",
+    "summary": "A researcher discovered five different exploit paths that stem from an architectural weakness in how Windows' Remote Procedure Call (RPC) mechanism handles connections to unavailable services.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78
+  },
+  {
+    "id": "reject-50563632e5",
+    "rejectedAt": "2026-05-03T10:45:29.374466+00:00",
+    "date": "2026-04-30",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/games/2026/apr/30/forbidden-solitaire-review-cards-flip-into-delirious-trip-back-to-90s-horror",
+    "headline": "Forbidden Solitaire review – cards flip into delirious trip back to 90s horror",
+    "summary": "PC; Grey Alien Games, Night Signal Entertainment An innocent-looking charity shop find draws you into a compulsive world of demons, ogres and retro delightsFor a while in the mid-1990s, meta horror movies were the genre everyone was talking about. Wes Craven’s New Nightmare, Scream, the Blair Witch Project – these films simultaneously examined and exploited genre conventions, seeking to scare audiences while also distancing them from the narrative action. You didn’t know whether to laugh or gasp in shock, you weren’t sure what was story or what was framing. Did that just happen or was it a dream sequence? You just had to go with it.Now developers Grey Alien Games and Night Signal Entertainment have brought this multilayered approach to the card game solitaire, infusing a straightforward puzzler with a bloody gush of meta meaning and a dollop of nostalgia just for the self-reflexive hell of it. In Forbidden Solitaire, lead character Will Roberta picks up an old 1990s game called, yes, F",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74
+  },
+  {
+    "id": "reject-ccb32fdee3",
+    "rejectedAt": "2026-05-03T10:45:49.563369+00:00",
+    "date": "2026-04-28",
+    "source": "Platformer (Casey Newton)",
+    "url": "https://www.platformer.news/platformer-schedule-changes-ai-automation/",
+    "headline": "How we're shaking up Platformer for the AI era",
+    "summary": "This column touches on AI. My fiancé works at Anthropic. See my full ethics disclosure here . I. As I do most mornings, I began work yesterday by checking my Signal messages. Along with the usual unwanted PR pitches and messages from people in the middle stages of AI psychosis, I had received a genuinely great tip. It was a story squarely in our coverage area that, if properly covered, could draw attention to a pressing issue on tech platforms and put pressure on it to change. The tip should have filled me with excitement. Instead, though, I felt something closer to dread. When was I going to ",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-b83b06fe41",
+    "rejectedAt": "2026-05-03T10:45:59.120839+00:00",
+    "date": "2026-04-28",
+    "source": "GitHub security blog",
+    "url": "https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/",
+    "headline": "Securing the git push pipeline: Responding to a critical remote code execution vulnerability",
+    "summary": "How we validated, fixed, and investigated a critical vulnerability in under two hours, and confirmed no exploitation.\nThe post Securing the git push pipeline: Responding to a critical remote code execution vulnerability appeared first on The GitHub Blog.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-c477d249b1",
+    "rejectedAt": "2026-05-03T10:46:08.198853+00:00",
+    "date": "2026-04-15",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/RBNEWS551/",
+    "headline": "Risky Bulletin: Malicious LLM proxy routers found in the wild",
+    "summary": "Researchers find malicious LLM proxy routers, a fake Ledger crypto-wallet on the Mac App Store stole $10 million dollars, a ransomware crew leaks data from 38 law firms, and Google cracks down on back button hijacking.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55
+  },
+  {
+    "id": "reject-414a7d69ce",
+    "rejectedAt": "2026-05-03T10:46:28.387802+00:00",
+    "date": "2026-05-01",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/",
+    "headline": "Ubuntu infrastructure has been down for more than a day",
+    "summary": "Servers operated by Ubuntu and its parent company Canonical were knocked offline on Thursday morning and have remained down ever since, a situation that’s preventing the OS provider from communicating normally following the botched disclosure of a major vulnerability. Attempts to connect to most Ubuntu and Canonical webpages and download OS updates from Ubuntu servers have consistently failed over the past 24 hours. Updates from mirror sites, however, have continued to work normally. A Canonical status page said: “Canonical’s web infrastructure is under a sustained, cross-border attack and we ",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78
+  },
+  {
+    "id": "reject-b9e6e61d0b",
+    "rejectedAt": "2026-05-03T10:46:48.577746+00:00",
+    "date": "2026-04-30",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/vulnerabilities-threats/ai-assisted-software-scan-linux-bug",
+    "headline": "Another AI-Assisted Software Scan Yields 9-Year-Old Linux Bug",
+    "summary": "The proof-of-concept exploit code runs only 10 lines long, but luckily, a patch is already available.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78
+  },
+  {
+    "id": "reject-bd97c1c20a",
+    "rejectedAt": "2026-05-03T10:46:59.603408+00:00",
+    "date": "2026-04-24",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/protecting-your-secrets-from-tomorrows-quantum-risks/",
+    "headline": "Protecting your secrets from tomorrow’s quantum risks",
+    "summary": "As outlined in the AWS post-quantum cryptography (PQC) migration plan, addressing the risk of harvest now, decrypt later (HNDL) attack is an important part of your post-quantum plan. Upgrading the client-side of your workloads to support quantum-resistant confidentiality is an important aspect of your side of the PQC shared responsibility model. Timelines to plan and […]",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-a9bc716ca2",
+    "rejectedAt": "2026-05-03T10:47:19.786855+00:00",
+    "date": "2026-04-29",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/application-security/reverse-engineering-ai-unearths-high-severity-github-bug",
+    "headline": "Reverse Engineering With AI Unearths High-Severity GitHub Bug",
+    "summary": "Wiz used an AI reverse-engineering tool to pinpoint a vulnerability that previously would have been too costly and time-consuming to undertake.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78
+  },
+  {
+    "id": "reject-01485a6e0d",
+    "rejectedAt": "2026-05-03T10:47:24.657291+00:00",
+    "date": "2026-04-29",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyber-risk/lotus-wiper-attack-targeted-venezuelan-energy-firms-utilities",
+    "headline": "Lotus Wiper Attack Targets Venezuelan Energy Firms, Utilities",
+    "summary": "An analysis of the destructive malware reveals sophisticated living-off-the-land (LotL) techniques and detailed strategies for the widespread deletion of data.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78
+  },
+  {
+    "id": "reject-7bd450f0fd",
+    "rejectedAt": "2026-05-03T10:47:44.840692+00:00",
+    "date": "2026-04-17",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/madison-square-garden-jim-dolan-surveillance-machine/",
+    "headline": "The Shocking Secrets of Madison Square Garden’s Surveillance Machine",
+    "summary": "Her movements were tracked, over and over. When she sat down. When she ordered a drink. When she went to the bathroom. When she took the elevator. Nina Richards went to New York Knicks games quite a bit, and the security forces at Madison Square Garden used the arena's network of cameras to follow her. New Yorkers have known for a long time that going to a game or concert at the Garden meant surrendering some privacy. That, as you watched the show, the Garden in a real sense watched you . Since 2018 , there have been reports of the venue deploying face-recognition technology in what critics be",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
+    "id": "reject-cda2d0b1dc",
+    "rejectedAt": "2026-05-03T10:47:57.960216+00:00",
+    "date": "2026-04-16",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/train-multimodal-sentence-transformers",
+    "headline": "Training and Finetuning Multimodal Embedding & Reranker Models with Sentence Transformers",
+    "summary": "Sentence Transformers is a Python library for using and training embedding and reranker models for applications like retrieval augmented generation, semantic search, and more. In my previous blogpost , I introduced the new multimodal capabilities, showing how to use embedding and reranker models that handle text, images, audio, and video. In this blogpost, I'll show you how to train or finetune these multimodal models on your own data. As a practical example, I'll walk through finetuning Qwen/Qwen3-VL-Embedding-2B for Visual Document Retrieval (VDR), the task of retrieving relevant document pa",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65
+  },
+  {
+    "id": "reject-440970fb36",
+    "rejectedAt": "2026-05-03T10:48:04.396062+00:00",
+    "date": "2026-04-14",
+    "source": "KrebsOnSecurity",
+    "url": "https://krebsonsecurity.com/2026/04/patch-tuesday-april-2026-edition/",
+    "headline": "Patch Tuesday, April 2026 Edition",
+    "summary": "Microsoft today pushed software updates to fix a staggering 167 security vulnerabilities in its Windows operating systems and related software, including a SharePoint Server zero-day and a publicly disclosed weakness in Windows Defender dubbed \"BlueHammer.\" Separately, Google Chrome fixed its fourth zero-day of 2026, and an emergency update for Adobe Reader nixes an actively exploited flaw that can lead to remote code execution.",
+    "model": "stepfun-ai/step-3.5-flash",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80
+  },
+  {
     "id": "reject-92f8ee26a8",
     "rejectedAt": "2026-05-03T07:35:32.021470+00:00",
     "date": "2026-04-30",
