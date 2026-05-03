@@ -99,7 +99,7 @@ HTTP_TIMEOUT = 20.0
 MIN_RELEVANCE_SCORE = 70
 MIN_CONFIDENCE_SCORE = 65
 MIN_SOURCE_QUALITY_SCORE = 45
-MAX_REJECTED_RECORDS = 250
+MAX_REJECTED_RECORDS = 5000
 USER_AGENT = os.environ.get(
     "USER_AGENT",
     "AgentThreatAtlas-Scraper/1.0 (+https://atlas.clawforceone.ai) Mozilla/5.0",
@@ -901,6 +901,54 @@ def _format_rejection(rejection: RejectedCandidate) -> dict:
     return obj
 
 
+def build_candidate_queue(
+    all_candidates: list[Candidate],
+    existing: list[Incident],
+    limit: int,
+) -> tuple[list[Candidate], int]:
+    seen_urls = {i.url for i in existing}
+    seen_cves: set[str] = set()
+    for inc in existing:
+        seen_cves |= _extract_cve_ids(
+            " ".join([inc.headline, inc.summary, inc.url])
+        )
+
+    processed_records = _load_rejection_records()
+    processed_urls = {
+        str(r.get("url"))
+        for r in processed_records
+        if isinstance(r, dict) and r.get("url")
+    }
+    processed_cves: set[str] = set()
+    for record in processed_records:
+        if not isinstance(record, dict):
+            continue
+        processed_cves |= _extract_cve_ids(
+            " ".join(
+                str(record.get(key) or "")
+                for key in ("headline", "summary", "url")
+            )
+        )
+
+    queue: list[Candidate] = []
+    skipped_processed = 0
+    for candidate in all_candidates:
+        if not candidate.url or not _is_recent(candidate.date):
+            continue
+
+        candidate_cves = _extract_cve_ids(candidate.headline + " " + candidate.summary)
+        if candidate.url in seen_urls or candidate_cves & seen_cves:
+            continue
+
+        if candidate.url in processed_urls or candidate_cves & processed_cves:
+            skipped_processed += 1
+            continue
+
+        queue.append(candidate)
+
+    return queue[:limit], skipped_processed
+
+
 def load_existing() -> list[Incident]:
     if not OUTPUT_FILE.exists():
         return []
@@ -1006,28 +1054,11 @@ def main() -> int:
         return 0
 
     existing = load_existing()
-    seen_urls = {i.url for i in existing}
-
-    # Build CVE dedup set from existing incidents so we don't re-categorize
-    # the same CVE that's already in the file under a different source URL.
-    seen_cves: set[str] = set()
-    for inc in existing:
-        seen_cves |= _extract_cve_ids(inc.headline + " " + inc.url)
-
-    # URL dedup + age gate
-    queue = [
-        c for c in all_candidates
-        if c.url and c.url not in seen_urls and _is_recent(c.date)
-    ]
-
-    # CVE dedup against existing incidents
-    queue = [
-        c for c in queue
-        if not (_extract_cve_ids(c.headline + " " + c.summary) & seen_cves)
-    ]
-
     limit = _candidate_limit(args.limit)
-    queue = queue[:limit]
+    queue, skipped_processed = build_candidate_queue(all_candidates, existing, limit)
+    if skipped_processed:
+        print(f"Skipped {skipped_processed} already processed candidates.")
+        print()
 
     # Enrich thin summaries with a quick article body fetch before LLM calls.
     thin = [c for c in queue if len(c.summary.strip()) < THIN_SUMMARY_THRESHOLD]

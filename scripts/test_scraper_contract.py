@@ -243,6 +243,67 @@ class ScraperContractTest(unittest.TestCase):
             finally:
                 scraper_mod.REJECTED_FILE = original_rejected
 
+    def test_candidate_queue_skips_previously_rejected_urls_and_cves(self) -> None:
+        original_rejected = scraper_mod.REJECTED_FILE
+        with tempfile.TemporaryDirectory() as tmp:
+            rejected_file = Path(tmp) / "rejected-candidates.json"
+            rejected_file.write_text(
+                json.dumps(
+                    [
+                        {
+                            "id": "reject-url",
+                            "url": "https://example.com/rejected-url",
+                            "headline": "OpenAI announces a faster assistant",
+                            "summary": "A product announcement.",
+                        },
+                        {
+                            "id": "reject-cve",
+                            "url": "https://example.com/old-cve-story",
+                            "headline": "CVE-2026-12345: Agent tool issue",
+                            "summary": "A rejected advisory about CVE-2026-12345.",
+                        },
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            scraper_mod.REJECTED_FILE = rejected_file
+            try:
+                candidates = [
+                    scraper_mod.Candidate(
+                        source="OpenAI blog",
+                        url="https://example.com/rejected-url",
+                        headline="OpenAI announces a faster assistant",
+                        summary="A product announcement.",
+                        date="2026-05-02",
+                    ),
+                    scraper_mod.Candidate(
+                        source="GitHub Security Advisory Database",
+                        url="https://example.com/new-cve-story",
+                        headline="CVE-2026-12345: Agent tool issue",
+                        summary="A duplicate candidate for CVE-2026-12345.",
+                        date="2026-05-02",
+                    ),
+                    scraper_mod.Candidate(
+                        source="GitHub Security Advisory Database",
+                        url="https://example.com/new-agent-incident",
+                        headline="CVE-2026-54321: Agent tool leaks secrets",
+                        summary="A new candidate for CVE-2026-54321.",
+                        date="2026-05-02",
+                    ),
+                ]
+
+                with patch.object(scraper_mod, "_is_recent", return_value=True):
+                    queue, skipped_processed = scraper_mod.build_candidate_queue(
+                        candidates,
+                        existing=[],
+                        limit=10,
+                    )
+
+                self.assertEqual([c.url for c in queue], ["https://example.com/new-agent-incident"])
+                self.assertEqual(skipped_processed, 2)
+            finally:
+                scraper_mod.REJECTED_FILE = original_rejected
+
     def test_run_summary_reports_model_and_rejection_reasons(self) -> None:
         rejection = scraper_mod.RejectedCandidate(
             id="reject-test",
