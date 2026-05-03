@@ -139,6 +139,7 @@ test("workflow avoids Node 20 actions runtime", () => {
   assert.match(workflow, /scripts\/requirements\.txt/);
   assert.match(workflow, /source-health\.md/);
   assert.match(workflow, /GITHUB_STEP_SUMMARY/);
+  assert.match(workflow, /timeout-minutes: 60/);
   assert.match(workflow, /default: '100'/);
   assert.doesNotMatch(workflow, /actions\/setup-python@v5/);
   assert.doesNotMatch(workflow, /actions\/setup-node@v4/);

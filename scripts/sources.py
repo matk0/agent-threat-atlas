@@ -361,6 +361,7 @@ RESEARCH: list[Source] = [
         type="rss",
         url="https://promptarmor.substack.com/feed",
         category="research",
+        enabled=False,  # 403 from GitHub Actions runners as of 2026-05
     ),
     Source(
         name="Trail of Bits blog",

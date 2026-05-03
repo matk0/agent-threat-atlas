@@ -474,6 +474,11 @@ class ScraperContractTest(unittest.TestCase):
         self.assertIn("Aikido Security blog", source_names)
         self.assertIn("Tenable Security Research", source_names)
 
+    def test_github_runner_blocked_sources_are_disabled(self) -> None:
+        sources = {source.name: source for source in scraper_mod.ALL_SOURCES}
+
+        self.assertFalse(sources["PromptArmor"].enabled)
+
     def test_source_health_report_summarizes_statuses(self) -> None:
         original_json = scraper_mod.SOURCE_HEALTH_JSON
         original_markdown = scraper_mod.SOURCE_HEALTH_MARKDOWN
