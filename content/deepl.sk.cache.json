@@ -2983,5 +2983,240 @@
     "source": "Community-curated incident catalog covering broader AI harms beyond pure security.",
     "text": "Katalóg incidentov zostavený komunitou, ktorý pokrýva širšie škody spôsobené umelou inteligenciou nad rámec čistej bezpečnosti.",
     "translatedAt": "2026-05-03T08:35:29.303Z"
+  },
+  "e491bf2ae47f34060e31f77703150cfbc2a4aa493ad93e91a6dac0fd151800b6": {
+    "source": "Yuma AI exposed e-commerce customer order data without authentication",
+    "text": "Yuma AI odhalila údaje o objednávkach zákazníkov elektronického obchodu bez overenia",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "f6126f73ae934821772a84d099356fb5509677f502f16c5e59990a515f1f8230": {
+    "source": "Yuma AI Chat AI, a chatbot integrated into multiple e-commerce websites, allowed unauthenticated users to retrieve customer order details, purchased items, and shipping addresses by providing an email address or order number.",
+    "text": "Yuma AI Chat AI, chatbot integrovaný do viacerých webových stránok elektronického obchodu, umožňoval neautentifikovaným používateľom získať údaje o objednávkach zákazníkov, zakúpených položkách a dodacích adresách zadaním e-mailovej adresy alebo čísla objednávky.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "efc660d2714c12084f146fe086121b01b1b94e4acf97a5cbcf4f8147c48704d2": {
+    "source": "Flowise - PII Disclosure on Unauthenticated Forgot Password Endpoint",
+    "text": "Flowise - Zverejnenie PII na neautentifikovanom koncovom bode zabudnutého hesla",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "5d12afc8ef535cf9c436b3c576fa04a41f7bc923a878b3fcda6b504bc2c8005e": {
+    "source": "Flowise's forgot password endpoint (/api/v1/account/forgot-password) returns full user objects containing PII (id, name, email, status, timestamps) in response to unauthenticated requests, exposing sensitive user information to attackers who know a valid email address.",
+    "text": "Koncový bod zabudnutého hesla Flowise (/api/v1/account/forgot-password) vracia v odpovedi na neautentifikované požiadavky úplné používateľské objekty obsahujúce PII (id, meno, e-mail, stav, časové pečiatky), čím vystavuje citlivé používateľské informácie útočníkom, ktorí poznajú platnú e-mailovú adresu.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "f9198caa3b220559ee821cf0118de353ffad3c885911e9333a7bed1470cbcb40": {
+    "source": "The incident would have been prevented or limited by implementing proper authentication and authorization checks on the endpoint, ensuring that password reset responses contain only generic success messages without user data, and applying the principle of least privilege to API responses. Additionally, rate limiting and monitoring for abuse patterns could have limited exposure.",
+    "text": "Incidentu by sa dalo predísť alebo ho obmedziť zavedením správnych kontrol autentifikácie a autorizácie na koncovom bode, zabezpečením, aby odpovede na resetovanie hesla obsahovali len všeobecné správy o úspechu bez údajov používateľa, a uplatnením princípu najmenších privilégií na odpovede API. Okrem toho by obmedzenie rýchlosti a monitorovanie vzorov zneužitia mohlo obmedziť odhalenie.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "f520cf0509d647d43641362b90bd6079029a1d8427ab2bed31521d754f0c1ce4": {
+    "source": "Claude Code Action Runner allowed RCE via malicious MCP configuration",
+    "text": "Claude Code Action Runner umožnil RCE prostredníctvom škodlivej konfigurácie MCP",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "3d40ac3b299a28e65981aaf3629fd566360a05cb4ce2a9c3fd72683518025fc9": {
+    "source": "Anthropic Claude Code Action loaded attacker-controlled project MCP settings from pull-request branches and enabled all project MCP servers, allowing a malicious .mcp.json file to execute arbitrary commands in the GitHub Actions runner with workflow secrets.",
+    "text": "Anthropic Claude Code Action načítal útočníkom ovládané nastavenia MCP projektu z vetiev s požiadavkou na vytiahnutie a povolil všetky servery MCP projektu, čo umožnilo škodlivému súboru .mcp.json vykonať ľubovoľné príkazy v aplikácii GitHub Actions runner s tajomstvami pracovného postupu.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "2738946d0b5f6a150418c652fc4ce26248cef7e16b3d4e21ed30cb233e2680be": {
+    "source": "Open WebUI Tool Valves broken access control exposed tool credentials",
+    "text": "Otvorené ventily nástrojov WebUI porušené riadenie prístupu vystavené poverenia nástrojov",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "420544440608f80569c7e473b3af4c9e91b6005372afc0d9e5204288d70a2837": {
+    "source": "Open WebUI Tool Valves could be accessed without proper ownership checks, exposing or altering tool configuration used by LLM function calling to reach external APIs and backend services.",
+    "text": "Otvorené ventily nástrojov WebUI by mohli byť prístupné bez náležitej kontroly vlastníctva, čím by sa odhalila alebo zmenila konfigurácia nástroja používaná volaním funkcií LLM na dosiahnutie externých API a backendových služieb.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "0e144754cb7eb1e4a1728ec018873dcba12aee2abba43057fcba6adef0a96fec": {
+    "source": "Open WebUI IDOR allowed access to other users private memories",
+    "text": "Otvorené webové rozhranie IDOR umožnilo prístup k súkromným pamätiam iných používateľov",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "e46e092a80db15f3e3d84b3be5349a0823f5c281c465ad3b9a9af32c595e11d3": {
+    "source": "Open WebUI allowed authenticated users to query retrieval collections without ownership validation, exposing other users private memory data through the retrieval API.",
+    "text": "Otvorené webové rozhranie umožňovalo autentifikovaným používateľom vyhľadávať zbierky vyhľadávania bez overenia vlastníctva, čím sa prostredníctvom rozhrania API vyhľadávania sprístupňovali súkromné pamäťové údaje iných používateľov.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "332d447d5e54d135e60623e6c0664ee733924d18038115aca516e51d3bed506d": {
+    "source": "Open WebUI batch file processing allowed unauthorized RAG content overwrite",
+    "text": "Otvorené dávkové spracovanie súborov WebUI umožnilo neoprávnené prepísanie obsahu RAG",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "5746e046b662d4ab74054307008c9a8f2f1651d3397267646b2c5e56090ae054": {
+    "source": "Open WebUI process_files_batch accepted file IDs without ownership checks, letting authenticated users overwrite knowledge-base files that could later be served to the LLM through RAG.",
+    "text": "Otvorené rozhranie WebUI process_files_batch akceptovalo identifikátory súborov bez kontroly vlastníctva, čo umožnilo overeným používateľom prepísať súbory databázy znalostí, ktoré by mohli byť neskôr doručené do LLM prostredníctvom RAG.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "12ceee296fe211678e172d5a67679398cd09c5c99a6efcce9d7c87ff5347d619": {
+    "source": "Langflow Agentic Assistant validation could execute generated Python code",
+    "text": "Overenie agentového asistenta Langflow by mohlo vykonať vygenerovaný kód v jazyku Python",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "fd3bf5fc8c7202c1911811d2f4c231aaf4e88cd36e759f88637be2aaf3bc7115": {
+    "source": "Langflow Agentic Assistant executed LLM-generated Python during validation. An authenticated attacker able to influence generated component code could reach server-side execution sinks and run arbitrary Python.",
+    "text": "Agentový asistent Langflow vykonal počas validácie Python generovaný LLM. Overený útočník schopný ovplyvniť vygenerovaný kód komponentu sa mohol dostať k vykonávacím sinkom na strane servera a spustiť ľubovoľný Python.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "fc2260806a782ebbd91b427802b3cbab8731b8c440db023e446454bc3deca295": {
+    "source": "Kiro IDE allowed arbitrary code execution via crafted project files",
+    "text": "Kiro IDE umožňovalo spustenie ľubovoľného kódu prostredníctvom vytvorených projektových súborov",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "320b964d1f7d97d5cb59796939db6efe2a28b93f14c787593252aa87bf9038a0": {
+    "source": "AWS disclosed CVE-2026-4295 in Kiro, an AI-powered IDE for agentic software development, where improper trust-boundary enforcement allowed arbitrary code execution when a user opened a malicious project directory.",
+    "text": "Spoločnosť AWS zverejnila CVE-2026-4295 v prostredí Kiro, IDE poháňanom umelou inteligenciou na vývoj agentového softvéru, kde nesprávne vynucovanie hraníc dôveryhodnosti umožňovalo spustenie ľubovoľného kódu, keď používateľ otvoril škodlivý adresár projektu.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "1d1c77cd439f671b4a5f48304bd0f6c20d71a0722bd104154558c1edf4b8f1f4": {
+    "source": "Langflow CSV Agent exposed remote code execution through Python REPL tooling",
+    "text": "Agent Langflow CSV vystavený vzdialenému spusteniu kódu prostredníctvom nástroja Python REPL",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "57189b7aa8ccde49c97420a49194b339f0829203cb6f3cfac495a672f1d80753": {
+    "source": "Langflow CSV Agent hardcoded allow_dangerous_code=True and exposed LangChain Python REPL tooling, allowing prompt injection or crafted agent inputs to execute arbitrary Python and OS commands on the server.",
+    "text": "Agent Langflow CSV natvrdo kódoval allow_dangerous_code=True a vystavil nástroj LangChain Python REPL, čo umožňovalo injekciu výzvy alebo vytvorené vstupy agenta na spustenie ľubovoľných príkazov Python a OS na serveri.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "51ba5fbb5b4dc3a71818662ddec41af94e3dc82e8121894f8e9c8b344df6af16": {
+    "source": "Comet browser prompt injection could extract private Gmail information",
+    "text": "Injekcia výzvy prehliadača Comet by mohla získať súkromné informácie služby Gmail",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "73149c4004540d2b8439cd8e8354566608f7cec4ed43701230f2960fc9bfe80c": {
+    "source": "Trail of Bits used threat modeling and prompt injection to audit Perplexity Comet and demonstrated attacks where external content induced the browser AI assistant to extract private information from Gmail.",
+    "text": "Trail of Bits použil modelovanie hrozieb a prompt injection na audit Perplexity Comet a demonštroval útoky, pri ktorých externý obsah podnietil asistenta umelej inteligencie prehliadača, aby získal súkromné informácie zo služby Gmail.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "bd1121868e59c19ef4a424e68b1dc0ecf3e726b1c005d35f8539dfbdb6e76940": {
+    "source": "MCP TypeScript SDK transport reuse caused cross-client data leaks",
+    "text": "Opätovné použitie transportného súboru MCP TypeScript SDK spôsobilo únik údajov medzi klientmi",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "986dcd6b7aaed7a3a3859da60cdfb958e3d56f436dc6b1e77e529d3b2f21efff": {
+    "source": "The Model Context Protocol TypeScript SDK could leak data between clients when deployments reused a StreamableHTTPServerTransport or a shared MCP server instance across requests.",
+    "text": "Súprava TypeScript SDK Model Context Protocol mohla spôsobiť únik údajov medzi klientmi, keď nasadenia opakovane používali StreamableHTTPServerTransport alebo zdieľanú inštanciu servera MCP v rôznych požiadavkách.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "736557db43e67acf5f311f4ec42fb194c77554292f59cd75ef4b42e84d4cefc3": {
+    "source": "Claude Code project-load flow could exfiltrate Anthropic API keys",
+    "text": "Claudov kód projektu - tok načítania by mohol exfiltrovať kľúče API antropického rozhrania",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "0ffff34a14e1d68f2df4b8d874cff7bee05303331ff33eb00f73692fab7d813a": {
+    "source": "AgentSecDB recorded CVE-2026-21852, where repository-controlled project configuration could reroute API traffic before project trust was established, exposing Anthropic API keys.",
+    "text": "AgentSecDB zaznamenala CVE-2026-21852, kde konfigurácia projektu riadená úložiskom mohla presmerovať prevádzku API pred vytvorením dôveryhodnosti projektu, čím sa odhalili kľúče API Anthropic.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "dba7708d50552821ee9a0d5aecd62cf80c0b668a5016ba27a2efdff98ba85135": {
+    "source": "Kiro GitLab Merge Request Helper allowed command injection from crafted workspaces",
+    "text": "Kiro GitLab Merge Request Helper umožňoval vstrekovanie príkazov z vytvorených pracovných priestorov",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "893d2a1307313a4d78cada2f3764c8aead3e4c15ee5ae131502178b13b0a2eed": {
+    "source": "AWS disclosed CVE-2026-0830 in Kiro, an agentic IDE, where opening a maliciously crafted workspace with specially crafted folder names could lead to arbitrary command injection before version 0.6.18.",
+    "text": "Spoločnosť AWS zverejnila CVE-2026-0830 v agentovom IDE Kiro, kde otvorenie škodlivo vytvoreného pracovného priestoru so špeciálne vytvorenými názvami priečinkov mohlo viesť k ľubovoľnému vstreknutiu príkazu pred verziou 0.6.18.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "4393aed17b43913bdd130deb38734b6661b2ec1d2696a1751bc98a1c86e7236e": {
+    "source": "Anthropic MCP TypeScript SDK resource templates were vulnerable to ReDoS",
+    "text": "Antropické šablóny zdrojov MCP TypeScript SDK boli zraniteľné voči ReDoS",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "a7896fd31f4ba8a1c31ce59cca78201cc03bddd487fde2401ccbc44cd5f09558": {
+    "source": "Anthropic MCP TypeScript SDK generated vulnerable regular expressions for exploded resource-template variables, allowing untrusted clients to trigger catastrophic backtracking and deny service to MCP servers.",
+    "text": "Antropický MCP TypeScript SDK generoval zraniteľné regulárne výrazy pre skúmané premenné šablóny zdrojov, čo umožnilo nedôveryhodným klientom spustiť katastrofické spätné sledovanie a odmietnuť službu serverom MCP.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "236e041c5c6f60052d0b411d6244fa9263eefe427c70449ac352855a92de0629": {
+    "source": "This would have been prevented or limited by budget caps, rate limits, bounded retries, circuit breakers, and alerts on abnormal tool or token consumption.",
+    "text": "Zabránili by tomu alebo obmedzili rozpočtové limity, limity rýchlosti, obmedzené opakovania, prerušovače a upozornenia na neobvyklú spotrebu nástrojov alebo tokenov.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "121a296c37cd87eb512d04da719b267e6ae4c0de8b68b7b82fda6c49c2d1ac2c": {
+    "source": "MCP TypeScript SDK default left servers exposed to DNS rebinding",
+    "text": "Predvolené nastavenie MCP TypeScript SDK ponechalo servery vystavené opätovnej väzbe DNS",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "48d5842095b1604c171a281ad51ddd8fbba3ff7b24f69e378c329a0743fdaff9": {
+    "source": "The Model Context Protocol TypeScript SDK did not enable DNS rebinding protection by default, allowing browser-based attackers to reach local MCP servers and potentially invoke agent tools across trust boundaries.",
+    "text": "Súprava TypeScript SDK Model Context Protocol štandardne neumožňovala ochranu pred previazaním DNS, čo umožňovalo útočníkom z prehliadača dosiahnuť miestne servery MCP a potenciálne vyvolať agentové nástroje cez hranice dôveryhodnosti.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "7c6a96cd67ec713491f4522d02685ea1b4681ddde8aca9a4adc21b22fd1ee5d2": {
+    "source": "Claude Pirate abused Anthropic file APIs for data exfiltration",
+    "text": "Claude Pirate zneužil antropické súborové API na exfiltráciu údajov",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "edd796128f50c0bc3528a1329a90756a022a8d1c4ce5b4730f229101fec0af07": {
+    "source": "Research showed that Claude Code Interpreter network access and Anthropic APIs could be combined with indirect prompt injection to exfiltrate files and other user-accessible data without relying on rendered hyperlinks.",
+    "text": "Výskum ukázal, že sieťový prístup Claude Code Interpreter a antropické rozhranie API možno kombinovať s nepriamym vstrekovaním výzvy na exfiltráciu súborov a iných používateľsky prístupných údajov bez toho, aby sa spoliehalo na vykreslené hypertextové odkazy.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "c4f5709ce72dfe0c11316e50f981556b900cffc2ca0eaab290a49900e2f2db80": {
+    "source": "Cross-agent privilege escalation allowed agents to weaken each others controls",
+    "text": "Vzájomné zvyšovanie oprávnení agentov umožnilo agentom vzájomne oslabovať kontroly",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "12d42dfc10241e73041b673a0c3d4906fc1f30dda27751f1b477ba112d8ca532": {
+    "source": "Research across GitHub Copilot, AWS Kiro, and other agents showed that indirect prompt injection could exploit agent design flaws to overwrite configuration or security settings and escape intended controls.",
+    "text": "Výskum v rámci agentov GitHub Copilot, AWS Kiro a iných agentov ukázal, že nepriama výzva (indirect prompt injection) by mohla zneužiť chyby v návrhu agenta na prepísanie konfigurácie alebo bezpečnostných nastavení a uniknutie zamýšľaným kontrolám.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "647c65cc7f09edd5885c604588ed871ced4e6cf2058ae45356658cbb45c786af": {
+    "source": "This would have been prevented or limited by clear agent boundaries, shared state controls, arbitration for conflicting actions, and monitoring that detects runaway coordination loops.",
+    "text": "Tomu by sa dalo zabrániť alebo obmedziť jasnými hranicami agentov, spoločnými kontrolami stavu, arbitrážou konfliktných akcií a monitorovaním, ktoré odhalí vybiehajúce koordinačné slučky.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "896ae0c371cb526a16f8248b97a8623491277a4e9fd121c22b0e61a8f40fcfb4": {
+    "source": "Claude Code startup trust dialog allowed project hook code injection",
+    "text": "Claude Dialóg dôveryhodnosti pri spúšťaní kódu umožnil vstreknutie kódu háčika projektu",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "df8769adaedfc1da94fb4de63a3037e9fc552fb2780ee94b24027466ac7b2f65": {
+    "source": "AgentSecDB recorded GHSA-ph6w-f82w-28w6, where hostile project hooks could execute shell commands during Claude Code startup through an unsafe project trust flow.",
+    "text": "AgentSecDB zaznamenala GHSA-ph6w-f82w-28w6, kde nepriateľské háčiky projektu mohli vykonávať príkazy shellu počas spustenia Claude Code prostredníctvom nebezpečného dôveryhodného toku projektu.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "a3336c45ec11d3a418d80a93d57e59c7c1de0c702376b79bc74f7e2750d74a6a": {
+    "source": "Windsurf MCP integration lacked controls for local tool invocation",
+    "text": "V integrácii Windsurf MCP chýbali kontroly pre lokálne vyvolanie nástroja",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "8c562499ed28901e59e144ce0e350b254b5155386e405658735aee9a4c1973f0": {
+    "source": "Research found missing security controls in Windsurf MCP integration, leaving users without fine-grained approval boundaries for local MCP tool calls made by an AI coding agent.",
+    "text": "Výskum zistil chýbajúce bezpečnostné kontroly v integrácii Windsurf MCP, čo ponecháva používateľov bez jemných hraníc schvaľovania pre miestne volania nástrojov MCP vykonané agentom kódovania AI.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "336ca7660c3040a309eb34c64cbc9cd1749e02204d4621d1edeea86dbc699a01": {
+    "source": "Cline was vulnerable to data exfiltration through rendered markdown images",
+    "text": "Cline bol zraniteľný voči exfiltrácii údajov prostredníctvom vykreslených obrázkov markdown",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "4c94f44cb7266d8b999a8689a65b08b641ab10e184e469730692547ce78f1f2b": {
+    "source": "Cline could render markdown images from untrusted domains in chat. During prompt-injection attacks, an adversary could read sensitive files such as .env and append their contents to an external image URL.",
+    "text": "Cline by mohol v chate vykresľovať obrázky markdown z nedôveryhodných domén. Počas útokov typu prompt-injection by mohol protivník prečítať citlivé súbory, napríklad .env, a pripojiť ich obsah k externej adrese URL obrázka.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "45a8903f71bece1f472375579e95f765911adf9ee55076651aab92412de0f3a7": {
+    "source": "Prompt injection exposed Manus VS Code server to the internet",
+    "text": "Injekcia výzvy vystavila server Manus VS Code internetu",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "cc34c981655ff2375eff3555f6f7620e51b864c3d02b8d4cb2a71c1962479555": {
+    "source": "Research demonstrated an end-to-end indirect prompt-injection attack against Manus that tricked the autonomous agent into exposing its internal VS Code Server and sharing the URL and password with an attacker.",
+    "text": "Výskum preukázal útok typu end-to-end indirect prompt-injection (nepriama výzva na vniknutie) proti Manusu, ktorý oklamal autonómneho agenta, aby odhalil svoj interný server VS Code Server a zdieľal adresu URL a heslo s útočníkom.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "655a42ba9e7b60d81d071d3447bcaffa63a56cd25d0b2a3749de2551a1749044": {
+    "source": "Deep Research agents could leak data between connected tools",
+    "text": "Agenti Deep Research by mohli spôsobiť únik údajov medzi prepojenými nástrojmi",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "c3eb17498d4c3ce9e021376bf4aa465c31449a3228e6a2f9946e5de73090974f": {
+    "source": "Research on ChatGPT Deep Research showed that autonomous research agents with connectors and custom MCP servers could spill data between tools, exposing information from one connected system through another.",
+    "text": "Výskum ChatGPT Deep Research ukázal, že autonómni výskumní agenti s konektormi a vlastnými MCP servermi by mohli prelievať údaje medzi nástrojmi, čím by vystavili informácie z jedného pripojeného systému prostredníctvom druhého.",
+    "translatedAt": "2026-05-04T08:19:15.269Z"
   }
 }
