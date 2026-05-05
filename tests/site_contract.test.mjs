@@ -141,6 +141,25 @@ test("site builds separate English and Slovak static outputs", () => {
   assert.match(workflow, /https:\/\/atlas\.matejlukasik\.sk\/incidents/);
 });
 
+test("header includes a domain language switcher", () => {
+  const header = read("components/Header.tsx");
+  const languageSwitcher = read("components/LanguageSwitcher.tsx");
+  const site = read("lib/site.ts");
+  const i18n = read("lib/i18n.ts");
+
+  assert.match(header, /<LanguageSwitcher \/>/);
+  assert.match(languageSwitcher, /"use client"/);
+  assert.match(languageSwitcher, /usePathname/);
+  assert.match(languageSwitcher, /site\.language\.targetDomain/);
+  assert.match(languageSwitcher, /site\.language\.targetLabel/);
+  assert.match(languageSwitcher, /messages\.nav\.switchLanguage/);
+  assert.match(languageSwitcher, /`https:\/\/\$\{site\.language\.targetDomain\}\$\{pathname \?\? "\/"\}`/);
+  assert.match(site, /targetDomain: config\.htmlLang === "sk" \? siteDomains\.en : siteDomains\.sk/);
+  assert.match(site, /targetLabel: config\.htmlLang === "sk" \? "EN" : "SK"/);
+  assert.match(i18n, /switchLanguage: "Switch to Slovak"/);
+  assert.match(i18n, /switchLanguage: "Prepnúť do angličtiny"/);
+});
+
 test("Slovak locale has translated static content and incident news", () => {
   const incidents = read("content/incidents.sk.ts");
   const threats = read("content/threats.sk.ts");

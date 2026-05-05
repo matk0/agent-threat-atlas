@@ -26,6 +26,7 @@ export const ui = {
       liveAtlas: "Live Atlas",
       threatCategories: "Threat Categories",
       contact: "Consulting",
+      switchLanguage: "Switch to Slovak",
     },
     site: {
       tagline:
@@ -207,6 +208,7 @@ export const ui = {
       liveAtlas: "Živý atlas",
       threatCategories: "Kategórie hrozieb",
       contact: "Konzultácie",
+      switchLanguage: "Prepnúť do angličtiny",
     },
     site: {
       tagline:

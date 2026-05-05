@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { messages } from "@/lib/i18n";
+import LanguageSwitcher from "./LanguageSwitcher";
 import Logo from "./Logo";
 
 export default function Header() {
@@ -14,30 +15,33 @@ export default function Header() {
           <Logo className="h-6 w-6 text-accent-600" />
           <span>{site.name}</span>
         </Link>
-        <nav
-          aria-label={messages.nav.primary}
-          className="hidden items-center gap-7 text-sm text-ink-600 md:flex"
-        >
-          {site.nav.map((item) => (
-            item.external ? (
-              <a
-                key={item.href}
-                href={item.href}
-                className="transition hover:text-ink-900 plausible-event-name=Consulting+Click plausible-event-position=nav"
-              >
-                {item.label}
-              </a>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="transition hover:text-ink-900"
-              >
-                {item.label}
-              </Link>
-            )
-          ))}
-        </nav>
+        <div className="flex items-center gap-4">
+          <nav
+            aria-label={messages.nav.primary}
+            className="hidden items-center gap-7 text-sm text-ink-600 md:flex"
+          >
+            {site.nav.map((item) => (
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="transition hover:text-ink-900 plausible-event-name=Consulting+Click plausible-event-position=nav"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="transition hover:text-ink-900"
+                >
+                  {item.label}
+                </Link>
+              )
+            ))}
+          </nav>
+          <LanguageSwitcher />
+        </div>
       </div>
     </header>
   );

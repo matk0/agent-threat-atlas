@@ -2,6 +2,10 @@ import { config, messages } from "./i18n";
 
 const consultantBaseUrl = "https://matejlukasik.com";
 const consultantSkUrl = "https://matejlukasik.sk";
+const siteDomains = {
+  en: "atlas.matejlukasik.com",
+  sk: "atlas.matejlukasik.sk",
+};
 const atlasUtm =
   "utm_source=agent_threat_atlas&utm_medium=referral&utm_campaign=atlas_funnel";
 const consultantRootBaseUrl =
@@ -29,9 +33,10 @@ export const site = {
   tagline: messages.site.tagline,
   description: messages.site.description,
   domain: config.domain,
-  domains: {
-    en: "atlas.matejlukasik.com",
-    sk: "atlas.matejlukasik.sk",
+  domains: siteDomains,
+  language: {
+    targetDomain: config.htmlLang === "sk" ? siteDomains.en : siteDomains.sk,
+    targetLabel: config.htmlLang === "sk" ? "EN" : "SK",
   },
   email: "matej@clawforceone.ai",
   consultant: {
