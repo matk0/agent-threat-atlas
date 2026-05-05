@@ -32,7 +32,7 @@ export default function HomePage() {
       <header className="border-b border-ink-100 bg-ink-50/35">
         <div className="container-page py-10 sm:py-12">
           <div className="eyebrow">{messages.home.eyebrow}</div>
-          <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div className="mt-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,34rem)] lg:items-start">
             <div>
               <h1 className="text-3xl font-semibold tracking-tight text-ink-900 sm:text-5xl">
                 {messages.home.heading}
@@ -40,20 +40,22 @@ export default function HomePage() {
               <p className="mt-4 max-w-2xl text-base leading-7 text-ink-600 sm:text-lg">
                 {messages.home.intro}
               </p>
-              <ConsultantAttribution />
             </div>
-            <dl className="grid grid-cols-3 gap-3 text-right sm:min-w-80">
-              <Stat label={messages.home.incidents} value={String(sorted.length)} />
-              <Stat label={messages.home.categories} value={String(threats.length)} />
-              <Stat
-                label={messages.home.daysSinceLastIncident}
-                value={
-                  daysSinceLatest === undefined
-                    ? messages.home.notAvailable
-                    : String(daysSinceLatest)
-                }
-              />
-            </dl>
+            <aside className="space-y-4 lg:pt-8">
+              <ConsultantAttribution />
+              <dl className="grid grid-cols-3 gap-3 text-right">
+                <Stat label={messages.home.incidents} value={String(sorted.length)} />
+                <Stat label={messages.home.categories} value={String(threats.length)} />
+                <Stat
+                  label={messages.home.daysSinceLastIncident}
+                  value={
+                    daysSinceLatest === undefined
+                      ? messages.home.notAvailable
+                      : String(daysSinceLatest)
+                  }
+                />
+              </dl>
+            </aside>
           </div>
         </div>
       </header>
@@ -71,7 +73,7 @@ export default function HomePage() {
 
 function ConsultantAttribution() {
   return (
-    <div className="mt-5 flex max-w-3xl flex-col gap-3 rounded-lg border border-ink-100 bg-white px-4 py-3 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex flex-col items-start gap-3 rounded-lg border border-ink-100 bg-white/75 px-4 py-3">
       <p className="text-sm leading-6 text-ink-600">
         {messages.home.consultantPrefix}{" "}
         <a
@@ -84,7 +86,7 @@ function ConsultantAttribution() {
       </p>
       <a
         href={site.consultant.links.heroContact}
-        className="btn-secondary shrink-0 plausible-event-name=Consulting+Click plausible-event-position=hero"
+        className="btn-secondary shrink-0 plausible-event-name=Consulting+Click plausible-event-position=hero sm:inline-flex"
       >
         {messages.home.consultantCta}
       </a>
