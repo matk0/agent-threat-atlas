@@ -1,11 +1,12 @@
 import { config, messages } from "./i18n";
 
 const consultantBaseUrl = "https://matejlukasik.com";
+const consultantSkUrl = "https://matejlukasik.sk";
 const atlasUtm =
   "utm_source=agent_threat_atlas&utm_medium=referral&utm_campaign=atlas_funnel";
-const consultantRootPath = config.htmlLang === "sk" ? "/sk" : "/";
-const consultantRootUrl =
-  consultantRootPath === "/" ? `${consultantBaseUrl}/` : `${consultantBaseUrl}${consultantRootPath}`;
+const consultantRootBaseUrl =
+  config.htmlLang === "sk" ? consultantSkUrl : consultantBaseUrl;
+const consultantRootUrl = `${consultantRootBaseUrl}/`;
 
 function withAtlasUtm(url: string, content: string) {
   return `${url}?${atlasUtm}&utm_content=${content}`;
