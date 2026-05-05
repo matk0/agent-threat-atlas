@@ -3218,5 +3218,20 @@
     "source": "Research on ChatGPT Deep Research showed that autonomous research agents with connectors and custom MCP servers could spill data between tools, exposing information from one connected system through another.",
     "text": "Výskum ChatGPT Deep Research ukázal, že autonómni výskumní agenti s konektormi a vlastnými MCP servermi by mohli prelievať údaje medzi nástrojmi, čím by vystavili informácie z jedného pripojeného systému prostredníctvom druhého.",
     "translatedAt": "2026-05-04T08:19:15.269Z"
+  },
+  "cb1743d9f5fe6a95d9b0368577ac25e83affb298fdcdfbd3d0aa19b99a326321": {
+    "source": "ogham-mcp had credentials embedded in published PyPI sdists -- Neon postgres URLs and Voyage API key",
+    "text": "ogham-mcp mal poverenia vložené do publikovaných PyPI sdists -- adresy URL Neon postgres a kľúč API Voyage",
+    "translatedAt": "2026-05-05T09:34:51.912Z"
+  },
+  "97f9199955a96fca1b9fb9733bedf50e7dc5b42515a4c54dd6df43fc3e421357": {
+    "source": "Between February and April 2026, 22 published PyPI releases of ogham-mcp embedded development credentials in source distributions: three Neon postgres connection strings and one Voyage AI API key. All credentials have been rotated; no exploitation was detected in provider audit logs. Affected versions (0.3.0–0.11.0) were yanked from PyPI.",
+    "text": "Od februára do apríla 2026 bolo v zdrojových distribúciách publikovaných 22 vydaní PyPI ogham-mcp vložených vývojových poverení: tri reťazce pripojenia Neon postgres a jeden kľúč API Voyage AI. Všetky poverenia boli rotované; v záznamoch auditu poskytovateľa nebolo zistené žiadne zneužitie. Postihnuté verzie (0.3.0-0.11.0) boli z PyPI stiahnuté.",
+    "translatedAt": "2026-05-05T09:34:51.912Z"
+  },
+  "ef07b7d187c34cb3cc7fa6297f584d86dcfa014ebd5faf197f06289233d1c7c8": {
+    "source": "This incident would have been prevented by implementing pre-publish credential scanning in the CI/CD pipeline, using environment variables or secret management instead of hardcoding credentials in source files or test fixtures, and enforcing .gitignore rules to exclude files containing secrets from version control. The maintainer's post-incident addition of `make publish-check` demonstrates the correct control: automated scanning that blocks publication when credential patterns are detected in the sdist.",
+    "text": "Tomuto incidentu by sa dalo predísť zavedením kontroly poverení pred publikovaním do potrubia CI/CD, používaním premenných prostredia alebo správy tajomstiev namiesto pevného kódovania poverení v zdrojových súboroch alebo testovacích nástrojoch a presadzovaním pravidiel .gitignore na vylúčenie súborov obsahujúcich tajomstvá z kontroly verzií. Správca po incidente doplnil `make publish-check`, ktorý demonštruje správnu kontrolu: automatické skenovanie, ktoré blokuje publikovanie, keď sa v sdist zistia vzory poverení.",
+    "translatedAt": "2026-05-05T09:34:51.912Z"
   }
 }
