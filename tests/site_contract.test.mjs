@@ -88,13 +88,14 @@ test("atlas is wired as a tracked consulting funnel", () => {
   assert.match(layout, /data-domain=\{site\.domain\}/);
 
   assert.match(page, /ConsultantAttribution/);
-  assert.match(page, /<aside className="space-y-4 lg:pt-8">/);
+  assert.match(page, /text-xs leading-6 text-ink-500/);
   assert.match(page, /messages\.home\.consultantPrefix/);
-  assert.match(page, /site\.consultant\.links\.heroContact/);
-  assert.match(page, /rounded-lg border border-ink-100 bg-white\/75 px-4 py-3/);
-  assert.match(page, /sm:inline-flex/);
+  assert.match(page, /site\.consultant\.links\.home/);
+  assert.doesNotMatch(page, /site\.consultant\.links\.heroContact/);
+  assert.doesNotMatch(page, /rounded-lg border border-ink-100 bg-white\/75 px-4 py-3/);
+  assert.doesNotMatch(page, /plausible-event-position=hero"/);
   assert.match(page, /plausible-event-name=Consulting\+Click/);
-  assert.match(page, /plausible-event-position=hero/);
+  assert.match(page, /plausible-event-position=hero_byline/);
   assert.match(page, /<CTA \/>/);
 
   assert.match(cta, /site\.consultant\.links\.sectionCta/);
