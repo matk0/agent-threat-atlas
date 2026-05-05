@@ -57,12 +57,51 @@ class ScraperContractTest(unittest.TestCase):
         self.assertIn("human approval", entry.lower())
         self.assertNotIn('"vendor": null', entry)
 
-    def test_uses_nvidia_nim_by_default(self) -> None:
+    def test_uses_anthropic_by_default_and_keeps_nvidia_available(self) -> None:
+        with patch.dict(os.environ, {}, clear=True):
+            self.assertEqual(scraper_mod._llm_provider(), "anthropic")
+            self.assertEqual(scraper_mod._llm_model(), scraper_mod.DEFAULT_ANTHROPIC_MODEL)
+
+        self.assertEqual(
+            scraper_mod.ANTHROPIC_MESSAGES_URL,
+            "https://api.anthropic.com/v1/messages",
+        )
+        self.assertEqual(scraper_mod.ANTHROPIC_VERSION, "2023-06-01")
         self.assertEqual(scraper_mod.DEFAULT_NVIDIA_MODEL, "stepfun-ai/step-3.5-flash")
         self.assertEqual(
             scraper_mod.NVIDIA_CHAT_COMPLETIONS_URL,
             "https://integrate.api.nvidia.com/v1/chat/completions",
         )
+
+    def test_llm_provider_rejects_unknown_provider(self) -> None:
+        with patch.dict(os.environ, {"LLM_PROVIDER": "unknown"}):
+            with self.assertRaises(SystemExit):
+                scraper_mod._llm_provider()
+
+    def test_anthropic_payload_uses_structured_outputs(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="Unit test",
+            url="https://example.com/incident",
+            headline="Agentic AI incident",
+            summary="A named agent took a risky autonomous action.",
+            date="2026-05-02",
+        )
+
+        payload = scraper_mod._anthropic_payload(candidate, "System prompt")
+
+        self.assertEqual(payload["model"], scraper_mod.DEFAULT_ANTHROPIC_MODEL)
+        self.assertEqual(payload["temperature"], 0)
+        self.assertEqual(payload["max_tokens"], 900)
+        self.assertIn("System prompt", payload["system"])
+        self.assertEqual(payload["messages"][0]["role"], "user")
+        self.assertIn("Agentic AI incident", payload["messages"][0]["content"])
+
+        schema = payload["output_config"]["format"]["schema"]
+        self.assertEqual(payload["output_config"]["format"]["type"], "json_schema")
+        self.assertFalse(schema["additionalProperties"])
+        self.assertIn("decision", schema["required"])
+        self.assertEqual(schema["properties"]["decision"]["enum"], ["keep", "skip"])
+        self.assertIn("preventionNote", schema["properties"])
 
     def test_nvidia_payload_is_openai_compatible(self) -> None:
         candidate = scraper_mod.Candidate(
@@ -81,6 +120,69 @@ class ScraperContractTest(unittest.TestCase):
         self.assertEqual(payload["messages"][0]["role"], "system")
         self.assertEqual(payload["messages"][1]["role"], "user")
         self.assertIn("Agentic AI incident", payload["messages"][1]["content"])
+
+    def test_categorize_parses_anthropic_structured_response(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="GitHub Security Advisory Database",
+            url="https://github.com/advisories/GHSA-agent-test",
+            headline="MCP server leaks secrets through prompt injection",
+            summary="A malicious prompt caused an MCP server to disclose credentials.",
+            date="2026-05-02",
+        )
+        response = {
+            "decision": "keep",
+            "severity": "high",
+            "threats": ["prompt-injection", "data-exfiltration"],
+            "vendor": "Example MCP Server",
+            "summary": "A malicious prompt caused an MCP server to disclose credentials.",
+            "preventionNote": "This would have been prevented or limited by treating retrieved content as untrusted and blocking autonomous disclosure paths.",
+        }
+
+        with patch.dict(os.environ, {"LLM_PROVIDER": "anthropic"}):
+            with patch.object(
+                scraper_mod,
+                "_call_anthropic",
+                return_value=json.dumps(response),
+                create=True,
+            ):
+                incident = scraper_mod.categorize(candidate, "prompt")
+
+        self.assertIsNotNone(incident)
+        assert incident is not None
+        self.assertEqual(incident.severity, "high")
+        self.assertEqual(incident.threats, ["prompt-injection", "data-exfiltration"])
+        self.assertEqual(incident.vendor, "Example MCP Server")
+
+    def test_categorize_skips_anthropic_structured_skip(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="OpenAI blog",
+            url="https://example.com/product-news",
+            headline="OpenAI announces faster assistant",
+            summary="A product announcement.",
+            date="2026-05-02",
+        )
+        response = {
+            "decision": "skip",
+            "severity": "",
+            "threats": [],
+            "vendor": "",
+            "summary": "",
+            "preventionNote": "",
+        }
+
+        with patch.dict(os.environ, {"LLM_PROVIDER": "anthropic"}):
+            with patch.object(
+                scraper_mod,
+                "_call_anthropic",
+                return_value=json.dumps(response),
+                create=True,
+            ):
+                self.assertIsNone(scraper_mod.categorize(candidate, "prompt"))
+
+    def test_retryable_statuses_include_anthropic_overload(self) -> None:
+        self.assertTrue(scraper_mod._is_retryable_status(429))
+        self.assertTrue(scraper_mod._is_retryable_status(529))
+        self.assertFalse(scraper_mod._is_retryable_status(401))
 
     def test_candidate_limit_defaults_to_production_budget(self) -> None:
         with patch.dict(os.environ, {}, clear=True):
@@ -766,7 +868,7 @@ class ScraperContractTest(unittest.TestCase):
         )
         out = io.StringIO()
 
-        with patch.dict(os.environ, {"NVIDIA_MODEL": "test-model"}):
+        with patch.dict(os.environ, {"ANTHROPIC_MODEL": "test-model"}, clear=True):
             with redirect_stdout(out):
                 scraper_mod.print_run_summary(
                     total_candidates=12,

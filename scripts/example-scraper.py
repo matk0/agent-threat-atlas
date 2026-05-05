@@ -11,14 +11,16 @@ Pipeline:
   6. Merge with existing entries in content/incidents.ts and rewrite the file
 
 Modes:
-  python scripts/example-scraper.py            full run; needs LLM_API_KEY
+  python scripts/example-scraper.py            full run; needs provider API key
   python scripts/example-scraper.py --smoke    skip LLM; print fetch counts
   python scripts/example-scraper.py --limit 5  cap LLM calls (for tuning)
   python scripts/example-scraper.py --dry      categorize but don't write file
 
 Environment:
-  NVIDIA_API_KEY     NVIDIA API key. Required for full runs (not for --smoke).
-                     Get one at https://build.nvidia.com.
+  LLM_PROVIDER       Defaults to anthropic. Supported: anthropic, nvidia.
+  ANTHROPIC_API_KEY  Anthropic API key. Required when LLM_PROVIDER=anthropic.
+  ANTHROPIC_MODEL    Defaults to claude-sonnet-4-5.
+  NVIDIA_API_KEY     NVIDIA API key. Required when LLM_PROVIDER=nvidia.
   NVIDIA_MODEL       Defaults to stepfun-ai/step-3.5-flash.
   SCRAPER_LIMIT      Defaults to 100 candidates per production run.
   SCRAPER_BACKFILL_DAYS
@@ -91,8 +93,13 @@ REJECTED_FILE = ROOT / "content" / "rejected-candidates.json"
 SOURCE_HEALTH_JSON = ROOT / "tmp" / "source-health.json"
 SOURCE_HEALTH_MARKDOWN = ROOT / "tmp" / "source-health.md"
 PROMPT_FILE = ROOT / "scripts" / "scraper-prompt.md"
+ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages"
+ANTHROPIC_VERSION = "2023-06-01"
+DEFAULT_LLM_PROVIDER = "anthropic"
+DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-4-5"
 NVIDIA_CHAT_COMPLETIONS_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 DEFAULT_NVIDIA_MODEL = "stepfun-ai/step-3.5-flash"
+SUPPORTED_LLM_PROVIDERS = {"anthropic", "nvidia"}
 
 MAX_ITEMS_PER_SOURCE = 20
 MAX_ITEM_AGE_DAYS = 30       # skip items older than this
@@ -771,7 +778,7 @@ def build_rejection(
         url=candidate.url,
         headline=candidate.headline[:240],
         summary=((incident.summary if incident else candidate.summary) or "")[:1000],
-        model=_nvidia_model(),
+        model=_llm_model(),
         reasons=decision.reasons,
         relevanceScore=decision.relevanceScore,
         confidenceScore=decision.confidenceScore,
@@ -931,15 +938,103 @@ def _quality_text(candidate: Candidate, incident: Optional[Incident]) -> str:
 
 
 # ---------------------------------------------------------------------------
-# LLM categorization (NVIDIA NIM hosted endpoint)
+# LLM categorization
 # ---------------------------------------------------------------------------
 
 def load_prompt() -> str:
     return PROMPT_FILE.read_text(encoding="utf-8")
 
 
+def _llm_provider() -> str:
+    provider = os.environ.get("LLM_PROVIDER", DEFAULT_LLM_PROVIDER).strip().lower()
+    if provider not in SUPPORTED_LLM_PROVIDERS:
+        supported = ", ".join(sorted(SUPPORTED_LLM_PROVIDERS))
+        raise SystemExit(f"LLM_PROVIDER must be one of: {supported}.")
+    return provider
+
+
+def _llm_model() -> str:
+    if _llm_provider() == "nvidia":
+        return _nvidia_model()
+    return _anthropic_model()
+
+
+def _anthropic_model() -> str:
+    return os.environ.get("ANTHROPIC_MODEL", DEFAULT_ANTHROPIC_MODEL)
+
+
 def _nvidia_model() -> str:
     return os.environ.get("NVIDIA_MODEL", DEFAULT_NVIDIA_MODEL)
+
+
+def _classification_schema() -> dict:
+    return {
+        "type": "object",
+        "additionalProperties": False,
+        "properties": {
+            "decision": {
+                "type": "string",
+                "enum": ["keep", "skip"],
+                "description": "Use keep only for confirmed agentic AI security incidents.",
+            },
+            "severity": {
+                "type": "string",
+                "enum": ["critical", "high", "medium", "low", ""],
+                "description": "Empty string when decision is skip.",
+            },
+            "threats": {
+                "type": "array",
+                "items": {"type": "string", "enum": THREAT_SLUGS},
+                "description": "Known threat slugs. Empty array when decision is skip.",
+            },
+            "vendor": {
+                "type": "string",
+                "description": "Affected vendor, product, or project. Empty string if unknown or skipped.",
+            },
+            "summary": {
+                "type": "string",
+                "description": "Concise factual incident summary. Empty string when decision is skip.",
+            },
+            "preventionNote": {
+                "type": "string",
+                "description": "Practical prevention note. Empty string when decision is skip.",
+            },
+        },
+        "required": [
+            "decision",
+            "severity",
+            "threats",
+            "vendor",
+            "summary",
+            "preventionNote",
+        ],
+    }
+
+
+def _anthropic_payload(item: Candidate, prompt: str) -> dict:
+    dated_prompt = f"Today's date: {_today()}\n\n{prompt}"
+    candidate_json = json.dumps(asdict(item), ensure_ascii=False)
+    user_prompt = (
+        "Classify this candidate using the required JSON schema. "
+        "Set decision to skip unless the candidate describes a concrete, public, "
+        "confirmed security incident involving an AI agent, LLM application, "
+        "MCP/tool-use system, autonomous AI workflow, or closely related agentic AI surface. "
+        "Use empty strings and an empty threats array for skipped candidates.\n\n"
+        f"Candidate:\n{candidate_json}"
+    )
+    return {
+        "model": _anthropic_model(),
+        "system": dated_prompt,
+        "messages": [{"role": "user", "content": user_prompt}],
+        "max_tokens": 900,
+        "temperature": 0,
+        "output_config": {
+            "format": {
+                "type": "json_schema",
+                "schema": _classification_schema(),
+            },
+        },
+    }
 
 
 def _nvidia_payload(item: Candidate, prompt: str) -> dict:
@@ -954,6 +1049,22 @@ def _nvidia_payload(item: Candidate, prompt: str) -> dict:
         "temperature": 0,
         "top_p": 1,
         "stream": False,
+    }
+
+
+def _anthropic_headers() -> dict[str, str]:
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        raise SystemExit(
+            "ANTHROPIC_API_KEY is not set.\n"
+            "Set ANTHROPIC_API_KEY or run with LLM_PROVIDER=nvidia and NVIDIA_API_KEY.\n"
+            "Use --smoke to test fetching without making LLM calls."
+        )
+    return {
+        "x-api-key": api_key,
+        "anthropic-version": ANTHROPIC_VERSION,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
     }
 
 
@@ -972,6 +1083,50 @@ def _nvidia_headers() -> dict[str, str]:
         "Content-Type": "application/json",
         "Accept": "application/json",
     }
+
+
+def _is_retryable_status(status: int) -> bool:
+    return status in {408, 409, 429} or status >= 500
+
+
+def _call_anthropic(item: Candidate, prompt: str) -> Optional[str]:
+    try:
+        with http_client() as c:
+            r = c.post(
+                ANTHROPIC_MESSAGES_URL,
+                headers=_anthropic_headers(),
+                json=_anthropic_payload(item, prompt),
+            )
+            r.raise_for_status()
+            data = r.json()
+    except httpx.HTTPStatusError as e:
+        status = e.response.status_code
+        if _is_retryable_status(status):
+            if status == 429:
+                print("[rate-limit] backing off 30s; this item will be retried tomorrow", file=sys.stderr)
+                time.sleep(30)
+            else:
+                print(f"[api-status {status}] {item.url} — retrying later", file=sys.stderr)
+            raise RetryableClassificationError(f"Anthropic API status {status}")
+        raise SystemExit(f"Anthropic API status {status}: {e.response.text[:500]}") from e
+    except httpx.HTTPError as e:
+        print(f"[api-error] {item.url} — {e}", file=sys.stderr)
+        raise RetryableClassificationError(str(e)) from e
+
+    stop_reason = data.get("stop_reason")
+    if stop_reason in {"max_tokens", "refusal"}:
+        print(f"[api-stop {stop_reason}] {item.url} — retrying later", file=sys.stderr)
+        raise RetryableClassificationError(f"Anthropic stop_reason {stop_reason}")
+
+    content = data.get("content") or []
+    for block in content:
+        if isinstance(block, dict) and block.get("type") == "text":
+            text = block.get("text")
+            if isinstance(text, str) and text.strip():
+                return text.strip()
+
+    print(f"[parse-error] {item.url} — Anthropic returned no text content", file=sys.stderr)
+    raise RetryableClassificationError("Anthropic API returned no text content")
 
 
 def _call_nvidia(item: Candidate, prompt: str) -> Optional[str]:
@@ -1013,12 +1168,18 @@ def _call_nvidia(item: Candidate, prompt: str) -> Optional[str]:
     return content.strip() if isinstance(content, str) else None
 
 
+def _call_llm(item: Candidate, prompt: str) -> Optional[str]:
+    if _llm_provider() == "nvidia":
+        return _call_nvidia(item, prompt)
+    return _call_anthropic(item, prompt)
+
+
 def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
     """
     Classify one candidate. Returns an Incident if the model accepts it as a
     confirmed agentic-AI security incident, or None to skip.
     """
-    text = _call_nvidia(item, prompt)
+    text = _call_llm(item, prompt)
     if text is None:
         return None
 
@@ -1031,6 +1192,10 @@ def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
         print(f"[parse-error] {item.url} — model returned non-JSON: {text[:120]}", file=sys.stderr)
         raise RetryableClassificationError("model returned non-JSON")
 
+    decision = str(data.get("decision") or "").strip().lower()
+    if decision == "skip":
+        return None
+
     threats = [t for t in data.get("threats", []) if t in THREAT_SLUGS]
     if not threats:
         return None
@@ -1039,9 +1204,11 @@ def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
     if severity not in {"critical", "high", "medium", "low"}:
         severity = "medium"
 
-    prevention_note = (
+    prevention_note = str(
         data.get("preventionNote") or _fallback_prevention_note(threats)
     ).strip()
+    summary = str(data.get("summary") or item.summary[:400]).strip()
+    vendor = str(data.get("vendor") or "").strip() or None
 
     return Incident(
         id=f"auto-{item.fingerprint()[:10]}",
@@ -1049,11 +1216,11 @@ def categorize(item: Candidate, prompt: str) -> Optional[Incident]:
         source=item.source,
         url=item.url,
         headline=item.headline[:240],
-        summary=data.get("summary") or item.summary[:400],
+        summary=summary,
         severity=severity,
         threats=threats,
         preventionNote=prevention_note,
-        vendor=data.get("vendor") or None,
+        vendor=vendor,
     )
 
 
@@ -1451,7 +1618,7 @@ def print_run_summary(
 
     print()
     print("Run summary")
-    print(f"  Model:            {_nvidia_model()}")
+    print(f"  Model:            {_llm_model()}")
     print(f"  Candidates found: {total_candidates}")
     print(f"  Candidates queued:{queued_candidates:2d}")
     print(f"  Accepted:         {accepted_count}")
