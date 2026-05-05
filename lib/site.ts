@@ -12,7 +12,8 @@ const consultantRootBaseUrl =
   config.htmlLang === "sk" ? consultantSkUrl : consultantBaseUrl;
 const consultantLandingAnchor =
   config.htmlLang === "sk" ? "bezpecnost-agentickej-ai" : "agentic-ai-security";
-const consultantRootUrl = `${consultantRootBaseUrl}/#${consultantLandingAnchor}`;
+const consultantRootUrl = `${consultantRootBaseUrl}/`;
+const consultantLandingUrl = `${consultantRootUrl}#${consultantLandingAnchor}`;
 
 function withAtlasUtm(url: string, content: string) {
   const [base, hash] = url.split("#");
@@ -20,10 +21,10 @@ function withAtlasUtm(url: string, content: string) {
 }
 
 const consultantLinks = {
-  home: withAtlasUtm(consultantRootUrl, "consultant_byline"),
+  home: withAtlasUtm(consultantLandingUrl, "consultant_byline"),
   navConsulting: withAtlasUtm(consultantRootUrl, "nav"),
-  footer: withAtlasUtm(consultantRootUrl, "footer"),
-  sectionCta: withAtlasUtm(consultantRootUrl, "section_cta"),
+  footer: withAtlasUtm(consultantLandingUrl, "footer"),
+  sectionCta: withAtlasUtm(consultantLandingUrl, "section_cta"),
   contactRedirect: `${consultantBaseUrl}/contact?${atlasUtm}&utm_content=contact_redirect`,
 };
 
