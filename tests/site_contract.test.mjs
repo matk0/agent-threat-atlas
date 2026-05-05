@@ -147,13 +147,18 @@ test("header includes a domain language switcher", () => {
   const site = read("lib/site.ts");
   const i18n = read("lib/i18n.ts");
 
-  assert.match(header, /<LanguageSwitcher \/>/);
+  assert.match(header, /<LanguageSwitcher\s/);
   assert.match(languageSwitcher, /"use client"/);
   assert.match(languageSwitcher, /usePathname/);
-  assert.match(languageSwitcher, /site\.language\.targetDomain/);
-  assert.match(languageSwitcher, /site\.language\.targetLabel/);
-  assert.match(languageSwitcher, /messages\.nav\.switchLanguage/);
-  assert.match(languageSwitcher, /`https:\/\/\$\{site\.language\.targetDomain\}\$\{pathname \?\? "\/"\}`/);
+  assert.match(header, /targetDomain=\{site\.language\.targetDomain\}/);
+  assert.match(header, /targetLabel=\{site\.language\.targetLabel\}/);
+  assert.match(header, /label=\{messages\.nav\.switchLanguage\}/);
+  assert.match(languageSwitcher, /targetDomain/);
+  assert.match(languageSwitcher, /targetLabel/);
+  assert.match(languageSwitcher, /label/);
+  assert.match(languageSwitcher, /`https:\/\/\$\{targetDomain\}\$\{pathname \?\? "\/"\}`/);
+  assert.doesNotMatch(languageSwitcher, /@\/lib\/site/);
+  assert.doesNotMatch(languageSwitcher, /@\/lib\/i18n/);
   assert.match(site, /targetDomain: config\.htmlLang === "sk" \? siteDomains\.en : siteDomains\.sk/);
   assert.match(site, /targetLabel: config\.htmlLang === "sk" \? "EN" : "SK"/);
   assert.match(i18n, /switchLanguage: "Switch to Slovak"/);

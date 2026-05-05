@@ -40,7 +40,11 @@ export default function Header() {
               )
             ))}
           </nav>
-          <LanguageSwitcher />
+          <LanguageSwitcher
+            targetDomain={site.language.targetDomain}
+            targetLabel={site.language.targetLabel}
+            label={messages.nav.switchLanguage}
+          />
         </div>
       </div>
     </header>
