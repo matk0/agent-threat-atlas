@@ -139,6 +139,7 @@ MANUAL_REVIEW_SOURCES = {
     "GitHub Security Advisory Database",
     "Tenable Security Research",
     "Aikido Security blog",
+    "BSI (Germany) warnings",
     "Bishop Fox blog",
     "Embrace The Red (Johann Rehberger)",
     "Trail of Bits blog",
@@ -535,6 +536,7 @@ _SECURITY_SIGNAL_PATTERN = re.compile(
     r"CVE-\d{4}-\d+|GHSA-[a-z0-9-]+|vulnerab\w*|exploit\w*|breach\w*|"
     r"leak\w*|exfiltrat\w*|unauthorized|unauthenticated|malicious|compromis\w*|"
     r"prompt[- ]injection|jailbreak|remote code execution|RCE|SSRF|SQL injection|"
+    r"sql[- ]injektion|schwachstell\w*|codeausf(?:u|ü)hr\w*|"
     r"XSS|bypass\w*|deleted?|destructive|advisory|patched?|zero[- ]click|"
     r"credential\w*|secret\w*|sensitive|personal data|data exposure|takeover|security incident|"
     r"regulator\w*|fine\w*|ban\w*|court|tribunal"

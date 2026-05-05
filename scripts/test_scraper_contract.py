@@ -622,6 +622,44 @@ class ScraperContractTest(unittest.TestCase):
         self.assertEqual(rejections[0].status, "needs_review")
         self.assertIn("not_confirmed_by_model", rejections[0].reasons)
 
+    def test_bsi_langflow_model_skip_is_marked_needs_review(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="BSI (Germany) warnings",
+            url="https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1337",
+            headline="[NEU] [mittel] Langflow: Mehrere Schwachstellen ermöglichen Codeausführung",
+            summary="Ein entfernter, authentisierter Angreifer kann mehrere Schwachstellen in Langflow ausnutzen, um beliebigen Programmcode auszuführen.",
+            date="2026-05-04",
+        )
+
+        with patch.object(scraper_mod, "categorize", return_value=None):
+            with patch.object(scraper_mod.time, "sleep"):
+                new, rejections, deferred = scraper_mod.classify_queue([candidate], [], "prompt")
+
+        self.assertEqual(new, [])
+        self.assertEqual(deferred, [])
+        self.assertEqual(len(rejections), 1)
+        self.assertEqual(rejections[0].status, "needs_review")
+        self.assertIn("not_confirmed_by_model", rejections[0].reasons)
+
+    def test_bsi_generic_software_advisory_remains_rejected(self) -> None:
+        candidate = scraper_mod.Candidate(
+            source="BSI (Germany) warnings",
+            url="https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1343",
+            headline="[NEU] [niedrig] mutt: Mehrere Schwachstellen",
+            summary="Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in mutt ausnutzen, um Sicherheitsvorkehrungen zu umgehen und um einen Denial-of-Service-Zustand herbeizuführen.",
+            date="2026-05-04",
+        )
+
+        with patch.object(scraper_mod, "categorize", return_value=None):
+            with patch.object(scraper_mod.time, "sleep"):
+                new, rejections, deferred = scraper_mod.classify_queue([candidate], [], "prompt")
+
+        self.assertEqual(new, [])
+        self.assertEqual(deferred, [])
+        self.assertEqual(len(rejections), 1)
+        self.assertEqual(rejections[0].status, "rejected")
+        self.assertIn("not_confirmed_by_model", rejections[0].reasons)
+
     def test_candidate_queue_ranks_security_advisories_before_vendor_news(self) -> None:
         original_rejected = scraper_mod.REJECTED_FILE
         with tempfile.TemporaryDirectory() as tmp:

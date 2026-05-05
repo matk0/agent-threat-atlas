@@ -31,6 +31,35 @@ export const incidents: Incident[] = [
     "vendor": "ogham-mcp"
   },
   {
+    "id": "auto-df7911f0d3",
+    "date": "2026-05-04",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1340",
+    "headline": "[NEU] [hoch] IBM Langflow Desktop und OSS: Mehrere Schwachstellen",
+    "summary": "German BSI issued security advisory WID-SEC-2026-1340 on multiple vulnerabilities in IBM Langflow Desktop and Langflow OSS that could allow remote attacks including arbitrary code execution and information disclosure.",
+    "severity": "high",
+    "threats": [
+      "insecure-output-handling",
+      "data-exfiltration"
+    ],
+    "preventionNote": "This would have been prevented or limited by treating all user- and network-supplied inputs as untrusted, removing or sandboxing any code-execution features exposed through agent workflows, and running Langflow in a locked-down environment (least privilege, strong isolation, and egress controls) with rapid patch rollout for disclosed vulnerabilities.",
+    "vendor": "IBM Langflow Desktop"
+  },
+  {
+    "id": "auto-6e521073e0",
+    "date": "2026-05-04",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1337",
+    "headline": "[NEU] [mittel] Langflow: Mehrere Schwachstellen ermöglichen Codeausführung",
+    "summary": "German BSI issued security advisory WID-SEC-2026-1337 on multiple vulnerabilities in Langflow that could allow an authenticated remote attacker to execute arbitrary code.",
+    "severity": "medium",
+    "threats": [
+      "insecure-output-handling"
+    ],
+    "preventionNote": "This would have been prevented or limited by minimizing or sandboxing any code execution paths used by agent workflows, enforcing strict input validation and safe-by-default configuration for tool execution, and deploying Langflow with least-privilege permissions and isolation so a single compromised component cannot execute arbitrary code on the host.",
+    "vendor": "Langflow"
+  },
+  {
     "id": "auto-b271755830",
     "date": "2026-04-30",
     "source": "GitHub Security Advisory Database",
