@@ -6,10 +6,13 @@ const atlasUtm =
   "utm_source=agent_threat_atlas&utm_medium=referral&utm_campaign=atlas_funnel";
 const consultantRootBaseUrl =
   config.htmlLang === "sk" ? consultantSkUrl : consultantBaseUrl;
-const consultantRootUrl = `${consultantRootBaseUrl}/`;
+const consultantLandingAnchor =
+  config.htmlLang === "sk" ? "bezpecnost-agentickej-ai" : "agentic-ai-security";
+const consultantRootUrl = `${consultantRootBaseUrl}/#${consultantLandingAnchor}`;
 
 function withAtlasUtm(url: string, content: string) {
-  return `${url}?${atlasUtm}&utm_content=${content}`;
+  const [base, hash] = url.split("#");
+  return hash ? `${base}?${atlasUtm}&utm_content=${content}#${hash}` : `${base}?${atlasUtm}&utm_content=${content}`;
 }
 
 const consultantLinks = {

@@ -61,6 +61,9 @@ test("navigation is focused and sends contact off-site", () => {
   assert.match(site, /navConsulting/);
   assert.match(site, /const consultantSkUrl = "https:\/\/matejlukasik\.sk"/);
   assert.match(site, /config\.htmlLang === "sk" \? consultantSkUrl : consultantBaseUrl/);
+  assert.match(site, /consultantLandingAnchor/);
+  assert.match(site, /config\.htmlLang === "sk" \? "bezpecnost-agentickej-ai" : "agentic-ai-security"/);
+  assert.match(site, /hash \? `\$\{base\}\?\$\{atlasUtm\}&utm_content=\$\{content\}#\$\{hash\}`/);
   assert.match(site, /utm_source=agent_threat_atlas/);
   assert.match(site, /utm_campaign=atlas_funnel/);
   assert.doesNotMatch(site, /Attack Surfaces/);
