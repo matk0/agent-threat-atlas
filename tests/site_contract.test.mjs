@@ -129,6 +129,7 @@ test("site builds separate English and Slovak static outputs", () => {
   const site = read("lib/site.ts");
   const worker = read("worker.js");
   const workflow = read(".github/workflows/scraper.yml");
+  const smoke = read("scripts/smoke-production.mjs");
 
   assert.match(packageJson, /"build": "node scripts\/build-locales\.mjs"/);
   assert.match(buildScript, /SITE_LOCALE: "en"/);
@@ -142,7 +143,9 @@ test("site builds separate English and Slovak static outputs", () => {
   assert.match(worker, /atlas\.matejlukasik\.sk/);
   assert.match(worker, /\/sk\//);
   assert.match(worker, /\/en\//);
-  assert.match(workflow, /https:\/\/atlas\.matejlukasik\.sk\/incidents/);
+  assert.match(workflow, /npm run smoke:production/);
+  assert.match(smoke, /https:\/\/atlas\.matejlukasik\.sk/);
+  assert.match(smoke, /\/incidents/);
 });
 
 test("header includes a domain language switcher", () => {
@@ -247,4 +250,25 @@ test("workflow avoids Node 20 actions runtime", () => {
   assert.doesNotMatch(workflow, /actions\/setup-node@v4/);
   assert.doesNotMatch(workflow, /cloudflare\/wrangler-action/);
   assert.doesNotMatch(workflow, /FORCE_JAVASCRIPT_ACTIONS_TO_NODE24/);
+});
+
+test("deploy runs browser production smoke checks", () => {
+  const packageJson = read("package.json");
+  const workflow = read(".github/workflows/scraper.yml");
+  const smoke = read("scripts/smoke-production.mjs");
+
+  assert.match(packageJson, /"smoke:production": "node scripts\/smoke-production\.mjs"/);
+  assert.match(packageJson, /"playwright":/);
+  assert.match(workflow, /scripts\/smoke-production\.mjs/);
+  assert.match(workflow, /npx playwright install --with-deps chromium/);
+  assert.match(workflow, /npm run smoke:production/);
+  assert.doesNotMatch(workflow, /curl --fail[\s\S]*atlas\.matejlukasik\.sk\/incidents/);
+  assert.match(smoke, /import \{ chromium \} from "playwright"/);
+  assert.match(smoke, /https:\/\/atlas\.matejlukasik\.com/);
+  assert.match(smoke, /https:\/\/atlas\.matejlukasik\.sk/);
+  assert.match(smoke, /Switch to Slovak/);
+  assert.match(smoke, /Prepnúť do angličtiny/);
+  assert.match(smoke, /assertNoHash/);
+  assert.match(smoke, /Open threat detail/);
+  assert.match(smoke, /Otvoriť detail hrozby/);
 });

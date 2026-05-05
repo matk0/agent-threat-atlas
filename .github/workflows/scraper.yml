@@ -19,6 +19,7 @@ on:
       - 'scripts/build-locales.mjs'
       - 'scripts/example-scraper.py'
       - 'scripts/requirements.txt'
+      - 'scripts/smoke-production.mjs'
       - 'scripts/sources.py'
       - 'scripts/test_scraper_contract.py'
       - 'scripts/translate-content.mjs'
@@ -132,8 +133,8 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: npx -y wrangler@4.87.0 deploy
 
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
       - name: Smoke test production
-        run: |
-          curl --fail --silent --show-error --retry 24 --retry-delay 10 --retry-all-errors https://atlas.clawforceone.ai/incidents > /dev/null
-          curl --fail --silent --show-error --retry 24 --retry-delay 10 --retry-all-errors https://atlas.matejlukasik.com/incidents > /dev/null
-          curl --fail --silent --show-error --retry 24 --retry-delay 10 --retry-all-errors https://atlas.matejlukasik.sk/incidents > /dev/null
+        run: npm run smoke:production
