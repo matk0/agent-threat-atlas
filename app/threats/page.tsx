@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Section from "@/components/Section";
-import { SeverityPill, Pill } from "@/components/Pill";
+import { SeverityPill } from "@/components/Pill";
 import { threats } from "@/content/threats";
 import { incidents } from "@/content/incidents";
 import { messages } from "@/lib/i18n";
@@ -26,42 +26,67 @@ export default function ThreatsIndex() {
         title={messages.threats.heading}
         intro={messages.threats.intro}
       >
-        <div className="overflow-hidden rounded-2xl border border-ink-100 bg-white">
-          <table className="w-full text-left">
-            <thead className="bg-ink-50/60 text-xs uppercase tracking-wider text-ink-500">
-              <tr>
-                <th className="px-6 py-3">{messages.threats.threat}</th>
-                <th className="px-6 py-3">{messages.threats.severity}</th>
-                <th className="px-6 py-3">{messages.threats.recentIncidents}</th>
-                <th className="px-6 py-3">{messages.threats.frameworks}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-ink-100">
-              {ordered.map((t) => (
-                <tr key={t.slug} className="hover:bg-ink-50/40">
-                  <td className="px-6 py-4 align-top">
-                    <Link
-                      href={`/threats/${t.slug}`}
-                      className="font-semibold text-ink-900 hover:text-accent-700"
-                    >
-                      {t.title}
-                    </Link>
-                    <p className="mt-1 max-w-xl text-sm text-ink-600">{t.summary}</p>
-                  </td>
-                  <td className="px-6 py-4 align-top">
-                    <SeverityPill severity={t.severity} />
-                  </td>
-                  <td className="px-6 py-4 align-top text-sm text-ink-700">
-                    {counts.get(t.slug) ?? 0}
-                  </td>
-                  <td className="px-6 py-4 align-top text-xs text-ink-500">
-                    {t.frameworks.length} {messages.threats.refs}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <ul className="grid gap-3">
+          {ordered.map((t) => (
+            <li key={t.slug}>
+              <Link
+                href={`/threats/${t.slug}`}
+                aria-label={`${messages.threats.openThreatDetail}: ${t.title}`}
+                className="group block rounded-lg border border-ink-100 bg-white p-5 shadow-card transition hover:border-accent-500 hover:bg-accent-50/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
+              >
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <h2 className="text-base font-semibold leading-6 text-ink-900 transition group-hover:text-accent-700 sm:text-lg">
+                        {t.title}
+                      </h2>
+                      <span
+                        aria-hidden
+                        className="text-sm font-semibold text-accent-600 opacity-70 transition group-hover:translate-x-0.5 group-hover:opacity-100"
+                      >
+                        →
+                      </span>
+                    </div>
+                    <p className="mt-2 max-w-3xl text-sm leading-6 text-ink-600">
+                      {t.summary}
+                    </p>
+                  </div>
+                  <span className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-accent-700">
+                    {messages.threats.openThreatDetail}
+                    <span aria-hidden>→</span>
+                  </span>
+                </div>
+
+                <dl className="mt-4 grid gap-3 border-t border-ink-100 pt-4 text-sm sm:grid-cols-3">
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-ink-500">
+                      {messages.threats.severity}
+                    </dt>
+                    <dd className="mt-2">
+                      <SeverityPill severity={t.severity} />
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-ink-500">
+                      {messages.threats.recentIncidents}
+                    </dt>
+                    <dd className="mt-2 font-semibold text-ink-900">
+                      {counts.get(t.slug) ?? 0}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-ink-500">
+                      {messages.threats.frameworks}
+                    </dt>
+                    <dd className="mt-2 font-semibold text-ink-900">
+                      {t.frameworks.length} {messages.threats.refs}
+                    </dd>
+                  </div>
+                </dl>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Section>
     </>
   );

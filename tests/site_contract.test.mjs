@@ -185,6 +185,21 @@ test("threat detail pages explain the category end to end", () => {
   assert.match(threatPage, /bestPracticesFor\(threat\)/);
 });
 
+test("threat index makes category links obvious", () => {
+  const threatsPage = read("app/threats/page.tsx");
+  const i18n = read("lib/i18n.ts");
+
+  assert.match(threatsPage, /href=\{`\/threats\/\$\{t\.slug\}`\}/);
+  assert.match(threatsPage, /aria-label=\{`\$\{messages\.threats\.openThreatDetail\}: \$\{t\.title\}`\}/);
+  assert.match(threatsPage, /messages\.threats\.openThreatDetail/);
+  assert.match(threatsPage, /group block rounded-lg border border-ink-100 bg-white p-5/);
+  assert.match(threatsPage, /group-hover:text-accent-700/);
+  assert.match(threatsPage, /focus-visible:ring-2/);
+  assert.doesNotMatch(threatsPage, /<table/);
+  assert.match(i18n, /openThreatDetail: "Open threat detail"/);
+  assert.match(i18n, /openThreatDetail: "Otvoriť detail hrozby"/);
+});
+
 test("workflow avoids Node 20 actions runtime", () => {
   const workflow = read(".github/workflows/scraper.yml");
 
