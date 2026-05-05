@@ -57,18 +57,55 @@ test("navigation is focused and sends contact off-site", () => {
   assert.match(site, /href: "\/"/);
   assert.match(site, /label: messages\.nav\.liveAtlas/);
   assert.match(site, /href: "\/threats"/);
-  assert.match(site, /href: "https:\/\/matejlukasik\.com\/contact"/);
+  assert.match(site, /label: messages\.nav\.contact/);
+  assert.match(site, /navContact/);
+  assert.match(site, /utm_source=agent_threat_atlas/);
+  assert.match(site, /utm_campaign=atlas_funnel/);
   assert.doesNotMatch(site, /Attack Surfaces/);
   assert.doesNotMatch(site, /Playbooks/);
   assert.doesNotMatch(site, /Resources/);
   assert.doesNotMatch(site, /About/);
   assert.match(contactPage, /httpEquiv="refresh"/);
-  assert.match(contactPage, /https:\/\/matejlukasik\.com\/contact/);
+  assert.match(contactPage, /site\.consultant\.links\.contactRedirect/);
+  assert.match(worker, /utm_content=contact_redirect/);
   assert.match(wrangler, /"main": "\.\/worker\.js"/);
   assert.match(wrangler, /"directory": "\.\/dist"/);
   assert.match(wrangler, /"binding": "ASSETS"/);
   assert.match(wrangler, /"run_worker_first": \["\/contact\*"\]/);
-  assert.match(worker, /Response\.redirect\("https:\/\/matejlukasik\.com\/contact", 302\)/);
+  assert.match(worker, /Response\.redirect\(CONTACT_REDIRECT_URL, 302\)/);
+});
+
+test("atlas is wired as a tracked consulting funnel", () => {
+  const layout = read("app/layout.tsx");
+  const page = read("app/page.tsx");
+  const cta = read("components/CTA.tsx");
+  const footer = read("components/Footer.tsx");
+  const site = read("lib/site.ts");
+  const i18n = read("lib/i18n.ts");
+
+  assert.match(layout, /next\/script/);
+  assert.match(layout, /script\.outbound-links\.tagged-events\.js/);
+  assert.match(layout, /data-domain=\{site\.domain\}/);
+
+  assert.match(page, /ConsultantAttribution/);
+  assert.match(page, /messages\.home\.consultantPrefix/);
+  assert.match(page, /site\.consultant\.links\.heroContact/);
+  assert.match(page, /plausible-event-name=Consulting\+Click/);
+  assert.match(page, /plausible-event-position=hero/);
+  assert.match(page, /<CTA \/>/);
+
+  assert.match(cta, /site\.consultant\.links\.sectionCta/);
+  assert.match(cta, /plausible-event-position=section_cta/);
+  assert.match(footer, /site\.consultant\.links\.footer/);
+  assert.match(footer, /plausible-event-position=footer/);
+
+  assert.match(site, /matejlukasik\.com/);
+  assert.match(site, /heroContact/);
+  assert.match(site, /sectionCta/);
+  assert.match(i18n, /Agentic AI consultant/);
+  assert.match(i18n, /Konzultant pre agentickú AI/);
+  assert.match(i18n, /Work with me/);
+  assert.match(i18n, /Spolupracovať/);
 });
 
 test("site builds separate English and Slovak static outputs", () => {

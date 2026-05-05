@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -27,6 +28,11 @@ export default function RootLayout({
   return (
     <html lang={config.htmlLang}>
       <body className="min-h-screen bg-white text-ink-900">
+        <Script
+          data-domain={site.domain}
+          src="https://plausible.io/js/script.outbound-links.tagged-events.js"
+          strategy="afterInteractive"
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-ink-900 focus:px-3 focus:py-2 focus:text-white"

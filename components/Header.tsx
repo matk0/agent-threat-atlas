@@ -23,7 +23,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="transition hover:text-ink-900"
+                className="transition hover:text-ink-900 plausible-event-name=Consulting+Click plausible-event-position=nav"
               >
                 {item.label}
               </a>

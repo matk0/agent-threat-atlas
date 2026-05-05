@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { site } from "@/lib/site";
 import { messages } from "@/lib/i18n";
 
@@ -17,7 +16,7 @@ export default function CTA() {
                 href={site.consultant.orgUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold text-ink-900 hover:underline"
+                className="font-semibold text-ink-900 hover:underline plausible-event-name=Consulting+Click plausible-event-position=section_byline"
               >
                 {site.consultant.name} / {site.consultant.org}
               </a>{" "}
@@ -25,8 +24,8 @@ export default function CTA() {
             </p>
           </div>
           <a
-            href="https://matejlukasik.com/contact"
-            className="btn-secondary whitespace-nowrap"
+            href={site.consultant.links.sectionCta}
+            className="btn-secondary whitespace-nowrap plausible-event-name=Consulting+Click plausible-event-position=section_cta"
           >
             {messages.cta.contact} →
           </a>

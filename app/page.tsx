@@ -3,6 +3,8 @@ import { incidents } from "@/content/incidents";
 import { threats } from "@/content/threats";
 import { daysSinceDate } from "@/lib/format";
 import { locale, messages } from "@/lib/i18n";
+import { site } from "@/lib/site";
+import CTA from "@/components/CTA";
 import IncidentExplorer from "./incidents/IncidentExplorer";
 
 export const metadata: Metadata = {
@@ -38,6 +40,7 @@ export default function HomePage() {
               <p className="mt-4 max-w-2xl text-base leading-7 text-ink-600 sm:text-lg">
                 {messages.home.intro}
               </p>
+              <ConsultantAttribution />
             </div>
             <dl className="grid grid-cols-3 gap-3 text-right sm:min-w-80">
               <Stat label={messages.home.incidents} value={String(sorted.length)} />
@@ -61,7 +64,31 @@ export default function HomePage() {
         locale={locale}
         labels={messages.incidents}
       />
+      <CTA />
     </>
+  );
+}
+
+function ConsultantAttribution() {
+  return (
+    <div className="mt-5 flex max-w-3xl flex-col gap-3 rounded-lg border border-ink-100 bg-white px-4 py-3 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+      <p className="text-sm leading-6 text-ink-600">
+        {messages.home.consultantPrefix}{" "}
+        <a
+          href={site.consultant.links.home}
+          className="font-semibold text-ink-900 underline-offset-4 hover:underline plausible-event-name=Consulting+Click plausible-event-position=hero_byline"
+        >
+          {site.consultant.name}
+        </a>
+        , {messages.home.consultantSuffix}
+      </p>
+      <a
+        href={site.consultant.links.heroContact}
+        className="btn-secondary shrink-0 plausible-event-name=Consulting+Click plausible-event-position=hero"
+      >
+        {messages.home.consultantCta}
+      </a>
+    </div>
   );
 }
 

@@ -1,6 +1,18 @@
 import { config, messages } from "./i18n";
 
-// Central site configuration.
+const consultantBaseUrl = "https://matejlukasik.com";
+const atlasUtm =
+  "utm_source=agent_threat_atlas&utm_medium=referral&utm_campaign=atlas_funnel";
+
+const consultantLinks = {
+  home: `${consultantBaseUrl}/?${atlasUtm}&utm_content=consultant_byline`,
+  heroContact: `${consultantBaseUrl}/contact?${atlasUtm}&utm_content=hero`,
+  navContact: `${consultantBaseUrl}/contact?${atlasUtm}&utm_content=nav`,
+  footer: `${consultantBaseUrl}/?${atlasUtm}&utm_content=footer`,
+  sectionCta: `${consultantBaseUrl}/contact?${atlasUtm}&utm_content=section_cta`,
+  contactRedirect: `${consultantBaseUrl}/contact?${atlasUtm}&utm_content=contact_redirect`,
+};
+
 export const site = {
   name: "Agent Threat Atlas",
   shortName: "Atlas",
@@ -14,16 +26,17 @@ export const site = {
   email: "matej@clawforceone.ai",
   consultant: {
     name: "Matej Lukasik",
-    org: "Clawforce One",
-    orgUrl: "https://clawforceone.ai",
+    org: "MatejLukasik.com",
+    orgUrl: consultantLinks.home,
     role: messages.site.consultantRole,
     pitch: messages.site.consultantPitch,
+    links: consultantLinks,
     calendly: "https://calendly.com/matejlukasik/intro",
   },
   nav: [
     { href: "/", label: messages.nav.liveAtlas },
     { href: "/threats", label: messages.nav.threatCategories },
-    { href: "https://matejlukasik.com/contact", label: messages.nav.contact, external: true },
+    { href: consultantLinks.navContact, label: messages.nav.contact, external: true },
   ],
 };
 

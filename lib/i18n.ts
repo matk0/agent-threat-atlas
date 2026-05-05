@@ -25,7 +25,7 @@ export const ui = {
       primary: "Primary",
       liveAtlas: "Live Atlas",
       threatCategories: "Threat Categories",
-      contact: "Contact",
+      contact: "Consulting",
     },
     site: {
       tagline:
@@ -48,6 +48,10 @@ export const ui = {
       categories: "Categories",
       daysSinceLastIncident: "Days since last incident",
       notAvailable: "n/a",
+      consultantPrefix: "Built by",
+      consultantSuffix:
+        "an Agentic AI consultant. I help engineering teams design, audit, and harden production AI agents before incidents like these happen.",
+      consultantCta: "Work with me",
     },
     incidents: {
       search: "Search",
@@ -182,11 +186,11 @@ export const ui = {
       redirecting: "Redirecting to",
     },
     cta: {
-      title: "About this entry",
+      title: "Need help with your own agent system?",
       prefix: "The Atlas is maintained by",
       suffix:
-        "as an open reference. If your team is wrestling with a specific version of this problem, get in touch.",
-      contact: "Contact Matej",
+        "as an open reference. If your team is designing, shipping, or auditing agentic AI, get in touch.",
+      contact: "Work with Matej",
     },
     severity: {
       critical: "Critical",
@@ -201,7 +205,7 @@ export const ui = {
       primary: "Hlavná navigácia",
       liveAtlas: "Živý atlas",
       threatCategories: "Kategórie hrozieb",
-      contact: "Kontakt",
+      contact: "Konzultácie",
     },
     site: {
       tagline:
@@ -224,6 +228,10 @@ export const ui = {
       categories: "Kategórie",
       daysSinceLastIncident: "Dní od posledného incidentu",
       notAvailable: "n/a",
+      consultantPrefix: "Vytvoril",
+      consultantSuffix:
+        "Konzultant pre agentickú AI. Pomáham inžinierskym tímom navrhovať, auditovať a posilňovať produkčných AI agentov skôr, než spôsobia incidenty ako tieto.",
+      consultantCta: "Spolupracovať",
     },
     incidents: {
       search: "Hľadať",
@@ -358,11 +366,11 @@ export const ui = {
       redirecting: "Presmerovanie na",
     },
     cta: {
-      title: "O tejto položke",
+      title: "Potrebujete pomoc s vlastným agentickým systémom?",
       prefix: "Atlas udržiava",
       suffix:
-        "ako otvorenú referenciu. Ak váš tím rieši konkrétnu verziu tohto problému, ozvite sa.",
-      contact: "Kontaktovať Mateja",
+        "ako otvorenú referenciu. Ak váš tím navrhuje, nasadzuje alebo audituje agentickú AI, ozvite sa.",
+      contact: "Spolupracovať s Matejom",
     },
     severity: {
       critical: "Kritická",
