@@ -19,7 +19,7 @@ Modes:
 Environment:
   LLM_PROVIDER       Defaults to anthropic. Supported: anthropic, nvidia.
   ANTHROPIC_API_KEY  Anthropic API key. Required when LLM_PROVIDER=anthropic.
-  ANTHROPIC_MODEL    Defaults to claude-sonnet-4-5.
+  ANTHROPIC_MODEL    Defaults to claude-3-5-haiku-20241022.
   NVIDIA_API_KEY     NVIDIA API key. Required when LLM_PROVIDER=nvidia.
   NVIDIA_MODEL       Defaults to stepfun-ai/step-3.5-flash.
   SCRAPER_LIMIT      Defaults to 100 candidates per production run.
@@ -96,7 +96,7 @@ PROMPT_FILE = ROOT / "scripts" / "scraper-prompt.md"
 ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages"
 ANTHROPIC_VERSION = "2023-06-01"
 DEFAULT_LLM_PROVIDER = "anthropic"
-DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-4-5"
+DEFAULT_ANTHROPIC_MODEL = "claude-3-5-haiku-20241022"
 NVIDIA_CHAT_COMPLETIONS_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 DEFAULT_NVIDIA_MODEL = "stepfun-ai/step-3.5-flash"
 SUPPORTED_LLM_PROVIDERS = {"anthropic", "nvidia"}

@@ -61,6 +61,7 @@ class ScraperContractTest(unittest.TestCase):
         with patch.dict(os.environ, {}, clear=True):
             self.assertEqual(scraper_mod._llm_provider(), "anthropic")
             self.assertEqual(scraper_mod._llm_model(), scraper_mod.DEFAULT_ANTHROPIC_MODEL)
+            self.assertEqual(scraper_mod.DEFAULT_ANTHROPIC_MODEL, "claude-3-5-haiku-20241022")
 
         self.assertEqual(
             scraper_mod.ANTHROPIC_MESSAGES_URL,

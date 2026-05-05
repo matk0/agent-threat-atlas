@@ -236,6 +236,8 @@ test("workflow avoids Node 20 actions runtime", () => {
 
   assert.match(workflow, /actions\/setup-python@v6/);
   assert.match(workflow, /actions\/setup-node@v6/);
+  assert.match(workflow, /ANTHROPIC_MODEL: claude-3-5-haiku-20241022/);
+  assert.doesNotMatch(workflow, /ANTHROPIC_MODEL: claude-sonnet-4-5/);
   assert.match(workflow, /npx -y wrangler@4\.87\.0 deploy/);
   assert.match(workflow, /content\/rejected-candidates\.json/);
   assert.match(workflow, /scripts\/example-scraper\.py/);
