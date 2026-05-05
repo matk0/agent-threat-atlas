@@ -30,7 +30,7 @@ export default function Footer() {
             {messages.nav.threatCategories}
           </Link>
           <a
-            href={site.consultant.links.navContact}
+            href={site.consultant.links.navConsulting}
             className="hover:text-ink-900 plausible-event-name=Consulting+Click plausible-event-position=footer_nav"
           >
             {messages.nav.contact}

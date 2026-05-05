@@ -58,7 +58,8 @@ test("navigation is focused and sends contact off-site", () => {
   assert.match(site, /label: messages\.nav\.liveAtlas/);
   assert.match(site, /href: "\/threats"/);
   assert.match(site, /label: messages\.nav\.contact/);
-  assert.match(site, /navContact/);
+  assert.match(site, /navConsulting/);
+  assert.match(site, /config\.htmlLang === "sk" \? "\/sk" : "\/"/);
   assert.match(site, /utm_source=agent_threat_atlas/);
   assert.match(site, /utm_campaign=atlas_funnel/);
   assert.doesNotMatch(site, /Attack Surfaces/);
@@ -78,6 +79,7 @@ test("navigation is focused and sends contact off-site", () => {
 test("atlas is wired as a tracked consulting funnel", () => {
   const layout = read("app/layout.tsx");
   const page = read("app/page.tsx");
+  const header = read("components/Header.tsx");
   const cta = read("components/CTA.tsx");
   const footer = read("components/Footer.tsx");
   const site = read("lib/site.ts");
@@ -87,24 +89,24 @@ test("atlas is wired as a tracked consulting funnel", () => {
   assert.match(layout, /script\.outbound-links\.tagged-events\.js/);
   assert.match(layout, /data-domain=\{site\.domain\}/);
 
-  assert.match(page, /ConsultantAttribution/);
-  assert.match(page, /text-xs leading-6 text-ink-500/);
-  assert.match(page, /messages\.home\.consultantPrefix/);
-  assert.match(page, /site\.consultant\.links\.home/);
+  assert.doesNotMatch(page, /ConsultantAttribution/);
+  assert.doesNotMatch(page, /messages\.home\.consultantPrefix/);
+  assert.doesNotMatch(page, /plausible-event-position=hero_byline/);
   assert.doesNotMatch(page, /site\.consultant\.links\.heroContact/);
   assert.doesNotMatch(page, /rounded-lg border border-ink-100 bg-white\/75 px-4 py-3/);
   assert.doesNotMatch(page, /plausible-event-position=hero"/);
-  assert.match(page, /plausible-event-name=Consulting\+Click/);
-  assert.match(page, /plausible-event-position=hero_byline/);
   assert.match(page, /<CTA \/>/);
 
+  assert.match(header, /plausible-event-position=nav/);
   assert.match(cta, /site\.consultant\.links\.sectionCta/);
   assert.match(cta, /plausible-event-position=section_cta/);
   assert.match(footer, /site\.consultant\.links\.footer/);
   assert.match(footer, /plausible-event-position=footer/);
+  assert.match(footer, /site\.consultant\.links\.navConsulting/);
 
   assert.match(site, /matejlukasik\.com/);
-  assert.match(site, /heroContact/);
+  assert.match(site, /consultantRootUrl/);
+  assert.match(site, /navConsulting/);
   assert.match(site, /sectionCta/);
   assert.match(i18n, /Agentic AI consultant/);
   assert.match(i18n, /Konzultant pre agentickú AI/);

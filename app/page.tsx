@@ -3,7 +3,6 @@ import { incidents } from "@/content/incidents";
 import { threats } from "@/content/threats";
 import { daysSinceDate } from "@/lib/format";
 import { locale, messages } from "@/lib/i18n";
-import { site } from "@/lib/site";
 import CTA from "@/components/CTA";
 import IncidentExplorer from "./incidents/IncidentExplorer";
 
@@ -40,7 +39,6 @@ export default function HomePage() {
               <p className="mt-4 max-w-2xl text-base leading-7 text-ink-600 sm:text-lg">
                 {messages.home.intro}
               </p>
-              <ConsultantAttribution />
             </div>
             <dl className="grid grid-cols-3 gap-3 text-right sm:min-w-80">
               <Stat label={messages.home.incidents} value={String(sorted.length)} />
@@ -66,21 +64,6 @@ export default function HomePage() {
       />
       <CTA />
     </>
-  );
-}
-
-function ConsultantAttribution() {
-  return (
-    <p className="mt-4 text-xs leading-6 text-ink-500">
-      {messages.home.consultantPrefix}{" "}
-      <a
-        href={site.consultant.links.home}
-        className="font-medium text-ink-700 underline-offset-4 hover:text-ink-900 hover:underline plausible-event-name=Consulting+Click plausible-event-position=hero_byline"
-      >
-        {site.consultant.name}
-      </a>
-      , {site.consultant.role}.
-    </p>
   );
 }
 
