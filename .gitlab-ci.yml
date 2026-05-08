@@ -1,0 +1,75 @@
+stages:
+  - scrape
+  - deploy
+
+default:
+  interruptible: false
+
+variables:
+  GIT_DEPTH: "1"
+
+# Daily scheduled scraper (and manual runs) update content on `main`,
+# then push changes back to the repo. Deploy happens on the subsequent
+# push pipeline to avoid double-deploys.
+scrape:
+  stage: scrape
+  image: node:22-bookworm
+  variables:
+    LLM_PROVIDER: "anthropic"
+    ANTHROPIC_MODEL: "claude-3-5-haiku-20241022"
+    NVIDIA_MODEL: "stepfun-ai/step-3.5-flash"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && ($CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web" || $CI_PIPELINE_SOURCE == "api")'
+      when: on_success
+    - when: never
+  before_script:
+    - apt-get update
+    - apt-get install -y --no-install-recommends python3 python3-pip git ca-certificates
+    - python3 --version
+    - node --version
+    - npm --version
+    - pip3 install -r scripts/requirements.txt
+    - npm ci
+  script:
+    - python3 scripts/example-scraper.py
+    - node scripts/translate-content.mjs
+    - |
+      git config user.name "${GITLAB_CI_COMMIT_NAME:-gitlab-ci}"
+      git config user.email "${GITLAB_CI_COMMIT_EMAIL:-gitlab-ci@local}"
+
+      git add content/incidents.en.ts content/*.sk.ts content/deepl.sk.cache.json
+      test ! -f content/rejected-candidates.json || git add content/rejected-candidates.json
+
+      git diff --staged --quiet && echo "No incident feed changes." && exit 0
+
+      git commit -m "Update incident feed $(date -u +%Y-%m-%d)"
+
+      test -n "${GITLAB_PUSH_TOKEN:-}" || (echo "Missing GITLAB_PUSH_TOKEN CI variable." && exit 1)
+      git remote set-url origin "https://oauth2:${GITLAB_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
+      git push origin "HEAD:${CI_DEFAULT_BRANCH}"
+  artifacts:
+    when: always
+    expire_in: 14 days
+    paths:
+      - tmp/source-health.json
+      - tmp/source-health.md
+
+deploy:
+  stage: deploy
+  image: mcr.microsoft.com/playwright:v1.59.1-jammy
+  resource_group: production-deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == "push"'
+      when: on_success
+    - when: never
+  before_script:
+    - node --version
+    - npm --version
+    - npm ci
+  script:
+    - npm run build
+    - |
+      test -n "${CLOUDFLARE_API_TOKEN:-}" || (echo "Missing CLOUDFLARE_API_TOKEN CI variable." && exit 1)
+      test -n "${CLOUDFLARE_ACCOUNT_ID:-}" || (echo "Missing CLOUDFLARE_ACCOUNT_ID CI variable." && exit 1)
+      npx -y wrangler@4.87.0 deploy
+    - npm run smoke:production
