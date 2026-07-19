@@ -57,11 +57,17 @@ class ScraperContractTest(unittest.TestCase):
         self.assertIn("human approval", entry.lower())
         self.assertNotIn('"vendor": null', entry)
 
-    def test_uses_anthropic_by_default_and_keeps_nvidia_available(self) -> None:
+    def test_uses_supported_anthropic_model_by_default_and_keeps_nvidia_available(self) -> None:
         with patch.dict(os.environ, {}, clear=True):
             self.assertEqual(scraper_mod._llm_provider(), "anthropic")
             self.assertEqual(scraper_mod._llm_model(), scraper_mod.DEFAULT_ANTHROPIC_MODEL)
-            self.assertEqual(scraper_mod.DEFAULT_ANTHROPIC_MODEL, "claude-3-5-haiku-20241022")
+            self.assertEqual(scraper_mod.DEFAULT_ANTHROPIC_MODEL, "claude-haiku-4-5-20251001")
+
+        workflow = (HERE.parent / ".github/workflows/scraper.yml").read_text(encoding="utf-8")
+        self.assertNotIn("ANTHROPIC_MODEL:", workflow)
+        env_example = (HERE / ".env.example").read_text(encoding="utf-8")
+        self.assertIn("claude-haiku-4-5-20251001", env_example)
+        self.assertNotIn("claude-3-5-haiku-20241022", env_example)
 
         self.assertEqual(
             scraper_mod.ANTHROPIC_MESSAGES_URL,
@@ -78,6 +84,14 @@ class ScraperContractTest(unittest.TestCase):
         with patch.dict(os.environ, {"LLM_PROVIDER": "unknown"}):
             with self.assertRaises(SystemExit):
                 scraper_mod._llm_provider()
+
+    def test_update_workflow_uses_hosted_github_runner(self) -> None:
+        workflow = (HERE.parent / ".github/workflows/scraper.yml").read_text(encoding="utf-8")
+
+        self.assertIn("schedule:", workflow)
+        self.assertIn("workflow_dispatch:", workflow)
+        self.assertIn("runs-on: ubuntu-latest", workflow)
+        self.assertFalse((HERE.parent / ".gitlab-ci.yml").exists())
 
     def test_anthropic_payload_uses_structured_outputs(self) -> None:
         candidate = scraper_mod.Candidate(
