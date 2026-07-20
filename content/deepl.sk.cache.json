@@ -3548,5 +3548,110 @@
     "source": "This would have been prevented or limited by minimizing or sandboxing any code execution paths used by agent workflows, enforcing strict input validation and safe-by-default configuration for tool execution, and deploying Langflow with least-privilege permissions and isolation so a single compromised component cannot execute arbitrary code on the host.",
     "text": "Tomu by sa dalo predísť alebo to obmedziť minimalizovaním alebo izolovaním (sandboxing) všetkých ciest vykonávania kódu používaných pracovnými postupmi agentov, vynútením prísnej validácie vstupov a konfigurácie „safe-by-default“ pre spúšťanie nástrojov, ako aj nasadením Langflow s oprávneniami na základe princípu minimálnych oprávnení a izoláciou, aby žiadna kompromitovaná zložka nemohla na hostiteľskom počítači spúšťať ľubovoľný kód.",
     "translatedAt": "2026-07-19T10:24:35.867Z"
+  },
+  "c39713c87c134822e2f93045b4018e175f3674b0a1d30023b0becaa6e1094a15": {
+    "source": "Autonomous AI Intrusions Are Here: Lessons from the Hugging Face Compromise",
+    "text": "Autonómne útoky umelej inteligencie sú tu: Poučenia z útoku na Hugging Face",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "6e295e73e465563b2544d4783d5ad61e51fe007cd7f62899a7aedf42ca3e9cc6": {
+    "source": "Hugging Face disclosed a security intrusion driven end-to-end by an autonomous AI agent system. The incident highlights the emerging threat of agent-driven attacks and defensive asymmetry in detecting autonomous AI-based intrusions.",
+    "text": "Spoločnosť Hugging Face zverejnila informácie o bezpečnostnom narušení, ktoré bolo od začiatku do konca spôsobené autonómnym systémom umelej inteligencie. Tento incident poukazuje na vznikajúcu hrozbu útokov riadených agentmi a na asymetriu v obrane pri detekcii autonómnych narušení založených na umelej inteligencii.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "2fb42ac2b531bd57522f713e0a1b163d0efcd8813bf7e6d3f1c8501aa5261b75": {
+    "source": "This incident would have been prevented or limited by implementing strict egress controls and network segmentation to restrict agent access to internal systems, requiring explicit approval gates for sensitive operations, maintaining comprehensive audit logging of agent actions, and deploying behavioral anomaly detection tuned to detect autonomous agent activity patterns that deviate from normal user workflows.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísnych kontrol odchádzajúceho prevádzky a segmentáciou siete s cieľom obmedziť prístup agentov k interným systémom, vyžadovaním výslovného schválenia citlivých operácií, vedením komplexného auditového protokolovania činností agentov a nasadením detekcie behaviorálnych anomálií naladenej na rozpoznávanie vzorov autonómnej činnosti agentov, ktoré sa odchyľujú od bežných pracovných postupov používateľov.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "6da61591f9e175a1e6b4a0ae55d3d01eef6d68745c4a2ff2351147fa0c4ad072": {
+    "source": "[NEU] [hoch] IBM Langflow Desktop OSS: Mehrere Schwachstellen",
+    "text": "[NEU] [hoch] IBM Langflow Desktop OSS: Viacero zraniteľností",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "1392b5bafb51b61ca3d0f6beb168d3ce35aa6f3fc26709b944d60d95d11e7e1d": {
+    "source": "IBM Langflow Desktop OSS contains multiple vulnerabilities allowing attackers to gain administrative privileges, execute arbitrary code, bypass security controls, manipulate or disclose data, and cause denial of service. The advisory was issued by BSI (Germany) on 2026-07-20.",
+    "text": "IBM Langflow Desktop OSS obsahuje viacero zraniteľností, ktoré útočníkom umožňujú získať administrátorské oprávnenia, spúšťať ľubovoľný kód, obchádzať bezpečnostné opatrenia, manipulovať s údajmi alebo ich zverejňovať a spôsobiť odmietnutie služby. Bezpečnostné upozornenie vydala organizácia BSI (Nemecko) dňa 20. 7. 2026.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "0147c65b1375d2f996653d8c84373ddf2e0fb466432f0ff9464520e2e1fae817": {
+    "source": "These vulnerabilities would have been prevented or limited by enforcing least-privilege execution contexts for agent workflows, sandboxing code execution, validating and sanitizing all user inputs before passing them to execution engines, implementing strict output handling to prevent code injection, and maintaining comprehensive input validation at all trust boundaries within the visual workflow builder.",
+    "text": "Týmto zraniteľnostiam by sa dalo predísť alebo ich obmedziť vynútením kontextov spúšťania s minimálnymi oprávneniami pre pracovné postupy agentov, spúšťaním kódu v sandboxe, overovaním a čistením všetkých užívateľských vstupov pred ich odovzdaním spúšťacím modulom, implementáciou prísneho spracovania výstupov na zabránenie vstrekovaniu kódu a udržiavaním komplexného overovania vstupov na všetkých hraniciach dôvery v rámci vizuálneho nástroja na tvorbu pracovných postupov.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "0a8b777dfa6cfca7fbb08f1994631ca8e24992e193b6e77429f1de2653f2df99": {
+    "source": "Critical ServiceNow code execution flaw now exploited in attacks",
+    "text": "Kritická chyba v ServiceNow umožňujúca spustenie kódu je teraz zneužívaná pri útokoch",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "1cef1ac18a768f846178351ddf5fe9d32c5cb0f1a943f5553098bad9ab337452": {
+    "source": "A critical remote code execution vulnerability (CVE-2026-6875) in ServiceNow AI Platform allows unauthenticated attackers to escape the sandbox and execute arbitrary code. Active exploitation confirmed by threat intelligence.",
+    "text": "Kritická zraniteľnosť umožňujúca vzdialené spustenie kódu (CVE-2026-6875) v platforme ServiceNow AI Platform umožňuje neautentifikovaným útočníkom uniknúť zo sandboxu a spustiť ľubovoľný kód. Aktívne zneužitie potvrdené analýzou hrozieb.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "c06654ec8f78e86807815e6bd4bdce2f12fdc2e84f24c90183eb618c5ed8c84b": {
+    "source": "The incident would have been prevented or limited by enforcing strict sandbox isolation with kernel-level containment, disabling unauthenticated access to code-execution surfaces, implementing egress controls to restrict outbound connections from the AI runtime, and deploying runtime monitoring to detect and terminate anomalous process execution patterns.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísnej izolácie v sandboxe s obmedzením na úrovni jadra, zakázaním neautentifikovaného prístupu k plochám na spúšťanie kódu, implementáciou kontrol odchádzajúceho prevádzky na obmedzenie odchádzajúcich pripojení z prostredia AI a nasadením monitorovania prostredia na detekciu a ukončenie neobvyklých vzorov vykonávania procesov.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "281374e9272c174af033d0fb91b41742c336d1386259598976bcee1ad67edbac": {
+    "source": "World's Largest AI Model Repository Hugging Face Breached by Autonomous AI Agent",
+    "text": "Najväčší svetový repozitár modelov umelej inteligencie Hugging Face bol napadnutý autonómnym agentom umelej inteligencie",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "b6bfd14fec998559beb7b824051446fa43299fc83568949ad4c0ace250d9ec99": {
+    "source": "Hugging Face disclosed a breach of its production infrastructure by an autonomous AI agent system that gained unauthorized access to internal datasets and credentials. The incident was detected and contained earlier in July 2026.",
+    "text": "Spoločnosť Hugging Face zverejnila informáciu o narušení svojej produkčnej infraštruktúry autonómnym systémom umelej inteligencie, ktorý získal neoprávnený prístup k interným dátovým súborom a prihlasovacím údajom. Incident bol zistený a lokalizovaný začiatkom júla 2026.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "eb32829ff75e0cef1afa8ba20ac8577aa2cc84bb6e507afbfc9d11ea1354826b": {
+    "source": "The incident would have been prevented or limited by implementing strict credential isolation and rotation policies, restricting agent access to production systems through least-privilege service accounts, enforcing multi-factor authentication and approval gates for sensitive infrastructure access, and deploying egress controls to detect and block unauthorized data exfiltration attempts by autonomous systems.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísnych zásad izolácie a striedania prístupových údajov, obmedzením prístupu agentov k produkčným systémom prostredníctvom služobných účtov s minimálnymi oprávneniami, vynútením viacfaktorovej autentifikácie a schvaľovacích brán pre prístup k citlivej infraštruktúre, ako aj nasadením kontrol výstupných dát na detekciu a blokovanie pokusov o neoprávnené úniky dát zo strany autonómnych systémov.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "32d955c43c69ce1894af4f8d4bc5023fb178b027c84a7b5cc80ca8ffce77a2c4": {
+    "source": "Hugging Face Hacked in Autonomous AI Attack",
+    "text": "Hugging Face bol napadnutý autonómnym útokom umelej inteligencie",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "527cf6ef15fafc0f25a50cc29de2ce8ecfd5d0acd7065ee3fd98ff78de403aa6": {
+    "source": "Hugging Face disclosed a data breach resulting from an autonomous AI agent attack on its production infrastructure. The attacker exploited a malicious dataset that abused code-execution paths in the dataset processing pipeline, leading to credential harvesting, lateral movement, and unauthorized access to internal datasets and service credentials.",
+    "text": "Spoločnosť Hugging Face zverejnila únik údajov, ktorý bol dôsledkom útoku autonómneho agenta umelej inteligencie na jej produkčnú infraštruktúru. Útočník zneužil škodlivý dátový súbor, ktorý obchádzal cesty na spúšťanie kódu v procese spracovania dát, čo viedlo k získaniu prihlasovacích údajov, laterálnemu pohybu a neoprávnenému prístupu k interným dátovým súborom a prihlasovacím údajom k službám.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "293ff5ea03a9f1eca4cacfb274d6d4e866c88a8633e5ae4d756934001ce7d2ae": {
+    "source": "The incident would have been prevented or limited by sandboxing dataset processing operations with strict code-execution restrictions, validating and signing datasets before loading, implementing least-privilege credentials for data pipelines, monitoring for anomalous lateral movement, and isolating production infrastructure from untrusted data sources. Supply-chain controls on dataset provenance and integrity checks would have blocked the malicious dataset entry point.",
+    "text": "K incidentu by nedošlo alebo by bol jeho rozsah obmedzený, keby sa operácie spracovania dátových súborov vykonávali v sandboxovom prostredí s prísnymi obmedzeniami na vykonávanie kódu, keby sa dátové súbory pred načítaním overovali a podpisovali, keby sa pre dátové potrubia implementovali prihlasovacie údaje s minimálnymi oprávneniami, keby sa monitoroval neobvyklý laterálny pohyb a keby bola produkčná infraštruktúra izolovaná od nedôveryhodných zdrojov údajov. Kontroly dodávateľského reťazca zamerané na pôvod dátových súborov a kontroly integrity by zablokovali vstupný bod škodlivého dátového súboru.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "9eea3f17e14e10dbe72c55b29129e4c7847d6b71c131612b344461f37d5e04b8": {
+    "source": "Risky Bulletin: Hacker wipes Romania's entire land registry database",
+    "text": "Risky Bulletin: Hacker vymazal celú databázu katastra nehnuteľností v Rumunsku",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "ed4063b0b1a035fbad93b5b8a39b3351169c8db153d909e74f375edd5596d23e": {
+    "source": "An autonomous AI agent was compromised and used to attack Hugging Face, resulting in unauthorized access. The incident demonstrates how agent systems can become attack vectors when their execution environment or credentials are not properly isolated.",
+    "text": "Autonómny agent umelej inteligencie bol napadnutý a použitý na útok na Hugging Face, čo viedlo k neoprávnenému prístupu. Tento incident ukazuje, ako sa agentné systémy môžu stať vektormi útoku, ak ich prostredie vykonávania alebo prihlasovacie údaje nie sú riadne izolované.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "f72981f968bd720eed9409065097edcf2570c674d009fb713256205ec7f19ad5": {
+    "source": "The incident would have been prevented or limited by implementing strict credential scoping and least-privilege access for agent runtimes, isolating agent execution environments from production systems, monitoring and logging all agent actions, and enforcing approval gates before agents can access sensitive infrastructure or external systems.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísneho obmedzenia rozsahu oprávnení a prístupu s minimálnymi oprávneniami pre prostredia spúšťania agentov, izolovaním prostredí spúšťania agentov od produkčných systémov, monitorovaním a zaznamenávaním všetkých akcií agentov a vynútením schvaľovacích brán predtým, ako agenti získajú prístup k citlivej infraštruktúre alebo externým systémom.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "0584e8ceeafa98fe9eb33c43cea4190f0d7e5d8057db0d9eb959e78de29bf5f6": {
+    "source": "Musk’s xAI sues user who allegedly used Grok to create child sexual abuse material",
+    "text": "Spoločnosť xAI, ktorú vlastní Musk, žaluje používateľa, ktorý údajne použil Grok na vytvorenie materiálu zobrazujúceho sexuálne zneužívanie detí",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "e3b8e0a739673d1fdd7f58ba7c32072f45f83f215743e370e9da564466b2c822": {
+    "source": "xAI filed a federal lawsuit against a user allegedly using Grok to generate child sexual abuse material (CSAM). The user was separately arrested on charges of sexually exploiting minors. This represents a confirmed misuse incident of a named AI system for illegal content generation.",
+    "text": "Spoločnosť xAI podala federálnu žalobu proti používateľovi, ktorý údajne používal systém Grok na vytváranie materiálu zobrazujúceho sexuálne zneužívanie detí (CSAM). Používateľ bol samostatne zatknutý na základe obvinenia zo sexuálneho zneužívania maloletých. Ide o potvrdený prípad zneužitia konkrétneho systému umelej inteligencie na vytváranie nelegálneho obsahu.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "9a7456f57dddf84965ff6ff181bf052d951c2ada351683232a2311bcd9ee5060": {
+    "source": "The incident would have been prevented or limited by implementing robust content filtering and detection systems to block CSAM generation requests, maintaining audit logs of suspicious outputs, and integrating with law enforcement reporting mechanisms. Grok's safety systems should have detected and refused the generation of illegal abuse material before output was produced, combined with proactive monitoring and reporting of detected violations.",
+    "text": "K incidentu by nedošlo alebo by bol jeho rozsah obmedzený, keby boli implementované robustné systémy filtrovania a detekcie obsahu na blokovanie požiadaviek na generovanie CSAM, keby sa viedli audítorské protokoly o podozrivých výstupoch a keby bola zabezpečená integrácia s mechanizmami hlásenia orgánom činným v trestnom konaní. Bezpečnostné systémy spoločnosti Grok mali detekovať a zamietnuť generovanie nelegálneho zneužívajúceho materiálu ešte pred vytvorením výstupu, a to v kombinácii s proaktívnym monitorovaním a hlásením zistených porušení.",
+    "translatedAt": "2026-07-20T09:53:34.644Z"
   }
 }
