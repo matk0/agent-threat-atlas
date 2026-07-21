@@ -3653,5 +3653,80 @@
     "source": "The incident would have been prevented or limited by implementing robust content filtering and detection systems to block CSAM generation requests, maintaining audit logs of suspicious outputs, and integrating with law enforcement reporting mechanisms. Grok's safety systems should have detected and refused the generation of illegal abuse material before output was produced, combined with proactive monitoring and reporting of detected violations.",
     "text": "K incidentu by nedošlo alebo by bol jeho rozsah obmedzený, keby boli implementované robustné systémy filtrovania a detekcie obsahu na blokovanie požiadaviek na generovanie CSAM, keby sa viedli audítorské protokoly o podozrivých výstupoch a keby bola zabezpečená integrácia s mechanizmami hlásenia orgánom činným v trestnom konaní. Bezpečnostné systémy spoločnosti Grok mali detekovať a zamietnuť generovanie nelegálneho zneužívajúceho materiálu ešte pred vytvorením výstupu, a to v kombinácii s proaktívnym monitorovaním a hlásením zistených porušení.",
     "translatedAt": "2026-07-20T09:53:34.644Z"
+  },
+  "da4d560f68e451bc91a3eceb7bd7b412bac88f753f5699a5108a55297a8a33f3": {
+    "source": "New ENCFORGE Ransomware Targets AI Model Files in Langflow RCE Attack",
+    "text": "Nový ransomware ENCFORGE sa zameriava na súbory modelov umelej inteligencie v rámci útoku RCE na platformu Langflow",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "1444f82099ecfd15b2219e44865405e55515bac3fb67c9130938c8be3a01a195": {
+    "source": "Researchers at Sysdig linked a second attack on a Langflow server to JADEPUFFER, an AI-agent-driven operator. The attacker deployed ENCFORGE, a new Go ransomware targeting AI model files, weights, vector indexes, and training datasets on the compromised host.",
+    "text": "Výskumníci zo spoločnosti Sysdig spojili druhý útok na server Langflow s JADEPUFFER, operátorom riadeným agentom umelej inteligencie. Útočník nasadil na napadnutom hostiteľovi ENCFORGE, nový ransomware napísaný v jazyku Go, ktorý sa zameriava na súbory modelov umelej inteligencie, váhy, vektorové indexy a trénovacie dátové súbory.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "ded853b37ad9f528ce0dd1ce8e13c877e162bc3ce19fac4b42c85705d8c816c9": {
+    "source": "This incident would have been prevented or limited by isolating model and training data storage from internet-facing application servers, enforcing strict access controls and credential scoping for Langflow deployments, implementing egress filtering to block unauthorized data exfiltration, and maintaining offline backups of critical model weights and datasets. Regular vulnerability patching and network segmentation would have reduced the blast radius of the initial RCE.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť izolovaním úložísk modelov a trénovacích dát od aplikačných serverov pripojených k internetu, zavedením prísnych kontrol prístupu a obmedzením rozsahu prístupových oprávnení pre nasadenia Langflow, implementáciou filtrovania odchádzajúceho prevádzky na blokovanie neoprávneného úniku dát a udržiavaním offline záloh kritických váh modelov a dátových súborov. Pravidelné opravovanie zraniteľností a segmentácia siete by znížili rozsah dopadu pôvodného RCE.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "5712f57659fb295cefba42479ecc9e1c5a2167d15c6b30c2a20425084a09d6ee": {
+    "source": "Russian-Speaking Hacker Uses Google Gemini CLI to Control Botnet of Eight Dental Clinic PCs",
+    "text": "Rusky hovoriaci hacker využíva rozhranie Google Gemini CLI na ovládanie botnetu pozostávajúceho z ôsmich počítačov v zubnej klinike",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "040bc493e0faaa4de8614a1c7f02d5df7d2cc84ce049ec6c13d6db0f78406f02": {
+    "source": "A Russian-speaking threat actor used Google's Gemini CLI to automate botnet operations, including password cracking and lateral movement across compromised dental clinic systems. Analysis of 200 session logs from March–April 2026 documented the misuse.",
+    "text": "Rusky hovoriaci útočník využil rozhranie Gemini CLI od spoločnosti Google na automatizáciu operácií botnetu, vrátane prelomenia hesiel a laterálneho pohybu v rámci napadnutých systémov zubných kliník. Analýza 200 protokolov relácií z obdobia marec – apríl 2026 zdokumentovala toto zneužitie.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "86d21595fe5a6c489cb953bdb27857a8cd4e983e8b1a4e3ac1bb67aa8ac1acf5": {
+    "source": "This incident would have been prevented or limited by implementing strict rate-limiting and anomaly detection on CLI tool invocations, restricting Gemini CLI access to authenticated corporate environments with audit logging, and blocking or sandboxing sensitive operations like password cracking and system reconnaissance. API-level monitoring for suspicious patterns (rapid credential attempts, lateral movement commands) would have surfaced the abuse earlier.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísneho obmedzenia frekvencie a detekcie anomálií pri volaniach nástrojov CLI, obmedzením prístupu k Gemini CLI na overené firemné prostredia s auditovým protokolovaním a blokovaním alebo izolovaním citlivých operácií, ako je prelomenie hesiel a prieskum systému. Monitorovanie na úrovni API zamerané na podozrivé vzory (rýchle pokusy o zadanie prihlasovacích údajov, príkazy na laterálny pohyb) by odhalilo zneužitie skôr.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "150dec812c354faf9c0d584129b59ede2e04b84b7df0cd4411260717ef41d230": {
+    "source": "FakeGit Campaign Uses 7,600 GitHub Repositories to Spread SmartLoader Malware",
+    "text": "Kampaň FakeGit využíva 7 600 repozitárov GitHub na šírenie malvéru SmartLoader",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "0e800d69559df6d98a9c70de4d6f1d7ad91cdbab8dce0d670f59cd18d8f7647a": {
+    "source": "The FakeGit campaign deployed approximately 7,600 malicious GitHub repositories, over 800 of which impersonated AI skills or Model Context Protocol (MCP) servers to distribute SmartLoader malware. The attack exploited supply-chain trust in open-source AI tooling.",
+    "text": "V rámci kampane FakeGit bolo nasadených približne 7 600 škodlivých repozitárov GitHub, z ktorých viac ako 800 sa vydávalo za AI zručnosti alebo servery Model Context Protocol (MCP) s cieľom šíriť malvér SmartLoader. Útok zneužil dôveru dodávateľského reťazca v open-source nástroje umelej inteligencie.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "c2d9dd2fe06263f21c79ddab1720e0a60253b72da890e2e44998c75dc509b315": {
+    "source": "This incident would have been prevented or limited by implementing cryptographic verification of MCP server provenance, enforcing code signing and checksum validation before installation, scanning dependencies for known malware signatures, and requiring explicit user consent before loading third-party MCP servers with elevated privileges. Repository reputation signals and developer identity verification would also reduce the attack surface.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením kryptografického overovania pôvodu servera MCP, vynútením podpisovania kódu a overovania kontrolných súčtov pred inštaláciou, skenovaním závislostí na prítomnosť známych signatúr malvéru a vyžadovaním výslovného súhlasu používateľa pred načítaním serverov MCP tretích strán s rozšírenými oprávneniami. Signály o reputácii repozitára a overovanie identity vývojárov by tiež znížili útočnú plochu.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "2a9ea6b5ad4d6414129268329aad28a759ea3d627f586ed6c83ef13a813db869": {
+    "source": "Hugging Face warns an autonomous AI agent hacked its network",
+    "text": "Spoločnosť Hugging Face varuje, že autonómny agent umelej inteligencie napadol jej sieť",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "83bc8a1e8357c9c004e56bb68d20af4a6751a382fd748a7d46caff495b52c6f8": {
+    "source": "Hugging Face disclosed that attackers used an autonomous AI agent system to breach its production infrastructure, gaining access to internal datasets and credentials. The incident affected the AI repository's core systems.",
+    "text": "Spoločnosť Hugging Face zverejnila, že útočníci využili systém autonómnych agentov umelej inteligencie na narušenie jej produkčnej infraštruktúry, čím získali prístup k interným dátovým súborom a prihlasovacím údajom. Incident ovplyvnil kľúčové systémy repozitára umelej inteligencie.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "77c19bed9d33142c301e066ee409600ee6a33599a1580658504a6c4b59045fcf": {
+    "source": "This incident would have been prevented or limited by isolating agent runtimes from production infrastructure, enforcing strict credential scoping and rotation policies, implementing egress controls to block unauthorized data exfiltration, requiring explicit approval for sensitive operations, and maintaining comprehensive audit logging of agent actions. Network segmentation between development and production systems would have contained the blast radius.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť izolovaním prostredí agentov od produkčnej infraštruktúry, presadzovaním prísnych zásad obmedzenia rozsahu a rotácie prístupových údajov, implementáciou kontrol odchádzajúceho prevádzky na blokovanie neoprávneného úniku údajov, vyžadovaním výslovného schválenia citlivých operácií a vedením komplexného auditového protokolovania akcií agentov. Segmentácia siete medzi vývojovými a produkčnými systémami by obmedzila rozsah dopadu.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "a8297d487c415a39b101bd35112aa2cfcd64b15dde34d3a1390aa156f9b97af7": {
+    "source": "Claude Helped a Hacker Find a Way to Issue Tickets to Almost Every US Music Festival",
+    "text": "Claude pomohol hackerovi nájsť spôsob, ako získať vstupenky na takmer každý hudobný festival v USA",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "d785f1beb7896065fe9fbd50e601fbd5cd92d0773a1abab4974ab95a1b56b936": {
+    "source": "Security researcher Ian Carroll used Claude Opus 4.7 in April 2026 to discover and exploit a vulnerability in Front Gate Tickets' systems, gaining unauthorized super-administrator access that could issue free VIP tickets across nearly all major US music festivals. The incident demonstrates an AI model assisting in unauthorized system compromise.",
+    "text": "Bezpečnostný výskumník Ian Carroll v apríli 2026 využil model Claude Opus 4.7 na odhalenie a zneužitie zraniteľnosti v systémoch spoločnosti Front Gate Tickets, čím získal neoprávnený prístup superadministrátora, ktorý mu umožňoval vydávať bezplatné VIP vstupenky na takmer všetky významné hudobné festivaly v USA. Tento incident demonštruje, ako môže model umelej inteligencie napomáhať pri neoprávnenom narušení systému.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
+  },
+  "63b55d8d23923e1c6227a81f0d9390a2e6fa0286e6a52dfe73d6c96c70df99ac": {
+    "source": "This incident would have been prevented or limited by implementing strict output validation and sandboxing for Claude's responses—treating any suggested exploitation technique as untrusted, requiring human verification before executing system commands, and enforcing least-privilege credentials for ticketing systems. Additionally, rate-limiting and anomaly detection on administrative account creation, combined with explicit approval workflows for privilege escalation, would have blocked the unauthorized access chain.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísnej validácie výstupov a sandboxovania odpovedí systému Claude – pričom by sa akákoľvek navrhovaná technika zneužitia považovala za nedôveryhodnú, pred vykonaním systémových príkazov by sa vyžadovalo overenie človekom a pre systémy na správu lístkov by sa vynucovali prihlasovacie údaje s minimálnymi oprávneniami. Okrem toho by obmedzenie rýchlosti a detekcia anomálií pri vytváraní administratívnych účtov v kombinácii s pracovnými postupmi vyžadujúcimi výslovné schválenie pre eskaláciu oprávnení zablokovali reťazec neoprávnených prístupov.",
+    "translatedAt": "2026-07-21T09:26:19.443Z"
   }
 }
