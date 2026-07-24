@@ -1,5 +1,1523 @@
 [
   {
+    "id": "reject-2d2ef98813",
+    "rejectedAt": "2026-07-24T09:15:32.554575+00:00",
+    "date": "2026-07-23",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/better-generic-secrets-detection-non-secrets",
+    "headline": "Better generic secrets detection starts with finding non-secrets",
+    "summary": "This article was co-written by Zach Rice and Joe Leon , both at Aikido Security. tl;dr Some credentials are meant to be public, but secret scanners still flag them as generic secrets. We wrote suppression rules for the most common ones and reduced false positives by ~2%. These rules now ship by default in Betterleaks. Secrets scanners are built on regular expressions. Each pattern targets a specific credential type, like an AWS secret access key, a GitHub PAT, or a Stripe token. Once the scanner identifies a potential secret, it performs a liveness check by, for example, sending an HTTP reques",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3c1466c701",
+    "rejectedAt": "2026-07-24T09:15:34.022976+00:00",
+    "date": "2026-07-22",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/22/are-ai-labs-pelicanmaxxing/#atom-everything",
+    "headline": "Are AI labs pelicanmaxxing?",
+    "summary": "Are AI labs pelicanmaxxing?\nExcellent piece of work by Dylan Castillo, who took a deep-dive into the frequently pondered question of whether the AI labs have been deliberately training models to draw pelicans riding bicycles in response to my deeply unscientific benchmark.\nI've been randomly spot-checking this in the past by testing models against other animals riding other types of vehicle, but never with anything close to the diligence of Dylan's methodology here.\nDylan took 8 animals × 6 vehicles = 48 prompts and ran them three times each through 7 different models ( GPT-5.6 Terra, Claude Sonnet 5, Gemini 3.5 Flash, Grok 4.5, Qwen3.7-Max, GLM-5.2, and DeepSeek V4 Pro). He then used GPT-5.6 Luna and Gemini 3.1 Flash-Lite to help evaluate the results.\nThere's a neat filter view for exploring the results:\n\nFor the models he tested he could find no evidence of pelimaxxing:\n\n\nThe pelicans on bicycles don’t look any better\nLabs are not better at drawing pelicans\nLabs are not better at dra",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b5d7973c85",
+    "rejectedAt": "2026-07-24T09:15:35.480761+00:00",
+    "date": "2026-07-20",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/20/sam-altman/#atom-everything",
+    "headline": "Quoting Sam Altman",
+    "summary": "We have been having extensive discussions around open source strategy. We will discuss it more at our next board meeting, but one thing we’d like to do soon is to create a language model with the approximate capability of GPT-3 that can run locally on consumer hardware and release that. We’d like to do it soon, before Stability or someone else does. In general, we think this helps discourage others from releasing similarly-powerful models, and makes it harder for new efforts to get funded.\n&mdash; Sam Altman, Email to OpenAI's board, October 1, 2022 - exposed in Musk v. Altman (2026)\n\n    Tags: ai-ethics, sam-altman, generative-ai, openai, ai, llms",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-165d33e669",
+    "rejectedAt": "2026-07-24T09:15:39.187500+00:00",
+    "date": "2026-07-19",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/#atom-everything",
+    "headline": "Claude Code uses Bun written in Rust now",
+    "summary": "In Rewriting Bun in Rust Jarred Sumner made the following claim:\n\nClaude Code v2.1.181 (released June 17th) and later use the Rust port of Bun. Startup got 10% faster on Linux but otherwise, barely anyone noticed. Boring is good.\n\nI decided to have a poke at my own Claude Code installation to see if I could find evidence that it was using Bun written in Rust.\nI found these two commands convincing:\nstrings ~/.local/bin/claude | grep -m1 'Bun v1'\n\nFor me this outputs Bun v1.4.0 (macOS arm64). The most recent release of Bun on GitHub is currently v1.3.14 from May 12th, so that v1.4.0 version number in Claude supports them shipping a preview of a not-yet-released Bun version.\n(Update: The Rust version has been released as Bun canary - running bun upgrade --canary will install this release.)\nstrings ~/.local/bin/claude | grep -Eo 'src/[[:alnum:]_./-]+\\.rs'\n\nThis outputs a list of 563 filenames, starting with these:\nsrc/runtime/bake/dev_server/mod.rs\nsrc/runtime/bake/production.rs\nsrc/bundle",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-50824e5a49",
+    "rejectedAt": "2026-07-24T09:15:41.195066+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1292",
+    "headline": "[UPDATE] [mittel] Prometheus: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Prometheus ausnutzen, um einen Denial of Service Angriff durchzuführen, vertrauliche Informationen offenzulegen oder Cross-Site-Scripting-Angriffe durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e725bb5b58",
+    "rejectedAt": "2026-07-24T09:15:42.290817+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-3762",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen ermöglichen Denial of Service",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen in Linux Kernel ausnutzen, um einen Denial of Service Angriff durchzuführen und um nicht näher beschriebene Effekte zu erzielen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b2ffc28bcc",
+    "rejectedAt": "2026-07-24T09:15:43.388532+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2023-2337",
+    "headline": "[UPDATE] [mittel] Apache Tomcat mod_jk Connector: Schwachstelle ermöglicht Umgehung von Sicherheitsmaßnahmen oder Offenlegung von Informationen",
+    "summary": "Ein entfernter anonymer Angreifer kann eine Schwachstelle in Apache Tomcat mod_jk Connector ausnutzen, um Sicherheitsmaßnahmen zu umgehen oder vertrauliche Informationen offenzulegen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f4c81bfcb4",
+    "rejectedAt": "2026-07-24T09:15:44.444375+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2419",
+    "headline": "[UPDATE] [hoch] Red Hat Enterprise Linux (sssd, glib, c-ares): Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Red Hat Enterprise Linux ausnutzen, um Administratorrechte zu erlangen, Sicherheitsmaßnahmen zu umgehen, Daten zu manipulieren und einen Denial-of-Service-Zustand auszulösen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5ab3b94302",
+    "rejectedAt": "2026-07-24T09:15:46.766186+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1279",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um nicht näher spezifizierte Angriffe durchzuführen, welche zu einem Denial-of-Service-Zustand, einer Rechteausweitung, der Ausführung von Code oder einer Speicherbeschädigung führen könnten.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f29a04d123",
+    "rejectedAt": "2026-07-24T09:15:49.106441+00:00",
+    "date": "2026-07-22",
+    "source": "AI Incident Database",
+    "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+    "headline": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+    "summary": "Hugging Face detected and contained an AI agent that compromised their infrastructure during a model evaluation process. OpenAI and Hugging Face partnered to address the incident, which Hugging Face publicly disclosed.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "duplicate"
+    ],
+    "relevanceScore": 95,
+    "confidenceScore": 100,
+    "sourceQualityScore": 72,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "excessive-agency",
+      "supply-chain"
+    ],
+    "vendor": "Hugging Face"
+  },
+  {
+    "id": "reject-97acd50858",
+    "rejectedAt": "2026-07-24T09:16:10.560826+00:00",
+    "date": "2026-07-24",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/ocr-for-images",
+    "headline": "OCR for Images: Top AI Software for Image-to-Text Conversion",
+    "summary": "Optical Character Recognition (OCR) is a critical first step in modern AI workflows, turning images and scans into usable text. But real-world images introduce distortion, noise, and complex layouts that basic OCR often struggles with. Today’s teams need systems that preserve structure, extract reliable data, and feed automation and AI pipelines. This guide explores the top tools for image-to-text OCR and how to build a production-ready document intelligence stack.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a14ca4fc4d",
+    "rejectedAt": "2026-07-24T09:16:11.660899+00:00",
+    "date": "2026-07-24",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/bring-your-document-workflows-to-n8n-with-the-llamaparse-node",
+    "headline": "Bring your Document Workflows to n8n with the LlamaParse Node",
+    "summary": "What the node does We've shipped v5 and v6 of the LlamaParse Platform community node for n8n , and the package is now an officially verified community node as part of a broader partnership we signed with n8n to bring document intelligence to the no-code and low-code world. This post covers what the node exposes, what changed across the two major versions, and three concrete workflows you can build with it. The package ships a single node, LlamaParse Platform, which surfaces five LlamaCloud resources behind one resource/operation dropdown. All five share the same LlamaParse API credential. Pars",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-578a70f502",
+    "rejectedAt": "2026-07-24T09:16:12.696450+00:00",
+    "date": "2026-07-24",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/announcing-retrieval-harness",
+    "headline": "Announcing Retrieval Harness",
+    "summary": "Filesystem Primitives 1 When we launched LlamaIndex as an open-source project, our focus was on standardizing the core primitives of RAG: chunking, embedding, indexing, and retrieval. For basic question-answering workloads, that foundational blueprint worked perfectly. But enterprise agents have completely outgrown it. Traditional RAG treats data access as a static, one-shot preprocessing step. It pulls a handful of context fragments, bundles them into a prompt window, and blindly hopes for the best. Autonomous agents cannot navigate an unstructured corpus through a fuzzy semantic search bar. ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2f74b6923b",
+    "rejectedAt": "2026-07-24T09:16:15.143320+00:00",
+    "date": "2026-07-23",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/nine-year-old-refluxfs-linux-flaw-gives.html",
+    "headline": "Nine-Year-Old RefluXFS Linux Flaw Gives Local Users Root on Default RHEL Installs",
+    "summary": "RefluXFS, a Linux kernel flaw disclosed on July 22 and tracked as CVE-2026-64600, lets an unprivileged local user overwrite root-owned files on an XFS filesystem and gain persistent root access.\n\nQualys said default installations of Red Hat Enterprise Linux and its derivatives, Fedora Server, and Amazon Linux can meet the conditions for exploitation.\n\nThe company demonstrated the race against",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-10914aba84",
+    "rejectedAt": "2026-07-24T09:16:16.219569+00:00",
+    "date": "2026-07-24",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/nodebb-patches-eight-ai-found-flaws.html",
+    "headline": "NodeBB Patches Eight AI-Found Flaws Exposing Admin Access and Private Chats",
+    "summary": "Eight security flaws in NodeBB went public on Wednesday, along with the code to exploit them. Aikido Security rates all eight as high severity and says its AI pentest agents found them in a six-hour review of the forum software's source code.\n\nEvery version before 4.14.0 is affected. NodeBB has fixed them all, and administrators should be on 4.14.2.\n\nThe simplest one takes a settings change. A",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c1d6930241",
+    "rejectedAt": "2026-07-24T09:16:17.138041+00:00",
+    "date": "2026-07-23",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/threatsday-android-spyware-plc-attacks.html",
+    "headline": "ThreatsDay: Android Spyware, PLC Attacks, AI Image Prompt Injection + 12 More Stories",
+    "summary": "Most of this week's trouble came dressed as something useful.\n\nA package stole data. A fake extension opened remote access. A safety app became spyware. An image gave hidden orders to an AI agent. Other threats hid in open systems, weak code, and normal network traffic.\n\n\n The threats change every week. Subscribe, and we’ll alert you when each new ThreatsDay Bulletin is out.\n\n\nThe danger was",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e60c66d1f2",
+    "rejectedAt": "2026-07-24T09:16:21.804177+00:00",
+    "date": "2026-07-23",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/us-news/2026/jul/23/trump-datacenter-costs-big-tech",
+    "headline": "Trump says nearly 200 firms have signed pledge to protect Americans from costs arising from datacenters",
+    "summary": "‘Ratepayer Protection Pledge’ president has touted is non-binding as people continue to struggle with rising billsDonald Trump has announced that about 200 entities have signed on to his non-binding “Ratepayer Protection Pledge”, expanding a voluntary commitment which claims to ensure US consumers will not bear the cost of the AI datacenter build-out.Trump delivered remarks on Thursday at the Environmental Protection Agency (EPA) headquarters, alongside Lee Zeldin, the agency’s administrator, and Chris Wright, the energy secretary. Other attenders included governors who signed on to the pledge, including Brian Kemp of Georgia, Mike DeWine of Ohio, Spencer Cox of Utah and Jeff Landry of Louisiana. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-90b23a9fee",
+    "rejectedAt": "2026-07-24T09:16:22.897833+00:00",
+    "date": "2026-07-23",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/linux/new-refluxfs-linux-flaw-lets-attackers-gain-root-privileges/",
+    "headline": "New RefluXFS Linux flaw lets attackers gain root privileges",
+    "summary": "A nine-year-old race condition vulnerability in the Linux kernel's XFS filesystem, tracked as CVE-2026-64600, allows local attackers to overwrite protected files and gain root privileges. Dubbed RefluXFS by the Qualys Threat Research Unit (TRU), which found and reported it, the security flaw affects systems with an XFS filesystem with reflink enabled (a default configuration on major enterprise Linux distributions), running Linux kernel v4.11 or later, with a directory writable by an unprivileged local user, and a high-value target (a root-owned configuration file or SUID-root binary). Also, s",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-65ed4cac53",
+    "rejectedAt": "2026-07-24T09:16:26.066341+00:00",
+    "date": "2026-07-24",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/kimi-k3-agents-found-redis-zero-days.html",
+    "headline": "Kimi K3 Agents Found Redis Zero-Days and Built RCE Exploit, Researchers Say",
+    "summary": "Redis shipped seven security releases on July 23 after researchers published authenticated RCE PoCs for stock Redis 6.2.22, 7.4.9, 8.6.4, and 8.8.0.\n\nAll four chains require RESTORE. The Streams chains also need EVAL and XGROUP; the 8.8.0 chain needs EVAL and the bundled RedisBloom module. Redis says the underlying memory flaws may lead to remote code execution.\n\nRedis 6.2.23, 7.2.15, and 7.4.10",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-266fd3418e",
+    "rejectedAt": "2026-07-24T09:16:27.494434+00:00",
+    "date": "2026-07-24",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/data-breach-confirmed-after-australian-energy-giant-origin-is-hacked/",
+    "headline": "Data Breach Confirmed After Australian Energy Giant Origin Is Hacked",
+    "summary": "A hacker claims to have stolen the information of 2 million Origin Energy customers and is threatening to leak it. \nThe post Data Breach Confirmed After Australian Energy Giant Origin Is Hacked appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-165d023818",
+    "rejectedAt": "2026-07-24T09:16:29.791472+00:00",
+    "date": "2026-07-23",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/upbound-group-says-data-breach-led-to-13-million-in-fraudulent-contract-losses/",
+    "headline": "Upbound Group Says Data Breach Led to $13 Million in Fraudulent Contract Losses",
+    "summary": "Hackers recently obtained non-sensitive customer information and other documents from the company.\nThe post Upbound Group Says Data Breach Led to $13 Million in Fraudulent Contract Losses appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a12eb3a6da",
+    "rejectedAt": "2026-07-24T09:16:30.852369+00:00",
+    "date": "2026-07-23",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/is-patching-dead-vulnerability-management-in-the-post-mythos-era/",
+    "headline": "Is Patching Dead? Vulnerability Management in the Post-Mythos Era",
+    "summary": "You cannot out-patch a machine that writes a working exploit from a vulnerability description in twenty hours. Stop trying to optimize a game you cannot win.\nThe post Is Patching Dead? Vulnerability Management in the Post-Mythos Era appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a35ec35ab9",
+    "rejectedAt": "2026-07-24T09:16:40.801425+00:00",
+    "date": "2026-07-23",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-064-aws/",
+    "headline": "CVE-2026-16756 - Allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated Slowloris denial of service",
+    "summary": "Bulletin ID: 2026-064-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/23/2026 11:30 AM PDT \nDescription: \nSmithy-RS is a Rust code generation and runtime framework that generates HTTP clients and servers from Smithy interface definitions, powering the AWS SDK for Rust and custom service implementations. We identified CVE-2026-16756 where the allocation of resources without limits in the default aws-smithy-http-server serve() path allows unauthenticated \"Slowloris\" denial of service. \nImpacted versions: aws-smithy-http-server &lt;= 0.66.4 \nPlease refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1611e1fd46",
+    "rejectedAt": "2026-07-24T09:16:41.927259+00:00",
+    "date": "2026-07-24",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64600",
+    "headline": "CVE-2026-64600 xfs: resample the data fork mapping after cycling ILOCK",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7569338ee0",
+    "rejectedAt": "2026-07-24T09:16:43.143363+00:00",
+    "date": "2026-07-23",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/health-in-chatgpt",
+    "headline": "Launching Health in ChatGPT",
+    "summary": "Health in ChatGPT now lets eligible U.S. users securely connect medical records and Apple Health to get more personalized insights and better understand their health.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d4ff9ec891",
+    "rejectedAt": "2026-07-24T09:16:44.231068+00:00",
+    "date": "2026-07-20",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/safety-alignment-long-horizon-models",
+    "headline": "Safety and alignment in an era of long-horizon models",
+    "summary": "OpenAI shares lessons from deploying long-running AI models, highlighting new safety risks, observed failures, and improved safeguards through iterative deployment.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6f16a999c8",
+    "rejectedAt": "2026-07-24T09:16:45.304128+00:00",
+    "date": "2026-07-16",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/cars24",
+    "headline": "How Cars24 scales conversations and builds faster with OpenAI",
+    "summary": "Cars24 uses OpenAI-powered voice and chat agents to handle 1M+ monthly conversation minutes, recover 12% of lost leads, and bring agentic workflows to teams across the company.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-aa4950eab2",
+    "rejectedAt": "2026-07-24T09:16:46.655195+00:00",
+    "date": "2026-07-24",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.20437",
+    "headline": "TopoGuard: Graph Theory Based Defenses Against Split-Knowledge Attacks on RAG",
+    "summary": "arXiv:2607.20437v1 Announce Type: cross \nAbstract: Production Retrieval Augmented Generation (RAG) systems rely on aggregating multiple external documents to answer complex queries. However, the retrieved documents introduce a new threat surface that can be exploited to launch split-knowledge attacks. In this attack, the adversary injects documents that are individually benign but create false associations when combined and fed to language models. This paper shows that the new attack is structurally invisible to existing per-document filters, like LlamaGuard. To address this issue in RAG, this work introduces TopoGuard, a family of graph theory-based methods specifically targeting the split-knowledge attacks by building a semantic similarity graph from retrieved documents and detecting contexts with malicious topology. Grounded on the theoretical analysis, the TopoGuard family has been proven to be effective and robust even with noisy inputs. Extensive experiments are conducted on two ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ee015c15f4",
+    "rejectedAt": "2026-07-24T09:16:50.220695+00:00",
+    "date": "2026-07-24",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.20713",
+    "headline": "Security Vulnerability Patterns in AI-Generated Code: A Cross-Model Comparative Study",
+    "summary": "arXiv:2607.20713v1 Announce Type: new \nAbstract: LLM-based coding tools enable non-expert users to generate routine automation scripts that may enter enterprise workflows without meaningful security review. This study examines that risk directly. Code was collected from ChatGPT, Microsoft Copilot, and Google Gemini using identical prompts across three automation domains. Claude Code performed a standardized vulnerability review. Each identified vulnerability was scored using CVSS v3.1 and mapped to the OWASP Top 10:2021 and the MITRE ATT&amp;CK frameworks. Every script contained exploitable vulnerabilities. Nine of the 17 identified vulnerability classes appeared in code from all three models, while 14 of the 17 vulnerability classes appeared in at least two models. The weighted CVSS scores across platforms differed by less than 10%. The risk is not tied to any particular model but rather to the task category. Organizations should therefore ask not which tool to trust, but instead whet",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-96023f9b6d",
+    "rejectedAt": "2026-07-24T09:16:51.341878+00:00",
+    "date": "2026-07-24",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59677",
+    "headline": "CVE-2026-59677 Process Kill Attack Vector in killall() in seunshare",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c1861616b8",
+    "rejectedAt": "2026-07-24T09:16:52.426352+00:00",
+    "date": "2026-07-24",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59676",
+    "headline": "CVE-2026-59676 Local File Deletion Attack Vector in rm_rf() in seunshare",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c2d16c1dbb",
+    "rejectedAt": "2026-07-24T09:16:53.882789+00:00",
+    "date": "2026-07-23",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/chick-fil-a-accounts-get-fried-in-credential-stuffing-attack/",
+    "headline": "Chick-fil-A Accounts Get Fried in Credential Stuffing Attack",
+    "summary": "Threat actors used credentials obtained from other companies to hack into Chick-fil-A One accounts.\nThe post Chick-fil-A Accounts Get Fried in Credential Stuffing Attack appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ed411c91b1",
+    "rejectedAt": "2026-07-24T09:16:55.104963+00:00",
+    "date": "2026-07-23",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/russian-hackers-zimbra-zero-day-us-ukraine-targets",
+    "headline": "Russian Hackers Exploit Zimbra Zero-Day Against US, Ukraine Targets",
+    "summary": "A state-sponsored threat group, dubbed &quot;Laundry Bear,&quot; sends &quot;half-click&quot; phishing emails that require a victim only to open or preview the message.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6c4d8d78c4",
+    "rejectedAt": "2026-07-24T09:16:59.173310+00:00",
+    "date": "2026-07-23",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/jul/23/eu-fines-google-for-competition-breaches-over-search-and-apps",
+    "headline": "EU fines Google €890m for competition breaches over search and apps",
+    "summary": "Firm told to treat third-party services that appear in its results in ‘fair and non-discriminatory manner’Google has been fined a total of €890m (£760m) by the EU for breaches of online competition laws by its search and app store services.The European Commission, the EU’s executive arm, said Google had broken the Digital Markets Act by giving priority to its own services, such as shopping and hotel deals, in search results over those of its rivals. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d2abea6804",
+    "rejectedAt": "2026-07-24T09:17:00.385306+00:00",
+    "date": "2026-07-24",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.20723",
+    "headline": "Leaky Language Models: Stealing Architecture and Inference Optimizations via Per-Token Timing",
+    "summary": "arXiv:2607.20723v1 Announce Type: new \nAbstract: This work presents LeakyLMs, a set of attacks that leak proprietary model, architecture, and deployment information from production language models. LeakyLMs is the first to demonstrate that key model and deployment details can be inferred using only token generation timing, even when interacting through remote APIs. LeakyLMs introduces two core attacks. The first attack targets inference optimizations and deployment strategies. For example, our attack detects whether a provider uses speculative decoding, a widely deployed inference-time optimization, and further identifies the context length of the draft model used in the pipeline. Our measurements show that Google Gemini Flash 2.5 uses speculative decoding with a draft context window of approximately 128K tokens. The second attack recovers key architectural properties, including the number of transformer layers, hidden dimension size, and number of attention heads. To achieve this, Lea",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-76cb74c54a",
+    "rejectedAt": "2026-07-24T09:17:03.845994+00:00",
+    "date": "2026-07-24",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.20759",
+    "headline": "IssueTrojanBench: Benchmarking AI Coding Agents Against Malicious Issue Requests",
+    "summary": "arXiv:2607.20759v1 Announce Type: new \nAbstract: AI coding agents powered by LLMs are increasingly integrated into real-world software development, where they generate, edit, and execute code with autonomous access to local files and tools. Coding agents inherit security risks from both the LLM backbone, where adversarial prompts, poisoned training data, and backdoor triggers can cause models to emit insecure or attacker-chosen code, and their agentic architecture, where tool-using autonomy enables induced misuse of external APIs, data exfiltration, and persistent compromise of development environments. This paper presents a systematic evaluation of malicious issue requests against state-of-the-art coding agents (Cursor, Claude Code, and Codex Desktop), powered by two major model families (OpenAI GPT-5.3 Codex/GPT-5.4 and Anthropic Sonnet 4.6). Our novel benchmark IssueTrojanBench contains malicious issues that are constructed based on four novel attack categories (i.e., embedded as ma",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-661ce3f0ba",
+    "rejectedAt": "2026-07-24T09:17:05.516859+00:00",
+    "date": "2026-07-24",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.20494",
+    "headline": "Isolating LLM Alignment from Regex: Zero Coverage and Metric-Dependent Divergence Under Adversarial Mutation",
+    "summary": "arXiv:2607.20494v1 Announce Type: cross \nAbstract: Production LLM applications commonly stack a regex filter in front of model-side alignment; prior work found no measurable coverage gain from adding a live Gemini backend behind an active regex filter. We ask whether that ceiling holds when the corpus is \\emph{designed to bypass the regex}. We introduce $L_5$-no-regex -- identical to $L_4$-real (Gemini-2.5-flash, token-budget cap, rate limit, output scrub) but with the nine-pattern filter disabled -- and evaluate it against $N{=}45$ adversarial probes across three sub-corpora (carry-forward, regex-bypass, alignment-isolate), amplified by Gemini paraphrase and PAIR to ${\\sim}1{,}555$ probe-run pairs over $N{=}5$ replications. Under the primary substring classifier, H1 is refuted: $L_5$ block rate is $0,%$ across all five OWASP LLM Top-10 categories ($\\Delta\\text{pp}{=}0$ vs.\\ $L_0$, $p{=}1.00$; Wilson upper bound ${<}5,%$). A secondary LLM-judge metric on PAIR variants shows $56$--$100,",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a5f7d679af",
+    "rejectedAt": "2026-07-24T09:17:06.725604+00:00",
+    "date": "2026-07-22",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/identity-access-management-security/flaws-passkeys-implementation-old-attacks-work",
+    "headline": "Flaws in Passkey Implementation Show Old Attacks Still Work",
+    "summary": "Ahead of Black Hat USA, researchers find exploitable flaws in how Microsoft handles passkeys that could allow attackers to impersonate privileged users.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a43bfb637d",
+    "rejectedAt": "2026-07-24T09:17:07.863905+00:00",
+    "date": "2026-07-23",
+    "source": "The Record",
+    "url": "https://therecord.media/zimbra-webmail-zero-click-phishing-russia-laundry-bear",
+    "headline": "International alert spotlights Russia-linked attacks on Zimbra webmail",
+    "summary": "Russian state-aligned hackers have been compromising governmental and commercial organizations throughout the West through zero-click phishing emails, federal agencies in the U.S., U.K., Europe, Australia and New Zealand warned on Thursday. The campaign, carried out by the advanced persistent threat (APT) group Laundry Bear, targets Zimbra Collaboration Suite’s webmail platform and exploits a vulnerability that was patched in November 2025. According to the advisory , the hackers carried out “extensive” targeting of Ukrainian entities before training their sights on U.S. and NATO organizations",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-175ee78dc9",
+    "rejectedAt": "2026-07-24T09:17:08.949808+00:00",
+    "date": "2026-07-23",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-exploit-zimbra-zero-click-flaw-for-email-theft/",
+    "headline": "Russian hackers exploit Zimbra zero-click flaw for email theft",
+    "summary": "CISA is warning that the Russian state-sponsored hacking group Laundry Bear, also known as Void Blizzard, is targeting organizations using Zimbra Collaboration email servers by combining phishing attacks with the exploitation of a now-patched Zimbra vulnerability. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5e5fe5ee16",
+    "rejectedAt": "2026-07-24T09:17:10.257395+00:00",
+    "date": "2026-07-23",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-abuse-notepad-plus-plus-plugins-to-stealthily-install-malware/",
+    "headline": "Hackers abuse Notepad++ plugins to stealthily install malware",
+    "summary": "Ukraine's CERT has uncovered attacks distributing an archive containing the legitimate Notepad++ application and a malicious utility called LunchPoke disguised as a plugin to establish persistence. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-621758c34b",
+    "rejectedAt": "2026-07-24T09:17:12.078448+00:00",
+    "date": "2026-07-23",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/google/eu-fines-google-1-billion-for-digital-markets-act-breaches-in-search-and-play-store/",
+    "headline": "EU fines Google $1 billion for search, app store antitrust violations",
+    "summary": "The European Commission fined Google €890 million ($1 billion) on Thursday after finding the company had violated the European Union's Digital Markets Act (DMA), which ensures fair online competition. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7d56cd6326",
+    "rejectedAt": "2026-07-24T09:17:14.792493+00:00",
+    "date": "2026-07-23",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/australian-energy-provider-origin-says-data-breach-exposes-client-data/",
+    "headline": "Australian energy provider Origin says data breach exposes client data",
+    "summary": "Australian energy provider Origin Energy has confirmed a data breach by an unknown threat actor that exposed customers' personally identifiable information (PII). The company has 4.8 million customers and is currently investigating how many of them have been impacted to inform them of the risk via individual notifications. Origin Energy is Australia’s largest energy retailer, providing electricity, natural gas, and broadband internet services to millions of clients across the country. The company is listed on the ASX, has annual revenue of $8.5 billion, and holds a 20% ownership stake in the U",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-03f20ea8d1",
+    "rejectedAt": "2026-07-24T09:17:16.551817+00:00",
+    "date": "2026-07-23",
+    "source": "404 Media",
+    "url": "https://www.404media.co/leaked-document-shows-the-surveillance-tech-at-ices-fingertips/",
+    "headline": "Leaked Document Shows the Surveillance Tech at ICE’s Fingertips",
+    "summary": "From phone location data, to social media monitoring, to online undercover tools, a document obtained by 404 Media lays out the surveillance tech available across ICE agency wide.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-33161dea67",
+    "rejectedAt": "2026-07-24T09:17:21.057317+00:00",
+    "date": "2026-07-23",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/endpoint-security/agentic-ai-challenges-progress-in-confidential-computing",
+    "headline": "Agentic AI Challenges Progress in Confidential Computing",
+    "summary": "Core issues that slowed down adoption of secure data vaults are being resolved by technology, but artificial intelligence poses new ones. Experts have some answers.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b0b6fcf47e",
+    "rejectedAt": "2026-07-24T09:17:22.405487+00:00",
+    "date": "2026-07-23",
+    "source": "The Record",
+    "url": "https://therecord.media/visa-restrictions-cyber-scammers",
+    "headline": "State Department imposes visa restrictions on foreign cyber scammers",
+    "summary": "The State Department on Thursday announced new visa restrictions for individuals linked to foreign cybercrime networks and their immediate family members. Secretary of State Marco Rubio’s statement on the policy came on his final day of a trip to the Philippines for general meetings of the Association of Southeast Asian Nations (ASEAN). The region is known as a hotbed for industrial-scale scam centers. FBI Director Kash Patel met separately this week with leaders in the region to discuss combatting those operations. Rubio also discussed scam centers with the Cambodia’s foreign minister on Thur",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ac9fed24d0",
+    "rejectedAt": "2026-07-24T09:17:25.472185+00:00",
+    "date": "2026-07-23",
+    "source": "The Record",
+    "url": "https://therecord.media/australia-origin-energy-data-breach",
+    "headline": "Major Australian energy supplier confirms customer data compromised",
+    "summary": "An Australian energy company serving nearly 5 million customers announced Thursday that it suffered a data breach and that it is working with federal agencies to investigate. On Wednesday, Sydney-based Origin Energy had said in a brief announcement that it was “investigating a potential security incident” after the news outlet The Australian reported that a purported hacker had sent what they claimed to be a sample of stolen records from the company. In a second update , Origin confirmed that customer data had been compromised and that it is “working to understand the total number of impacted ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6361be88d5",
+    "rejectedAt": "2026-07-24T09:17:28.156087+00:00",
+    "date": "2026-07-23",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/business/2026/jul/23/customers-prefer-ai-chatbots-says-chris-oshea-british-gas-centrica-boss",
+    "headline": "‘Customers prefer AI chatbots,’ says British Gas owner as 1,300 call centre jobs axed",
+    "summary": "CEO Chris O’Shea defends Centrica’s plans as it reports rise in retail profits following focus on bigger marginsThe owner of British Gas has claimed that most households would rather speak with an AI chatbot than deal with the company’s staff as it prepares to cut 1,300 jobs from its call centres.Centrica, the supplier’s FTSE 100 owner, plans to cut 800 jobs as the company carries out a “targeted deployment of AI tools”, on top of the 500 cuts it confirmed last month. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e751e1ec66",
+    "rejectedAt": "2026-07-24T09:17:30.271196+00:00",
+    "date": "2026-07-23",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/jul/23/elon-musk-regret-trump-doge-ai",
+    "headline": "Elon Musk says he got ‘carried away’ with Trump – but still holds on to contentious political views",
+    "summary": "In interview, billionaire says instead of running ‘Doge’ he should’ve ‘worked on my companies’ and shares extreme predictionsElon Musk has admitted he became too consumed by politics during his volatile alliance with Donald Trump and his brief appointment as the president’s financial axman, running the so-called “department of government efficiency” (Doge).The world’s richest person, and briefly its first trillionaire after his SpaceX company floated on the New York stock exchange in June, made the confession in a wide-ranging interview with the Economist published on Thursday. He shared his positions on subjects from foreign wars to AI, and made a number of eye-opening predictions for the future. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6fe56de908",
+    "rejectedAt": "2026-07-24T09:17:31.652677+00:00",
+    "date": "2026-07-22",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/jul/22/bloomsbury-book-publisher-anthropic-copyright-settlement",
+    "headline": "Harry Potter publisher to receive millions in Anthropic copyright settlement",
+    "summary": "Bloomsbury has 14,087 titles listed in agreement between AI startup and authors over use of their work The publisher of Harry Potter has received a multimillion-pound payout as a beneficiary of a $1.5bn (£1.12bn) copyright settlement between the AI startup Anthropic and thousands of authors over the use of their protected work to power chatbots.Bloomsbury, which is home to the bestselling novelists Sarah J Maas and Susanna Clarke as well as JK Rowling, said it had 14,087 titles listed within the settlement, with a proposed compensation of about $3,000 a title. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1d9b041ab9",
+    "rejectedAt": "2026-07-24T09:17:33.283585+00:00",
+    "date": "2026-07-24",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cybersecurity-operations/europes-multilingual-reality-exposes-ai-security-gaps",
+    "headline": "Europe's Multilingual Reality Exposes AI Security Gaps",
+    "summary": "The AI security layer and guardrails for many AI products don't evenly protect against jailbreaking and unsafe actions in every single language.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-134080222f",
+    "rejectedAt": "2026-07-24T09:17:34.301512+00:00",
+    "date": "2026-07-23",
+    "source": "The Register — AI/ML",
+    "url": "https://www.theregister.com/ai-and-ml/2026/07/23/openai-wont-let-some-customers-export-their-chats-but-this-tool-will/5277795",
+    "headline": "OpenAI won't let some customers export their chats, but this tool will",
+    "summary": "ai and ml ChatGPT Business and Enterprise users lack the standard chat export option, so third-party utilities like scrapemychats fill the gap ChatGPT Business and Enterprise users cannot export workspace chats through OpenAI's standard data export option, but a new free tool offers an unofficial way to retrieve their accessible chat records. Scrapemychats , from freelance journalist Conrad Quilty-Harper, makes it possible for those ChatGPT subscribers to retain a copy of their chat sessions before leaving for other AI pastures. Quilty-Harper just published it this week on GitHub. “I made the ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 76,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c5ca95ae1f",
+    "rejectedAt": "2026-07-24T09:17:35.579331+00:00",
+    "date": "2026-07-23",
+    "source": "The Register — AI/ML",
+    "url": "https://www.theregister.com/software/2026/07/23/ibm-insists-ai-didnt-kill-software-deals-just-delayed-them/5276977",
+    "headline": "IBM insists AI didn't kill software deals, just delayed them",
+    "summary": "software Big Blue says customers postponed rather than abandoned major purchases as hardware soaked up enterprise budgets IBM is asking investors to view calendar Q2's software wobble as merely a temporary AI-induced panic attack, insisting the delayed deals that triggered one of its steepest stock slides in years are already starting to return. Just over a week after its preliminary results sent stock tumbling , Big Blue devoted much of its earnings call to arguing that nothing fundamental had changed. Customers hadn't abandoned software, executives insisted; they'd simply emptied their walle",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 76,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c84cf3ba71",
+    "rejectedAt": "2026-07-24T09:17:36.590465+00:00",
+    "date": "2026-07-24",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/RBNEWS591/",
+    "headline": "Risky Bulletin: Western cyber agencies warn of Russian hacks of Zimbra servers",
+    "summary": "Presented by News Editor Newsreader A Russian hacking campaign targets Zimbra servers, the US accuses Moonshot AI of distillation attacks, Iran targets more PLC vendors, and Google adds selfie video to its login options. Know. When it Matters! Risky Bulletin: Western cyber agencies warn of Russian hacks of Zimbra servers",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d897e071f6",
+    "rejectedAt": "2026-07-24T09:17:37.728288+00:00",
+    "date": "2026-07-24",
+    "source": "Platformer (Casey Newton)",
+    "url": "https://www.platformer.news/openai-agent-sandbox-escape-killswitch-bill/",
+    "headline": "Congress proposes an AI kill switch",
+    "summary": "Glaze's Thomas Paul Mann on disposable software, the SaaS apocalypse, and why half the software you use in a few years will be something you made. PLUS: OpenAI's rogue model, and the distillation debate Moonshot AI’s Kimi K3 is very good — but the hype may be getting ahead of reality. (For now.) The Verge's David Pierce kicks off our new series on staying productive in the AI era — starting with why you should stop trying to stay ahead 200 economists and AI leaders say something big is happening. What should we do about it? Plus: Apple sues OpenAI",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3c6825b7cf",
+    "rejectedAt": "2026-07-24T09:17:39.029311+00:00",
+    "date": "2026-07-23",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/why-frontier-data-agent-outperforms-general-coding-agents-quality-and-cost",
+    "headline": "Why A Frontier Data Agent Outperforms General Coding Agents in Quality and Cost",
+    "summary": "Conventional wisdom in agentic AI says that better answers cost more tokens: let the agent explore longer, verify more, and retry more, and accuracy will always go up. When we evaluated Genie Code head-to-head against three leading general-purpose coding agents on 400+ real data tasks from our internal usage, we found the opposite: Genie Code was both the most accurate agent we tested and also the most cost efficient. The reason is that data agents must work in a new paradigm where general coding agents struggle. As we shared before , data agents face unique challenges: they must discover the ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-faaaf5262d",
+    "rejectedAt": "2026-07-24T09:17:40.114376+00:00",
+    "date": "2026-07-23",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/provisioning-agentic-era-how-databricks-built-self-serve-infrastructure-vending-machine",
+    "headline": "Provisioning for the Agentic Era: How Databricks Built a Self-Serve Infrastructure Vending Machine",
+    "summary": "At Databricks, our field engineering organization exists to help customers succeed. That means building demos, reproducing issues, testing features against real workloads, and being ready (on short notice) to show a prospect exactly what's possible on the platform. Never has this been more imporant than in the age of AI, where a single week can mean a fundamental shift in what is possible. As Databricks has grown, it has become more important- and more challenging- to enable our field organization in a way that's fast, governed and cost-aware. To solve that problem, we set out to build the Fie",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7d124074cf",
+    "rejectedAt": "2026-07-24T09:17:41.173955+00:00",
+    "date": "2026-07-23",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/how-fda-built-ai-platform-85-its-staff-now-use-daily",
+    "headline": "How the FDA Built an AI Platform That 85% of Its Staff Now Use Daily",
+    "summary": "Almost every American interacts with the FDA before breakfast. The agency regulates the food we eat, the medicine we take, and the medical devices we rely on. Every 20 cents spent by a US consumer touches something the FDA oversees. Behind that trust is an extraordinary volume of data: a petabyte of documents, hundreds of gigabytes arriving daily, thousands of regulatory submissions flowing in every month across eight centers responsible for drugs, biologics, devices, veterinary medicine, tobacco products, food safety, and inspections. To keep pace with that demand, the FDA's Office of Digital",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d2c9e50109",
+    "rejectedAt": "2026-07-24T09:17:42.225403+00:00",
+    "date": "2026-07-23",
+    "source": "404 Media",
+    "url": "https://www.404media.co/patreon-lays-off-20-percent-of-its-workforce/",
+    "headline": "Patreon Lays Off 20 Percent of Its Workforce",
+    "summary": "Patreon laid off 93 employees, totaling 20 percent of its workforce on Thursday morning, according to an email to creators and staff from CEO Jack Conte. In a message sent to everyone on the platform signed up as a creator, and posted to the site , with the subject line “A Painful Update about our Team,” Conte wrote that the business is “healthy and strong” and that the core business of Patreon is not changing. Conte included the email sent to Patreon employees in the message. In the email, he wrote that the company is undergoing both a “workforce reduction” and is “changing our organizational",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c80e77461a",
+    "rejectedAt": "2026-07-24T09:17:43.487886+00:00",
+    "date": "2026-07-20",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyber-risk/cybersecurity-keeps-events-uneventful",
+    "headline": "Cybersecurity Keeps Events 'Uneventful'",
+    "summary": "From the World Cup to the United States' 250th celebration, this year's event calendar has been packed with high-profile gatherings that drew global audiences, intense scrutiny, and enormous security demands.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e24543762f",
+    "rejectedAt": "2026-07-24T09:17:45.042768+00:00",
+    "date": "2026-07-23",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/for-taylor-swift-madison-square-gardens-controversial-cameras-briefly-went-dark/",
+    "headline": "For Taylor Swift, Madison Square Garden’s Controversial Cameras Briefly Went Dark",
+    "summary": "Madison Square Garden owner James Dolan has insisted that the face-recognition system and array of surveillance cameras deployed at his venues is “very, very useful for security”—a big reason why MSG “is the most secure venue in the country.” On the night of July 2, security in and around the Garden was particularly intense. Roughly 130 cops were deployed to the area. New York City officials were preparing to shut down the surrounding blocks to both vehicles and pedestrians the next day for a major, major event. July 2 was, of course, the kickoff to Taylor Swift and Travis Kelce’s wedding cele",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c57690ad33",
+    "rejectedAt": "2026-07-24T09:17:46.367283+00:00",
+    "date": "2026-07-06",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/revamped-kernels",
+    "headline": "🤗 Kernels: Major Updates",
+    "summary": "In our previous post (From Zero to GPU) , we introduced the 🤗 Kernels project, which aims at standardizing how custom kernels are packaged, distributed, and consumed. We want the project to be frictionless and secure, while making it as Hub-friendly as possible. Over the past few months, we have worked towards this goal. In the process, we also almost completely redesigned the project. This post will summarize the major updates we have shipped and what’s coming. Table of contents We have introduced a new repository type on the Hub called \"kernel\" . This enables us to cater to users with comput",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-088a18b234",
+    "rejectedAt": "2026-07-24T09:17:47.525831+00:00",
+    "date": "2026-07-06",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/Photoroom/prx-part4-data",
+    "headline": "PRX Part 4: Our Data Strategy",
+    "summary": "Welcome back! This is Part 4 of the PRX series. Parts 1 to 3 covered model architectures , training design , and a 24-hour speedrun . This time we're pulling back the curtain on the part that quietly underpins all of it: the data. Of all the things that shaped PRX's quality, the data pipeline was one of the least glamorous parts to build but nevertheless an important piece to get right. Here's what we did, what we'd do differently, and a few things we only learned the slow way. In one sentence: we assemble training data from a mix of public and internal datasets, re-caption the images with a V",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-332b3a1715",
+    "rejectedAt": "2026-07-24T09:17:48.612725+00:00",
+    "date": "2026-07-23",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/introducing-cache-response-rules/",
+    "headline": "Introducing Cache Response Rules",
+    "summary": "Perhaps you’ve seen something that should sail out of cache get dragged back to the origin by a stray Set-Cookie or Cache-Control, headers that can be difficult to change on the origin itself. Cache Response Rules is the fix, applied at the right time.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b7f49b2bc1",
+    "rejectedAt": "2026-07-24T09:17:49.702138+00:00",
+    "date": "2026-07-01",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/cerebras-gemma4-voice-ai",
+    "headline": "Hugging Face and Cerebras bring Gemma 4 to real-time voice AI",
+    "summary": "For voice AI, latency is a critical parameter. Developers have made tremendous progress in model quality, but the user experience is still often limited by response times. Hugging Face and Cerebras are changing that experience. Today, we demonstrate what becomes possible when an open, modular voice AI architecture is paired with industry-leading inference speed. The result is a speech-to-speech experience that feels dramatically more natural. Instead of waiting for an AI to respond, conversations flow with the responsiveness users expect from human interaction. The demo is built as a real-time",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d7f8db1c66",
+    "rejectedAt": "2026-07-24T09:17:50.709828+00:00",
+    "date": "2026-06-30",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/Dharma-AI/why-specialization-is-inevitable",
+    "headline": "Why Specialization Is Inevitable",
+    "summary": "--- Those who follow Dharma AI already know that we view specialization as one of the defining principles of effective AI systems, shaping everything from cost and performance to reliability and sovereignty. Few papers have articulated that case as rigorously as the 2026 work by Goldfeder, Wyder, LeCun, and Shwartz-Ziv. In this article, we explore and interpret ideas from AI Must Embrace Specialization via Superhuman Adaptable Intelligence (Goldfeder, Wyder, LeCun, & Shwartz-Ziv, 2026). The paper's convergence case — spanning optimization theory, biology, organizational economics, and machine ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8654826289",
+    "rejectedAt": "2026-07-24T09:17:53.292066+00:00",
+    "date": "2026-06-30",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/ibm-research/scarfbench",
+    "headline": "ScarfBench: Benchmarking AI Agents for Enterprise Java Framework Migration",
+    "summary": "⭐ Star ScarfBench on GitHub Modernizing enterprise applications is one of the largest and most expensive software engineering activities organizations undertake. Teams migrate applications across frameworks to improve maintainability, cloud readiness, developer productivity, and access to modern capabilities. Recent advances in coding agents have sparked excitement around AI-assisted modernization. But an important question remains: Can AI agents reliably modernize real-world enterprise applications? Existing software engineering benchmarks have demonstrated impressive progress in bug fixing a",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-67ee953df6",
+    "rejectedAt": "2026-07-24T09:17:54.602976+00:00",
+    "date": "2026-07-23",
+    "source": "404 Media",
+    "url": "https://www.404media.co/orcas-explode-fish-into-confetti-possibly-for-fun-in-astounding-new-video/",
+    "headline": "Orcas Explode Fish Into Confetti, Possibly for Fun, In ‘Astounding’ New Video",
+    "summary": "A team captured first-of-its-kind footage of orcas holding a sunfish carcass still and ramming it so hard that it burst into fragments, which may be a form of social play. “We could hear the sound,” said one researcher.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-48ec862c38",
+    "rejectedAt": "2026-07-24T09:17:55.677628+00:00",
+    "date": "2026-07-23",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/permission-isnt-purpose-intent-based-authorization-omnigent",
+    "headline": "Permission isn't purpose: Intent-based authorization in Omnigent",
+    "summary": "• The gap: Authorization in AI agents today checks who is acting, not why. So an injection can push the agent to do something authorized but off-task. • The defense: Bind the session to a declared intent (its purpose). Every action is checked against that intent, and anything outside it is denied or gated for human approval, even when the agent's identity could perform it. We demonstrate it blocking a prompt injection attack. • Who sets the intent: The agent can draft it from a description, but a human approves it. The agent cannot expand or remove it, and anything the intent doesn't permit is",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-86f3114e3a",
+    "rejectedAt": "2026-07-24T09:17:57.839785+00:00",
+    "date": "2026-07-23",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/connect-amazon-s3-data-databricks-delegated-iam-permissions",
+    "headline": "Connect Amazon S3 data to Databricks with Delegated IAM Permissions",
+    "summary": "Connecting Amazon S3 is one of the most important setup steps to getting value out of Databricks. External locations provide the governed connection between your S3 bucket and Unity Catalog so Databricks can read and write data securely. This setup is foundational for common workflows, from ingestion and pipelines to analytics and governance. It is also increasingly important as more people adopt LTAP (Lake Transactional/Analytical Processing) , a new architecture designed to unify transactional and analytical data on a single governed foundation without the traditional overhead of pipelines, ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8dbb7c41e8",
+    "rejectedAt": "2026-07-24T09:17:58.790700+00:00",
+    "date": "2026-07-01",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/space/2026/07/nasa-inspector-general-suggests-boeings-starliner-will-now-be-a-decade-late/",
+    "headline": "NASA inspector general suggests Boeing's Starliner will now be a decade late",
+    "summary": "NASA’s inspector general released an audit Tuesday of the agency’s Commercial Crew Program, and it looks increasingly likely that Boeing’s Starliner crew capsule won’t be certified for operational flights to the International Space Station until next year. That’s just three years before NASA’s official retirement date for the ISS in 2030, though lawmakers in Congress are seeking an extension until 2032. What’s more, declaring Starliner ready for regular crew rotation flights next year would put the Boeing crew capsule a decade behind its original target of 2017. The inspector general issued si",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5b79f58bf3",
+    "rejectedAt": "2026-07-24T09:18:00.590652+00:00",
+    "date": "2026-07-23",
+    "source": "404 Media",
+    "url": "https://www.404media.co/the-rise-of-anti-flock-influencers-who-make-things-up-for-clout/",
+    "headline": "The Rise of Anti-Flock Influencers Who Make Things Up for Clout",
+    "summary": "A little over a month ago, the former American Idol contestant , country musician, and Instagram influencer Noah Orion appears to have learned about the surveillance company Flock . “Cities are now covering Flock cameras with trash bags,” Orion narrated over an Instagram post aggregating a 404 Media report. “It’s also pretty wild that we’ve just dropped stickers that say ‘Fuck Flock’ on them and it’s pretty cool that it’s coincidental that the sticker’s outside diameter is the same size as the average camera lens on a Flock camera,” he adds, showing a mockup of an AI-generated sticker featurin",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c2c9023a24",
+    "rejectedAt": "2026-07-24T09:18:01.648844+00:00",
+    "date": "2026-07-09",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/ml-dsa-will-have-to-do/",
+    "headline": "Why we cannot wait for better post-quantum signature algorithms",
+    "summary": "NIST is advancing nine new post-quantum signature algorithms as potential candidates for future standardization. We take a closer look at all of them, and argue that while they are in the works and show great potential, we should use ML-DSA for now — the best one currently available.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-81310213b1",
+    "rejectedAt": "2026-07-24T09:18:02.639238+00:00",
+    "date": "2026-07-22",
+    "source": "The Record",
+    "url": "https://therecord.media/stadler-refuses-everest-ransom-demand",
+    "headline": "Swiss train maker Stadler refuses Everest $12 million ransomware demand",
+    "summary": "Swiss train manufacturer Stadler Rail said it will not pay a $12.3 million ransom after cybercriminals stole technical data from a supplier's file-sharing platform. According to the company’s statement on Tuesday, the breach, which occurred in mid-July, did not affect its own systems, and all production sites remain fully operational. The stolen information consisted of technical documents belonging to a third-party supplier and was obtained after credentials for the data exchange platform were compromised. Stadler said it did not lose any of its own data, no relevant personal information was ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d2471b2eca",
+    "rejectedAt": "2026-07-24T09:18:03.946913+00:00",
+    "date": "2026-07-22",
+    "source": "The Record",
+    "url": "https://therecord.media/cisa-2015-extension-passes-house-ndaa",
+    "headline": "Extension of CISA 2015 info-sharing protections passes as part of House’s defense bill",
+    "summary": "The House passed an annual defense policy bill on Wednesday that would renew a landmark cybersecurity info-sharing law for another decade. A provision to extend the 2015 Cybersecurity and Information Sharing Act was included in the chamber’s version of the 2027 National Defense Authorization Act, which was approved 216-212. Only a handful of Democrats supported the $1.15 trillion Pentagon policy roadmap that placed no curbs on President Donald Trump's use of U.S. military forces, most notably the Iran war. The Widespread Information Management for the Welfare of Infrastructure and Government A",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ddbc047908",
+    "rejectedAt": "2026-07-24T09:18:05.709756+00:00",
+    "date": "2026-07-08",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/meerkat-introduction/",
+    "headline": "Introducing Meerkat: an experiment in global consensus",
+    "summary": "Cloudflare Research is building a global consensus service called Meerkat that uses a new consensus algorithm called QuePaxa. We plan to use Meerkat to build a strongly consistent, fault-tolerant key-value store, and other applications.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ffa49a7f73",
+    "rejectedAt": "2026-07-24T09:18:06.859909+00:00",
+    "date": "2026-06-29",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/information-technology/2026/06/us-offers-10-million-for-info-on-group-behind-signal-and-whatsapp-hacking-spree/",
+    "headline": "US offers $10 million for info on group behind Signal and WhatsApp hacking spree",
+    "summary": "Federal authorities are offering a reward of up to $10 million for information leading to the identification or location of a Russian state cyber group that has compromised thousands of Signal and WhatsApp accounts belonging to investigative reporters and US government employees. The operation has been active since at least March, when the FBI published an advisory warning of ongoing phishing campaigns targeting high-value targets by attackers associated with Russian intelligence services. Messages masquerading as automated support communications ask that users click a link or provide verifica",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e947fc80fe",
+    "rejectedAt": "2026-07-24T09:18:08.188819+00:00",
+    "date": "2026-07-07",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/cloudflare-joins-uk-cyber-resilience-pledge/",
+    "headline": "Cloudflare proudly joins the UK government's Cyber Resilience Pledge",
+    "summary": "The pledge is a voluntary framework inviting organizations to commit to foundational cyber security governance, board-level accountability, and supply chain rigor. For over a decade, Cloudflare has pioneered the core pillars of this framework: democratizing security, leadership accountability, and radical transparency.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-93b9436ca7",
+    "rejectedAt": "2026-07-24T09:18:09.553380+00:00",
+    "date": "2026-06-24",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/security/2026/06/one-two-punch-delivered-in-global-operation-disrupts-cybercrime-assembly-line/",
+    "headline": "One-two punch delivered in global operation disrupts cybercrime \"assembly line\"",
+    "summary": "International authorities and a raft of private technology companies say they have disrupted a cybercrime “assembly line” that allowed crooks to collect millions of login credentials and steal more than $47 million in ransom payments and by other fraudulent means. The crux of the operation was the simultaneous targeting of two unrelated tools that are widely used in various online scams. The first is Amadey, a malware-as-a-service platform for compromising devices and delivering malicious payloads for ransomware and other scams. Amadey has been observed in the wild since at least 2018 and was ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e7a62d74b3",
+    "rejectedAt": "2026-07-24T09:18:13.305422+00:00",
+    "date": "2026-07-01",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/attribution-business-insights/",
+    "headline": "Unmasking the crawls with Attribution Business Insights",
+    "summary": "Cloudflare’s new Attribution Business Insights dashboard helps website owners understand crawler behavior, appetite, and potential value, fueling business-level conversations around crawl compensation.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6e1cdb3e24",
+    "rejectedAt": "2026-07-24T09:18:14.952237+00:00",
+    "date": "2026-06-29",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/BTN172/",
+    "headline": "Between Two Nerds: Set cyberspace ablaze",
+    "summary": "In this edition of Between Two Nerds, Tom Uren and The Grugq discuss whether cyber organisations should actually be separated from Signals Intelligence organisations. The Grugq argues that having cyber expertise subordinate to intelligence collection means that many opportunities are never explored.\n\nThis episode is also available on YouTube.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-bd6ce42035",
+    "rejectedAt": "2026-07-24T09:18:16.013095+00:00",
+    "date": "2026-07-22",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community",
+    "headline": "Building AI infrastructure with the Effingham County community",
+    "summary": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-04b24e46bf",
+    "rejectedAt": "2026-07-24T09:18:16.953738+00:00",
+    "date": "2026-07-08",
+    "source": "Platformer (Casey Newton)",
+    "url": "https://www.platformer.news/glaze-app-raycast-vibe-coding-review/",
+    "headline": "Vibe coding has escaped the terminal",
+    "summary": "This is a column about AI. My fiancé works at Anthropic. See my full ethics disclosure here . I began the year with a flurry of vibe-coding projects: starting by canceling my Squarespace account and building a new personal website , and proceeding to build a suite of tools for creating daily briefings, a journaling companion, and a Platformer archive . The projects were so useful, and so easy to create, that initially I did not spend much time thinking about how unattractive they were. Aside from the website (gorgeous), my new tools were either accessible through the terminal or Markdown files",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ab3c6b3534",
+    "rejectedAt": "2026-07-24T09:18:18.051091+00:00",
+    "date": "2026-07-23",
+    "source": "GitHub security blog",
+    "url": "https://github.blog/security/supply-chain-security/the-case-for-a-cooldown-why-dependabot-now-waits-before-issuing-version-updates/",
+    "headline": "The case for a cooldown: Why Dependabot now waits before issuing version updates",
+    "summary": "A new default three-day cooldown delays version update pull requests so maintainers and security researchers can address findings in a release before it gets into your code.\nThe post The case for a cooldown: Why Dependabot now waits before issuing version updates appeared first on The GitHub Blog.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
     "id": "reject-af0262eedd",
     "rejectedAt": "2026-07-23T09:19:17.990666+00:00",
     "date": "2026-07-22",
