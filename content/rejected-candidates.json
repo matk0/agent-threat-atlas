@@ -1,5 +1,1132 @@
 [
   {
+    "id": "reject-5205e25805",
+    "rejectedAt": "2026-07-25T08:55:49.599299+00:00",
+    "date": "2026-07-24",
+    "source": "GitHub Security Advisory Database",
+    "url": "https://github.com/advisories/GHSA-xg4h-6gfc-h4m8",
+    "headline": "etcd: Watch API authorization bypass via open-ended range requests",
+    "summary": "### Impact\n_What kind of vulnerability is it? Who is impacted?_\n\nA user granted READ permission on a single, exact key can use the Watch gRPC API with `clientv3.WithFromKey()` (an open-ended, \"from this key to the end of the keyspace\" watch) to receive watch events for every key lexicographically greater than or equal to their permitted key — not just the one key they were granted. \n\nThis is an authorization bypass in etcd's RBAC enforcement for the Watch API; Range/Get and DeleteRange requests are not affected. It only affects clusters with authentication enabled — clusters running without auth already allow unrestricted read access.\n\n### Patches\n_Has the problem been patched? What versions should users upgrade to?_\n\nThis vulnerability is patched in the following versions:\n\n- etcd 3.7.1\n- etcd 3.6.14\n- etcd 3.5.33\n\n### Workarounds\n_Is there a way for users to fix or remediate the vulnerability without upgrading?_\n\nIf upgrading is not immediately possible, the following mitigations red",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 95,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-9e10b8bb9c",
+    "rejectedAt": "2026-07-25T08:55:59.035730+00:00",
+    "date": "2026-07-25",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/25/boris-cherny/#atom-everything",
+    "headline": "Quoting Boris Cherny",
+    "summary": "More than any of these eval scores, what is most exciting to me is something else: Opus 5 is our least prompt injectable model yet. It is a bit buried in the system card, but across PI evals and red teaming, Opus 5 is very hard to prompt inject successfully.\n&mdash; Boris Cherny, here's that System Card section, page 73\n\n    Tags: prompt-injection, anthropic, claude, generative-ai, ai, llms, boris-cherny",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3a60f07223",
+    "rejectedAt": "2026-07-25T08:56:00.416485+00:00",
+    "date": "2026-07-24",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5/#atom-everything",
+    "headline": "Introducing Claude Opus 5",
+    "summary": "Introducing Claude Opus 5\nI've been offline kayaking with sea otters for much of today so I haven't had a chance to put Anthropic's new model Claude Opus 5 through its paces yet. The buzz is positive, and Anthropic's description of it as a \"thoughtful and proactive model that comes close to the frontier intelligence of Claude Fable 5 at half the price\" sounds promising. It's currently leading the Artificial Analysis leaderboard, in front of even Fable 5.\nIt's priced the same as Opus 4.8, and continues to offer a \"fast mode\" at twice the cost of the base model.\nBased on this anecdote in the release post it sounds like it might be relentlessly proactive:\n\nOn one Frontier-Bench task, Opus 5 was given a drawing of a machine part and asked to write code to rebuild it as a 3D FreeCAD model. However, in this task, the model was intentionally given no way to directly viewthe drawing. Opus 5 responded by writing its own computer vision pipeline to pull the geometry from the raw pixels, then rec",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6e7fc8cf37",
+    "rejectedAt": "2026-07-25T08:56:01.403543+00:00",
+    "date": "2026-07-24",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/acunetix-alternatives",
+    "headline": "Top Acunetix alternatives for automated vulnerability scanning",
+    "summary": "Exploring Acunetix alternatives? Its DAST covers rule-based checks but can't reason about business logic or produce audit-grade pentests. Five options that go further.\nCategory: DevSec Tools & Comparisons",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ebede1cac6",
+    "rejectedAt": "2026-07-25T08:56:03.594699+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1454",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um einen nicht näher spezifizierten Angriff durchzuführen, möglicherweise Sicherheitsmaßnahmen zu umgehen, Daten zu manipulieren oder offenzulegen oder einen Denial-of-Service-Zustand zu verursachen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6593b7b95e",
+    "rejectedAt": "2026-07-25T08:56:04.585085+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1385",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um einen Denial of Service zu verursachen, Informationen offenzulegen, Sicherheitsmaßnahmen zu umgehen oder potentiell beliebigen Programmcode auszuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-556f04f0a7",
+    "rejectedAt": "2026-07-25T08:56:05.952906+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1684",
+    "headline": "[UPDATE] [mittel] Linux Kernel (Bluetooth): Mehrere Schwachstellen ermöglichen Denial of Service",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen im Linux Kernel bezüglich der Bluetooth Komponente ausnutzen, um einen Denial of Service Angriff durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0bf3c33945",
+    "rejectedAt": "2026-07-25T08:56:07.281489+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1555",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Schwachstelle ermöglicht Denial of Service",
+    "summary": "Ein entfernter, anonymer Angreifer kann eine Schwachstelle in Linux Kernel ausnutzen, um einen Denial of Service Angriff durchzuführen oder potenziell um Informationen offenzulegen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8de3eb5504",
+    "rejectedAt": "2026-07-25T08:56:08.411666+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1346",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein entfernter Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um Root-Rechte zu erlangen, um Sicherheitsmechanismen zu umgehen, einen Denial-of-Service-Zustand herbeizuführen oder Auswirkungen unbestimmter Art zu erzielen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5b2ae544c1",
+    "rejectedAt": "2026-07-25T08:56:18.699855+00:00",
+    "date": "2026-07-22",
+    "source": "AI Incident Database",
+    "url": "https://www.internationalaccountingbulletin.com/news/kpmg-drops-ai-report-after-false-case-studies-exposed/",
+    "headline": "KPMG drops AI report after false case studies exposed",
+    "summary": "PMG has removed a global report on AI after multiple case studies were found to be inaccurate and apparently generated from AI hallucinations.\n\nThe Financial Times (FT) reported that the October report, Redefining excellence in the age of a ... (https://incidentdatabase.ai/cite/1563#7547)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-35d821c797",
+    "rejectedAt": "2026-07-25T08:56:26.214127+00:00",
+    "date": "2026-07-22",
+    "source": "AI Incident Database",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/jadepuffer-first-complete-llm-driven-ransomware-attack",
+    "headline": "JadePuffer: The First Complete LLM-Driven Ransomware Attack",
+    "summary": "JadePuffer represents the first documented end-to-end ransomware operation executed autonomously by an LLM without human operator involvement, successfully performing extortion. The incident demonstrates an LLM agent operating with excessive agency to conduct a complete attack lifecycle.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 100,
+    "sourceQualityScore": 72,
+    "status": "rejected",
+    "severity": "critical",
+    "threats": [
+      "excessive-agency",
+      "denial-of-service-and-cost"
+    ],
+    "vendor": "JadePuffer"
+  },
+  {
+    "id": "reject-c6f845a840",
+    "rejectedAt": "2026-07-25T08:56:27.209204+00:00",
+    "date": "2026-07-24",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/bing-images-flaws-let-crafted-svgs-run.html",
+    "headline": "Bing Images Flaws Let Crafted SVGs Run Commands as SYSTEM on Microsoft's Servers",
+    "summary": "A crafted SVG submitted to Bing's image search ran commands as NT AUTHORITY\\SYSTEM on Microsoft's production image-processing workers, and as root on the Linux machines in the same fleet.\n\nXBOW's testing got the same result on workers across different hosts and network ranges, so the problem sat in Bing's image tier, not on one bad machine. Microsoft issued two critical CVEs, CVE-2026-32194 and",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-fd753ee12b",
+    "rejectedAt": "2026-07-25T08:56:34.129256+00:00",
+    "date": "2026-07-24",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/in-other-news-dolphin-x-ai-powered-malware-car-anti-theft-device-hack-400-linux-kernel-flaws/",
+    "headline": "In Other News: Dolphin X AI-Powered Malware, Car Anti-Theft Device Hack, 400 Linux Kernel Flaws",
+    "summary": "Noteworthy stories that might have slipped under the radar: Siemens ROX II industrial switch vulnerabilities, Russian Zimbra webmail espionage campaign, Stadler Rail ransomware extortion attempt.\nThe post In Other News: Dolphin X AI-Powered Malware, Car Anti-Theft Device Hack, 400 Linux Kernel Flaws appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-ecd8e77873",
+    "rejectedAt": "2026-07-25T08:56:40.804625+00:00",
+    "date": "2026-07-25",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/researcher-publishes-gitlab-rce-poc.html",
+    "headline": "Researcher Publishes GitLab RCE PoC Letting Authenticated Users Run Commands as Git",
+    "summary": "Security researcher Yuhang Wu at depthfirst has published a working proof-of-concept (PoC) exploit that executes commands as git on an unpatched self-managed GitLab 18.11.3 server.\n\nAn ordinary authenticated user triggers it by committing two crafted Jupyter notebooks and requesting their diff. The chain needs no administrator rights, continuous integration (CI) runner access, victim interaction",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-97652cd4ce",
+    "rejectedAt": "2026-07-25T08:56:41.706568+00:00",
+    "date": "2026-07-24",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/golden-chickens-resurfaces-with-four.html",
+    "headline": "Golden Chickens Resurfaces With Four New Malware Families and Modular Implants",
+    "summary": "The threat actors behind the Golden Chickens malware-as-a-service (MaaS) ecosystem have resurfaced with four new malware families, indicating that the operators are showing no signs of stopping despite extensive public disclosures into their inner workings.\n\nThe malware families in question are: TinyEgg, ChonkyChicken, a modularized variant of ChonkyChicken, and a modified web browser credential",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2854d2b0f4",
+    "rejectedAt": "2026-07-25T08:56:42.667893+00:00",
+    "date": "2026-07-25",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/rockwell-patches-code-execution-flaws-in-arena-simulation-software/",
+    "headline": "Rockwell Patches Code Execution Flaws in Arena Simulation Software",
+    "summary": "A researcher has explained how an attacker could exploit these vulnerabilities to target industrial organizations.\nThe post Rockwell Patches Code Execution Flaws in Arena Simulation Software appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f1fa880b88",
+    "rejectedAt": "2026-07-25T08:56:43.871682+00:00",
+    "date": "2026-07-24",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cloud-security/default-azure-automation-setting-cross-tenant-identity-takeover",
+    "headline": "Default Azure Automation Setting Enables Cross-Tenant Identity Takeover",
+    "summary": "Microsoft addresses a public-by-default configuration and chain of code flaws in Azure Automation that could have let attackers seize another tenant's identity and access others' data, credentials, and cloud workloads.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-731866a6cf",
+    "rejectedAt": "2026-07-25T08:56:44.924951+00:00",
+    "date": "2026-07-24",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-48561",
+    "headline": "CVE-2026-48561 Microsoft Edge Copilot Remote Code Execution Vulnerability",
+    "summary": "Corrected the CVE description and title. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 80,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-454dc92f0c",
+    "rejectedAt": "2026-07-25T08:56:45.902285+00:00",
+    "date": "2026-07-25",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16807",
+    "headline": "Chromium: CVE-2026-16807 Out of bounds write in Codecs",
+    "summary": "This CVE was assigned by Chrome.  Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f8317c8788",
+    "rejectedAt": "2026-07-25T08:56:47.563130+00:00",
+    "date": "2026-07-25",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16806",
+    "headline": "Chromium: CVE-2026-16806 Use after free in WebMCP",
+    "summary": "This CVE was assigned by Chrome.  Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-46474fa3a7",
+    "rejectedAt": "2026-07-25T08:56:48.809443+00:00",
+    "date": "2026-07-25",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16805",
+    "headline": "Chromium: CVE-2026-16805 Use after free in Blink",
+    "summary": "This CVE was assigned by Chrome.  Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2323865c93",
+    "rejectedAt": "2026-07-25T08:56:50.258902+00:00",
+    "date": "2026-07-25",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16804",
+    "headline": "Chromium: CVE-2026-16804 Use after free in Input",
+    "summary": "This CVE was assigned by Chrome.  Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d42362617c",
+    "rejectedAt": "2026-07-25T08:56:51.281259+00:00",
+    "date": "2026-07-21",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/introducing-chatgpt-small-business-program",
+    "headline": "Introducing the ChatGPT for small business program",
+    "summary": "OpenAI launches the ChatGPT for Small Businesses program, helping entrepreneurs build AI skills, automate work, and grow with ChatGPT Work.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-eeac6a04af",
+    "rejectedAt": "2026-07-25T08:56:52.465708+00:00",
+    "date": "2026-07-16",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/codex-collaborator-creative-team",
+    "headline": "How Codex became a collaborator for OpenAI’s creative team",
+    "summary": "How OpenAI’s creative team uses Codex to build custom creative tools, accelerate ideation, and prototype faster with context-aware AI.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6618858034",
+    "rejectedAt": "2026-07-25T08:56:53.878243+00:00",
+    "date": "2026-07-13",
+    "source": "Google DeepMind blog",
+    "url": "https://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/",
+    "headline": "Empowering India’s next generation of innovators with ATL Saathi",
+    "summary": "Seshu Ajjarapu and Arka Dhar Atal Tinkering Labs (ATL) is bringing access to new technology—such as 3D printing, IoT, and robotics—for over 1.1 crore students across India. The initiative is now leveraging AI to scale high-quality mentorship, shifting the focus from access to providing physical lab infrastructure to driving meaningful outcomes like accelerated innovation and enhanced learning metrics. At the AI Impact Summit in February 2026, Google DeepMind announced that it will help incorporate robotics and coding into local curricula, integrate Gemini thoughtfully into teacher workflows, a",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-00e5ed03db",
+    "rejectedAt": "2026-07-25T08:56:54.921044+00:00",
+    "date": "2026-07-24",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/thefilter/2026/jul/24/best-gaming-chairs-tested-uk",
+    "headline": "I’ve been gaming for 40 years. Here are the best chairs in the UK for comfort, support and serious play",
+    "summary": "Whether you’re on PC or a console, level up your setup with our gaming expert’s pick of the best chairs• The best games of 2026 so farComfort is crucial to the gaming experience. It’s hard to focus on blasting aliens or taking Stoke to the Champions League final if your bum has gone to sleep because you’ve been sitting on an old chair for three hours. We’re spending more time playing games than ever before, so good posture matters. If you have set up a dedicated gaming space, then a rickety seat just won’t cut it.From luxurious ergonomic thrones to cheap-and-cheerful bucket seats, the options available are bewildering. So I set out on an epic quest: to find the most comfortable, durable and stylish gaming chairs. Here’s what I discovered.Best gaming chair overall:\n Secretlab Titan EvoBest budget gaming chair:\n ThunderX3 Solo 360 Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-07476b4356",
+    "rejectedAt": "2026-07-25T08:56:55.983837+00:00",
+    "date": "2026-07-24",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/vulnerabilities-threats/vatican-official-prayer-app-leaks-700k-pii",
+    "headline": "Vatican's Official Prayer App Leaks 700K+ Global Users' PII",
+    "summary": "A porous API endpoint exposes, names, email addresses, country, and site status, all of which can be easily gleaned by anyone with a browser.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3fccf010f6",
+    "rejectedAt": "2026-07-25T08:56:58.147543+00:00",
+    "date": "2026-07-24",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/ontrac-notifies-customers-of-data-breach-after-network-hack/",
+    "headline": "OnTrac notifies customers of data breach after network hack",
+    "summary": "OnTrac parcel delivery company is informing that hackers breached its corporate network and may have accessed personal details belonging to its customers. The incident was detected on March 23, and an internal investigation revealed that the attacker accessed certain files between March 20 and 22. Apart from names, it is unclear what type of information was exposed, as the company redacted the data elements in the notification sample shared with authorities. OnTrac is a private American parcel-delivery company specializing in “last-mile” e-commerce deliveries, formed in 2021 from the merger of",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2b3f4ab080",
+    "rejectedAt": "2026-07-25T08:56:59.499797+00:00",
+    "date": "2026-07-24",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/chick-fil-a-data-breach-affects-more-than-13-000-customers/",
+    "headline": "Chick-fil-A data breach affects more than 13,000 customers",
+    "summary": "American fast food restaurant chain Chick-fil-A has confirmed that over 13,000 customers had their data stolen in a recent wave of credential stuffing attacks. As BleepingComputer first reported , the company revealed in data breach notification letters filed with multiple attorney general's offices that it detected attacks targeting its website and mobile app between June 17 and June 19 after identifying suspicious login activity to certain Chick-fil-A One accounts. Chick-fil-A says the attackers used automated tools and credentials \"obtained from a third-party source\" to hack into Chick-fil-",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-69a12bf1ba",
+    "rejectedAt": "2026-07-25T08:57:01.085991+00:00",
+    "date": "2026-07-24",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/industry-reactions-to-openai-models-hacking-hugging-face-feedback-friday/",
+    "headline": "Industry Reactions to OpenAI Models Hacking Hugging Face: Feedback Friday",
+    "summary": "Industry professionals debate whether it represents a lab containment failure or an unprecedented agentic capability milestone.\nThe post Industry Reactions to OpenAI Models Hacking Hugging Face: Feedback Friday appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-52eae3d249",
+    "rejectedAt": "2026-07-25T08:57:02.025568+00:00",
+    "date": "2026-07-25",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/lifeandstyle/ng-interactive/2026/jul/25/long-lost-family-reunited-chatgpt-artificial-intelligence-ai",
+    "headline": "‘I thought, I’ve tried everything else, why not give AI a shot?’: the long-lost family reunited by ChatGPT",
+    "summary": "Avtar spent decades wondering what happened to the mother he never got to know. Thousands of miles away, Nicci was haunted by the story of a half-brother given away before she was born. How did a chatbot bring them together?As a small boy growing up in Amritsar, India, in the 1960s, Avtar Singh used to hear whispers. Your mum isn’t really your mum, the rumours would say. Your mum lives abroad. Avtar didn’t really pay any attention to it. “I thought, the neighbours are just making up stories.” But the stories were true: the woman raising Avtar was actually his grandmother. When he was too young to remember it, his father had emigrated to Canada to work as a teacher, leaving Avtar in the care of his paternal grandparents. His grandfather, a police officer, was a fearsome authoritarian, but his grandmother brought him up with tenderness, as if he were her own son. She called him by his nickname, Titu. He felt loved.When Avtar was around eight years old, he was told about his family in Can",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1664786a2e",
+    "rejectedAt": "2026-07-25T08:57:04.116746+00:00",
+    "date": "2026-07-24",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/commentisfree/2026/jul/24/should-you-use-ai",
+    "headline": "Should you use AI for a task? Here’s a simple way to decide | Bruce Schneier",
+    "summary": "Sometimes, what matters isn’t your output but what you put into the process. Think of it like work v the gymI teach public policy at the Harvard Kennedy School and the Munk School at the University of Toronto. And it will come as no surprise to you that my students regularly use AI to complete their writing assignments. Doing so is a waste of their tuition money. But if their entire career is going to include AI writing assistants, why shouldn’t they embrace their future?The best way I’ve found to explain the dilemma comes from the AI researcher Daniel Meissler: it’s the difference between work and the gym. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c18b8e009b",
+    "rejectedAt": "2026-07-25T08:57:07.484680+00:00",
+    "date": "2026-07-24",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cybersecurity-operations/incorrigible-ai-models-resist-rehabilitation",
+    "headline": "Escape Artists: 'Incorrigible' AI Models Resist Rehabilitation",
+    "summary": "The hacking of Hugging Face by a rogue OpenAI agent is significant, but unsurprising — and preventing the next AI model escape will be difficult, at best.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-49b40099d4",
+    "rejectedAt": "2026-07-25T08:57:08.488584+00:00",
+    "date": "2026-07-08",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/commentisfree/2026/jul/08/chatgpt-ai-therapy",
+    "headline": "My patients use ChatGPT for therapy. Now I use it too | Sarah Dargouth",
+    "summary": "I can’t blame my patients for turning to its straightforward assessments. But it has real risks – and care may require human messiness“Chat told me I should break up with him.”I instructed my face to remain therapist-neutral, but I must have smirked. The truth is, I was annoyed. We had been discussing the viability of this relationship for weeks, and in an instant AI had brought the answer. “How do you feel about it?” She said this had been her gut feeling all along. The following session, her relationship was over. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ee76a12538",
+    "rejectedAt": "2026-07-25T08:57:10.293703+00:00",
+    "date": "2026-07-23",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/new-dolphin-x-malware-uses-ai-to-rank-high-value-targets/",
+    "headline": "New Dolphin X malware uses AI to rank high-value targets",
+    "summary": "A new Dolphin X remote access trojan claims to use an AI-powered profiling feature to score and rank infected users, helping cybercriminals identify which victims should be targeted first. The malware was analyzed by Varonis Threat Labs researcher Daniel Kelley, who spotted it being advertised on a cybercrime forum by a vendor using the alias \"Kontraktnik,\" promoting it as an all-in-one remote access trojan. According to Varonis, the operator panel lists 329 features across ten categories, including a credential-stealing feature that claims to target more than 300 applications. However, one of",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e9d6d8c865",
+    "rejectedAt": "2026-07-25T08:57:11.396527+00:00",
+    "date": "2026-07-24",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/satellite-images-reveal-how-giant-scam-compounds-keep-on-expanding/",
+    "headline": "Satellite Images Reveal How Suspected Scam Compounds Appear Out of Nowhere",
+    "summary": "More than two dozen suspected new scam compounds in war-torn Myanmar have been built or expanded significantly in the past six months, according to satellite images and analysis of the area reviewed by WIRED. The apparent growth of the criminal operations indicates how a purported crackdown on the sites last year did little to stop the highly lucrative scamming industry. At least 25 alleged scamming sites have appeared in the Myawaddy region of Myanmar, close to the country's border with Thailand, since around the start of the year, according to an analysis of satellite images by the Internati",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4c6720cf4c",
+    "rejectedAt": "2026-07-25T08:57:12.408155+00:00",
+    "date": "2026-07-24",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cybersecurity-operations/cisos-vs-boards-myth-or-misunderstanding-",
+    "headline": "CISOs vs. Boards: Myth or Misunderstanding?",
+    "summary": "Escalating threats are forcing boards to prioritize security, but communication gaps persist. Boards and security teams each say they need more support to bridge the divide.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-11fe3dd7f6",
+    "rejectedAt": "2026-07-25T08:57:13.679888+00:00",
+    "date": "2026-07-24",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/accelerating-aws-network-firewall-troubleshooting-with-aws-devops-agent/",
+    "headline": "Accelerating AWS Network Firewall troubleshooting with AWS DevOps Agent",
+    "summary": "When an administrator introduces a rule change in AWS Network Firewall and network connectivity is disrupted, pinpointing the cause requires inspecting multiple points in the traffic path. The firewall gives you stateless and stateful rule engines, domain rules, and routing to the firewall endpoint inside your Amazon Virtual Private Cloud (Amazon VPC). A network drop […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-222552ddd2",
+    "rejectedAt": "2026-07-25T08:57:15.158929+00:00",
+    "date": "2026-07-23",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/ransomware-attack-japanese-frozen-food-chain",
+    "headline": "Ransomware Attack Puts a Chill on Japanese Frozen-Food Chain",
+    "summary": "A cyberattack on a food and logistics firm disrupts the supply of frozen food to thousands of clients, including major franchises like Kentucky Fried Chicken.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-80ef218e6f",
+    "rejectedAt": "2026-07-25T08:57:16.138076+00:00",
+    "date": "2026-07-24",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/aegisai-raises-36-million-for-ai-powered-email-security/",
+    "headline": "AegisAI Raises $36 Million for AI-Powered Email Security",
+    "summary": "The company has raised a total of $49 million in funding, including from Battery Ventures, Accel and Foundation Capital.\nThe post AegisAI Raises $36 Million for AI-Powered Email Security appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d689d673ce",
+    "rejectedAt": "2026-07-25T08:57:17.169971+00:00",
+    "date": "2026-07-23",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/nuclear-sabotage-malware-benchmark-trips-up-most-frontier-ai-models/",
+    "headline": "Nuclear-Sabotage Malware Benchmark Trips Up Most Frontier AI Models",
+    "summary": "SentinelOne’s new benchmark, built on the Fast16 case, shows which AI models can sustain a malware investigation and which cannot.\nThe post Nuclear-Sabotage Malware Benchmark Trips Up Most Frontier AI Models appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-841fc0d101",
+    "rejectedAt": "2026-07-25T08:57:18.518595+00:00",
+    "date": "2026-07-24",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/bgp-origin-attribute/",
+    "headline": "BGP ORIGIN attribute manipulation and its impact on the Internet",
+    "summary": "By doing in-depth testing, we found nearly 70% of BGP paths experience ORIGIN attribute rewrites by transit providers seeking traffic advantages. We examine the global impact of this practice and argue for deprecating ORIGIN in route selection.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3c18b06ffe",
+    "rejectedAt": "2026-07-25T08:57:19.719544+00:00",
+    "date": "2026-07-24",
+    "source": "The Record",
+    "url": "https://therecord.media/andy-burnham-liz-lloyd-cyber-policy-uk",
+    "headline": "Andy Burnham signals continuity on UK cyber policy, reappoints minister despite scrapping ministry",
+    "summary": "New Prime Minister Andy Burnham reappointed Britain’s cybersecurity minister to a government post amid a sweeping overhaul of ministerial positions, holding the existing policy steady even as he abolished the department that ran it. Liz Lloyd was appointed to a junior post at the department for Digital, Culture, Media and Sport (DCMS) late Thursday, retaining a second job at the renamed Department for Business, Innovation, Science and Trade (DBIST). Her formal portfolio has not been announced, but Whitehall sources say she will resume the cyber brief. Lloyd has led on cyber since September 202",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5143c661d8",
+    "rejectedAt": "2026-07-25T08:57:21.301759+00:00",
+    "date": "2026-07-24",
+    "source": "The Record",
+    "url": "https://therecord.media/wrench-attacks-against-cryptocurrency-holders",
+    "headline": "'Wrench' attacks against crypto holders appear to be on the rise",
+    "summary": "Cryptocurrency accounts have long been targets of online hacks and scams . But a growing share of crypto thefts now begin in the physical world, where crooks are using face-to-face coercion to steal digital assets, according to a new report. “Wrench” attacks — the crypto industry’s term for in-person, strong-arm tactics — showed a 33 percent year-over-year increase in the first half of 2026, according to blockchain security audit company CertiK. Using publicly available information and other verified sources, the company found 52 wrench attacks worldwide through June, up from 39 during the sam",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-123a83a086",
+    "rejectedAt": "2026-07-25T08:57:22.382667+00:00",
+    "date": "2026-07-24",
+    "source": "404 Media",
+    "url": "https://www.404media.co/behind-the-blog-no-spoilers/",
+    "headline": "Behind the Blog: No Spoilers",
+    "summary": "This is Behind the Blog, where we share our behind-the-scenes thoughts about how a few of our top stories of the week came together. This week, we discuss astrology, Flock on the brain, The Odyssey , and more. JASON: This week I wrote pretty much exclusively about Flock, and I am working on a few more articles about automated license plate readers that will probably go in the next week or so. I am well aware that there are other topics in the world, but, basically, there is now so much interest in the company and its practices that I am getting inundated with tips, story ideas, and sources, an",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7633c21bd7",
+    "rejectedAt": "2026-07-25T08:57:23.712283+00:00",
+    "date": "2026-07-23",
+    "source": "404 Media",
+    "url": "https://www.404media.co/our-new-foia-forum-7-30-1pm-et/",
+    "headline": "Our New FOIA Forum! 7/30, 1PM ET",
+    "summary": "It’s that time again! We’re planning our latest FOIA Forum, a live, hour-long or more interactive session where Joseph and Jason will teach you how to pry records from government agencies through public records requests. We’re planning this for Thursday, July 30th at 1PM ET . That's in just one week today! Add it to your calendar! So, what’s the FOIA Forum? We'll share our screen and show you specifically how we file FOIA requests. We take questions from the chat and incorporate those into our FOIAs in real-time. This time we're particularly focused on city council meetings. Jason watches a lo",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9549ad00d6",
+    "rejectedAt": "2026-07-25T08:57:24.717594+00:00",
+    "date": "2026-07-23",
+    "source": "404 Media",
+    "url": "https://www.404media.co/flocks-ceo-says-its-alprs-dont-do-video-after-repeatedly-announcing-they-can/",
+    "headline": "Flock's CEO Says its ALPRs Don't Do Video After Repeatedly Announcing They Can",
+    "summary": "After the Los Angeles Police Department allowed its contract with Flock to expire , the surveillance company’s CEO, Garrett Langley, told local news that people don’t understand how its technology works, and that its automated license plate readers (ALPR) only take a “static picture” of a car. “The technology is really simple,” he told ABC7 . \"A car drives by, we take a picture. It's a static picture of a car, and then we read the license plate. That's what the technology is—it's actually not that complicated, it's pretty simple.\" But for the last year, Flock has been marketing a new upgrade t",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-94e82b236f",
+    "rejectedAt": "2026-07-25T08:57:25.786408+00:00",
+    "date": "2026-07-22",
+    "source": "404 Media",
+    "url": "https://www.404media.co/you-opened-a-credit-card-ice-now-knows-where-you-live/",
+    "headline": "You Opened a Credit Card. ICE Now Knows Where You Live",
+    "summary": "When you open a new credit card, you necessarily give the credit card company your address. You probably expect that information to remain with your bank. But when you open a new credit card or change your address on file, your address leaves your credit card provider, travels through a web of middlemen companies, and ends up with Immigration and Customs Enforcement (ICE), which can then search, analyze, or pair that data with other pieces of information about your life without a warrant. 404 Media has mapped out this supply of data by reviewing U.S. government procurement records and internal",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-508efc0789",
+    "rejectedAt": "2026-07-25T08:57:26.776041+00:00",
+    "date": "2026-07-22",
+    "source": "404 Media",
+    "url": "https://www.404media.co/what-happened-when-flock-came-to-my-town/",
+    "headline": "What Happened When Flock Came to My Town",
+    "summary": "On Tuesday night, the city council of my small town of Irmo, South Carolina, voted to install 22 new Flock cameras. That’ll bring the total up to 33. With a population of only 12,000 or so, it means there’ll be one Flock camera for every 300 residents. That means there will be more Flock cameras in my town than police officers. The city council — the governing body consisting of the mayor and 4 councilpersons — voted for Flock expansion despite presentations from residents about the dangers of what they described as the creeping surveillance state. The vote for the cameras was a hot topic in l",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b54dc71b30",
+    "rejectedAt": "2026-07-25T08:57:28.540571+00:00",
+    "date": "2026-07-10",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/smart-tiered-cache-for-public-clouds/",
+    "headline": "Improving Smart Tiered Cache for Public Cloud Regions",
+    "summary": "In 2021, we shipped Smart Tiered Cache . The idea: for each origin behind your site, Cloudflare picks the single best upper-tier data center to route through, based on real-time latency. Flip one switch, and we find the fastest path from our network to your origin. That works as long as an origin IP lives in one fixed place. Public cloud origins usually don't. They sit behind anycast or regional unicast front ends, so one origin IP can look equally close to a dozen Cloudflare data centers at once — and the latency probes have nothing to lock onto. Smart Tiered Cache handles this the safe way: ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-54ad343eef",
+    "rejectedAt": "2026-07-25T08:57:29.545188+00:00",
+    "date": "2026-07-23",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/introducing-ai-spend-controls-unity-ai-gateway",
+    "headline": "Introducing AI spend controls with Unity AI Gateway",
+    "summary": "• AI workloads create new cost management challenges, such as runaway retry loops to uncontrolled agent experimentation, making traditional cloud budget controls insufficient for modern AI adoption • Unity AI Gateway AI Spend Controls introduce proactive budget alerts across users, workspaces, use cases, and entire accounts, helping organizations monitor and contain AI costs before they become business risks • Combined with Unity Catalog system tables and Databricks budgets, Unity AI Gateway provides unified governance for AI usage, cost visibility, and operational accountability across models",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-19b029403a",
+    "rejectedAt": "2026-07-25T08:57:30.582647+00:00",
+    "date": "2026-06-25",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/rollbacks-for-workflows/",
+    "headline": "How we built saga rollbacks for Cloudflare Workflows",
+    "summary": "Cloudflare Workflows allows you to build durable, multi-step applications with built-in retries and state persistence across long-running processes. When a Workflow executes, each step can call external systems, retry failures, and persist state across restarts. But if one step fails, it may leave earlier work from completed steps in an inconsistent or partial state. Today we’re shipping saga rollbacks for Workflows, allowing you to declare rollback logic within the step itself, in case of failure. For example, consider a workflow for transferring funds between accounts at two different banks:",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7dc5188254",
+    "rejectedAt": "2026-07-25T08:57:31.608297+00:00",
+    "date": "2026-07-23",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/enterprise-security-at-machine-speed-aws-black-hat-2026-preview/",
+    "headline": "Enterprise security at machine speed: AWS Black Hat 2026 preview",
+    "summary": "Black Hat 2026 (Aug 1-6, 2026) brings together over 22,000 security practitioners, researchers, and CISOs who build, break, and defend enterprise infrastructure. They’re security professionals who push the limits of offensive and defensive security and demand proof over promises. As frontier security models like Mythos reshape the enterprise landscape, they need security that operates at […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f323c44fec",
+    "rejectedAt": "2026-07-25T08:57:32.553359+00:00",
+    "date": "2026-07-10",
+    "source": "Platformer (Casey Newton)",
+    "url": "https://www.platformer.news/openai-gpt-5-6-simo-meta-muse-spark-1-1/",
+    "headline": "OpenAI's big launch — and bigger departure",
+    "summary": "This is a column about AI. My fiancé works at Anthropic. See my full ethics disclosure here . I. Lately, the only important question about a new large language model has been whether the Trump administration would allow anyone to use it. On Thursday, though, not one but two notable models became available for use: GPT-5.6 , from OpenAI, and Muse Spark 1.1 from Meta. As always, the worst day to evaluate new models is the day they come out. Still, there was plenty of news and relevant commentary surrounding both releases, and it’s worth checking in on both companies as their strategies and produ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cde96cc279",
+    "rejectedAt": "2026-07-25T08:57:34.374506+00:00",
+    "date": "2026-07-01",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/making-ai-search-smarter/",
+    "headline": "Making AI search smarter",
+    "summary": "Search is how we find nearly everything on the web — creators, merchants, answers. AI is rewriting the rules, leaving creators caught between staying discoverable in an agentic era and getting paid for their work. Today we're launching two initiatives to help.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c95b2bb6d6",
+    "rejectedAt": "2026-07-25T08:57:35.521988+00:00",
+    "date": "2026-07-13",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/new-compliance-guidance-available-hitrust-i1-on-aws/",
+    "headline": "New compliance guidance available: HITRUST i1 on AWS",
+    "summary": "We are pleased to announce the publication of a new AWS compliance implementation guidance: HITRUST i1 Compliance on AWS: Customer Implementation Guidance with an Illustrative Healthcare Platform. Healthcare organizations seeking HITRUST i1 certification increasingly rely on Amazon Web Services (AWS) as their cloud foundation. The HITRUST i1 assessment covers 182 curated controls at the Implemented […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f6b48a2319",
+    "rejectedAt": "2026-07-25T08:57:37.139904+00:00",
+    "date": "2026-07-15",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/security/2026/07/windows-0-day-drops-the-same-day-microsoft-releases-record-number-of-patches/",
+    "headline": "Windows 0-day drops the same day Microsoft releases record number of patches",
+    "summary": "Right on the heels of Microsoft releasing a record number of security patches, a researcher has published exploit code that can enable low-privilege Windows accounts to make sensitive changes to administrator accounts. The exploit, which multiple researchers say works , is sending Microsoft scrambling, yet again, to patch a zero-day released by an anonymous researcher who has complained about the software maker’s handling of their bug reports. To date, the pseudonymous NightmareEclypse has published nine such exploits, including Tuesday’s HiveLegacy . The researcher said the proof-of-concept c",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-73fd78c484",
+    "rejectedAt": "2026-07-25T08:57:38.446720+00:00",
+    "date": "2026-07-07",
+    "source": "Google AI blog",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
+    "headline": "Expanding Managed Agents in Gemini API:  background tasks, remote MCP and more",
+    "summary": "Jul 07, 2026 We’re adding support for new capabilities like background execution for async interactions, easy connection to remote MCP servers, custom functions and credential refresh. Philipp Schmid Developer Relations Engineer, Google DeepMind Mariano Cocirio Product Manager, Google DeepMind Your browser does not support the audio element. Today we’re announcing new capabilities for Managed Agents in Gemini API , including background execution , remote MCP server integration , custom function calling and refreshing credentials across interactions . These updates directly address developer fe",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d0561e3761",
+    "rejectedAt": "2026-07-25T08:57:39.545468+00:00",
+    "date": "2026-07-02",
+    "source": "Platformer (Casey Newton)",
+    "url": "https://www.platformer.news/ai-backlash-data-centers-jobs-inflation/",
+    "headline": "Why the tech industry can't keep up with the AI backlash",
+    "summary": "This is a column about AI. My fiancé works at Anthropic. See my full ethics disclosure here . On Wednesday, OpenAI CEO Sam Altman published an op-ed repeating his call for a new international body to govern artificial intelligence safety. “International co-operation like this seems a reasonable way to avoid power becoming too concentrated, and ensure that the benefits of AI are democratized,” Altman wrote in the Financial Times . Altman’s proposal is sensible, and one that builds on his years-old call for something like an International Atomic Energy Agency for AI. Reading his essay, though, I",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-23883e915a",
+    "rejectedAt": "2026-07-25T08:57:40.477717+00:00",
+    "date": "2026-07-01",
+    "source": "Google AI blog",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/",
+    "headline": "The latest AI news we announced in June 2026",
+    "summary": "Jul 01, 2026 Here’s a recap of our biggest AI updates from June, including the launch of Gemini 3.5 Live Translate, the latest features in Android 17 and the new Google Home Speaker, built for Gemini. News from Google Team Your browser does not support the audio element. Google just released a bunch of new AI updates to make your devices and apps more helpful. You can now use smarter tools on your laptop, get better translation features and even use AI to help with your schoolwork. These updates are designed to handle boring tasks so you can focus on what you actually enjoy. It’s all part of t",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a7d926a206",
+    "rejectedAt": "2026-07-25T08:57:41.862979+00:00",
+    "date": "2026-07-06",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/workers-cache/",
+    "headline": "Your Worker can now have its own cache in front of it",
+    "summary": "Today we are launching Workers Cache : a tiered cache that sits in front of your Worker, configured by a single line of Wrangler config and the same Cache-Control headers you already know. When Workers Cache is enabled, every cacheable request to your Worker hits Cloudflare's cache first. If there's a fresh cached response, Cloudflare returns it directly — your Worker doesn't run, and you don't pay CPU time for it. On a miss, your Worker runs, and if your response is cacheable, Cloudflare stores it for the next request. The next request from anywhere on Earth can be served straight from cache.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e29a8bbb0a",
+    "rejectedAt": "2026-07-25T08:57:42.864714+00:00",
+    "date": "2026-07-03",
+    "source": "Google DeepMind blog",
+    "url": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
+    "headline": "Google DeepMind and A24 announce first-of-its-kind research partnership",
+    "summary": "Eli Collins VP Product, Google DeepMind Jun 22, 2026 Today, Google DeepMind and A24 are announcing a first-of-its-kind partnership focused on research. The collaboration pairs a world-leading research lab with the industry’s most filmmaker-forward studio to help artists develop new workflows and techniques. This ensures the tools of the future are shaped by the creators who use them. This partnership creates a deep research and development collaboration between A24 and Google DeepMind spanning multiple projects over time. By anchoring Google DeepMind's innovations directly within the creative ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
     "id": "reject-2d2ef98813",
     "rejectedAt": "2026-07-24T09:15:32.554575+00:00",
     "date": "2026-07-23",
