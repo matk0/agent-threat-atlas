@@ -1,5 +1,635 @@
 [
   {
+    "id": "reject-56eddc9d00",
+    "rejectedAt": "2026-07-26T09:08:14.477104+00:00",
+    "date": "2026-07-25",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/25/ruff/#atom-everything",
+    "headline": "Ruff v0.16.0",
+    "summary": "Ruff v0.16.0\nAstral shipped a significant new version of their Ruff Python linting tool a few days ago on July 23rd. I noticed today because my various CI jobs all started failing thanks to new default Ruff checks and my unpinned \"ruff\" dev dependency.\nFrom Brent Westbrook's announcement post:\n\nRuff now enables 413 rules by default, up from 59 in previous versions.\nSince Ruff's default rule set was last modified in v0.1.0, the number of rules in Ruff has grown from 708 to 968. Many of these rules catch severe issues, including syntax errors and immediate runtime errors but were not previously enabled by default. With the new rule set, Ruff will bring these issues and many others to your attention without any Ruff configuration.\n\nHere's a one-liner for trying it on any Python project:\nuvx ruff@latest check .\n\nI ran the latest Ruff against my three biggest projects - Datasette, sqlite-utils, and LLM - and it found hundreds of minor issues that breached the new default rules.\nAll three pr",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b684c0c855",
+    "rejectedAt": "2026-07-26T09:08:15.776706+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2513",
+    "headline": "[NEU] [mittel] vim: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in vim ausnutzen, um beliebigen Programmcode auszuführen, um einen Denial of Service Angriff durchzuführen, und um nicht näher spezifizierte Auswirkungen zu verursachen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2600812c62",
+    "rejectedAt": "2026-07-26T09:08:16.993740+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2506",
+    "headline": "[NEU] [mittel] RabbitMQ: Mehrere Schwachstellen",
+    "summary": "Ein entfernter, authentisierter Angreifer kann mehrere Schwachstellen in RabbitMQ ausnutzen, um einen Denial of Service Angriff durchzuführen, und um Sicherheitsvorkehrungen zu umgehen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3b9c43cc1b",
+    "rejectedAt": "2026-07-26T09:08:18.235718+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2512",
+    "headline": "[NEU] [mittel] Progress Software MOVEit Transfer: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Progress Software MOVEit Transfer ausnutzen, um Sicherheitsmaßnahmen zu umgehen, erweiterte Berechtigungen zu erlangen, Daten zu manipulieren oder offenzulegen oder Cross-Site-Scripting-Angriffe durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ea3707c07f",
+    "rejectedAt": "2026-07-26T09:08:19.442687+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2508",
+    "headline": "[NEU] [hoch] cPanel cPanel/WHM: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in cPanel cPanel/WHM ausnutzen, um möglicherweise beliebigen Code auszuführen, vertrauliche Informationen offenzulegen, Sicherheitsmaßnahmen zu umgehen, Daten zu manipulieren oder einen Denial-of-Service-Zustand herbeizuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7e621c62b2",
+    "rejectedAt": "2026-07-26T09:08:21.200249+00:00",
+    "date": "2026-07-24",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2505",
+    "headline": "[NEU] [hoch] JetBrains IntelliJ IDEA: Mehrere Schwachstellen",
+    "summary": "Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in JetBrains IntelliJ IDEA ausnutzen, um Informationen offenzulegen, um Code auszuführen und um Sicherheitsmaßnahmen zu umgehen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0d2bf35298",
+    "rejectedAt": "2026-07-26T09:08:22.272216+00:00",
+    "date": "2026-07-24",
+    "source": "AI Incident Database",
+    "url": "https://iol.co.za/news/south-africa/2026-04-23-sassa-elife-certification-portal-beneficiaries-report-ongoing-glitches-despite-agency-denials/",
+    "headline": "Sassa eLife Certification portal: Beneficiaries report ongoing glitches despite agency denials",
+    "summary": "While the South African Social Security Agency (Sassa) continues to urge beneficiaries to complete their eLife Certification, many social grant recipients across South Africa report that the portal remains unusable.\n\nDespite Sassa's claims  ... (https://incidentdatabase.ai/cite/1606#7573)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f24c359169",
+    "rejectedAt": "2026-07-26T09:08:23.398499+00:00",
+    "date": "2026-07-24",
+    "source": "AI Incident Database",
+    "url": "https://iol.co.za/news/south-africa/2026-05-24-sassas-biometric-rollout-leaves-thousands-without-grants-amid-fraud-crackdown/",
+    "headline": "SASSA’s biometric rollout leaves thousands without grants amid fraud crackdown",
+    "summary": "The South African Social Security Agency (SASSA)'s biometric verification drive has intensified efforts to clamp down on fraud in the social grant system, after Parliament was told that nearly one million beneficiaries have been processed s ... (https://incidentdatabase.ai/cite/1606#7574)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-49c1ef2b9a",
+    "rejectedAt": "2026-07-26T09:08:24.530016+00:00",
+    "date": "2026-07-24",
+    "source": "AI Incident Database",
+    "url": "https://www.gov.za/news/media-statements/sassa-self-service-system-restored-following-earlier-challenges-10-apr-2026",
+    "headline": "SASSA on self-service system restored following earlier challenges",
+    "summary": "The South African Social Security Agency (SASSA) has noted the challenges to access self-service system by some of our beneficiaries and the Agency can report that the challenge has been resolved.\n\nSASSA would like to apologise to all our b ... (https://incidentdatabase.ai/cite/1606#7575)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ab162a8b67",
+    "rejectedAt": "2026-07-26T09:08:25.718546+00:00",
+    "date": "2026-07-24",
+    "source": "AI Incident Database",
+    "url": "https://www.citizen.co.za/soweto-urban/news-headlines/local-news/2026/01/06/fake-ai-image-sparks-false-school-fire-alarm-in-orlando/",
+    "headline": "Fake AI image sparks false school fire alarm in Orlando",
+    "summary": "A dangerous prank involving an AI-generated image of a school engulfed in flames caused widespread alarm in Orlando yesterday, January 5.\n\nIt is alleged that a youngster shared the fabricated image with emergency services, falsely claiming  ... (https://incidentdatabase.ai/cite/1605#7571)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9a3040f9b9",
+    "rejectedAt": "2026-07-26T09:08:26.809433+00:00",
+    "date": "2026-07-24",
+    "source": "AI Incident Database",
+    "url": "https://futurism.com/artificial-intelligence/politician-accidentally-reads-ai-slop-speech",
+    "headline": "Braindead Politician Accidentally Reads AI Slop That Someone Left in His Speech: “Here’s a More Natural, Flowing Version of That Section That Reads Like a Legislative Speech”",
+    "summary": "AI chatbots and politicians who aren't even pretending to try anymore are a match made in heaven.\n\nExhibit A: Canadian lawmaker Bill Oliver, who made a strange, cyborgian digression in a speech addressing the New Brunswick legislature last  ... (https://incidentdatabase.ai/cite/1607#7576)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-41ac194d5f",
+    "rejectedAt": "2026-07-26T09:08:27.950561+00:00",
+    "date": "2026-07-25",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/fastjson-1x-rce-vulnerability-targeted.html",
+    "headline": "Fastjson 1.x RCE Vulnerability Targeted in Attacks With No Patched Available",
+    "summary": "Security firms ThreatBook and Imperva say attackers are targeting a critical flaw in Fastjson, Alibaba's JSON library for Java. In affected Spring Boot applications, a malicious JSON request can execute code without authentication, with the privileges of the Java process.\n\nTracked as CVE-2026-16723, the vulnerability carries an Alibaba-assigned CVSS score of 9.0. The confirmed chain requires",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e4420d62b7",
+    "rejectedAt": "2026-07-26T09:08:31.335450+00:00",
+    "date": "2026-07-25",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/malvertising-sends-malware-in-pieces.html",
+    "headline": "Malvertising Sends Malware in Pieces, Then Makes the Browser Build the Executable",
+    "summary": "A malvertising operation dubbed SourTrade is making victims' browsers build the final Windows executable themselves, using a legitimate Bun runtime as its base instead of serving one complete malicious file from a fixed URL.\n\nConfiant, which detailed the campaign on July 23, 2026, said it has operated since late 2024 and impersonated TradingView, Solana, and Luno to target retail traders and",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-74666cf275",
+    "rejectedAt": "2026-07-26T09:08:32.327293+00:00",
+    "date": "2026-07-25",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/cl0p-affiliates-target-internet-exposed.html",
+    "headline": "Cl0p Affiliates Target Internet-Exposed PTC Windchill and FlexPLM with Unauthenticated RCE",
+    "summary": "Threat actors linked to the Cl0p (aka Chubby Scorpius, FIN11, Graceful Spider, and Lace Tempest) ransomware campaign are exploiting flaws in internet-exposed PTC Windmill and FlexPLM deployments as part of a new data extortion campaign.\n\n\"Attackers chain a pre-authentication information disclosure in the FlexPLM WSDL endpoint with a server-side flaw in the Windchill login servlet, enabling",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5b9586162d",
+    "rejectedAt": "2026-07-26T09:08:33.449600+00:00",
+    "date": "2026-07-25",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/ctm360-research-reveals-how-insurance.html",
+    "headline": "CTM360 Research Reveals How Insurance Phishing Has Evolved Into Real-Time Account Hijacking",
+    "summary": "For years, phishing campaigns targeting financial institutions followed the same playbook. Victims were tricked into entering usernames and passwords, attackers collected the credentials, and accounts were compromised later when an opportunity arose.\n\nThat model is changing.\n\nRecent investigations into insurance-focused phishing operations reveal a more immediate approach. Instead of harvesting",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-968e9f178a",
+    "rejectedAt": "2026-07-26T09:08:34.493353+00:00",
+    "date": "2026-07-24",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/fake-notepad-plugin-delivers.html",
+    "headline": "Fake Notepad++ Plugin Delivers MATCHBOIL.V2 in UAC-0099 Attacks",
+    "summary": "The Computer Emergency Response Team of Ukraine (CERT-UA) has warned of a new campaign that involves the use of a malicious program that's dressed up as a Notepad++ plugin to compromise Windows systems.\n\nThe activity has been attributed by the agency to a threat cluster it tracks as UAC-0099, a Russia-aligned group that has previously observed weaponizing security flaws in WinRAR software to",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cf18834b85",
+    "rejectedAt": "2026-07-26T09:08:35.616348+00:00",
+    "date": "2026-07-25",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-data-leaks-fuel-2-000-sextortion-email-scam/",
+    "headline": "ShinyHunters data leaks fuel $2,000 sextortion email scam",
+    "summary": "Threat actors are using email addresses exposed in data breaches leaked by the ShinyHunters extortion group to send sextortion emails demanding $2,000 in Bitcoin. The emails claim to come from ShinyHunters and tell recipients that hackers compromised their devices after obtaining their email addresses from breached company databases. However, the messages appear to be sent by someone who downloaded data previously leaked by ShinyHunters rather than by the extortion group itself, using the exposed email addresses to make the threats appear more legitimate. BleepingComputer has seen leaked data ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-08a5f21780",
+    "rejectedAt": "2026-07-26T09:08:37.310739+00:00",
+    "date": "2026-07-25",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/malicious-sites-use-javascript-to-build-malware-in-browser-memory/",
+    "headline": "Malicious sites use JavaScript to build malware in browser memory",
+    "summary": "A massive malvertising campaign is using fake Solana, Luno, and TradingView webpages with malicious JavaScript that instructs browsers to assemble malware directly in memory. The operation has been active since late 2024 and is localized to 25 languages in 12 countries, primarily in Asia Pacific and Latin America. A filtering system ensures that only real targets (retail traders and crypto investors) land on the malicious pages, while researchers, scanners, and security bots are redirected to blank pages. Ad security platform Confiant says that the campaign's design stands out through its use ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-64934dbed4",
+    "rejectedAt": "2026-07-26T09:08:38.256271+00:00",
+    "date": "2026-07-25",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/jul/25/ai-jobs-apocalypse-human-labor",
+    "headline": "The AI jobs apocalypse probably isn’t coming anytime soon",
+    "summary": "Artificial intelligence  may not deliver on its promise of vast economic opportunity at a price that humanity is willing to payIn March, Anthropic, the cutting-edge artificial intelligence business that gave us the chatbot Claude, published an analysis on the impact of AI on employment, to help us assess the claim that intelligent robots were about to redefine human existence, ending demand for human labor.Last year in May, Anthropic’s co-founder, Dario Amodei, claimed AI could wipe out half of all entry-level jobs in one to five years. Last January, he told us AI would probably become a “general labor substitute for humans”. In June he said we risk “a world where the economic trade-off dial is stuck on the hypergrowth, hyper-inequality setting”. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b750609ef5",
+    "rejectedAt": "2026-07-26T09:08:39.212933+00:00",
+    "date": "2026-07-25",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/australia-news/2026/jul/26/mega-datacentre-planned-for-outer-melbourne-will-be-almost-six-times-the-size-of-chadstone-shopping-centre",
+    "headline": "Mega datacentre planned for outer Melbourne will be six times bigger than a large shopping centre",
+    "summary": "More than 3,600 people sign petition for careful assessment of proposed AI hub, now a flashpoint for national debate on datacentre boomFollow our Australia news live blog for latest updatesGet our breaking news email, free app or daily news podcastFor some residents it started with a letter in the mailbox. It was a “friendly introduction from the team behind the Victorian AI hub”.“I am knocking on doors to explain what we have in mind and, most importantly, to listen,” the letter from Syncline Energy stated. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-14649e01cd",
+    "rejectedAt": "2026-07-26T09:08:40.373140+00:00",
+    "date": "2026-07-24",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62835",
+    "headline": "CVE-2026-62835 Azure Portal Information Disclosure Vulnerability",
+    "summary": "Corrected the CVE description and title. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cc9a382563",
+    "rejectedAt": "2026-07-26T09:08:41.434292+00:00",
+    "date": "2026-07-23",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62825",
+    "headline": "CVE-2026-62825 Azure Key Vault Elevation of Privilege Vulnerability",
+    "summary": "Improper authentication in Azure Key Vault allows an unauthorized attacker to elevate privileges over a network.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3c6db152ed",
+    "rejectedAt": "2026-07-26T09:08:42.648960+00:00",
+    "date": "2026-07-23",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-57106",
+    "headline": "CVE-2026-57106 Data Quality Elevation of Privilege Vulnerability",
+    "summary": "Server-side request forgery (ssrf) in Data Quality allows an unauthorized attacker to elevate privileges over a network.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6976c03b2c",
+    "rejectedAt": "2026-07-26T09:08:43.718694+00:00",
+    "date": "2026-07-23",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56191",
+    "headline": "CVE-2026-56191 Microsoft Exchange Online Tampering Vulnerability",
+    "summary": "Improper authentication in Microsoft Exchange Online allows an unauthorized attacker to perform tampering over a network.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d9b8c6f5ce",
+    "rejectedAt": "2026-07-26T09:08:45.939253+00:00",
+    "date": "2026-07-23",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56165",
+    "headline": "CVE-2026-56165 Microsoft Account Remote Code Execution Vulnerability",
+    "summary": "Heap-based buffer overflow in Microsoft Account allows an unauthorized attacker to execute code over a network.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-58c10ecb0d",
+    "rejectedAt": "2026-07-26T09:08:46.968110+00:00",
+    "date": "2026-07-25",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-confirms-chatgpt-is-down-worldwide/",
+    "headline": "OpenAI confirms ChatGPT is down worldwide",
+    "summary": "ChatGPT is experiencing a major outage, and users are unable to load chats, including previous conversations. The outage started at approximately 5 AM ET and is affecting users worldwide, including those in the US and Europe. If you are affected, ChatGPT will get stuck at loading animations for the sidebar, and you won't be able to send messages due to \"too many concurrent requests\" errors. This outage also affects OpenAI's coding platform, Codex. Thankfully, OpenAI is aware of these issues and has already acknowledged them on the status page . \"We are investigating the issue for the listed se",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-eba920a860",
+    "rejectedAt": "2026-07-26T09:08:48.082887+00:00",
+    "date": "2026-07-26",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/games/2026/jul/26/what-links-horrible-histories-and-gordon-browns-neighbour-the-bumper-summer-quiz",
+    "headline": "What links Horrible Histories and Gordon Brown’s neighbour? The bumper summer quiz",
+    "summary": "From award-winning Julies to golfers who were nearly the best, test your knowledge with this bumper summer quiz1 What is now the world’s most populous city, according to the UN?2 Which two Julies won best actress Oscars in consecutive years?3 What was thrown by the goddess Eris at the wedding of Peleus and Thetis?4 Richard Nixon appeared a record 55 times on the cover of what?5 What became Britain’s tallest structure in 1894?6 Mojang Studios in Sweden is renowned for developing which video game?7 Which golfer spent 270 weeks as world No 2, but never reached No 1?8 Which “The” group, named after a Camus novel, went through over 65 members?9 Who is the subject of Alberto Korda’s photograph Guerrillero Heroico?10 What defines an Olimpico goal in football?11 Who initiated the Fridays for Future school strikes?12 Which British dynasty is commemorated by a monument in St Peter’s Basilica?13 What type of souvenir was invented in Vienna in 1900?14 Which Norwegian island gives its name to two s",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a84645ded5",
+    "rejectedAt": "2026-07-26T09:08:49.110527+00:00",
+    "date": "2026-07-24",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/thefilter/2025/jun/17/best-fans-uk",
+    "headline": "The best fans to keep you cool in 2026 – tried and tested",
+    "summary": "As temperatures soar across the UK, chill your space – and avoid energy-guzzling aircon – with our pick of the best fans, from tower to desk to bladeless• The best portable neck and handheld fans• Dyson HushJet Mini Cool fan reviewOur world is getting hotter. Summer heatwaves are so frequent, they’re stretching the bounds of what we think of as summer. Hot-and-bothered home working and sweaty, sleepless nights are now alarmingly common.Get a good fan and you can dodge the temptation of air conditioning. Aircon is incredibly effective, but it uses a lot of electricity … and burning fossil fuels is how we got into this mess in the first place. Save money and carbon by opting for a great fan instead. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5898aade0c",
+    "rejectedAt": "2026-07-26T09:08:50.142693+00:00",
+    "date": "2026-07-23",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/film/2026/jul/23/how-2020s-decade-revolutionised-cinema",
+    "headline": "The roaring 20s: how the current decade revolutionised cinema",
+    "summary": "Pre-Covid, the movie landscape was dramatically different: YouTubers weren’t dominating the box office, video game spin-offs rarely made an impact and Winnie-the-Pooh wasn’t yet the star of a slasher movie. Why such a flurry of innovation – and what will be next? Cinema has always been a medium of research and development. At any given point, the industry is searching for yet another breakthrough that can drive it into the future. Synchronised sound in the 1920s. Technicolor in the 1930s. The invention of the modern blockbuster in the 1970s.Conversely, the consensus is that, if the 2020s has a defining trend, then it is one of decline. The theatrical experience is under attack from all angles: streaming, YouTube, a once-in-a-century health crisis that shut cinemas down entirely. And yet, if you look closer, this has actually been one of the most innovative decades that cinema has ever seen. Whether down to technology or desperation, the film industry has spent these last few years figu",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2c7b2036b3",
+    "rejectedAt": "2026-07-26T09:08:51.178397+00:00",
+    "date": "2026-07-25",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/steam-forum-clickfix-attacks-infect-gamers-with-xmrig-cryptominers/",
+    "headline": "Steam forum ClickFix attacks infect gamers with XMRig cryptominers",
+    "summary": "Steam discussion forums are being abused in ClickFix attacks that pretend to be fixes for game and computer problems but actually infect devices with cryptominers. BleepingComputer learned of the campaign from a reader, who told us threat actors are creating random Steam accounts to post what appears to be helpful fixes for people's posts about games crashing, lost inventory items, and other technical issues. The threat actors reply to posts, telling other members to open PowerShell as an administrator and run a command to fix the issue. However, when executing the command, it quietly download",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1a60ae787f",
+    "rejectedAt": "2026-07-26T09:08:52.111482+00:00",
+    "date": "2026-07-25",
+    "source": "404 Media",
+    "url": "https://www.404media.co/scientists-uncover-lost-golden-age-of-languages-that-ended-1-000-years-ago/",
+    "headline": "Scientists Uncover Lost ‘Golden Age’ of Languages That Ended 1,000 Years Ago",
+    "summary": "Welcome back to the Abstract! Here are the studies this week that spoke in tongues, sought forbidden love, orbited an orbiter, and performed ritual magic. First, scientists have uncovered a “golden age” of languages that flourished for millennia before fading into our dark age of linguistic extinction. Then, Alan Turing’s erotica, the search for the first exomoon, and the cave of the Old Ancestors. As always, for more of my work, check out my book First Contact: The Story of Our Obsession with Aliens , or subscribe to my personal newsletter the BeX Files . Blasi, Damián et al. The rise and fal",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9bf285359f",
+    "rejectedAt": "2026-07-26T09:08:53.267703+00:00",
+    "date": "2026-07-24",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-blames-massive-microsoft-365-outage-on-maintenance-bug/",
+    "headline": "Microsoft blames massive Microsoft 365 outage on maintenance bug",
+    "summary": "Microsoft says a bug in its automated network maintenance request system caused Thursday's massive outage by mistakenly removing IP routes from more devices than intended, disrupting Azure and Microsoft 365 services. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a2184d76c6",
+    "rejectedAt": "2026-07-26T09:08:54.307773+00:00",
+    "date": "2026-07-21",
+    "source": "404 Media",
+    "url": "https://www.404media.co/olive-garden-never-ending-pasta-id-save-act/",
+    "headline": "What Does Olive Garden’s Never-Ending Pasta Have to Do With Voting Rights?",
+    "summary": "When I was 20 years old, I went to my hometown Olive Garden with one goal in mind: For less than $10 , I would attempt to eat so much bottomless pasta in their so-called Never-Ending Pasta deal that either the staff would be forced to stop me and my idiot friends from putting the franchise into the red, or I would die trying. In either scenario, I planned to get a serious bang for my buck. No one asked to see my ID. I ate a ton of linguine alfredo (probably four bowls — not heroic and definitely not financially devastating to Olive Garden), shamefully tapped the mat, and went back to my friend",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-05610a7fc7",
+    "rejectedAt": "2026-07-26T09:08:55.411275+00:00",
+    "date": "2026-07-23",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/abstract-raises-25-million-to-expand-composable-security-operations-platform/",
+    "headline": "Abstract Raises $25 Million to Expand Composable Security Operations Platform",
+    "summary": "The latest investment round brings the total raised by Abstract to nearly $50 million.\nThe post Abstract Raises $25 Million to Expand Composable Security Operations Platform appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-190bb20b8a",
+    "rejectedAt": "2026-07-26T09:08:56.636587+00:00",
+    "date": "2026-07-22",
+    "source": "404 Media",
+    "url": "https://www.404media.co/flock-objects-to-our-removing-their-equipment-emails-reveal-why-a-town-put-bags-over-its-flock-cameras/",
+    "headline": "Flock ‘Objects to Our Removing Their Equipment’: Emails Reveal Why a Town Put Bags Over Its Flock Cameras",
+    "summary": "For weeks, Verona, Wisconsin tried to get Flock to remove the three automated license plate cameras that its city council had voted to stop using. Flock told city employees not to remove the cameras, and a Flock employee told city officials that they were unsure whether the cameras could be remotely disabled, which led the town to decide to put black plastic trash bags over them until Flock eventually removed the cameras itself, according to emails obtained using a public records request by 404 Media. The emails give insight into the process cities face while deFlocking themselves after voting",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
     "id": "reject-5205e25805",
     "rejectedAt": "2026-07-25T08:55:49.599299+00:00",
     "date": "2026-07-24",
