@@ -4463,5 +4463,90 @@
     "source": "The incident would have been prevented or limited by: (1) moving regex evaluation off the asyncio event loop into a thread pool to prevent blocking other users; (2) implementing input length limits or timeouts on regex operations; (3) using non-backtracking regex engines or pre-compiled patterns with explicit bounds; and (4) adding feature gates or rate limits on skill-mention parsing so that a single malformed input cannot freeze the entire instance.",
     "text": "Incidentu by sa dalo predísť alebo ho obmedziť: (1) presunutím vyhodnocovania regulárnych výrazov z udalostnej slučky asyncio do skupiny vlákien, aby sa zabránilo blokovaniu ostatných používateľov; (2) zavedením obmedzení dĺžky vstupu alebo časových limitov pre operácie s regulárnymi výrazmi; (3) použitím modulov regulárnych výrazov bez spätného sledovania alebo vopred skompilovaných vzorov s explicitnými hranicami; a (4) pridaním kontrolných mechanizmov alebo obmedzení frekvencie pri analýze zmienok o zručnostiach, aby jediný nesprávne formátovaný vstup nemohol zmraziť celú inštanciu.",
     "translatedAt": "2026-07-26T09:08:57.206Z"
+  },
+  "495f35495bd4c2a9acc394078024e8394f3299b04a0d5b0dd1cd6a85b6e04a18": {
+    "source": "Open WebUI's /api/v1/channels/{id}/members endpoint exposes full user models including sensitive admin credentials (webhook URLs, tool server keys) to any channel participant. A regular user can retrieve other members' settings not available via standard user info APIs.",
+    "text": "Koncový bod /api/v1/channels/{id}/members v Open WebUI sprístupňuje všetkým účastníkom kanála kompletné modely používateľov vrátane citlivých prihlasovacích údajov správcov (URL adresy webhookov, kľúče nástrojových serverov). Bežný používateľ môže získať nastavenia ostatných členov, ktoré nie sú dostupné prostredníctvom štandardných API pre informácie o používateľoch.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "b0f6fcf86c398ce8c05460a51a743815df26da66f8777ffc61485b0e58a4dec1": {
+    "source": "This incident would have been prevented or limited by implementing field-level access control on the UserModel serialization, returning only non-sensitive user fields to channel participants, and explicitly excluding credential material (tool server keys, webhook URLs) from any user-facing API response. Principle of least privilege and output sanitization would have restricted sensitive configuration to admin-only endpoints.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť implementáciou kontroly prístupu na úrovni polí pri serializácii UserModel, vrátením iba necitlivých používateľských polí účastníkom kanála a výslovným vylúčením materiálov obsahujúcich prihlasovacie údaje (kľúče nástrojového servera, URL adresy webhookov) z akejkoľvek odpovede API smerovanej k používateľom. Zásada minimálnych oprávnení a sanitizácia výstupov by obmedzili citlivú konfiguráciu iba na koncové body určené výlučne pre správcov.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "265d3890ee65149b3df0c9f7ff0902e71ac42ecc27d4c61bbfbd37d9ae05e9d9": {
+    "source": "GHSA-855v-hq7w-jmjw: Open WebUI: Realtime endpoints accept Redis-revoked JWTs after signout/backchannel logout",
+    "text": "GHSA-855v-hq7w-jmjw: Open WebUI: Koncové body v reálnom čase prijímajú JWT s odvolaným Redis po odhlásení/odhlásení cez backchannel",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "2a4b929c759f7e314ff7be76acf2058f6788d60f845ad6db9f341d251e59beff": {
+    "source": "Open WebUI's realtime endpoints (Socket.IO and terminal WebSocket) fail to check JWT revocation status recorded in Redis, allowing revoked tokens from signout or OIDC back-channel logout to authenticate new connections. HTTP endpoints correctly enforce revocation; the inconsistency creates a bypass.",
+    "text": "Otvorené koncové body WebUI v reálnom čase (Socket.IO a terminálový WebSocket) nedokážu overiť stav zrušenia JWT zaznamenaný v Redis, čo umožňuje, aby zrušené tokeny z odhlásenia alebo odhlásenia cez zadný kanál OIDC overovali nové pripojenia. Koncové body HTTP správne vynucujú zrušenie; táto nekonzistentnosť vytvára možnosť obísť bezpečnostné opatrenia.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "b498fbc85b17ae05a736d93b6013932acc6c15751b0fe14e1b759f0cadec8b86": {
+    "source": "This incident would have been prevented by applying the same revocation-check logic (`is_valid_token()`) to all authentication surfaces—HTTP and realtime alike—rather than limiting the check to HTTP handlers. Centralizing token validation in a single, mandatory function and testing revocation across all entry points would have caught the gap before deployment.",
+    "text": "Tejto udalosti by sa dalo predísť uplatnením rovnakej logiky kontroly zrušenia platnosti (`is_valid_token()`) na všetky autentizačné rozhrania – HTTP aj v reálnom čase – namiesto obmedzenia kontroly len na HTTP-handlery. Centralizácia overovania tokenov do jednej povinné funkcie a testovanie zrušenia platnosti vo všetkých vstupných bodoch by odhalilo túto medzeru ešte pred nasadením.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "dde934491adae0c75aa0a023b823331976f6bd0858c6bb32cdbdeedaddfe9048": {
+    "source": "GHSA-7rw5-9f7q-xj36: Open WebUI: Account enumeration via observable login timing discrepancy",
+    "text": "GHSA-7rw5-9f7q-xj36: Open WebUI: Zisťovanie účtov prostredníctvom pozorovateľných časových nezrovnalostí pri prihlásení",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "0719f52a866f86645349c829d09530b16e4b56793edc60a9601d6ebb6edf6ad8": {
+    "source": "Open WebUI's /api/v1/auths/signin endpoint leaked valid account email addresses through a response-time side channel. The backend performed bcrypt hashing only for registered emails, causing valid accounts to respond ~180ms slower than non-existent ones (~5ms), enabling unauthenticated account enumeration and targeted password-spraying attacks.",
+    "text": "Koncový bod /api/v1/auths/signin webového rozhrania WebUI zverejňoval platné e-mailové adresy účtov prostredníctvom bočného kanála založeného na čase odozvy. Backend vykonával hashovanie bcrypt iba pre registrované e-mailové adresy, čo spôsobilo, že platné účty odpovedali o ~180 ms pomalšie ako neexistujúce účty (~5 ms), čo umožnilo neautentizované vymenovanie účtov a cielené útoky typu „password-spraying“.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "8a8a763b319f1f0a2525dcd5f4a8287a43707dd36bab78b550871ce4de6f94e5": {
+    "source": "This incident would have been prevented or limited by performing constant-time password verification regardless of whether the email exists in the database, ensuring that both valid and invalid account lookups incur the same computational cost. Additionally, implementing rate limiting per IP address and enforcing MFA by default would have reduced the blast radius of enumeration-enabled password-spraying attacks.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť vykonávaním overovania hesla s konštantným časom bez ohľadu na to, či e-mailová adresa existuje v databáze, čím by sa zabezpečilo, že vyhľadávanie platných aj neplatných účtov bude mať rovnaké výpočtové náklady. Okrem toho by zavedenie obmedzenia frekvencie na jednu IP adresu a vynútenie viacstupňovej autentifikácie (MFA) ako predvoleného nastavenia znížilo rozsah útokov typu „password spraying“ s možnosťou enumerácie.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "dfabd45ed4eae04114a04a59f24924f2efac2d126daa5c9c2ef036911921c15a": {
+    "source": "GHSA-7r7x-gjvr-448g: Open WebUI: Upload `metadata.knowledge_id` bypasses the knowledge-base write-access check (read-only users can add files to KB)",
+    "text": "GHSA-7r7x-gjvr-448g: Open WebUI: Nahraním súboru `metadata.knowledge_id` sa obíde kontrola prístupových práv na zápis do znalostnej bázy (užívatelia s prístupom len na čítanie môžu pridávať súbory do znalostnej bázy)",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "856561f51ec6db95d8d1839dac9b000a65235f699adc8223e8fc3f8163b355eb": {
+    "source": "Open WebUI versions up to 0.9.6 contain an authorization bypass in file upload handling. Read-only knowledge-base users can upload arbitrary files and associate them with target knowledge bases by supplying a crafted `metadata.knowledge_id` value, bypassing the write-access check enforced by the normal API endpoint.",
+    "text": "Verzie Open WebUI až do verzie 0.9.6 obsahujú chybu umožňujúcu obísť autorizáciu pri spracovaní nahrávania súborov. Používatelia znalostnej bázy s oprávnením len na čítanie môžu nahrať ľubovoľné súbory a priradiť ich k cieľovým znalostným bázam zadaním špeciálne upraveného `metadata.knowledge_id`, čím obídu kontrolu prístupu na zápis vynucovanú bežným koncovým bodom API.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "4046435d2b897d998df8b64369771d9550488731de787b8b6732f01a16253466": {
+    "source": "This incident would have been prevented by validating user authorization before processing the client-supplied `metadata.knowledge_id` parameter, rather than trusting it during background file processing. Enforcing the same access-control checks across all code paths—including auto-link and background handlers—and applying the principle of least privilege to file-upload operations would have blocked unauthorized knowledge-base modification.",
+    "text": "Tejto udalosti by sa dalo predísť overením oprávnenia používateľa pred spracovaním parametra `metadata.knowledge_id` poskytnutého klientom, namiesto toho, aby sa mu dôverovalo počas spracovania súborov na pozadí. Vynútenie rovnakých kontrol prístupových oprávnení vo všetkých vetvách kódu – vrátane automatických odkazov a obslužných rutín bežiacich na pozadí – a uplatnenie princípu minimálnych oprávnení na operácie nahrávania súborov by zabránilo neoprávneným úpravám znalostnej bázy.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "c395db45cd3000fe2314a17af180609857c1ecf9bc6b3d2ef4aea5920b93fcf5": {
+    "source": "GHSA-74h3-cxq7-vc5q: Open WebUI: Cross-user code-interpreter and tool execution via unvalidated Socket.IO event-caller session_id",
+    "text": "GHSA-74h3-cxq7-vc5q: Open WebUI: Spustenie interpretátora kódu a nástrojov medzi používateľmi prostredníctvom neovereného identifikátora relácie session_id volajúceho udalosti Socket.IO",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "cb212acde2deb065b9f867b4eb34855a1e6d579c3a954ce29ac3dd0a249bf17b": {
+    "source": "Open WebUI contains a cross-user code-interpreter and tool execution vulnerability (GHSA-74h3-cxq7-vc5q) where an authenticated low-privilege user can execute arbitrary Python code and tools in another user's session via unvalidated Socket.IO event routing. When the victim is an administrator, the hijacked context can reach the server-side Functions API, yielding remote code execution as the server process.",
+    "text": "Open WebUI obsahuje zraniteľnosť interpretátora kódu a spúšťania nástrojov medzi používateľmi (GHSA-74h3-cxq7-vc5q), pri ktorej môže autentifikovaný používateľ s nízkymi oprávneniami spúšťať ľubovoľný kód v jazyku Python a nástroje v relácii iného používateľa prostredníctvom neovereného smerovania udalostí Socket.IO. Ak je obeťou správca, unesený kontext môže dosiahnuť rozhranie Functions API na strane servera, čo vedie k vzdialenému spusteniu kódu ako serverového procesu.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "269f73943e33b22ba35ecdbe7000d81dd157d310c3a42b53f1963bd81d45b8ad": {
+    "source": "The incident would have been prevented or limited by validating that the caller owns the target session before routing code-execution events, implementing strict session isolation and ownership checks on all Socket.IO event handlers, and requiring explicit user approval before executing code or tools in a shared collaboration context. Additionally, separating user-supplied session identifiers from internal session management and enforcing least-privilege access to the Functions API would have contained the blast radius.",
+    "text": "K incidentu by nedošlo alebo by bol jeho rozsah obmedzený, keby sa pred smerovaním udalostí spustenia kódu overilo, či volajúci je vlastníkom cieľovej relácie, keby sa implementovala prísna izolácia relácií a kontroly vlastníctva vo všetkých obslužných funkciách udalostí Socket.IO a keby sa pred spustením kódu alebo nástrojov v kontexte zdieľanej spolupráce vyžadovalo výslovné schválenie používateľa. Okrem toho by oddelenie identifikátorov relácií poskytnutých používateľom od internej správy relácií a vynútenie prístupu s minimálnymi oprávneniami k rozhraniu Functions API obmedzilo rozsah dopadu.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "25f330d870c9911ccc848d08a23c0543242ebb887fb597ce8027e835705e6378": {
+    "source": "Researchers Claim First Fully Agentic Ransomware: JadePuffer",
+    "text": "Výskumníci identifikovali prvý plne agentický ransomware: JadePuffer",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "5d2a562198b7461aa3d2480c3809a0b7bed6f298bc62bd35878dd863bc14a5ae": {
+    "source": "Sysdig disclosed JadePuffer, a ransomware campaign targeting an internet-facing Langflow instance and reportedly driven entirely by an LLM agent. The campaign represents a confirmed real-world attack on a named agentic AI system.",
+    "text": "Spoločnosť Sysdig zverejnila informácie o kampani s názvom JadePuffer, ktorá sa zameriavala na inštanciu Langflow pripojenú k internetu a ktorá bola podľa správ riadená výlučne agentom LLM. Táto kampaň predstavuje potvrdený reálny útok na konkrétny agentický systém umelej inteligencie.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
+  },
+  "4f1f0a3ced44aa2b51520815e2b7082e155e79190744040f0012d114599ea816": {
+    "source": "This incident would have been prevented or limited by restricting network exposure of Langflow instances to authenticated users only, implementing egress controls to block unauthorized data exfiltration and ransom communication, enforcing least-privilege credentials for any external tools the agent could invoke, and deploying runtime monitoring to detect and halt anomalous agent behavior such as mass file encryption or data staging.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť tým, že by sa sieťová dostupnosť inštancií Langflow obmedzila iba na overených používateľov, zaviedli by sa kontrolné mechanizmy odchádzajúceho prevádzky na blokovanie neoprávneného úniku dát a komunikácie súvisiacej s výkupným, vynútili by sa prihlasovacie údaje s minimálnymi oprávneniami pre všetky externé nástroje, ktoré by agent mohol spustiť, a nasadením monitorovania behu na detekciu a zastavenie neobvyklého správania agenta, ako je hromadné šifrovanie súborov alebo príprava dát na odoslanie.",
+    "translatedAt": "2026-07-27T10:34:24.970Z"
   }
 }

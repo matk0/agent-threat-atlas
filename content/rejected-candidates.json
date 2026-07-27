@@ -1,5 +1,778 @@
 [
   {
+    "id": "reject-e7bd166c2d",
+    "rejectedAt": "2026-07-27T10:33:11.355984+00:00",
+    "date": "2026-07-26",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/26/relay-market/#atom-everything",
+    "headline": "An Inside Look at the Relay Market Powering Token Resellers and Fraud",
+    "summary": "An Inside Look at the Relay Market Powering Token Resellers and Fraud\nFascinating investigation by Matt Lenhard into the market that has grown up around reselling LLM tokens at a discount by pooling API keys from various sources.\nThis looks to be mostly a thing in China. Resellers sell access to an LLM proxy that offers significant discounts on regular API pricing, which they achieve by abusing free trials, proxying through unprotected support bots, or sometimes through stolen credit cards or chargeback attacks.\nThe software they are using for these proxies is open source - mostly one-api and its more actively developed fork new-api, both legitimate API proxy products which can be used to load. balance requests across a pool of API credentials.\nThe buyers are seeking cheap tokens, avoiding geo-restrictions, and in some cases collecting data for model distillation.\nI've been cautious about exposing my own LLM-driven applications publicly out of fear of abuse leading to big token bills. ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9d71058a0c",
+    "rejectedAt": "2026-07-27T10:33:12.509888+00:00",
+    "date": "2026-07-27",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0484",
+    "headline": "[UPDATE] [mittel] ImageMagick: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in ImageMagick ausnutzen, um beliebigen Programmcode auszuführen, Sicherheitsmaßnahmen zu umgehen, Daten zu manipulieren, vertrauliche Informationen offenzulegen, einen Denial-of-Service-Zustand herbeizuführen oder andere nicht näher definierte Angriffe durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-bb90ef9447",
+    "rejectedAt": "2026-07-27T10:33:13.754995+00:00",
+    "date": "2026-07-27",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1653",
+    "headline": "[UPDATE] [mittel] Golang Go-Module (Net, Image, Crypto: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Golang Go ausnutzen, um erweiterte Privilegien zu erlangen, Cross-Site-Scripting-Angriffe durchzuführen, Sicherheitsmaßnahmen zu umgehen oder einen Denial-of-Service-Zustand zu verursachen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3bf4102aab",
+    "rejectedAt": "2026-07-27T10:33:14.965437+00:00",
+    "date": "2026-07-27",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1656",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Mehrere Schwachstellen ermöglichen nicht spezifizierten Angriff",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um seine Privilegien zu eskalieren oder nicht näher spezifizierte Angriffe durchzuführen, darunter möglicherweise Denial-of-Service-Angriffe, Speicherbeschädigungen oder die Offenlegung von Informationen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1b451109ac",
+    "rejectedAt": "2026-07-27T10:33:16.362434+00:00",
+    "date": "2026-07-27",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1802",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um einen Denial of Service Angriff durchzuführen oder nicht bekannte Auswirkungen zu erzielen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b91968ccca",
+    "rejectedAt": "2026-07-27T10:33:17.898781+00:00",
+    "date": "2026-07-27",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0462",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux-Kernel ausnutzen, um nicht näher spezifizierte Angriffe durchzuführen, die möglicherweise zu einer Denial-of-Service- Bedingung führen oder eine Speicherbeschädigung verursachen können.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b6eead166d",
+    "rejectedAt": "2026-07-27T10:33:19.150966+00:00",
+    "date": "2026-07-24",
+    "source": "AI Incident Database",
+    "url": "https://www.ewn.co.za/2026/01/06/ai-generated-photo-of-orlando-west-high-school-burning-causes-outrage",
+    "headline": "AI-generated photo of Orlando West High School burning, causes outrage",
+    "summary": "A fake AI-generated photo of Orlando West High School in Soweto on fire - has drawn a stern warning from emergency management services.\nKagiso Phasha from Joburg EMS says anyone who pulls this kind of prank and gets caught will face the ful ... (https://incidentdatabase.ai/cite/1605#7572)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-efb5dd55ec",
+    "rejectedAt": "2026-07-27T10:33:20.349551+00:00",
+    "date": "2026-07-24",
+    "source": "AI Incident Database",
+    "url": "https://factcheck.afp.com/doc.afp.com.94BK7ZQ",
+    "headline": "AI-generated memorial posters circulate after fatal South African school bus accident",
+    "summary": "More than a dozen pupils travelling to school in a minibus died in a collision with a truck in South Africa shortly after the academic year began in mid-January. On the day of the crash, posters circulated online purporting to show each of  ... (https://incidentdatabase.ai/cite/1608#7577)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-65aa0bb97a",
+    "rejectedAt": "2026-07-27T10:33:25.455383+00:00",
+    "date": "2026-07-22",
+    "source": "AI Incident Database",
+    "url": "https://www.nbcsandiego.com/news/local/class-action-lawsuit-claims-ai-platform-sabotages-job-seekers/3972235/",
+    "headline": "Class action lawsuit claims AI platform sabotages job seekers",
+    "summary": "A class-action lawsuit alleges that Eightfold's AI recruiting platform systematically filtered out qualified job applicants for Fortune 500 companies including Microsoft, Netflix, and PayPal. The plaintiff claims the platform sabotaged her candidacy despite meeting job requirements.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 100,
+    "sourceQualityScore": 72,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "identity-and-authorization",
+      "hallucination-and-reliability"
+    ],
+    "vendor": "Eightfold"
+  },
+  {
+    "id": "reject-e408f178be",
+    "rejectedAt": "2026-07-27T10:33:31.217090+00:00",
+    "date": "2026-07-22",
+    "source": "AI Incident Database",
+    "url": "https://www.bitdefender.com/en-us/blog/hotforsecurity/ai-deepfake-romance-scam-impersonating-dubai-prince-steals-womans-savings",
+    "headline": "AI deepfake romance scam impersonating Dubai prince steals woman's savings",
+    "summary": "Romance scammers have become extremely bold, using deepfake technology to impersonate royalty and ensnare new victims.\n\nKey takeaways\n\nScammer used AI-generated video calls to impersonate Dubai's Crown Prince and build trust with victims.\n\n ... (https://incidentdatabase.ai/cite/1570#7545)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a62439ecf9",
+    "rejectedAt": "2026-07-27T10:33:37.104947+00:00",
+    "date": "2026-07-27",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/anthropics-opus-5-nears-mythos-5-on-finding-bugs-but-falls-short-on-exploits/",
+    "headline": "Anthropic’s Opus 5 Nears Mythos 5 on Finding Bugs, but Falls Short on Exploits",
+    "summary": "Binary-based vulnerability scanning, penetration testing, and exploit generation are blocked in Opus 5.\nThe post Anthropic&#8217;s Opus 5 Nears Mythos 5 on Finding Bugs, but Falls Short on Exploits appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-cdf31655de",
+    "rejectedAt": "2026-07-27T10:33:38.278072+00:00",
+    "date": "2026-07-27",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/teleshim-abuses-telegram-for-c2-in.html",
+    "headline": "TELESHIM Abuses Telegram for C2 in Attacks Against Middle East Governments",
+    "summary": "Cybersecurity researchers have flagged fresh malicious cyber activity by a threat actor with ties to East Asia targeting government entities in the Middle East.\n\nThe intrusions have resulted in the deployment of previously unreported malware families dubbed TELESHIM, MIXEDKEY, and BINDCLOAK, according to Zscaler ThreatLabz. The cybersecurity firm said it detected the campaign earlier this month.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-733af3862c",
+    "rejectedAt": "2026-07-27T10:33:39.434673+00:00",
+    "date": "2026-07-27",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/mcbs-data-breach-affects-1-2-million-individuals/",
+    "headline": "MCBS Data Breach Affects 1.2 Million Individuals",
+    "summary": "The PEAR ransomware group claimed to have stolen 3 TB of information from the medical business management company.\nThe post MCBS Data Breach Affects 1.2 Million Individuals appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3221398442",
+    "rejectedAt": "2026-07-27T10:33:40.664417+00:00",
+    "date": "2026-07-27",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/dentaquest-data-breach-potentially-impacts-over-23-million-people/",
+    "headline": "DentaQuest Data Breach Potentially Impacts Over 23 Million People",
+    "summary": "In May 2026, hackers stole personal and dental health information from DentaQuest’s computer network.\nThe post DentaQuest Data Breach Potentially Impacts Over 23 Million People appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-91710fe58c",
+    "rejectedAt": "2026-07-27T10:33:43.190378+00:00",
+    "date": "2026-07-24",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/certighost-exploit-lets-low-privileged.html",
+    "headline": "Certighost Exploit Lets Low-Privileged Active Directory Users Impersonate a Domain Controller",
+    "summary": "Researchers H0j3n and Aniq Fakhrul published a working exploit on July 24 that lets a low-privileged Active Directory user obtain a certificate for a Domain Controller and authenticate as that machine.\n\nThey codenamed the flaw Certighost. Because Domain Controller accounts carry directory replication rights, the resulting Kerberos credential can retrieve the krbtgt secret through DCSync.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-68327402f2",
+    "rejectedAt": "2026-07-27T10:33:44.418591+00:00",
+    "date": "2026-07-24",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html",
+    "headline": "BlueNoroff Zoom Phishing Kit Profiles Crypto Wallets Before Malware Delivery",
+    "summary": "The North Korean threat actors behind the ClickFix-style campaigns that employ typosquatted Zoom and Microsoft Teams domains have been found to operate an active phishing kit to impersonate the videoconferencing platforms in social engineering campaigns designed to deliver malware.\n\n\"BlueNoroff has operationalised trust abuse by combining compromised industry contacts, social engineering, wallet",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-711a8c6076",
+    "rejectedAt": "2026-07-27T10:33:45.764391+00:00",
+    "date": "2026-07-23",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html",
+    "headline": "Russian Espionage Group Exploited Zimbra Zero-Day to Steal Mail and 2FA Codes",
+    "summary": "A Russian state-supported espionage group spent months reading Western mailboxes through a then-unknown flaw in Zimbra's webmail client.\n\nThe payload goes after the last 90 days of email, the organization's entire email directory, the password saved in the browser and the codes kept for two-factor recovery. Opening the message was enough to start it.\n\nThe NSA, CISA and partner agencies published",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7774107641",
+    "rejectedAt": "2026-07-27T10:33:47.058451+00:00",
+    "date": "2026-07-24",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/seeing-ai-agents-is-not-enough-security.html",
+    "headline": "Seeing AI Agents Is Not Enough. Security Teams Must Enforce What They Can Do",
+    "summary": "AI agent security is moving through a familiar maturity curve: adoption, then visibility, and finally, control. But what we've collectively discovered is that enforcing least privilege for AI agents is harder than we ever imagined. This is why there are so many approaches, from prompt filtering to identity-layer access controls. Where we've collectively landed is that understanding the intent of",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e16708d07c",
+    "rejectedAt": "2026-07-27T10:33:48.125471+00:00",
+    "date": "2026-07-27",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/RBNEWS592/",
+    "headline": "Risky Bulletin: A JSON RCE bug is about to rock the Java world",
+    "summary": "Presented by News Editor Newsreader A JSON bug is about to rock the Java world, scam compounds continue in Myanmar despite the junta crackdown, and Google has a new APT naming scheme. Allowlisting Software - Allowlist Made Simple Risky Bulletin: A JSON RCE bug is about to rock the Java world",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6e206d9299",
+    "rejectedAt": "2026-07-27T10:33:49.636596+00:00",
+    "date": "2026-07-27",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/jul/27/misleading-ai-generated-doctors-public-safety-danger-tiktok",
+    "headline": "Misleading AI-generated doctors pose ‘huge danger to public safety’",
+    "summary": "Research shows AI accounts are gaining millions of views on TikTok by spreading dubious health adviceMisleading health claims online pose a “huge danger to public safety”, experts have warned, after research has shown that AI-generated doctors are gaining millions of views on TikTok by spreading dubious health advice.The British Medical Association council deputy chair, Dr Emma Runswick, flagged the risks posed by AI accounts that “peddle medical myths and promote so-called miracle cures”. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ba405cb596",
+    "rejectedAt": "2026-07-27T10:33:50.937052+00:00",
+    "date": "2026-07-27",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-8450",
+    "headline": "CVE-2026-8450 HTTP::Daemon versions before 6.17 for Perl allow OS command injection via send_file()",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-22ed0fbee8",
+    "rejectedAt": "2026-07-27T10:33:52.910002+00:00",
+    "date": "2026-07-27",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64530",
+    "headline": "CVE-2026-64530 net/sched: cls_api: Handle TC_ACT_CONSUMED in tcf_qevent_handle",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-abeca03957",
+    "rejectedAt": "2026-07-27T10:33:54.186464+00:00",
+    "date": "2026-07-27",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16461",
+    "headline": "CVE-2026-16461 Rpcbind: rpcbind: stack buffer overflow in rpcinfo rpcbdump() short-mode version-list formatting",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c611788009",
+    "rejectedAt": "2026-07-27T10:33:55.304044+00:00",
+    "date": "2026-07-27",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-16277",
+    "headline": "CVE-2026-16277 Rpcbind: rpcbind: stack buffer overflow in rpcinfo rpcbaddrlist()",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0f7ad328c0",
+    "rejectedAt": "2026-07-27T10:33:56.345797+00:00",
+    "date": "2026-07-27",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-14040",
+    "headline": "CVE-2024-14040 net: nexthop: Increase weight to u16",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f143efbfe2",
+    "rejectedAt": "2026-07-27T10:34:00.933660+00:00",
+    "date": "2026-07-27",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
+    "headline": "How AI is expanding what people do at work",
+    "summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-938ae8b6f1",
+    "rejectedAt": "2026-07-27T10:34:02.201291+00:00",
+    "date": "2026-07-27",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.21835",
+    "headline": "ToolGuardian: Declarative Security for AI Agent-Tool Interactions",
+    "summary": "arXiv:2607.21835v1 Announce Type: new \nAbstract: LLM agents increasingly rely on external tools, expanding capability while creating a new security boundary: third-party tools may appear benign at the interface level while embedding unsafe behavior in implementation. Existing defenses rely on weak metadata, collapse characterization and policy judgment into a single decision, or use heuristic/LLM enforcement that lacks deterministic, auditable reasoning over task context and multi-tool composition.\n  This paper presents ToolGuardian, a policy-driven framework for securing agent-tool interactions through pre-admission vetting and task-aware runtime authorization. ToolGuardian uses progressive characterization to convert evidence into structured facts: descriptions capture declared intent, system-call traces expose coarse behavior, mock execution reveals observed effects, and source analysis identifies latent behavior. ToolGuardian's core contribution is an Answer Set Programming (ASP)-b",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4d69d8d701",
+    "rejectedAt": "2026-07-27T10:34:03.390620+00:00",
+    "date": "2026-07-27",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.21824",
+    "headline": "Protocol-Level Attacks on Agentic Commerce Platforms: A Cross-Platform Taxonomy, AIP-Bench, and Unified Defense",
+    "summary": "arXiv:2607.21824v1 Announce Type: new \nAbstract: Agentic commerce platforms let AI agents autonomously discover services, move payments, and wield user credentials on their users' behalf, and they already handle real money. Their security has so far been studied almost entirely at the level of the AI model, through prompt injection and misalignment. We show that the more consequential risks lie one layer down, in the protocol between agents and commerce services. There, vulnerabilities are structural : exploitation is deterministic and ndependent of which model an agent runs, so no model improvement removes them. Across three leading platforms we identify 33 such vulnerabilities, each succeeding deterministically regardless of the deployed model, at a 100% attack-success rate (ASR) wherever live-measured. The same failure modes recur across independently built codebases, a systemic pattern rather than isolated bugs. Three of them chain into an end-to-end payment hijack. We contribute a",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9065ccc519",
+    "rejectedAt": "2026-07-27T10:34:04.663615+00:00",
+    "date": "2026-07-27",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.22009",
+    "headline": "Practical Graph Optimisation and AI-Driven Models for Active Directory Security Hardening",
+    "summary": "arXiv:2607.22009v1 Announce Type: new \nAbstract: Microsoft's Active Directory (AD) is a directory service that enables the IT admin to manage security permissions and control access within a Windows domain network. As a core management system in many of organisation, AD has become a primary target for adversaries. While many solutions for hardening attack graphs exist, these efforts fall short in addressing several key practical challenges specific to the AD attack graph. First, existing models often assume the graph is static, whereas a real-world AD environment is highly dynamic. Second, most proposed solutions are limited to the defensive measure of revoking vulnerabilities (edge removal), while more active defence mechanisms are largely unstudied. Third, because not all remediations are implementable, a practical end-to-end model must incorporate system admin feedback into the prioritisation process. This thesis aims to address these limitations by studying and proposing a number o",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f5cbcfb134",
+    "rejectedAt": "2026-07-27T10:34:06.065260+00:00",
+    "date": "2026-07-27",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.21983",
+    "headline": "Ethereum NFT Smart Contracts: Knowledge-Guided Vulnerability Detection with LLM and Code Slicing",
+    "summary": "arXiv:2607.21983v1 Announce Type: new \nAbstract: Ethereum non-fungible tokens (NFTs) implement ownership, transfer, authorization, and metadata operations through smart contracts, making contract vulnerabilities a direct risk to digital assets. Existing static analyzers provide efficient rule-based screening but can struggle with application-specific logic, whereas unconstrained large language model analysis may be distracted by irrelevant code or produce inconsistent outputs. We present a vulnerability-detection method that combines vulnerability-focused code slicing, an ERC-721-oriented knowledge base, and constrained DeepSeek analysis. Regular-expression patterns locate candidate statements for reentrancy, integer overflow or underflow, and timestamp dependence. A structure-aware context-window algorithm then extracts line-numbered code slices. DeepSeek analyzes each slice using explicit decision rules and a fixed output schema, and the resulting records support automated batch proc",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-07bda1fcad",
+    "rejectedAt": "2026-07-27T10:34:07.201500+00:00",
+    "date": "2026-07-27",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.21865",
+    "headline": "Decentralized Compute on Untrusted Hardware Using Intel TDX and Encrypted CVMs",
+    "summary": "arXiv:2607.21865v1 Announce Type: new \nAbstract: The rapid growth of artificial intelligence workloads has generated an unprecedented demand for secure and scalable compute resources. However, centralized cloud providers continue to dominate both pricing and security models. In an increasingly competitive AI landscape, where the compromise of training data or model weights can confer a significant advantage, there is a critical need for a computing infrastructure that safeguards data at rest, in transit, and in use, while remaining affordable and broadly accessible. Furthermore, existing GPU cluster offerings (e.g., 8xH100s, 8xH200s, 8xB200s) create financial barriers that limit access for organizations, startups, and independent researchers seeking secure, high-performance computing environments.\n  This paper introduces a decentralized, confidential computing platform that leverages Intel Trust Domain Extensions (TDX), Intel Trust Authority (ITA) and NVIDIA Confidential Computing (CC)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4f86d1cf9d",
+    "rejectedAt": "2026-07-27T10:34:08.233672+00:00",
+    "date": "2026-07-26",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/us-news/ng-interactive/2026/jul/26/age-of-decadence-pleasure-ai",
+    "headline": "Why does everything feel so joyless? Welcome to the age of decadence without pleasure | Michèle Mendelssohn and Charlie Tyson",
+    "summary": "Decadence in our era comes in technologically mediated forms, emptied of desire and obsessed with self-optimisationDo you want to have a good time? You know, really enjoy yourself? Click here, and tell us your desires. Maybe it’s a new outfit, or some exotic cuisine delivered anonymously and steaming hot to your door. Maybe it’s porn or gambling. Perhaps you prefer the infinite scroll, the endlessly unfurling ribbon of glossy images and videos starring people you’ll never meet doing things you’ll never do. Or maybe you favor talking to a chatbot who will assure you that you are the most special of all its users.For anyone with an Internet connection and a little discretionary income, the contemporary moment offers a superabundance of seductive distractions. Why then the pervasive mood of emptiness? Why are so many at once overstimulated and bored? Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5a11f3671c",
+    "rejectedAt": "2026-07-27T10:34:09.699224+00:00",
+    "date": "2026-07-26",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/australia-news/2026/jul/27/when-the-ai-bubble-bursts-what-will-australia-do-with-the-tools-it-built-one-man-thinks-he-has-the-answer",
+    "headline": "When the AI bubble bursts, what will Australia do with the tools it built? One man thinks he has the answer",
+    "summary": "Journalist and author Cory Doctorow is coming to Australia to spread his message – humans will take their jobs backFollow our Australia news live blog for latest updatesGet our breaking news email, free app or daily news podcastWhen the AI bubble bursts, executives who enthusiastically replaced their staff with AI tools will learn that it takes a “really long time” to replace those lost skills, says Cory Doctorow, a science fiction author and journalist.But those in creative fields should also be warned not to put all their faith in copyright as the best way to safeguard their work, Doctorow warns, just one week after the Australian prime minister, Anthony Albanese, promised to ramp up protection against AI companies who refuse to pay. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c9afc35018",
+    "rejectedAt": "2026-07-27T10:34:10.947561+00:00",
+    "date": "2026-07-26",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/business/2026/jul/26/small-businesses-ai",
+    "headline": "Corporate America may be using AI to cut jobs, but small businesses are using it to keep them",
+    "summary": "Reports of wide-scale replacement of workers by AI are overblown. Small businesses use it to help workersI recently met the owner of a company that sells windows and doors. He told me he invested about $10,000 in an AI application that is used by his salespeople in his showroom. The application listens to the conversations between the salesperson and the prospective customer and then automatically creates a quote for the salesperson to review and send.“It allows my salespeople to talk to more customers and spend less time doing paperwork,” he said. “And it cuts down on errors.” Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-578530626d",
+    "rejectedAt": "2026-07-27T10:34:12.170441+00:00",
+    "date": "2026-07-26",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/RBNEWSSI137/",
+    "headline": "Sponsored: How AI is putting pressure on EDR",
+    "summary": "In this sponsored interview James Wilson chats with Airlock Digital co-founders David Cottingham and Daniel Schell about how attackers are using LLMs to enumerate EDR detections.\n\nLLMs dramatically reduce the time and specialist labour needed to extract rulesets out of EDR products. What once might have taken months of manual reversing can now be accelerated by “burning tokens”. The takeaway is that defenders increasingly need to assume attackers have visibility into how their endpoint security products work.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9101339b1a",
+    "rejectedAt": "2026-07-27T10:34:13.333944+00:00",
+    "date": "2026-07-27",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/nvidia/cosmos-h-dreams",
+    "headline": "NVIDIA Cosmos-H-Dreams: Bringing Real-Time Generative Simulation to Surgical Robotics",
+    "summary": "Surgical robotics is moving quickly from teleoperation toward increasingly capable vision-language-action policies. But evaluating and training these systems remains difficult. Physical robotic platforms are expensive to operate, experiments are slow to reproduce, and failures can damage instruments or biological material. Conventional simulators provide a safer alternative, but surgical scenes are exceptionally difficult to model: deformable tissue, fine instrument interactions, specular surfaces, sutures, needles, smoke, and occlusions all matter. World foundation models offer a different pa",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1eb753a95e",
+    "rejectedAt": "2026-07-27T10:34:14.635689+00:00",
+    "date": "2026-07-27",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/money/2026/jul/27/nissan-repair-car-driving-instructor",
+    "headline": "I risk losing my livelihood because Nissan failed to repair my car",
+    "summary": "I’m a self-employed driving instructor and I’m running out of cash to hire a replacement dual-control vehicleMy livelihood as a self-employed driving instructor is under threat owing to Nissan’s failure to repair my leased dual-control car.It has been off the road awaiting a spare part for three months, and I’ve now been told it will take at least a further month to arrive. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2697dc0642",
+    "rejectedAt": "2026-07-27T10:34:16.032531+00:00",
+    "date": "2026-07-26",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/github-pypi-add-time-absed-defenses-against-supply-chain-attacks/",
+    "headline": "GitHub, PyPI add time-based defenses against supply chain attacks",
+    "summary": "GitHub and PyPI (Python Package Index) have introduced a time-based mechanism in the Dependabot dependency management tool to protect against supply-chain attacks and to limit their impact. Specifically, Dependabot comes with a default three-day cooldown setting, while PyPI will reject new files uploaded to releases older than 14 days. The measure comes after the two development ecosystems experienced multiple high-profile attacks over the past year. Some notable examples include the ‘chalk’ and ‘debug’ attacks, the “ s1ngularity ” operation, the Shai-Hulud campaign, and the GhostAction supply",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d251652da2",
+    "rejectedAt": "2026-07-27T10:34:18.340650+00:00",
+    "date": "2026-07-24",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/europol-flags-4-340-urls-for-removal-in-the-com-crackdown/",
+    "headline": "Europol flags 4,340 URLs for removal in 'The Com' crackdown",
+    "summary": "Europol has flagged 4,340 URLs for removal during a multi-week operation targeting online content linked to \"The Com,\" a loosely organized network of nihilistic violent extremist groups. Investigators from nine countries (i.e., Belgium, Finland, Hungary, Ireland, Luxembourg, the Netherlands, Portugal, Spain, and Sweden) took part in what Europol called \"Referral Action Days\" between June and July 2026. The joint action, which ties into the European Commission's ProtectEU counterterrorism agenda and was organized by Europol's EU Internet Referral Unit (EU IRU) and Spain's Intelligence Centre ag",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4fe0ea50a9",
+    "rejectedAt": "2026-07-27T10:34:19.419744+00:00",
+    "date": "2026-07-27",
+    "source": "404 Media",
+    "url": "https://www.404media.co/luddite-events-nyc-off-tech-summer-of-ludd/",
+    "headline": "Being a Luddite Is Fun Again",
+    "summary": "I’m marching across Lower Manhattan in the middle of a heatwave with a friendly mob of Luddite gnomes, and there isn’t a phone in sight. It’s Fourth of July weekend in New York City, and the brutal temperatures haven’t stopped a hundred-or-so people from donning pointy hats and dancing in the streets while chanting anti-Big Tech slogans. “Fuck, fuck, fuck AI,” the Luddite gnomes – people in colorful, pointy homemade hats – chant as we march, urging the confused spectators recording us to put away their pocket rectangles and join us in our sweaty, phone-less revelry. The gnomes are headed West,",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-14010f79a1",
+    "rejectedAt": "2026-07-27T10:34:21.992308+00:00",
+    "date": "2026-07-24",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-hotel-wi-fi-dns-to-steal-microsoft-365-accounts/",
+    "headline": "Hackers hijack hotel Wi-Fi DNS to steal Microsoft 365 accounts",
+    "summary": "Hackers are changing the DNS settings on Wi-Fi devices at hotels and conference centers to redirect users to fake Microsoft 365 login pages. The campaign has been ongoing since at least June and impacts organizations in various sectors, including financial services, professional services, legal, health care, energy, and retail. Cybersecurity company ReliaQuest identified compromised Wi-Fi gateways in multiple U.S. cities as well as other regions of the world, such as India and Saudi Arabia. Since the devices serve corporate events, hijacking the Microsoft 365 accounts could give attackers acce",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ff9d1cdea1",
+    "rejectedAt": "2026-07-27T10:34:23.344193+00:00",
+    "date": "2026-07-24",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/clop-ransomware-targets-windchill-flexplm-in-data-theft-attacks/",
+    "headline": "Clop ransomware targets Windchill, FlexPLM in data theft attacks",
+    "summary": "The Clop ransomware gang (also tracked as Cl0p) is targeting Internet-exposed PTC Windchill and FlexPLM instances in a new data theft extortion campaign. Clop has reportedly been exploiting a critical improper input validation vulnerability tracked as CVE-2026-12569 , which allows attackers to execute arbitrary code on vulnerable Windchill and FlexPLM instances. As cybersecurity company ReliaQuest reported on Thursday, Clop operators have been deploying JSP webshells that allow them to exfiltrate sensitive data from targeted companies' compromised PLM platforms. \"ReliaQuest has observed threat",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-58344f7ad9",
+    "rejectedAt": "2026-07-27T10:34:24.411656+00:00",
+    "date": "2026-07-24",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/man-gets-six-years-for-hacking-750-womens-snapchat-accounts/",
+    "headline": "Man gets six years for hacking 750 women's Snapchat accounts",
+    "summary": "An Illinois man was sentenced on Tuesday to 76 months in prison and three years of supervised release for hacking the Snapchat accounts of over 750 women to steal nude photos, which he later traded or sold online. After being charged in December , 26-year-old defendant Kyle Svara admitted in February to having used various social engineering tactics to phish Snapchat access codes from over 750 women. Between May 2020 and February 2021, he targeted more than 4,500 victims while posing as a representative of Snap Inc and using anonymized phone numbers. After stealing the victims' credentials, Sv",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
     "id": "reject-56eddc9d00",
     "rejectedAt": "2026-07-26T09:08:14.477104+00:00",
     "date": "2026-07-25",
