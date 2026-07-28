@@ -1,5 +1,1206 @@
 [
   {
+    "id": "reject-6edbc708ba",
+    "rejectedAt": "2026-07-28T09:31:35.229794+00:00",
+    "date": "2026-07-24",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/llm-security-tools",
+    "headline": "Top LLM security tools to protect AI applications",
+    "summary": "AI is now writing a large share of the software in production. According to Aikido's State of AI in Security and Development 2026 report, 24% of production code is now AI-generated. However, 69% of organizations have discovered vulnerabilities in AI-generated code and 20% reported a serious incident as a result. A lot of the security conversation around LLMs focuses on putting guardrails on the models. But far less attention goes to the application layer, even though that's where many of these  incidents originate, and where guardrails can't help. In January 2025, a critical misconfiguration i",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-def96b54eb",
+    "rejectedAt": "2026-07-28T09:31:37.520133+00:00",
+    "date": "2026-07-27",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/27/an-opinionated-guide-to-which-ai-to-use-to-do-stuff/#atom-everything",
+    "headline": "An opinionated guide to which AI to use to do stuff",
+    "summary": "An opinionated guide to which AI to use to do stuff\nIt's interesting watching the evolution of Ethan Mollick's guide over time. \nA year ago it was still all about chat - ChatGPT, Claude, Gemini - with o3, Claude 4 Opus, and Gemini 2.5 Pro as the models and Deep Research as a useful alternative mode.\nToday it's much more about agentic systems - \"where the AI is capable of doing the equivalent of many hours of real human work in one go\".\nGemini has fallen off Ethan's list, since Google still doesn’t have an established entry in the Codex/ChatGPT Work/Cowork category. Gemini Spark has yet to prove itself!\nEthan offers a useful explanation of the ways you can give ChatGPT or Claude a computer to use:\n\nTo use the computers provided by the AI companies, the mode you want is called ChatGPT Work in ChatGPT, and Cowork in Claude (the naming will not get less confusing, I am sorry to say). [...]\nThe most powerful way to use AI is to give it access to your computer. You do that by downloading the",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-64db355e6a",
+    "rejectedAt": "2026-07-28T09:31:38.831293+00:00",
+    "date": "2026-07-27",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/27/kimi-k3/#atom-everything",
+    "headline": "moonshotai/Kimi-K3",
+    "summary": "moonshotai/Kimi-K3\nAs promised earlier this month, Moonshot have released the weights for their excellent 2.8 trillion parameter Kimi K3. They're a hefty 1.56TB on Hugging Face.\nKimi introduced their own janky modified version of the MIT license with K2 back in July 2025. That license just added this paragraph requiring attribution beyond a certain size of commercial entity:\n\nOur only modification part is that, if the Software (or any derivative works thereof) is used for any of your commercial products or services that have more than 100 million monthly active users, or more than 20 million US dollars (or equivalent in other currencies) in monthly revenue, you shall prominently display \"Kimi K2\" on the user interface of such product or service.\n\nThe K3 license no longer calls itself \"modified MIT\" and goes further, requiring a separate agreement with Moonshot for large \"Model as a Service\" businesses:\n\nIf the Licensee or any of its affiliates operates a Model as a Service business, an",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1767761ed7",
+    "rejectedAt": "2026-07-28T09:31:40.132605+00:00",
+    "date": "2026-07-28",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2052",
+    "headline": "[UPDATE] [mittel] cURL: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in cURL ausnutzen, um Sicherheitsvorkehrungen zu umgehen, vertrauliche Informationen offenzulegen oder einen Denial-of-Service-Zustand oder eine Speicherbeschädigung zu verursachen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-76017e4e1e",
+    "rejectedAt": "2026-07-28T09:31:41.298362+00:00",
+    "date": "2026-07-28",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2403",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen ermöglichen nicht spezifizierten Angriff",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um einen nicht näher spezifizierten Angriff durchzuführen, möglicherweise Sicherheitsmaßnahmen zu umgehen, einen Denial-of-Service-Zustand herbeizuführen oder vertrauliche Informationen offenzulegen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ff4350506f",
+    "rejectedAt": "2026-07-28T09:31:42.718885+00:00",
+    "date": "2026-07-28",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2527",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um nicht näher spezifizierte Angriffe durchzuführen, dazu können DoS-Angriffe, die Offenlegung von Informationen, die Beschädigung des Speichers oder die Umgehung von Sicherheitsmaßnahmen gehören.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f5355bb45a",
+    "rejectedAt": "2026-07-28T09:31:44.890965+00:00",
+    "date": "2026-07-28",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2119",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um Sicherheitsmaßnahmen zu umgehen, einen Denial of Service zu verursachen und potentiell Code auszuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d715646d0f",
+    "rejectedAt": "2026-07-28T09:31:46.273827+00:00",
+    "date": "2026-07-28",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2452",
+    "headline": "[UPDATE] [hoch] Red Hat Ansible Automation Platform (node-tar, linkify-it, protobufjs, brace-expansion, fast-uri, DOMPurify): Mehrere Schwachstellen",
+    "summary": "Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in Red Hat Ansible Automation Platform ausnutzen, um Sicherheitsmaßnahmen zu umgehen, Cross-Site-Scripting-Angriffe durchzuführen, Daten zu manipulieren, einen Denial-of-Service-Zustand auszulösen oder beliebigen Code auszuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d8e5a2a729",
+    "rejectedAt": "2026-07-28T09:31:47.978864+00:00",
+    "date": "2026-07-27",
+    "source": "FTC press releases",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2026/07/ftc-takes-action-against-elite-events-bypassing-ticket-purchase-limits-violation-better-online",
+    "headline": "FTC Takes Action Against Elite Events for Bypassing Ticket Purchase Limits in Violation of Better Online Ticket Sales Act",
+    "summary": "Proposed order settling FTC allegations will require company and its executives to pay $300,000 and ban them from using unlawful tactics to bypass ticket purchase limits\nTicket broker Elite Events and its operators will pay $300,000 in civil penalties to resolve Federal Trade Commission allegations that the firm purchased millions of dollars’ worth of tickets to high-demand events by illegally circumventing measures designed to limit the number of tickets that can be purchased to a single event.View Press Release",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2c79fb7824",
+    "rejectedAt": "2026-07-28T09:31:49.237652+00:00",
+    "date": "2026-07-26",
+    "source": "AI Incident Database",
+    "url": "https://www.mimecast.com/threat-intelligence-hub/australian-government-impersonation-campaign/",
+    "headline": "Services Australia Impersonation Drives Year-Round Credential Theft Operation",
+    "summary": "Key Points\n\nMCTO3001 - Threat operation with Services Australia and Centrelink impersonation campaigns across multiple sectors\n\nInfrastructure abuse of legitimate email services (SendGrid, Mailgun, Office 365) with Australian Gov display na ... (https://incidentdatabase.ai/cite/1275#7593)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a4db4628fd",
+    "rejectedAt": "2026-07-28T09:31:50.470956+00:00",
+    "date": "2026-07-26",
+    "source": "AI Incident Database",
+    "url": "https://www.uniladtech.com/news/ai/chatgpt-lawsuit-copyright-germany-330021-20251112",
+    "headline": "OpenAI ordered to pay damages as court rules ChatGPT violated copyright law",
+    "summary": "OpenAI has been ordered to pay damages after a court in Germany ruled that its chatbot ChatGPT violated German copyright laws.\n\nThe Munich regional court ruled in favour of the German music performance rights organization GEMA which manages ... (https://incidentdatabase.ai/cite/1278#7587)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ac04753560",
+    "rejectedAt": "2026-07-28T09:31:51.708191+00:00",
+    "date": "2026-07-26",
+    "source": "AI Incident Database",
+    "url": "https://www.osborneclarke.com/insights/gema-vs-openai-ai-memorisation-reproduction-relevant-copyright-law-and-tdm-exception-does",
+    "headline": "GEMA vs. OpenAI | AI memorisation is a reproduction relevant to copyright law, and the TDM exception does not help in LLM training, Munich I Regional Court holds",
+    "summary": "In its judgment of 11 November 2025 (42 O 14139/24), the Munich I Regional Court (Germany) issued a widely noted precedent on the copyright assessment of AI training and outputs under German and EU law. According to its press release1, the  ... (https://incidentdatabase.ai/cite/1278#7586)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-774478a231",
+    "rejectedAt": "2026-07-28T09:31:58.091102+00:00",
+    "date": "2026-07-26",
+    "source": "AI Incident Database",
+    "url": "https://www.theage.com.au/technology/cybercriminals-unleash-fake-centrelink-scam-on-vulnerable-australians-20251114-p5nfg2.html",
+    "headline": "Cybercriminals unleash fake Centrelink scam on vulnerable Australians",
+    "summary": "More than 270,000 malicious emails impersonating Services Australia and Centrelink have flooded Australian inboxes in one of the nation's largest phishing campaigns in years, with the sophisticated attacks specifically targeting the country ... (https://incidentdatabase.ai/cite/1275#7592)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3e048b79b9",
+    "rejectedAt": "2026-07-28T09:31:59.688012+00:00",
+    "date": "2026-07-26",
+    "source": "AI Incident Database",
+    "url": "https://www.dailymail.com/news/article-15396757/eric-landford-missing-boy-scout-new-york.html",
+    "headline": "Terrifying truth about what really happened to Boy Scout who vanished",
+    "summary": "A 14-year-old boy mysteriously vanished without a trace from a Boy Scout camp, never to be seen again - his family devastated.\n\nThree weeks later, the teen, Eric Langford, was declared dead after baffled police failed to find any leads desp ... (https://incidentdatabase.ai/cite/1330#7579)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-80107a728f",
+    "rejectedAt": "2026-07-28T09:32:01.991985+00:00",
+    "date": "2026-07-28",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/researcher-says-ai-helped-develop-linux.html",
+    "headline": "Researcher Says AI Helped Develop Linux Traffic-Control Race Into Root Exploit",
+    "summary": "STAR Labs has published a Linux kernel exploit that turns an ordinary local user into root on the CentOS Stream 9 build it targeted. The flaw, tracked as CVE-2026-53264 (CVSS score: 7.8), is a use-after-free race in the kernel's network traffic-control subsystem.Researcher Lee Jia Jie said artificial intelligence (AI) helped him find the bug and speed up exploit development. This is local",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 90,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-258d732292",
+    "rejectedAt": "2026-07-28T09:32:03.498282+00:00",
+    "date": "2026-07-28",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/critical-teamcity-flaw-could-let.html",
+    "headline": "Critical TeamCity Flaw Could Let Attackers Run OS Commands Without Logging In",
+    "summary": "JetBrains is urging customers of on-premise versions of TeamCity to update to the latest version following the discovery of a critical security issue that could result in arbitrary code execution.\n\nThe vulnerability, assigned CVE-2026-63077 (CVSS score: 9.8), affects all TeamCity On-Premises versions. It has been addressed in versions 2025.11.7 and 2026.1.3. TeamCity Cloud instances have already",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7a7f6fa6d7",
+    "rejectedAt": "2026-07-28T09:32:05.511194+00:00",
+    "date": "2026-07-28",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/attackers-exploit-arista-velocloud.html",
+    "headline": "Attackers Exploit Arista VeloCloud Orchestrator Command Injection Flaw",
+    "summary": "A maximum-severity security flaw impacting on-premises versions of Arista VeloCloud Orchestrator (VCO) has come under active exploitation in the wild.\n\nThe vulnerability, tracked as CVE-2026-16812 (CVSS score: 10.0), is a case of operating system command injection that could pave the way for arbitrary code execution.\n\n\"VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3e6c4d0ed0",
+    "rejectedAt": "2026-07-28T09:32:08.880296+00:00",
+    "date": "2026-07-27",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/n8n-sandbox-escape-lets-workflow.html",
+    "headline": "n8n Sandbox Escape Lets Workflow Editors Run OS Commands as the n8n Process",
+    "summary": "n8n patched a high-severity sandbox escape (CVE-2026-27577 bypass) allowing authenticated workflow editors to execute arbitrary OS commands on the server. The flaw affected versions <2.31.5 and >=2.32.0,<2.32.1 and was discovered during security research into a prior patch.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "low_relevance"
+    ],
+    "relevanceScore": 80,
+    "confidenceScore": 100,
+    "sourceQualityScore": 82,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "excessive-agency",
+      "insecure-output-handling"
+    ],
+    "vendor": "n8n"
+  },
+  {
+    "id": "reject-0ede672f8e",
+    "rejectedAt": "2026-07-28T09:32:10.124284+00:00",
+    "date": "2026-07-28",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/microsoft-says-new-cybersecurity-ai.html",
+    "headline": "Microsoft Says New Cybersecurity AI Model Helps MDASH Hit 95.95% at Half the Cost",
+    "summary": "Microsoft has launched its first cybersecurity-specific model inside MDASH, its multi-model vulnerability identification and remediation harness.\n\nThe company says MDASH, using MAI-Cyber-1-Flash and GPT-5.4, scored 95.95% on CyberGym. It also claims the configuration costs 50% less than its current best MDASH combination of GPT-5.4, GPT-5.4 mini, and GPT-5.3 Codex. Access is limited to approved",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-be496b8b28",
+    "rejectedAt": "2026-07-28T09:32:11.686999+00:00",
+    "date": "2026-07-27",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/commentisfree/2026/jul/27/ai-biological-weapons-defense",
+    "headline": "AI can fuel biological weapons. We must harness its power for defense | Annie Jacobsen",
+    "summary": "The offensive potential is no longer theoretical. We need to develop systems to strengthen public health as quickly as AI is accelerating biological designAs artificial intelligence rapidly transforms the biological sciences, it is pushing the future of biology in two opposing directions. AI can help bad actors generate recipes for biological weapons with just a few keystrokes and computational prompts. At the same time, AI can track disease outbreaks and deliver critical public health information to millions of people in real time – potentially stopping a deadly outbreak in its tracks. What we are dealing with in this moment is profound: a race between offense and defense. Between the proliferation of dark biology, where deadly pathogens are engineered in secret, and the promise of a new era of collective global health.Every infectious disease outbreak begins with a handful of cases. Public health wins by learning about an outbreak before it spreads wide, before hospitals fill and a c",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-acf6476574",
+    "rejectedAt": "2026-07-28T09:32:13.647391+00:00",
+    "date": "2026-07-28",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/unpatched-fastjson-vulnerability-exploited-in-attacks/",
+    "headline": "Unpatched Fastjson Vulnerability Exploited in Attacks",
+    "summary": "The critical remote code execution bug can be exploited without authentication, under the library’s stock default configurations.\nThe post Unpatched Fastjson Vulnerability Exploited in Attacks appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-825ca8ce1b",
+    "rejectedAt": "2026-07-28T09:32:14.897029+00:00",
+    "date": "2026-07-28",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/origin-energy-data-breach-affects-900000-australians/",
+    "headline": "Origin Energy Data Breach Affects 900,000 Australians",
+    "summary": "The hacker claimed to have stolen the information of 2 million Origin Energy customers after breaching its systems.\nThe post Origin Energy Data Breach Affects 900,000 Australians appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d22a4b180e",
+    "rejectedAt": "2026-07-28T09:32:16.249895+00:00",
+    "date": "2026-07-28",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/critical-arista-velocloud-orchestrator-vulnerability-exploited-as-zero-day/",
+    "headline": "Critical Arista VeloCloud Orchestrator Vulnerability Exploited as Zero-Day",
+    "summary": "Impacting on-premises deployments, the OS command injection allows attackers to access privileged internal functionality.\nThe post Critical Arista VeloCloud Orchestrator Vulnerability Exploited as Zero-Day appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-05ee0e8e9e",
+    "rejectedAt": "2026-07-28T09:32:17.432855+00:00",
+    "date": "2026-07-27",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/ptc-windchill-vulnerability-exploited-in-ransomware-campaign/",
+    "headline": "PTC Windchill Vulnerability Exploited in Ransomware Campaign",
+    "summary": "The critical unsafe deserialization flaw allows attackers to execute arbitrary code remotely, without authentication.\nThe post PTC Windchill Vulnerability Exploited in Ransomware Campaign appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6fd321d625",
+    "rejectedAt": "2026-07-28T09:32:18.599963+00:00",
+    "date": "2026-07-27",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56159",
+    "headline": "CVE-2026-56159 DHCP Server Service Remote Code Execution Vulnerability",
+    "summary": "Updated an acknowledgement. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f049e17ab1",
+    "rejectedAt": "2026-07-28T09:32:20.096465+00:00",
+    "date": "2026-07-27",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50697",
+    "headline": "CVE-2026-50697 Windows Common Log File System Driver Elevation of Privilege Vulnerability",
+    "summary": "Updated an acknowledgement. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-08364b5805",
+    "rejectedAt": "2026-07-28T09:32:21.224254+00:00",
+    "date": "2026-07-27",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50343",
+    "headline": "CVE-2026-50343 Microsoft Install Service Elevation of Privilege Vulnerability",
+    "summary": "Updated an acknowledgement. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-beb4342a45",
+    "rejectedAt": "2026-07-28T09:32:22.503102+00:00",
+    "date": "2026-07-27",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-50333",
+    "headline": "CVE-2026-50333 Windows Spaceport.sys Elevation of Privilege Vulnerability",
+    "summary": "Updated an acknowledgement. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-537dfa4cad",
+    "rejectedAt": "2026-07-28T09:32:24.302184+00:00",
+    "date": "2026-07-23",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-56163",
+    "headline": "CVE-2026-56163 Microsoft Azure Kubernetes Service Elevation of Privilege Vulnerability",
+    "summary": "Missing authentication for critical function in Microsoft Azure Kubernetes Service allows an unauthorized attacker to elevate privileges over a network.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-edd884e3eb",
+    "rejectedAt": "2026-07-28T09:32:26.487824+00:00",
+    "date": "2026-07-21",
+    "source": "Google DeepMind blog",
+    "url": "https://deepmind.google/blog/introducing-gemini-3-6-flash-3-5-flash-lite-and-3-5-flash-cyber/",
+    "headline": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+    "summary": "Jul 21, 2026 Our newest Gemini models deliver the efficiency, latency, and reliability to build AI agents at scale. Tulsee Doshi Senior Director, Product Management, on behalf of the Gemini team Developers and customers building production AI agents need higher token efficiency, lower latency, and more reliable performance. Our Flash series of models is built to meet the sweet spot of efficiency and quality to enable scaling agentic workflows. Building on Gemini 3.5 Flash, we’re introducing new Gemini models: Beyond today’s releases, Gemini 3.5 Pro is currently testing with partners and we pla",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d86c82ebdc",
+    "rejectedAt": "2026-07-28T09:32:27.623336+00:00",
+    "date": "2026-07-28",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.23389",
+    "headline": "Rendering on Real Silicon: GPU Render-Timing as a Passive, AI-Resistant CAPTCHA Signal",
+    "summary": "arXiv:2607.23389v1 Announce Type: new \nAbstract: Conventional CAPTCHAs pose puzzles that modern AI systems increasingly solve, while behavioral and cryptographic-attestation defenses carry privacy or enrollment costs. We investigate an orthogonal signal: the physical timing behavior of a client's GPU under a controlled WebGL rendering workload. Unlike WebGL fingerprinting, which hashes pixel output into a static device identifier, we measure render-timing dynamics to classify rather than identify, leaking no persistent identifier. We characterize the in-the-wild adversary with a 12-hour passive deployment (207 unsolicited requests; 86% automated; 85% of browser-claiming clients failed HTTP header-consistency checks). We then collect labeled GPU-timing samples through a single public endpoint exercised by real browsers (positive class, 13 distinct GPUs) and by keyed headless automation across a render-backend matrix (negative class). Software-rendered automation -- empirically the domin",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e914b1d508",
+    "rejectedAt": "2026-07-28T09:32:29.090974+00:00",
+    "date": "2026-07-28",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.22885",
+    "headline": "ReCon: A Resource-Constrained Benchmark for LLM-Based Cybersecurity Compliance Across Ingestion and Retrieval Pipelines",
+    "summary": "arXiv:2607.22885v1 Announce Type: new \nAbstract: With the increasingly aggressive cyber threat landscape for governments, businesses, and institutions, as information and/or cybersecurity implementations are increasingly under scrutiny by regulators, it has been pointed out that governance failure is one of the major reasons for a weakened cybersecurity posture. A major component of Cyber/information security governance is the development, adoption, and implementation of a comprehensive information and/or cyber security policy document. The policy document must be in compliance with international or national standards and, if possible, with regulatory guidelines. However, it is often observed that policy documents are often incomplete with respect to industry standards or regulations and require revision when subjected to a thorough audit. Identifying the gaps between the controls and processes documented in the policy and those required in the regulations or standards necessitates ext",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f2ce61b68c",
+    "rejectedAt": "2026-07-28T09:32:33.860109+00:00",
+    "date": "2026-07-27",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/medusahvnc-malware-uses-hidden-windows-desktops-to-evade-detection/",
+    "headline": "MedusaHVNC Malware Uses Hidden Windows Desktops to Evade Detection",
+    "summary": "The malware-as-a-service operation launches legitimate browsers on an invisible desktop, giving attackers persistent and covert remote access to compromised Windows systems.\nThe post MedusaHVNC Malware Uses Hidden Windows Desktops to Evade Detection appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d0c20934a2",
+    "rejectedAt": "2026-07-28T09:32:34.959296+00:00",
+    "date": "2026-07-28",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/games/2026/jul/28/the-mermaid-mask-review-detective-grimoire-sfb",
+    "headline": "The Mermaid Mask review – the funniest underwater murder mystery you can play",
+    "summary": "PC, Nintendo Switch/Switch 2, PS5; SFB GamesDetective Grimoire is at it again in the long-awaited new entry to this stylish series of comedy whodunnitsIn a boom time for mystery games, the Detective Grimoire series stands out for its style and sense of humour. The Mermaid Mask continues to build upon the formula laid down in Secret of the Swamp and polished in Tangle Tower, and while there is still room for further improvements this sequel is worth the seven years’ wait.This time, the casually competent Grimoire and his smart if sarcastic sidekick Sally have been summoned to a submarine to solve the locked-room murder of its captain, Magnus Mortuga. You click around the cluttered rooms of the vessel to hear the detectives’ comedic commentary and look for clues and – closer up – click and drag to move objects around for further examination or to solve a puzzle. (For those playing on Nintendo Switch 2, the mouse controls are actually useful here, if not comfortable in the long run.) Cont",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-30e0e9587d",
+    "rejectedAt": "2026-07-28T09:32:37.014907+00:00",
+    "date": "2026-07-28",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/jul/27/meta-tennessee-trial-jury",
+    "headline": "Meta disregarded its own research on teen harm, Tennessee lawyers tell jury",
+    "summary": "In opening statements, state argued Meta’s own research showed it harmed teens while firm’s attorneys pointed to transparencyThe long-awaited trial between the social media company Meta and the state of Tennessee began proceedings on Monday. Attorneys for Tennessee told a jury in Nashville that Meta, which owns Instagram and Facebook, disregarded internal research about its platform’s impact on teenagers, while the company sought ⁠to maximize profit from those young users.During ⁠opening statements in a seven-week ​trial in state court, the state’s lawyers said Meta researchers repeatedly flagged teenagers’ compulsive use of the platform – leading to eating disorders, depression and self-harm. But despite those warnings, Meta did not ⁠disable features such as autoplay, notifications and infinite scroll which, the lawyers said, were designed to keep teens on Instagram as long as possible and increase the number of ads they viewed. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cf368ee2e3",
+    "rejectedAt": "2026-07-28T09:32:42.718924+00:00",
+    "date": "2026-07-28",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.23088",
+    "headline": "Poster: Rethinking Security in LLM Code Generation through Real-World Risk Scenarios",
+    "summary": "arXiv:2607.23088v1 Announce Type: new \nAbstract: Large Language Models (LLMs) are widely used for code generation, yet their security behavior in realistic development workflows remains underexplored. Existing benchmarks often rely on explicitly specified security requirements, failing to capture real-world scenarios where prompts are frequently ambiguous or incomplete. In this paper, we adopt a developer-centric perspective and identify three representative risk scenarios that commonly lead to security vulnerabilities in LLM-generated code: Ambiguous Requirements, Under-Specified Operational Context, and Security--Functionality Conflict. Based on these scenarios, we construct a large-scale benchmark comprising 2,700 test cases, enabling fine-grained evaluation of LLM security under realistic conditions. Extensive evaluation of eight state-of-the-art LLMs reveals that all models exhibit average vulnerability rates exceeding 56\\% across risk scenarios. We further demonstrate that securi",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-222b3a2e8e",
+    "rejectedAt": "2026-07-28T09:32:43.859653+00:00",
+    "date": "2026-07-28",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.23444",
+    "headline": "Isolated but Exposed: Persistence-Based Memory Extraction Attack on LLM Agents",
+    "summary": "arXiv:2607.23444v1 Announce Type: new \nAbstract: LLM-based agents extend large language models with long-term memory (LTM) that persists privacy-sensitive user data across sessions. Production systems mitigate extraction risks through memory isolation, binding each user's LTM to a unique identifier. This defense has blocked known attacks on shared storage, fostering the assumption that isolated LTM is secure. We identify the tool interface as an overlooked attack surface. Agents routinely embed LTM-retrieved data in tool invocation parameters, enabling a malicious tool to exfiltrate private memory without violating user-level isolation. Naive adaptations of user-side extraction techniques fail because the adversarial command's semantics interfere with retrieval precision, and platform-imposed tool-call limits constrain the extraction budget per trigger. We present SPORE, the first extraction attack designed for this threat model. SPORE decouples the adversarial command from retrieval a",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0aa4d27a78",
+    "rejectedAt": "2026-07-28T09:32:47.322858+00:00",
+    "date": "2026-07-28",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.23147",
+    "headline": "False Prophets: On the Security of World Models in Agentic Systems",
+    "summary": "arXiv:2607.23147v1 Announce Type: new \nAbstract: Large language models now power autonomous agents capable of complex, multi-step tasks in different environments. Accurate and reliable execution of these tasks requires the agent to predict the results of its actions. Recent research proposes to enhance predictive capabilities via specially trained environment simulators-world models. While world models can improve performance, they can also mislead agents into executing harmful actions, creating significant security and privacy risks. In this paper, we raise security concerns regarding the usage of world models in agentic systems. We discover a range of world model specific vulnerabilities, which can be exploited in terminal-based agents to execute malicious code or extract sensitive data. To facilitate future development, we introduce a security benchmark dataset designed for text-based world models. We argue that some risks are intrinsic to approximate world modeling, and show that a",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7b64233b8a",
+    "rejectedAt": "2026-07-28T09:32:48.467696+00:00",
+    "date": "2026-07-27",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cloud-security/confused-deputy-flaws-google-cloud-microsoft-azure",
+    "headline": "'Confused Deputy' Flaws Persist in Google Cloud, Microsoft Azure",
+    "summary": "This category of vulnerabilities allows an attacker to easily acquire administrative level permissions and bypass cloud providers' access controls.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b05aca2825",
+    "rejectedAt": "2026-07-28T09:32:49.682876+00:00",
+    "date": "2026-07-28",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/data-breach-at-medical-billing-firm-mcbs-affects-126-million-people/",
+    "headline": "Data breach at medical billing firm MCBS affects 1.26 million people",
+    "summary": "Healthcare billing company Medical Computer Business Services (MCBS) has disclosed that a 2025 network breach exposed the sensitive information of more than 1.2 million people. The security incident was disclosed late last month without any details about the number of potentially affected individuals. In a disclosure to the U.S. Department of Health and Human Services, the company reported that 1,261,464 people have been impacted. MCBS is a regional private medical billing and practice-management company headquartered in Augusta, Georgia, that provides billing, coding, accounts receivable, fin",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d65b55f989",
+    "rejectedAt": "2026-07-28T09:32:50.876760+00:00",
+    "date": "2026-07-27",
+    "source": "The Record",
+    "url": "https://therecord.media/uk-court-rejects-bahrain-immunity-claim-spyware-case",
+    "headline": "UK court rejects Bahrain immunity claim in spyware case",
+    "summary": "The alleged hacking by officials in Bahrain “allowed access to and exfiltration of information on the computers, interception of communications conducted using the computers and use of the computers’ microphones and cameras to surveil the respondents,” according to the court opinion.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-16ac7903dd",
+    "rejectedAt": "2026-07-28T09:32:53.369453+00:00",
+    "date": "2026-07-27",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/new-dysphoria-ddos-botnet-spreads-to-200k-devices-worldwide/",
+    "headline": "New Dysphoria DDoS botnet spreads to 200k devices worldwide",
+    "summary": "A botnet called Dysphoria has compromised around 200,000 devices across the world and is using them for distributed denial of service (DDoS) attacks and traffic relay operations. According to QiAnXin XLab cybersecurity researchers, Dysphoria evolved from the ‘ jackskid ’ and ‘ fbot ' malware by adding a covert blockchain-based command-and-control (C2) resolution mechanism. Specifically, the botnet uses Ethereum ENS and Solana SNS domains to retrieve infrastructure information, while C2 addresses are concealed inside fake IPv6 strings and recovered using a custom byte-transformation algorithm. ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9225e457d4",
+    "rejectedAt": "2026-07-28T09:32:54.835155+00:00",
+    "date": "2026-07-27",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/new-certighost-poc-exploit-lets-attackers-hijack-windows-domains/",
+    "headline": "New Certighost PoC exploit lets attackers hijack Windows domains",
+    "summary": "A proof-of-concept exploit for \"Certighost,\" a Windows Active Directory Certificate Services vulnerability, has been released that can allow authenticated attackers to potentially compromise a Windows domain. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-868d586d62",
+    "rejectedAt": "2026-07-28T09:32:55.888562+00:00",
+    "date": "2026-07-27",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/",
+    "headline": "Hackers target US firms in FastJson RCE zero-day attacks",
+    "summary": "Hackers are actively exploiting a vulnerability in the FastJson open-source Java library, allowing remote code execution without user interaction or elevated privileges. The security issue affects FastJson versions 1.2.68 through 1.2.83 and is leveraged in attacks targeting various organizations in the U.S. The malicious activity was observed last week by the agentic security company ThreatBook, and researchers at the business protection company Imperva confirmed that it was \"targeting a wide range of organizations, across Financial Services, Healthcare, Computing, Retail, Business, and other ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-fd07d6d7a6",
+    "rejectedAt": "2026-07-28T09:32:57.367145+00:00",
+    "date": "2026-07-27",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/ernst-and-young-data-breach-claimed-by-shinyhunters-extortion-gang/",
+    "headline": "Ernst & Young data breach claimed by ShinyHunters extortion gang",
+    "summary": "The ShinyHunters extortion gang has claimed responsibility for a recently disclosed Ernst & Young data breach, saying it obtained credentials for some of the company's systems via a supply-chain attack. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-eb205b3f0c",
+    "rejectedAt": "2026-07-28T09:32:59.536030+00:00",
+    "date": "2026-07-28",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/hugging-face-has-a-nonconsensual-deepfakes-problem/",
+    "headline": "Hugging Face Has a Deepfake Nudes Problem",
+    "summary": "Ever so slowly, the crackdown on harmful sexual deepfakes is taking hold. Over the past few months, US law enforcement officials have seized deepfake hosting websites , while the EU and UK have drawn up plans to ban “ nudify ” apps by the end of the year. Despite this, large tech companies are still pushing millions in the direction of software that can digitally undress people without their consent. The open-source AI platform Hugging Face —a repository of AI models and datasets, which has been valued in the billions—has a widespread problem with nonconsensual deepfakes, according to a new re",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9dedb8a7bd",
+    "rejectedAt": "2026-07-28T09:33:08.400471+00:00",
+    "date": "2026-07-27",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/eu-digital-product-passport-traceability-deadline",
+    "headline": "The EU Digital Product Passport: a traceability deadline",
+    "summary": "Informational only, not legal advice. Confirm all regulatory details against the official EU sources cited below and with your own legal and compliance teams before publication. Most manufacturers already do traceability, whether or not they call it that. A recall forces you to find every affected unit; a quality event sends you hunting for the batch, the supplier, the process step. The problem is that this capability tends to be reactive and partial, re-stitched each time from legacy systems that were never designed to talk to one another. The EU is about to make it mandatory, standardized, a",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d7f57535ed",
+    "rejectedAt": "2026-07-28T09:33:09.691923+00:00",
+    "date": "2026-07-28",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/business/2026/jul/28/ai-sell-off-chip-stocks-sk-hynix-samsung",
+    "headline": "AI sell-off intensifies as investors ditch chip stocks",
+    "summary": "Samsung and SK Hynix fall by more than 10% amid renewed fears over AI spending and Chinese competitionBusiness live – latest updatesThe sell-off in AI stocks has intensified, driving South Korea’s stock market down to its lowest level in three months.Investors continued to ditch chip stocks on Tuesday, amid rising concerns about the huge amount of borrowing among AI companies to fund their datacentre expansion plans. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-feb1a0d182",
+    "rejectedAt": "2026-07-28T09:33:22.933057+00:00",
+    "date": "2026-07-27",
+    "source": "The Register — AI/ML",
+    "url": "https://www.theregister.com/ai-and-ml/2026/07/27/leading-ai-models-even-grok-are-all-a-bunch-of-leftist-punks/5279208",
+    "headline": "Leading AI models (even Grok) are all a bunch of leftist punks",
+    "summary": "ai and ml AI seems to have a liberal bias Capitalism may be driving the AI boom, but the LLMs themselves have different economic and social views than many of the companies that built them. Leading AI models subjected to the Political Compass quiz overwhelmingly landed in the libertarian-left quadrant - even \"MechaHitler,\" aka Grok, managed it in half its runs. A self-described “small research lab” working on AI detection tools called Unslop.run published the results of its experiment this week. The author, who explained to The Register that they’re an AI research engineer at a European startu",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 76,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-69f16aab03",
+    "rejectedAt": "2026-07-28T09:33:26.669737+00:00",
+    "date": "2026-07-27",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/BTN176/",
+    "headline": "Between Two Nerds: Cyber is people",
+    "summary": "Presented by Independent Security Researcher Policy & Intelligence In this edition of Between Two Nerds Tom Uren and The Grugq discuss how important people are to cyber power and whether the rise of AI is changing that. This episode is also available on YouTube . Allowlisting Software - Allowlist Made Simple Hugging Face incident OpenAI release Security review cost from Vercel",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b3b74f61be",
+    "rejectedAt": "2026-07-28T09:33:31.323127+00:00",
+    "date": "2026-07-28",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/get-started-genie-one-top-ai-cowork-use-cases-business-users",
+    "headline": "Get Started with Genie One: Top AI Cowork Use Cases for Business Users",
+    "summary": "When most people think of AI helping their everyday work, a simple chatbot that answers questions or drafts text comes to mind. This can definitely be helpful for one-off tasks, but it isn’t enough to transform how business users actually get meaningful work done across calendars, CRMs, data warehouses, ticketing tools, and shared documents. Genie One is built for that reality: it’s a data‑smart, agentic coworker that operates across your existing systems, takes autonomous actions, and turns your company’s data into concrete outputs and actions in the tools you already use. Since Genie One is ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d76b4a5774",
+    "rejectedAt": "2026-07-28T09:33:32.367303+00:00",
+    "date": "2026-07-27",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/dhs-official-resigns-citing-war-on-immigrants/",
+    "headline": "DHS Official Resigns, Citing ‘War on Immigrants’",
+    "summary": "The Department of Homeland Security’s top numbers-cruncher has resigned, citing the Trump administration’s “war on immigrants” on his way out. DHS has been a hub of controversy during the second Trump term: the ICE raids in American cities , the wild spending, the growing archipelago of detention centers , the attempts to hide data about it all. But vanishingly few officials have left the department and been openly critical of the direction it has taken. Marc Rosenblum , who served as executive director of the Office of Homeland Security Statistics and a deputy assistant secretary at the depar",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1426866176",
+    "rejectedAt": "2026-07-28T09:33:33.572936+00:00",
+    "date": "2026-07-27",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/ai-literacy",
+    "headline": "Building AI Literacy: Frameworks, Tools, and Practices",
+    "summary": "AI literacy is an individual's ability to comprehend and effectively utilize AI tools, including understanding how AI works, evaluating AI outputs critically, and recognizing the ethical implications of AI use. Demand for AI literacy has grown sevenfold in two years as generative AI tools have moved from novelty to daily workplace utility, and it is becoming as crucial as digital literacy for career advancement. Twelve percent of employed adults now use AI daily in their jobs, and the World Economic Forum predicts that 40% of skills required will change within five years. This guide covers a p",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a6f00a5783",
+    "rejectedAt": "2026-07-28T09:33:37.695263+00:00",
+    "date": "2026-07-24",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/ai-applications-in-finance",
+    "headline": "AI Applications in Finance: A Practical Use Case Guide",
+    "summary": "Artificial intelligence in finance refers to the use of machine learning, natural language processing, and generative AI systems to automate financial processes, assess credit risk, and support decision making across banking, capital markets, and insurance. AI applications in finance span credit scoring, algorithmic trading, fraud detection, finance automation, and AI agents that handle repetitive tasks. Financial institutions adopt these systems to process structured and unstructured data at a scale beyond human intelligence alone, while keeping human intervention in place for high-stakes fin",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9472c0a750",
+    "rejectedAt": "2026-07-28T09:33:38.899875+00:00",
+    "date": "2026-07-27",
+    "source": "404 Media",
+    "url": "https://www.404media.co/spotifys-ai-problem-is-so-bad-random-people-are-stepping-in-to-track-the-slop/",
+    "headline": "Spotify's AI Problem Is So Bad Random People Are Stepping In to Track the Slop",
+    "summary": "Slime Dot, a young R&B artist from Las Vegas, currently has over 100,000 monthly listeners on Spotify. In an interview with GQ in May, after sharing an image of herself posing with Drake on Instagram, Slime Dot directly denied accusations that she was an “AI artist,” saying “The truth doesn’t matter these days. People are always gonna try to explain something they don’t fully understand and believe what they want.” GQ originally credulously published the interview and said it was “debunking the AI rumors.” Eventually, GQ added a note to the end of the article conceding Slime Dot was an AI avat",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-92a27008ca",
+    "rejectedAt": "2026-07-28T09:33:40.005625+00:00",
+    "date": "2026-07-27",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cybersecurity-operations/fbi-breaking-affiliate-trust-lockbit-takedown",
+    "headline": "FBI: Breaking Affiliate Trust Sped Along LockBit's Takedown",
+    "summary": "An FBI agent explains how the mulitnational law-enforcement Operation Cronos was successful in disrupting the largest ransomware group of its time.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6f8a6e4ea6",
+    "rejectedAt": "2026-07-28T09:33:41.902240+00:00",
+    "date": "2026-07-27",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/threat-intelligence/adversaries-do-not-need-zero-day-they-read-your-rulebook",
+    "headline": "Adversaries Don't Need a Zero-Day — They Read Your Rulebook",
+    "summary": "Confidence in autonomous security tools is declining, and here's why.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-362e8d2e1d",
+    "rejectedAt": "2026-07-28T09:33:43.038255+00:00",
+    "date": "2026-07-27",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/gadgets/2026/07/activist-charged-with-felony-after-giving-border-agent-duress-code-that-wiped-his-phone/",
+    "headline": "Activist charged with felony after giving border agent \"duress code\" that wiped his phone",
+    "summary": "In early 2025, Atlanta resident Samuel Tunick was on his way home following a trip abroad. After landing in the US, customs agents demanded access to his Pixel phone, which was running an alternative version of Android called GrapheneOS. Rather than hand over his data, Tunick used a clever feature of the software to delete everything. Now, he’s facing federal charges. The first hearing in this case happened last week, according to The Guardian , during which government attorneys and agents claimed that Tunick was subjected to a standard secondary interrogation at an international airport. Duri",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a18ae72d1a",
+    "rejectedAt": "2026-07-28T09:33:44.078584+00:00",
+    "date": "2026-07-27",
+    "source": "The Record",
+    "url": "https://therecord.media/telegram-belarus-activist-russia-cyberattack",
+    "headline": "Telegram phishing campaign targeted exiled Belarusian activist, Russians and Kazakhstanis",
+    "summary": "Researchers have uncovered a highly personalized phishing campaign that used Telegram to try to hijack the account of an exiled Belarusian activist, as well as users in Russia and Kazakhstan. Two reports released last week by digital security organization Resident NGO document how the operation targeted at least one Belarusian activist living in Lithuania and appears to be part of a broader Telegram phishing campaign against users in Belarus, Russia, and Kazakhstan since at least October 2024. The attack began with a fake Telegram security alert sent through the app's end-to-end encrypted secr",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-46bf72e8fc",
+    "rejectedAt": "2026-07-28T09:33:45.267515+00:00",
+    "date": "2026-07-27",
+    "source": "The Record",
+    "url": "https://therecord.media/health-system-south-carolina-georgia-disruptions-malware",
+    "headline": "Health system in South Carolina, Georgia closes offices after malware affects networks",
+    "summary": "A non-profit health system serving South Carolina and Georgia is dealing with a cyber incident that forced it to close dozens of departments. On Sunday, AnMed published a statement online saying they were “experiencing a cybersecurity disruption involving malware” and were working to restore systems and determine the scope of the incident. Earlier in the day, the company had warned of a phone and internet outage across all of its facilities. The company on Monday published a breakdown of the dozens of facilities and departments that were closed due to the incident. Urgent care services remain ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7f45816e52",
+    "rejectedAt": "2026-07-28T09:33:46.464134+00:00",
+    "date": "2026-07-27",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/open-sourcing-our-privacy-proxy-cli/",
+    "headline": "We’re open-sourcing our privacy proxy CLI",
+    "summary": "Debugging privacy-preserving protocols is hard. Oblivious HTTP has several different steps across four different parties, not to mention binary HTTP encoding and details spread across many draft RFCs. We've taken what we've learned operating protocols like Oblivious HTTP at the scale of millions of requests per second, and wrapped it up in a nice, clean CLI tool — that we are open-sourcing today. We call it our privacy-client , or pvcli . We’re releasing it under the Apache-2.0 License, and it is open for contributions . Here’s a single line of code that executes a full Oblivious HTTP request ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b4f2b2b28e",
+    "rejectedAt": "2026-07-28T09:33:48.453566+00:00",
+    "date": "2026-07-27",
+    "source": "The Record",
+    "url": "https://therecord.media/federal-purge-outdated-vpns-wyden-letter",
+    "headline": "Outdated VPNs should be purged from federal agencies, senator says",
+    "summary": "The U.S. government must root out insecure remote-access software as concern mounts about how Russian and Chinese hackers have used years-old VPNs to target federal networks, Sen. Ron Wyden said Monday. Wyden (D-OR) told the Cybersecurity and Infrastructure Security Agency (CISA), the Office of Management and Budget (OMB) and the National Institute of Standards and Technology (NIST) that they must lead an effort to remove public internet facing and insecure virtual private networks from the government’s systems. “For too long, federal agencies and government contractors have suffered devastati",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4e321bf451",
+    "rejectedAt": "2026-07-28T09:33:49.684069+00:00",
+    "date": "2026-07-27",
+    "source": "404 Media",
+    "url": "https://www.404media.co/wikimedia-waits-until-after-its-massive-conference-to-say-it-wont-voluntarily-recognize-union/",
+    "headline": "Wikimedia Will Not Voluntarily Recognize Union a Supermajority of Its Workers Want",
+    "summary": "The Wikimedia Foundation waited until the days following its largest worldwide conference to issue a statement saying it would not voluntarily recognize a union of its workers. Last week, Wiki Workers United, which is organized through the Communication Workers Union and represents U.S. workers at the nonprofit Wikimedia Foundation, requested voluntary recognition of their union . Wiki Workers United said that it had secured a “supermajority of union-eligible workers who have signed union authorization cards.” A group of more than 1,100 Wikipedia editors have also signed a letter of support fo",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-44be8f915e",
+    "rejectedAt": "2026-07-28T09:33:51.079045+00:00",
+    "date": "2026-07-27",
+    "source": "404 Media",
+    "url": "https://www.404media.co/this-man-bought-phone-location-data-from-around-the-world-with-mike-yeagley/",
+    "headline": "This Man Bought Phone Location Data from Around the World (with Mike Yeagley)",
+    "summary": "This week Joseph talks to Mike Yeagley. As you’ll hear, he is a very interesting guy. He introduced parts of the government to the whole idea of commercially sourced location data. He spent hundreds of thousands of dollars buying the data, and showing what could be done with it. It’s a fascinating conversation. Listen to the weekly podcast on Apple Podcasts , Spotify , or YouTube . Become a paid subscriber for access to this episode's bonus content and to power our journalism. If you become a paid subscriber, check your inbox for an email from our podcast host Transistor for a link to the subs",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7cb7ee9077",
+    "rejectedAt": "2026-07-28T09:33:52.255296+00:00",
+    "date": "2026-07-27",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/announcing-the-cloud-security-alliance-on-aws-compliance-guide/",
+    "headline": "Announcing the Cloud Security Alliance on AWS Compliance Guide",
+    "summary": "AWS Security Assurance Services is announcing the release of the Cloud Security Alliance (CSA) Compliance Guide on Amazon Web Service (AWS), a new resource that maps the 17 control domains and 207 control objectives of the Cloud Controls Matrix v4.1 (CCM) to AWS services and recommended implementation practices. The guide is intended to help organizations […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-db95781ff7",
+    "rejectedAt": "2026-07-28T09:33:53.505181+00:00",
+    "date": "2026-07-27",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/aws-shield-advanced-is-embracing-the-aws-waf-anti-ddos-managed-rule-group-what-changes-and-how-to-prepare/",
+    "headline": "AWS Shield Advanced is embracing the AWS WAF Anti-DDoS managed rule group: What changes and how to prepare",
+    "summary": "Application-layer distributed denial of service (DDoS) attacks are difficult to detect because they closely resemble legitimate traffic. HTTP request floods are now among the most common vectors targeting web applications, using valid-looking requests that blend in with normal user activity. In June 2025, AWS launched the AWS WAF Anti-DDoS managed rule group, built specifically for […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6790ad386e",
+    "rejectedAt": "2026-07-28T09:33:54.431170+00:00",
+    "date": "2026-07-27",
+    "source": "404 Media",
+    "url": "https://www.404media.co/person-opposing-data-center-arrested-for-clapping-at-city-meeting/",
+    "headline": "Person Opposing Data Center Arrested for Clapping at City Meeting",
+    "summary": "Police arrested a high school physics teacher for clapping during a city council meeting last Wednesday. Teacher Lux Claridge went to a meeting of the Emporia, Kansas City Commission on July 22 with their spouse and brother. All three were there to speak out against a proposed hyperscale data center that would sit on 1,000 acres of rural land in Emporia. They left the meeting in handcuffs, dragged out by police on the orders of a city commissioner. Emporia PD denied 404 Media’s request for a copy of Claridge’s arrest report. “The requested record is part of an active criminal investigation. As",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
     "id": "reject-e7bd166c2d",
     "rejectedAt": "2026-07-27T10:33:11.355984+00:00",
     "date": "2026-07-26",
