@@ -1,5 +1,1392 @@
 [
   {
+    "id": "reject-1cf9b550fa",
+    "rejectedAt": "2026-07-29T09:33:18.920944+00:00",
+    "date": "2026-07-28",
+    "source": "GitHub Security Advisory Database",
+    "url": "https://github.com/advisories/GHSA-wg2q-39h6-66x9",
+    "headline": "goshs has a Path Traversal issue",
+    "summary": "## Summary\n\nThe multipart upload filename fix splits on the path separator but never rejects dot-dot, allowing a write outside the served tree.\n\n## Finding (Medium): upload filename escapes the served tree (residual of CVE-2026-35393)\n\nThe multipart filename fix (updown.go lines 135-136) splits on the path separator but never rejects \"..\". Uploading with filename=\"..\" results in os.Create against the parent of the upload folder with a trailing marker character, outside the served tree, and the subsequent failed rename leaves that file behind. Verified: a file containing ESCAPED_WRITE_PROOF was written outside the webroot, unauthenticated, with the default configuration. Not claimed: a Windows-specific variant (Go's Part.FileName() already applies filepath.Base).\n\n## Suggested fixes\n\n1. Reject any upload filename that is \"..\", is empty after sanitisation, or resolves outside the upload folder; validate the final resolved destination rather than only transforming the input.\n\n## Tooling\n\n",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 90,
+    "confidenceScore": 0,
+    "sourceQualityScore": 95,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-8ad9214115",
+    "rejectedAt": "2026-07-29T09:33:26.307824+00:00",
+    "date": "2026-07-28",
+    "source": "GitHub Security Advisory Database",
+    "url": "https://github.com/advisories/GHSA-964w-f6gj-5236",
+    "headline": "goshs has ACL Bypass & Path Traversal",
+    "summary": "## Summary\n\n`sendFile` derives the served filename from the raw request path while opening the file from the cleaned path, so appending a trailing slash empties the derived name and defeats both the never-serve rule for the ACL file and the block list. \n\n## Finding (Medium): trailing-slash ACL and hidden-file bypass\n\nhttpserver/handler.go, sendFile (lines 789-801) takes the filename from the RAW req.URL.Path while the file itself is opened from the filepath.Clean-ed path. The two disagree, and a trailing slash makes the derived name the empty string. Both protections key on that derived name, so both are defeated: the rule that never serves the .goshs ACL file, and the acl.Block list.\n\nMeasured, with negative controls:\n\n```\nGET /blocked/secret.txt    -> 404          (control, correctly blocked)\nGET /blocked/secret.txt/   -> 200 + contents\nGET /blocked/.goshs/       -> 200, returns the ACL file itself,\n                              including the admin:$2a$... bcrypt hash\n```\n\nUnauthenti",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 95,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b00577e7d1",
+    "rejectedAt": "2026-07-29T09:33:27.579630+00:00",
+    "date": "2026-07-28",
+    "source": "Trail of Bits blog",
+    "url": "https://blog.trailofbits.com/2026/07/28/how-we-use-goal-to-find-bugs-in-patch-the-planet/",
+    "headline": "How we use /goal to find bugs in Patch the Planet",
+    "summary": "Codex’s /goal feature amplifies bug hunting, but getting good results requires the right prompt, the right scope, and the right number of outcomes per run. For Patch the Planet, our joint initiative with OpenAI to find and fix bugs in open-source software, we pointed Codex at some of the most widely used, heavily audited codebases in the world, like Rust, curl, and zlib. One tool came up again and again in our internal bug-report channels: /goal, which hands Codex an open-ended objective and lets it work independently toward a success condition. Here are a few highlights:\n\n/goal found every Rust bug we submitted, including a soundness hole and a miscompilation now patched in Rust 1.98, from a single variant-analysis pipeline.\nIt turned every project&rsquo;s past CVEs into Semgrep rules that had to fire on the vulnerable version and stay silent on the patched one, then flagged 11 variant hits across multiple projects.\nIt uncovered two potential high-severity privilege-escalation bugs in",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-659be01368",
+    "rejectedAt": "2026-07-29T09:33:30.330025+00:00",
+    "date": "2026-07-29",
+    "source": "Tenable Security Research",
+    "url": "https://www.tenable.com/security/research/tra-2026-52",
+    "headline": "Link Library - Reflected Cross-Site Scripting",
+    "summary": "Link Library - Reflected Cross-Site Scripting\n\n            The WordPress Plugin Link Library version below 7.9.4 is affected by an unauthenticated Reflected XSS.The 'thumbs_rating_add_vote' AJAX handler reads the 'likelabel' parameter without any sanitization and echoes it back into an HTML response.\n      \nJoshua Martinelle\n\nWed, 07/29/2026 - 02:40",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 86,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6a754bccfb",
+    "rejectedAt": "2026-07-29T09:33:37.388663+00:00",
+    "date": "2026-07-28",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/28/discovering-cryptographic-weaknesses-with-claude/#atom-everything",
+    "headline": "Discovering cryptographic weaknesses with Claude",
+    "summary": "Discovering cryptographic weaknesses with Claude\nThe best part of this article (here's the repo) about how Anthropic researchers used Claude Mythos to find mathematical flaws in both HAWK and a weaker version of AES (\"neither of these results has a practical impact on today’s computer systems\") is the prompts that they shared, spelling mistakes included:\n\nthe models tend to think it is impossible to solve so they don't try they need a good amount of prompting.\nwhy not do aes-128 r7? the whole point is to find something better than existing approaches.\nno again the goal is that we have highly inteligent model as good top researcher, we want to find new attacks\nno we don't want to change the targets [...] agian we need to find something that worth publishing\nagain we are not looking for low hanging fruit, we want proper research to find genuinly hard findings.\n\nMythos Preview worked for 60 hours in total (~$100,000 in estimated API cost) and the main human interventions were to encourage",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c9d542dbf7",
+    "rejectedAt": "2026-07-29T09:33:38.649820+00:00",
+    "date": "2026-07-28",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/28/uv/#atom-everything",
+    "headline": "uv 0.12.0",
+    "summary": "uv 0.12.0\nSome interesting breaking changes in this release of uv, in particular to the default project produced by the uv init command.\nuv init is the uv shortcut for creating a new project. The previous version of uv, version 0.11.x, produced this directory when you ran uv init uv-init.\nHere's what you get with uv 0.12. I have a GitHub repository that automatically snapshots the output of uv init, so you can also see the full diff:\n\nuv init now defaults to a src/ shaped package, instead of dropping main.py in the root of the project. It also configures the uv_build backend for building wheels and .tar.gz distribution files when you run uv build. Finally, it sets up uv-init as a script alias which, when run with uv run uv-init, executes a new main() function in src/uv_init/__init__.py.\nI've so far avoided using src layout in my own projects just out of inertia. I think it's time I switched.\nI wonder when uv will be judged ready for a 1.0 release?\n\n\n    Tags: packaging, python, uv",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-bb66b233b8",
+    "rejectedAt": "2026-07-29T09:33:39.909351+00:00",
+    "date": "2026-07-26",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/26/sqlite-utils/#atom-everything",
+    "headline": "sqlite-utils 3.39.1",
+    "summary": "26th July 2026 I back-ported a fix for table.delete_where() that shipped in version 4. This is a beat by Simon Willison, posted on 26th July 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments. Pay me to send you less!",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9876abcf74",
+    "rejectedAt": "2026-07-29T09:33:44.034524+00:00",
+    "date": "2026-07-29",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2378",
+    "headline": "[UPDATE] [mittel] X.Org X11 Server (libXfont2): Mehrere Schwachstellen ermöglichen Ausführen von beliebigem Programmcode mit Administratorrechten",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen in X.Org X11 ausnutzen, um erweiterte Berechtigungen zu erlangen und beliebigen Code mit Root-Rechten auszuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-eeb6b1aa61",
+    "rejectedAt": "2026-07-29T09:33:45.984174+00:00",
+    "date": "2026-07-29",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2518",
+    "headline": "[UPDATE] [mittel] Red Hat Enterprise Linux (libreswan): Mehrere Schwachstellen ermöglichen Denial of Service",
+    "summary": "Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in Red Hat Enterprise Linux ausnutzen, um einen Denial of Service Angriff durchzuführen und möglicherweise die Authentifizierung zu umgehen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d171e48325",
+    "rejectedAt": "2026-07-29T09:33:47.029241+00:00",
+    "date": "2026-07-29",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2443",
+    "headline": "[UPDATE] [mittel] Oracle Java SE: Mehrere Schwachstellen",
+    "summary": "Ein entfernter, anonymer oder authentisierter Angreifer kann mehrere Schwachstellen in Oracle Java SE ausnutzen, um die Vertraulichkeit, Integrität und Verfügbarkeit zu gefährden.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-12786f4f1f",
+    "rejectedAt": "2026-07-29T09:33:48.246712+00:00",
+    "date": "2026-07-29",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2530",
+    "headline": "[UPDATE] [mittel] Apache ActiveMQ: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Apache ActiveMQ ausnutzen, um einen Denial of Service Angriff durchzuführen, Sicherheitsmaßnahmen zu umgehen und Daten zu manipulieren.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8baf64bcd1",
+    "rejectedAt": "2026-07-29T09:33:49.511971+00:00",
+    "date": "2026-07-29",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/agentic-ocr",
+    "headline": "What Is Agentic OCR? The Next Evolution of Intelligent Document Automation",
+    "summary": "The Limits of \"Read and Capture\" 2 An invoice arrives. Your OCR system scans it, pulls out the line items, and dumps a blob of text into your ERP. Then the total doesn't match the purchase order. Turns out the vendor changed their invoice layout this month, with two columns where there used to be one. Your OCR system missed the subtotals. Someone finally catches the discrepancy three days later, after the payment has already been processed. This scenario plays out thousands of times a day across enterprises. Not because OCR doesn't work, but because traditional OCR was never designed to unders",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-14f424c2ca",
+    "rejectedAt": "2026-07-29T09:33:50.700869+00:00",
+    "date": "2026-07-29",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/ocr-for-invoices",
+    "headline": "OCR for Invoices: How to Extract Data with Accuracy and Speed",
+    "summary": "What is OCR for Invoices and Why is it So Complex? 1 Digital transformation has reached nearly every department in modern organizations. Marketing runs on automation. Sales operates in CRMs. Operations rely on real-time dashboards. And yet, in many finance departments, invoice processing still runs on manual data entry. Even when invoices arrive as PDFs instead of paper documents, someone is often responsible for opening each file, locating the invoice number, entering vendor details, copying totals, reviewing line items, and typing everything into an ERP or accounting system. It’s slow, repet",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e3e16c9501",
+    "rejectedAt": "2026-07-29T09:33:51.943767+00:00",
+    "date": "2026-07-29",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/ocr-for-accounts-payable",
+    "headline": "OCR for Accounts Payable: Benefits, Challenges, and Best Practices",
+    "summary": "What Is OCR in the Context of Accounts Payable? Accounts Payable teams are under constant pressure to process invoices faster while maintaining financial accuracy and compliance. As organizations scale, invoice volumes increase, vendor formats diversify, and approval workflows grow more complex. What often appears to be a simple data entry function quickly becomes an operational bottleneck. Manual invoice processing carries hidden costs. Every minute spent entering data from paper invoices or PDF attachments is time diverted from meaningful work. Errors introduced during manual entry can propa",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4a70608ceb",
+    "rejectedAt": "2026-07-29T09:33:53.843368+00:00",
+    "date": "2026-07-29",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/loan-processing-workflow-document-extraction",
+    "headline": "Loan Processing Workflow: How to Automate Document Extraction from Application to Approval",
+    "summary": "Setup A mortgage loan file for a self-employed borrower contains, on average, 150 to 200 pages. Tax returns for two years. Personal and business bank statements for three months. A profit and loss statement. An appraisal report. Title documents. A credit report. Insurance declarations. The loan officer's job, before underwriting can even start, is to collect all of that, verify that each document is present, extract the relevant data, and confirm that the numbers are internally consistent. At most financial institutions in 2026, a meaningful portion of that process still involves a human openi",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0cd81b61ab",
+    "rejectedAt": "2026-07-29T09:33:55.071287+00:00",
+    "date": "2026-07-29",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/new-gitea-rce-lets-repository-writers.html",
+    "headline": "New Gitea RCE Lets Repository Writers Plant a Git Hook to Run Shell Commands",
+    "summary": "Gitea, the self-hosted Git platform, has patched a critical remote code execution vulnerability. A user with ordinary repository write access can turn attacker-controlled patch content into a live Git hook and run shell commands as the Gitea service account.\n\nTracked as CVE-2026-60004 (CVSS score: 9.8), the flaw affects Gitea versions 1.17 and later before 1.27.1 and is fixed in 1.27.1. The",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-fd5f744f3a",
+    "rejectedAt": "2026-07-29T09:33:56.351419+00:00",
+    "date": "2026-07-28",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/critical-openwrt-dhcpv6-flaw-could-let.html",
+    "headline": "Critical OpenWrt DHCPv6 Flaw Could Let Unauthenticated Attackers Run Code as Root",
+    "summary": "OpenWrt has shipped version 24.10.8 to close a critical DHCPv6 stack overflow and a wider set of remotely triggerable flaws in network services enabled by default.\n\nThe critical issue, tracked as CVE-2026-53921 and rated 9.8 on CVSS 3.1 in OpenWrt's GitHub advisory, lets an unauthenticated attacker able to reach the DHCPv6 server overwrite a stack buffer in odhcpd through a crafted DHCPv6",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-fa7c4b6ddd",
+    "rejectedAt": "2026-07-29T09:34:03.149974+00:00",
+    "date": "2026-07-28",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/claude-ai-just-cracked-post-quantum.html",
+    "headline": "Claude AI Just Cracked a Post-Quantum Test Scheme and Found a Faster 7-Round AES Attack",
+    "summary": "Anthropic says Claude Mythos Preview helped derive an end-to-end key-recovery attack against HAWK-256 and a 200- to 800-fold speedup for an attack on seven-round AES-128.\n\nThe HAWK attack exploits a previously unused symmetry in the lattice behind the signature scheme. Anthropic's released implementation gives an expected end-to-end runtime of about three hours and 42 minutes on a 96-core server",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e3787e788b",
+    "rejectedAt": "2026-07-29T09:34:06.906204+00:00",
+    "date": "2026-07-28",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/act-security-emerges-from-stealth-to-fight-the-patch-problem/",
+    "headline": "Act Security Emerges from Stealth to Fight the Patch Problem",
+    "summary": "Act Security tackles the spiraling patch problem caused by AI’s ability to find new vulnerabilities in existing cloud environments. \nThe post Act Security Emerges from Stealth to Fight the Patch Problem appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-a07611be8c",
+    "rejectedAt": "2026-07-29T09:34:08.146401+00:00",
+    "date": "2026-07-28",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/world/2026/jul/28/spies-in-sky-worried-ai-enabled-smart-lamp-posts-surveillance",
+    "headline": "Spies in the sky: how worried should we be about the arrival of AI-enabled smart lamp-posts?",
+    "summary": "The new breed of camera-equipped streetlights has the potential to fight crime and track down missing persons. Or will it just take Britain one step closer to a surveillance state?How would you feel if your neighbourhood lamp-posts could recognise your number plate, and also your face? Maybe you wouldn’t mind, given how long we’ve had automatic number plate recognition and CCTV. What about if that lamp-post could power itself through its own solar panels, and perhaps find another use for any extra power generated – that would be good, right? This is what Conflow Power Group (CPG) in Warwickshire claims for its iLamps, the first of their kind in the UK.What if lamp-posts had the potential to incorporate new AI capability – gait analysis, suspicious behaviours – that you haven’t even heard of? This is what the organisation Big Brother Watch worries about. And what if the home secretary had explicitly said she believed in a “panopticon state” – that is, a state that could watch you at all",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0843a7c811",
+    "rejectedAt": "2026-07-29T09:34:16.245636+00:00",
+    "date": "2026-07-28",
+    "source": "AI Incident Database",
+    "url": "https://www.reuters.com/investigations/meta-tolerates-rampant-ad-fraud-china-safeguard-billions-revenue-2025-12-15/",
+    "headline": "Meta tolerates rampant ad fraud from China to safeguard billions in revenue",
+    "summary": "SAN FRANCISCO - Last year, Meta had to reckon with an ugly conclusion about its Chinese advertising customers: They were defrauding Facebook, Instagram and WhatsApp users worldwide.\n\nThough China's authoritarian government bans use of Meta  ... (https://incidentdatabase.ai/cite/1268#7607)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-85c86dff34",
+    "rejectedAt": "2026-07-29T09:34:17.838653+00:00",
+    "date": "2026-07-28",
+    "source": "AI Incident Database",
+    "url": "https://timesofindia.indiatimes.com/technology/tech-news/explained-how-meta-made-billions-from-scam-ads/articleshow/125300864.cms",
+    "headline": "Explained: How Meta made billions from scam ads",
+    "summary": "Meta, the company behind Facebook, Instagram and WhatsApp, is under scrutiny after leaked internal documents revealed that it expected a significant portion of its 2024 revenue to come from ads linked to scams, fraud and banned products. Th ... (https://incidentdatabase.ai/cite/1268#7608)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-68e236286a",
+    "rejectedAt": "2026-07-29T09:34:19.364555+00:00",
+    "date": "2026-07-28",
+    "source": "AI Incident Database",
+    "url": "https://sfstandard.com/2025/10/28/waymo-kills-cat-san-francisco/",
+    "headline": "Waymo robotaxi kills ‘one-of-a-kind’ bodega cat, owner claims",
+    "summary": "A cat known as the \"mayor of 16th Street\" was allegedly run over by a Waymo autonomous vehicle, according to the cat's owner, sparking grief around the Mission Dolores bodega where he roamed.\n\nKitKat, a feline fixture at Randa's Market, was ... (https://incidentdatabase.ai/cite/1269#7604)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9f3c055367",
+    "rejectedAt": "2026-07-29T09:34:20.994159+00:00",
+    "date": "2026-07-28",
+    "source": "AI Incident Database",
+    "url": "https://abc7news.com/post/san-francisco-supervisor-calls-new-robotaxi-rules-following-neighborhood-cat-kitkats-death/18110716/",
+    "headline": "San Francisco supervisor calls for new robotaxi rules after neighborhood cat killed by Waymo",
+    "summary": "SAN FRANCISCO (KGO) -- For a week now, neighbors in San Francisco's Mission District have shared their sadness and outrage over the death of KitKat, the neighborhood cat.\n\nThe cat's owner says a Waymo ran him over. A memorial still marks th ... (https://incidentdatabase.ai/cite/1269#7603)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-64ffef58f0",
+    "rejectedAt": "2026-07-29T09:34:25.512915+00:00",
+    "date": "2026-07-28",
+    "source": "AI Incident Database",
+    "url": "https://thedailyrecord.com/2026/01/21/automated-bus-rear-ended-self-driving-demo-dc/",
+    "headline": "Officials showed off a robo-bus in DC. It got hit by a Tesla driver.",
+    "summary": "The U.S. Department of Transportation brought an automated bus to D.C. this week to showcase its work on self-driving vehicles, taking officials from around the country on a ride between agency headquarters at Navy Yard and Union Station. O ... (https://incidentdatabase.ai/cite/1347#7602)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4d79668160",
+    "rejectedAt": "2026-07-29T09:34:27.118360+00:00",
+    "date": "2026-07-28",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-13037",
+    "headline": "Chromium: CVE-2026-13037 Use after free in WebView",
+    "summary": "This CVE was assigned by Chrome.  Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-71e71c79ce",
+    "rejectedAt": "2026-07-29T09:34:31.535762+00:00",
+    "date": "2026-07-28",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-13032",
+    "headline": "Chromium: CVE-2026-13032 Use after free in WebGL",
+    "summary": "This CVE was assigned by Chrome.  Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5a9dcea5c3",
+    "rejectedAt": "2026-07-29T09:34:32.917520+00:00",
+    "date": "2026-07-28",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-13030",
+    "headline": "Chromium: CVE-2026-13030 Uninitialized Use in GPU",
+    "summary": "This CVE was assigned by Chrome.  Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5f84a99337",
+    "rejectedAt": "2026-07-29T09:34:40.995581+00:00",
+    "date": "2026-07-28",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-13028",
+    "headline": "Chromium: CVE-2026-13028 Use after free in WebGL",
+    "summary": "This CVE was assigned by Chrome.  Microsoft Edge (Chromium-based) ingests Chromium, which addresses this vulnerability. Please see [Google Chrome Releases](https://chromereleases.googleblog.com/2026) for more information.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f3d7ae5671",
+    "rejectedAt": "2026-07-29T09:34:42.462589+00:00",
+    "date": "2026-07-28",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-59117",
+    "headline": "CVE-2026-59117 Windows Terminal Remote Code Execution Vulnerability",
+    "summary": "Change the name of the affected software from **Microsoft Power Apps** to **Microsoft Power Apps Desktop Client**. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-df22037e3e",
+    "rejectedAt": "2026-07-29T09:34:43.645907+00:00",
+    "date": "2026-07-28",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/scientific-computing-agentic-ai",
+    "headline": "Scientific computing in the age of agentic AI",
+    "summary": "A new field report shows how scientists use AI coding agents to modernize scientific computing, accelerating software development and discovery in genomics and beyond.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-be3ca53745",
+    "rejectedAt": "2026-07-29T09:34:44.992372+00:00",
+    "date": "2026-07-28",
+    "source": "Google AI blog",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/",
+    "headline": "Gemini API Managed Agents: 3.6 Flash, hooks, and more",
+    "summary": "Jul 28, 2026 Managed Agents in Gemini API now default to Gemini 3.6 Flash. New environment hooks let you block, lint, or audit tool calls inside the sandbox. Also, we’ve added budget controls, scheduled triggers, and free tier access. Philipp Schmid Member of the Technical Staff, Google DeepMind Mariano Cocirio Product Manager, Google DeepMind Your browser does not support the audio element. Managed Agents in Gemini API are getting environment hooks , model selection , and free tier access . These capabilities build on our previous release introducing background tasks and remote MCP server int",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-61b149676f",
+    "rejectedAt": "2026-07-29T09:34:46.154422+00:00",
+    "date": "2026-07-28",
+    "source": "Google AI blog",
+    "url": "https://blog.google/products-and-platforms/products/search/dinner-party-hosting-tips/",
+    "headline": "5 ways to host the ultimate dinner party with Google Search",
+    "summary": "Jul 28, 2026 These AI features can help you craft a menu, design a tablescape, and handle other party-planning tasks. Your browser does not support the audio element. Google Search now offers AI-powered tools to simplify your dinner party planning, from visualizing tablescapes to designing custom menus. You can use these features to brainstorm recipes, find drink pairings, and curate music playlists that sync directly with your favorite apps. Use these tools to handle the logistics so you can spend more time enjoying your guests. Planning the perfect dinner party is an art. Even if you love to",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cf70bd3369",
+    "rejectedAt": "2026-07-29T09:34:47.361888+00:00",
+    "date": "2026-07-29",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.25012",
+    "headline": "ZIMPAF & RedPhuzz: High-fidelity Web Application Fuzzing via Branch, Language Construct, and Function Call Monitoring",
+    "summary": "arXiv:2607.25012v1 Announce Type: new \nAbstract: We present ZIMPAF, runtime interpreter instrumentation, and RedPhuzz, a fuzzer, to address key limitations of state-of-the-art fuzzers: inefficient instrumentation, the lack of knowledge of the execution environment, and limited web domain knowledge. ZIMPAF implements a novel multi-granular runtime interpreter instrumentation that provides branch coverage, robust error and exception logging, function and language construct monitoring, and identification of user-supplied inputs used in branch instructions. The instrumentation is capable of identifying potentially vulnerable functions whose parameters are tainted, marking them as high-valued fuzzing targets, without performing taint analysis. It also employs a novel backward constant probe to infer potentially vulnerable functions whose parameters originate from constants, indicating their invulnerability and allowing them to be skipped. This information is utilized by RedPhuzz to perform ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-97be561426",
+    "rejectedAt": "2026-07-29T09:34:48.527216+00:00",
+    "date": "2026-07-29",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.24859",
+    "headline": "The Mirage of LLM Guardrails: A Case Study in AI-Assisted Medical Note Manipulation",
+    "summary": "arXiv:2607.24859v1 Announce Type: new \nAbstract: The rapid deployment of large language models (LLMs) in healthcare settings makes the reliability of their built-in guardrails against malicious queries a question of urgent practical consequence. Yet the robustness of these mechanisms against deliberate misuse (in the healthcare context) remains poorly understood. In this paper, we investigate this question empirically, using AI-assisted medical note manipulation as a concrete case study. We make four novel contributions. First, we develop a reproducible manipulation pipeline that takes publicly available seed medical note templates and use commercial LLMs to produce customized manipulated notes by substituting patient names, provider identities, dates, and medical conditions across multiple model families, input formats, and prompt phrasings. Second, we conduct a systematic empirical evaluation of LLM guardrail robustness for medical note manipulation. Our experimental results reveal s",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b8403050b1",
+    "rejectedAt": "2026-07-29T09:34:53.738095+00:00",
+    "date": "2026-07-28",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/apple-patches-87-vulnerabilities-in-ios-155-in-macos-tahoe/",
+    "headline": "Apple Patches 87 Vulnerabilities in iOS, 155 in macOS Tahoe",
+    "summary": "Hi, what are you looking for? Apple announced on Monday that it has released patches for dozens of vulnerabilities discovered recently in its operating systems. The company patched 87 vulnerabilities with the release of iOS 26.6 and iPadOS 26.6. The flaws can be exploited to access sensitive user data, fingerprint users, cause a DoS condition, execute arbitrary code, delete files, modify the file system, bypass security, add contacts without authorization, spoof the UI, and escalate privileges. In macOS Tahoe 26.6 , Apple fixed 155 vulnerabilities, including ones allowing access to sensitive u",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-24feb41701",
+    "rejectedAt": "2026-07-29T09:34:55.301061+00:00",
+    "date": "2026-07-28",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cloud-security/non-human-identity-sprawl-creates-a-new-cloud-attack-path",
+    "headline": "Ghost Credentials Expose Cloud Systems to Hidden Identity Risks",
+    "summary": "Dormant nonhuman identities can create security blind spots, says security researcher Aleksandr Krasnov, who has released an open source tool to sniff out trust paths.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-487aa476e2",
+    "rejectedAt": "2026-07-29T09:34:56.479455+00:00",
+    "date": "2026-07-27",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/endpoint-security/why-resetting-passwords-no-longer-stop-attacks",
+    "headline": "Why Resetting Passwords No Longer Stops Attackers",
+    "summary": "As attackers shift from password theft to session and token theft to bypass multifactor authentication controls, organizations must move beyond login security and protect authenticated sessions.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-bdec747cb2",
+    "rejectedAt": "2026-07-29T09:34:57.769812+00:00",
+    "date": "2026-07-29",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/uk-news/2026/jul/29/datacentre-projects-fees-grid-access-connection-queue-ofgem",
+    "headline": "Datacentre projects could face fees for grid access to ease connection queue, Ofgem says",
+    "summary": "Energy regulator’s plan would mean upfront fees or financial security via letters of credit, bonds or cash depositsDatacentre projects in Britain will be forced to put down significant upfront fees to secure an energy connection under proposals to ease an electricity grid logjam.Ofgem, the sector watchdog, said there were 315 datacentres currently queueing to connect up, representing 73GW of demand. This is almost 30GW above the entire country’s peak energy demand of 45GW. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cba713cd54",
+    "rejectedAt": "2026-07-29T09:34:58.977085+00:00",
+    "date": "2026-07-28",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/us-news/2026/jul/28/fcc-ban-humanoid-robots-china",
+    "headline": "US bans humanoid robots from China, citing ‘unacceptable risks’",
+    "summary": "Move comes as the Trump administration has increasingly sought to keep Chinese technology out of the USThe Federal Communications Commission announced a ban on humanoid robots from China on Tuesday, saying that the technology poses “unacceptable risks” to the country’s national security. The move comes as the Trump administration has increasingly sought to keep Chinese technology out of the US.The FCC defines the banned robots as “advanced robotic devices”, which include humanoids and animal-like quadrupeds. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a08d39bc56",
+    "rejectedAt": "2026-07-29T09:35:00.233841+00:00",
+    "date": "2026-07-28",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/jul/28/ebay-harassment-lawsuit-settlement",
+    "headline": "Ebay and ex-executives to pay $55.7m to couple sent cockroaches in harassment campaign",
+    "summary": "Bloggers David and Ina Steiner were stalked by eBay executives over their critical coverage of the companyEbay and three former top executives have agreed to pay $55.7m to resolve a lawsuit by a Massachusetts couple who fell victim ⁠to a bizarre stalking and ⁠harassment campaign carried out ​by several of its employees in retaliation for their coverage of the e-commerce company in a newsletter they publish.David and Ina Steiner announced the settlement late on Monday, bringing an end to a ⁠case they filed in 2021 in Boston federal court after several former eBay employees were prosecuted for targeting them in a cyberstalking campaign that involved sending the couple cockroaches, fly larvae and a bloody Halloween pig mask. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c53199b54f",
+    "rejectedAt": "2026-07-29T09:35:01.319560+00:00",
+    "date": "2026-07-29",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.25225",
+    "headline": "SecDrift: Measuring Sector-Conditioned Security Drift in AI-Generated Code",
+    "summary": "arXiv:2607.25225v1 Announce Type: new \nAbstract: LLMs are increasingly used for code generation in critical infrastructure, yet the security effect of domain-specific prompting is understudied. We present SecDrift, a benchmark measuring sector-conditioned security drift: the change in static-analysis vulnerability rates when prompts are conditioned on industry contexts versus neutral baselines. We evaluate 7 LLMs (6 producing analyzable code) across 8 CISA critical infrastructure sectors and 9 CWE categories with 5 replicates (5,355 evaluations), using a 5-dimension transformation with a matched-baseline condition that holds the task fixed while substituting only domain terminology. Industry prompts naively appear more secure (14.0% vs. 11.4%, -2.7pp), but the gap is not statistically significant (Fisher's exact p = 0.24, Cohen's h = -0.08) and is a composition artifact of two CWE categories: excluding CWE-502 and CWE-22 eliminates and slightly reverses it (+0.4pp, p = 1.00). A mixed-e",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-382f0faa03",
+    "rejectedAt": "2026-07-29T09:35:02.872258+00:00",
+    "date": "2026-07-29",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.25572",
+    "headline": "Mapping CVEs to MITRE ATT&CK Techniques: A Curated Gold-Set Classifier and the Limits of LLM-Assisted Label Expansion",
+    "summary": "arXiv:2607.25572v1 Announce Type: new \nAbstract: We present a reproducible pipeline for mapping Common Vulnerabilities and Exposures (CVEs) to MITRE ATT&amp;CK Enterprise techniques from free-text vulnerability descriptions. Rather than relying on the CWE->CAPEC->ATT&amp;CK derivation chain, whose table-expansion artifacts we quantify, we train a multi-label classifier on a curated gold dataset of 1,207 CVEs from expert MITRE Center for Threat-Informed Defense mappings. The resulting model approximately doubles recall@5 compared with a zero-shot embedding-similarity baseline and improves every ranking metric. We then investigate whether LLM-assisted labeling can extend the gold dataset. Initial experiments suggest contradictory conclusions: a single run indicates degraded performance, while averaging over five random seeds suggests a small gain. However, an independent replication and an expansion-size study (100--984 additional CVEs) show that the apparent improvement is an evaluation",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9a94037de7",
+    "rejectedAt": "2026-07-29T09:35:04.240635+00:00",
+    "date": "2026-07-29",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.25297",
+    "headline": "Hybrid Analysis for Secure MCP Tool Use in LLM Agents",
+    "summary": "arXiv:2607.25297v1 Announce Type: new \nAbstract: The rapid development of large language model (LLM) agents has enabled their broad adoption across diverse real-world tasks. To standardize interactions between LLM agents and external environments, Model Context Protocol (MCP) tools have emerged as a de facto standard and have been widely integrated into these systems. However, the use of MCP tools also introduces new safety risks, as LLM agents can be induced to perform malicious or unauthorized actions. Although prior work has proposed defenses for securing tool use in LLM agents, most methods rely on static analysis, i.e., inspecting prompts and generated outputs, which limits the defense effectiveness and robustness. To address these limitations, we propose MTGuard, a hybrid analysis-based defense framework designed to safeguard the use of MCP tools in LLM agents by leveraging lifecycle-aware static-dynamic co-analysis. Extensive evaluation demonstrates that MTGuard effectively miti",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-24452eaf45",
+    "rejectedAt": "2026-07-29T09:35:05.495861+00:00",
+    "date": "2026-07-28",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyber-risk/flaw-exposes-data-centers-server-takeover",
+    "headline": "Thousands of Data Center Controllers Open to Takeover",
+    "summary": "A host of Internet-exposed remote hardware management processors are subject to offline password-cracking attacks — and adversaries have taken note.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-aac17526ec",
+    "rejectedAt": "2026-07-29T09:35:09.937085+00:00",
+    "date": "2026-07-28",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/vulnerabilities-threats/certighost-flaw-microsoft-active-directory-certificates",
+    "headline": "'Certighost' Flaw Haunts Microsoft Active Directory Certificates",
+    "summary": "Microsoft patched a high-severity vulnerability earlier this month that allows a threat actor to escalate privileges and compromise an AD environment.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7871c1ded6",
+    "rejectedAt": "2026-07-29T09:35:11.097561+00:00",
+    "date": "2026-07-29",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/RBNEWS593/",
+    "headline": "Risky Bulletin: Cyberattack disrupts Minnesota water utilities",
+    "summary": "A cyberattack has disrupted water utilities in more than 30 communities in Minnesota, Denmark tests a secondary banking system in case of a cyberattack, North Korea arrests bank hackers, and a new Chinese cyber contractor has been identified.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a2ecc15302",
+    "rejectedAt": "2026-07-29T09:35:12.351023+00:00",
+    "date": "2026-07-28",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/over-24-000-exposed-server-bmcs-leak-password-hash-via-decades-old-flaw/",
+    "headline": "Over 24,000 exposed server BMCs leak password hash via decades-old flaw",
+    "summary": "More than 24,000 internet-exposed servers are leaking authentication password hashes due to a 20-year-old vulnerability in their Baseboard Management Controller (BMC) interface. For at least a third of them, researchers were able to find the correct password using dictionaries and the patterns on factory stickers for default credentials. The exposed servers are vulnerable to CVE-2013-4786 , an IPMI 2.0 authentication weakness rooted in a protocol introduced in 2004. The security issue allows attackers to request an authentication response that can be used to crack the password offline using de",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0234241764",
+    "rejectedAt": "2026-07-29T09:35:13.739617+00:00",
+    "date": "2026-07-28",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/is-your-sso-protected-against-modern-credential-attacks/",
+    "headline": "Is Your SSO Protected Against Modern Credential Attacks?",
+    "summary": "A compromised SSO login can provide attackers with access to multiple enterprise applications and services. Specops Software explains how stronger passwords, phishing-resistant MFA, and identity hardening help secure modern SSO environments and the applications they protect. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3ea1577f54",
+    "rejectedAt": "2026-07-29T09:35:14.891764+00:00",
+    "date": "2026-07-27",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/arista-patches-velocloud-orchestrator-zero-day-exploited-in-attacks/",
+    "headline": "Arista patches VeloCloud Orchestrator zero-day exploited in attacks",
+    "summary": "Arista has patched a maximum-severity command injection vulnerability in on-premises VeloCloud Orchestrator deployments that is being actively exploited in attacks. The vulnerability, tracked as CVE-2026-16812, is an unauthenticated OS command injection flaw with severity scores of 10.0, the maximum score that can be given to flaws. VeloCloud Orchestrator, also known as VCO, is a centralized management platform used to configure, monitor, and manage VeloCloud SD-WAN deployments and associated edge devices. According to an Arista security advisory published Monday, the vulnerability allows remo",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-57ba382534",
+    "rejectedAt": "2026-07-29T09:35:19.301681+00:00",
+    "date": "2026-07-28",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/microsoft-unveils-mai-cyber-1-flash-its-first-cybersecurity-ai-model/",
+    "headline": "Microsoft Unveils MAI-Cyber-1-Flash, Its First Cybersecurity AI Model",
+    "summary": "The company claims MAI-Cyber-1-Flash tops Anthropic’s Mythos and OpenAI’s GPT-5.6 Sol in CyberGym testing.\nThe post Microsoft Unveils MAI-Cyber-1-Flash, Its First Cybersecurity AI Model  appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-592c25b94f",
+    "rejectedAt": "2026-07-29T09:35:21.364677+00:00",
+    "date": "2026-07-28",
+    "source": "The Record",
+    "url": "https://therecord.media/india-bank-of-baroda-reports-cybersecurity-incident",
+    "headline": "India’s Bank of Baroda confirms cyber incident after hackers claim data theft",
+    "summary": "One of India's largest state-owned banks has reported a cybersecurity incident after a threat actor claimed to have stolen and published sensitive banking data. Bank of Baroda said Monday that an employee's email account had been compromised, allowing unauthorized access to \"certain data.\" The bank said it detected and contained the incident immediately and that its core banking systems were not accessed or affected. An investigation is ongoing. The disclosure follows claims last week by multiple cybersecurity researchers tracking dark web activity that an unidentified hacker had breached the ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-282e58443f",
+    "rejectedAt": "2026-07-29T09:35:23.240403+00:00",
+    "date": "2026-07-28",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/vbulletin-fixes-critical-pre-auth-rce-flaw-with-public-exploit/",
+    "headline": "vBulletin fixes critical pre-auth RCE flaw with public exploit",
+    "summary": "A critical vulnerability in the vBulletin forum software allows unauthenticated attackers to execute arbitrary PHP code through template rendering. The security issue is tracked as CVE-2026-61511 and affects vBulletin versions in the 5.x and 6.x branches up to 5.7.5 and 6.2.1, respectively. vBulletin is a PHP-based proprietary forum platform released in 2000 and used by large online communities, gaming sites, support portals, automotive forums, tech forums, and discussion boards. Although the platform has lost popularity over the years to newer, more modern solutions, it still retains a signif",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a52d078c30",
+    "rejectedAt": "2026-07-29T09:35:26.385943+00:00",
+    "date": "2026-07-28",
+    "source": "404 Media",
+    "url": "https://www.404media.co/apples-imessage-scanning-flagged-a-video-of-my-friends-dog-as-nudity/",
+    "headline": "Apple’s iMessage Scanning Flagged a Video of My Friend's Dog as Nudity",
+    "summary": "In a video my friend’s dog is laying on her back, her little paws in the air, while my friend rubs the dog’s chest. You can see most of the dog — who I’m not naming for very important privacy reasons — from her head to her belly. On closer inspection, you’ll notice the picture includes some dog nipples. Apple’s iMessage thought this video was so inappropriate that it flagged the video as potentially containing nudity and blurred it. When someone else received the video over iMessage, the app displayed the message “This may be sensitive.” They had to purposefully tap to reveal the video of a do",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-356fa6cba4",
+    "rejectedAt": "2026-07-29T09:35:27.687282+00:00",
+    "date": "2026-07-28",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/application-security/ai-agents-escape-sandboxes-old-security-rules-apply",
+    "headline": "When AI Agents Escape Sandboxes, Old Security Rules Apply",
+    "summary": "OpenAI's recent AI agent sandbox escape proves traditional security principles matter more than ever: limit access, isolate execution, log everything.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6c07bc3790",
+    "rejectedAt": "2026-07-29T09:35:29.760481+00:00",
+    "date": "2026-07-28",
+    "source": "The Register — AI/ML",
+    "url": "https://www.theregister.com/ai-and-ml/2026/07/28/perplexitys-tokenmaxxing-model-council-gives-you-multiple-bot-perspectives/5279972",
+    "headline": "Perplexity's tokenmaxxing Model Council gives you multiple bot perspectives",
+    "summary": "ai and ml Up to 8 AI models running in the cloud weighing in on ambiguous business issues? Sounds affordable Hold on tight to your tokens: AI search firm Perplexity on Tuesday expanded its five-month-old Model Council to its cloud-based Computer platform, giving users more ways to configure multi-model queries. The idea behind the Model Council, Perplexity said in Tuesday’s release, is to “allow users to build a board of top models for a single issue.” Models assigned to a council and given a prompt will tackle the problem independently, resulting in a synthesis report that explains where thei",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 76,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4b223bed65",
+    "rejectedAt": "2026-07-29T09:35:31.577886+00:00",
+    "date": "2026-07-28",
+    "source": "The Register — AI/ML",
+    "url": "https://www.theregister.com/ai-and-ml/2026/07/28/college-prof-hides-prompt-to-catch-ai-cheaters-finds-human-nature-is-pretty-much-as-we-thought/5279864",
+    "headline": "College prof hides prompt to catch AI cheaters, finds human nature is pretty much as we thought",
+    "summary": "ai and ml Busted! A college professor who was tired of reading AI responses to essay questions found a unique way to determine if his students were cheating. Sadly but not surprisingly, 32 of the 35 students who took the test fell right into his trap. Jason Gibson, who teaches history and African American studies at Alcorn State University in Mississippi, came up with a rather basic way to trick his students into handing in AI slop. In an essay prompt for a question about the industrial revolution, he buried a chunk of white text that students wouldn’t spot, but that an AI model would see if t",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 76,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a77c2fd297",
+    "rejectedAt": "2026-07-29T09:35:32.901670+00:00",
+    "date": "2026-07-29",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/ices-new-detention-contracts-declare-state-law-shall-not-apply/",
+    "headline": "ICE’s New Detention Center Contracts Declare State Laws ‘Shall Not Apply’",
+    "summary": "US Immigration and Customs Enforcement is moving to place its private detention network beyond the reach of state inspectors, publishing draft contract terms that declare state and local laws “shall not apply” to the facilities, according to federal documents reviewed by WIRED. The new terms were published earlier this month, a day after a federal judge ruled that a contract cannot override state law and ordered ICE’s largest Pacific Northwest detention center opened to Washington health officials. The ruling, by US District Judge Benjamin Settle, came only after three years of litigation; 10 ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3f1cce9632",
+    "rejectedAt": "2026-07-29T09:35:34.023150+00:00",
+    "date": "2026-07-29",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/shinyhunters-claims-ernst-young-hack/",
+    "headline": "ShinyHunters Claims Ernst & Young Hack",
+    "summary": "Ernst &#038; Young previously confirmed that personal and financial information was stolen from a third-party management platform.\nThe post ShinyHunters Claims Ernst &#038; Young Hack appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-50d218030a",
+    "rejectedAt": "2026-07-29T09:35:35.331981+00:00",
+    "date": "2026-07-28",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/a-typo-landed-an-innocent-gamer-in-prison-for-18-months/",
+    "headline": "A Typo Landed an Innocent Gamer in Prison for 18 Months",
+    "summary": "How much could a single underscore in a username really matter? Just ask Brandon Klayme, who served 18 months in prison before realizing how authorities arrested, charged, and convicted the wrong man.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-92e866603d",
+    "rejectedAt": "2026-07-29T09:35:36.431408+00:00",
+    "date": "2026-07-28",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/allenai/olmoearth-infrastructure",
+    "headline": "The OlmoEarth Platform: Geospatial inference at planetary scale",
+    "summary": "🌍 Learn more about OlmoEarth Platform: https://allenai.org/olmoearth The OlmoEarth models are our family of Earth observation foundation models, pretrained on roughly 10 terabytes of multimodal satellite data. Governments, NGOs, and other mission-driven organizations are already adapting OlmoEarth for applications including deforestation monitoring, food security, and wildfire risk. At Ai2, we know how to train and release powerful open models, and for organizations with strong engineering teams, an open model is all they need to run with. But most organizations in the environmental space – th",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-85dd02699b",
+    "rejectedAt": "2026-07-29T09:35:37.625273+00:00",
+    "date": "2026-07-28",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-encoders",
+    "headline": "LFM2.5-Encoders for Fast Long-Context Inference on CPU",
+    "summary": "Today, we release two new encoder models on Hugging Face: LFM2.5-Encoder-230M and LFM2.5-Encoder-350M . They match the quality of larger models but stay fast as inputs get longer. This means you can run document-scale jobs on the hardware you already have, even on CPU. Here's what you get: With these, you can build intent routers, policy linters, PII detectors, and text classifiers that run cheaply, all day. See the live demos below. Last month we released LFM2.5-Retrievers , built for multilingual search. LFM2.5-Encoders come from the same family but serve a broader purpose. They're pre-train",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-590e7ef889",
+    "rejectedAt": "2026-07-29T09:35:38.817521+00:00",
+    "date": "2026-07-28",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/how-databricks-manages-its-own-coding-agent-spend-unity-ai-gateway-budgets",
+    "headline": "How Databricks manages its own coding agent spend with Unity AI Gateway Budgets",
+    "summary": "• At Databricks, we govern AI spend at scale by routing every coding agent through Unity AI Gateway, giving our teams one place to enforce budgets, visibility, and policies across every model and tool. • We balance innovation with cost control, using separate daily and monthly budgets that stop runaway AI spend while keeping our engineers productive with self-service budget increases instead of approval bottlenecks. • This proven governance model combines centralized spend controls, unified observability, and data-driven policy enforcement to scale AI adoption without slowing our developers do",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8943f465fc",
+    "rejectedAt": "2026-07-29T09:35:40.057026+00:00",
+    "date": "2026-07-28",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/prototype-production-high-qps-databricks-ai-search",
+    "headline": "From prototype to production: High QPS for Databricks AI Search",
+    "summary": "Search is everywhere:  product discovery on retail sites, voice queries on smart TVs, recommendations in every feed, and identity matching during account lookups. Each fires a request per page view, per keystroke, per user action. At consumer scale, that translates into thousands of queries per second hitting the search index, with peak traffic often several times higher. Search also sits on the critical path of revenue. In retail, shoppers who use search convert at two to three times the rate of those who simply browse. On streaming platforms, recommendations drive most of what users watch. R",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8ff67d7712",
+    "rejectedAt": "2026-07-29T09:35:43.161624+00:00",
+    "date": "2026-07-27",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+    "headline": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+    "summary": "Hugging Face published a technical timeline of a confirmed July 2026 intrusion into a Frontier Lab agent system. The incident involved two initial-access vectors, lateral movement, and unauthorized command execution. Hugging Face investigated using GLM 5.2 and published sanitized technical details to document the attack methodology.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "duplicate"
+    ],
+    "relevanceScore": 95,
+    "confidenceScore": 100,
+    "sourceQualityScore": 65,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "excessive-agency",
+      "identity-and-authorization"
+    ],
+    "vendor": "Frontier Lab (via Hugging Face disclosure)"
+  },
+  {
+    "id": "reject-86c10e4d2d",
+    "rejectedAt": "2026-07-29T09:35:44.420107+00:00",
+    "date": "2026-07-27",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/ai-customer-service",
+    "headline": "AI customer service: strategy, agents, and solutions guide",
+    "summary": "AI customer service refers to the use of artificial intelligence — including natural language processing, machine learning, and predictive analytics — to automate and enhance interactions between companies and customers. AI customer service systems interpret customer intent, generate personalized responses, and route requests to a virtual assistant or a human agent. This guide is written for customer service leaders, support operations managers, and customer service team practitioners evaluating how to modernize their customer service function with AI agents, generative AI, and sentiment analy",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7c8ae2784e",
+    "rejectedAt": "2026-07-29T09:35:45.624429+00:00",
+    "date": "2026-07-28",
+    "source": "Google AI blog",
+    "url": "https://blog.google/products-and-platforms/products/search/ai-mode-real-world-tips/",
+    "headline": "5 ways AI Mode in Search helps you enjoy the real world",
+    "summary": "Jul 28, 2026 Here’s how Search's AI tools can help you make the most of your time offline, whether you want to book concert tickets or find the perfect hiking boots. Your browser does not support the audio element. Google’s AI Mode helps you spend more time offline by simplifying how you plan activities and events. You can use it to find local classes that fit your schedule, shop for specific gear, practice new hobbies, and book tickets. Try connecting your apps to generate custom designs or organize your calendar so you can focus on enjoying the real world. People are searching for more and m",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d3d9052454",
+    "rejectedAt": "2026-07-29T09:35:47.418937+00:00",
+    "date": "2026-07-28",
+    "source": "404 Media",
+    "url": "https://www.404media.co/substackers-say-new-ai-detection-tool-is-a-witch-hunt/",
+    "headline": "Substackers Say New AI Detection Tool Is a ‘Witch Hunt’",
+    "summary": "Substack contributors are rejecting the company’s decision to flag AI generated writing on the newsletter publishing platform, with several creators saying the new AI detection features are a “witch hunt.” Some Substack users who use AI to help them write or edit articles say the new policy unfairly discriminates against them, while other users who don’t use AI in their writing at all are worried that Substack will mistakenly flag their writing as being AI generated and tarnish their reputation. “I’m not going to apologize for using AI in the creation process. I wrote for 20 years without AI, ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-77d61d8048",
+    "rejectedAt": "2026-07-29T09:35:49.013179+00:00",
+    "date": "2026-07-24",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/ai-in-supply-chain",
+    "headline": "AI in supply chain: from demand forecasting to AI agents",
+    "summary": "AI in supply chain management is the application of machine learning, generative AI and AI agents to forecast demand, optimize inventory, manage supplier risk and orchestrate logistics operations. It draws on internal and external data, including enterprise resource planning (ERP) records, point-of-sale feeds and supplier communications, to move supply chain teams from reactive planning to continuous, automated decision-making. Globally, 78% of supply chain executives report using AI in some capacity, and the global AI in supply chain market is projected to reach $192.51 billion by 2034. This ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7b7cebef79",
+    "rejectedAt": "2026-07-29T09:35:50.363702+00:00",
+    "date": "2026-07-24",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/ai-in-healthcare",
+    "headline": "AI in healthcare: applications and best practices",
+    "summary": "AI in healthcare refers to the application of artificial intelligence, including machine learning, deep learning, and generative AI, to clinical, administrative, and research workflows across healthcare systems. Healthcare AI systems ingest patient data, electronic health records, medical imaging, and clinical documentation to support diagnosis, treatment planning, and operational efficiency. This guide is written for healthcare professionals, health IT leaders, and clinical informatics teams evaluating AI solutions, prioritizing clinical use cases, data practices, and regulatory obligations o",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-37c0e3e192",
+    "rejectedAt": "2026-07-29T09:35:51.554230+00:00",
+    "date": "2026-07-28",
+    "source": "GitHub security blog",
+    "url": "https://github.blog/security/supply-chain-security/disrupting-supply-chain-attacks-on-npm-and-github-actions/",
+    "headline": "Disrupting supply chain attacks on npm and GitHub Actions",
+    "summary": "Explore the changes we've shipped across npm and GitHub Actions over the past few months to disrupt supply chain attack techniques and limit their impact.\nThe post Disrupting supply chain attacks on npm and GitHub Actions appeared first on The GitHub Blog.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f83a103195",
+    "rejectedAt": "2026-07-29T09:35:52.986366+00:00",
+    "date": "2026-07-28",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/aws-kms-or-aws-cloudhsm-choose-the-right-key-management-solution/",
+    "headline": "AWS KMS or AWS CloudHSM: Choose the right key management solution",
+    "summary": "Choosing the right cryptographic key management service on Amazon Web Services (AWS) starts with understanding the difference between AWS Key Management Service (AWS KMS) and AWS CloudHSM. Both provide key storage backed by a hardware security module (HSM) but serve very different needs. AWS KMS is a fully managed service that integrates with all AWS […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c309d7510c",
+    "rejectedAt": "2026-07-29T09:35:54.095724+00:00",
+    "date": "2026-07-28",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/q2-2026-internet-disruption-summary/",
+    "headline": "Natural disasters and government interference: examining Q2 2026’s major Internet disruption events",
+    "summary": "Cloudflare Radar tracked Internet disruptions driven by natural disasters, government-mandated shutdowns, and DNSSEC key rollovers over the last quarter. This post analyzes traffic telemetry to explain how these events impacted global connectivity.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-91f3835806",
+    "rejectedAt": "2026-07-29T09:35:57.940696+00:00",
+    "date": "2026-07-28",
+    "source": "The Record",
+    "url": "https://therecord.media/jay-clayton-confirmed-dni-senate",
+    "headline": "Senate confirms Clayton as intel chief after delays",
+    "summary": "The Senate on Tuesday confirmed Jay Clayton as the next director of national intelligence, capping a turbulent process where his nomination was delayed after President Donald Trump abruptly canceled his initial confirmation hearing. Senators voted 51-47 to confirm Clayton, currently the U.S. attorney for the Southern District of New York, along party lines. He will assume leadership of an organization that is meant to oversee and coordinate the country’s nearly 20 intelligence agencies but has undergone several rounds of sweeping cuts by its controversial interim chief. Ahead of Tuesday’s vote",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-813e53b542",
+    "rejectedAt": "2026-07-29T09:35:59.702398+00:00",
+    "date": "2026-07-28",
+    "source": "404 Media",
+    "url": "https://www.404media.co/the-government-hopes-to-set-a-precedent-an-interview-with-the-man-charged-for-allegedly-wiping-his-grapheneos-phone/",
+    "headline": "‘The Government Hopes To Set a Precedent’: An Interview With the Man Charged for Allegedly Wiping His GrapheneOS Phone",
+    "summary": "The U.S. government has charged Samuel Tunick with allegedly typing in a passcode to wipe his phone before officers could search it. “I hope people understand that the charges against me are meant to intimidate people,” he said.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-30be2ef279",
+    "rejectedAt": "2026-07-29T09:36:01.018472+00:00",
+    "date": "2026-07-28",
+    "source": "404 Media",
+    "url": "https://www.404media.co/casa-grande-arizona-flock-city-council/",
+    "headline": "'I Would Never Do This To You:' Protesting Flock, Arizona Man Presents Plan to Surveil Government Officials",
+    "summary": "On July 20, Jacob Petrosky stood in front of the Casa Grande, Arizona City Council during a public comment session and made an announcement. “I've spent the last several months talking to people all over Casa Grande, and one thing keeps coming up: Safety. So, today I'm excited to announce a new company called Shepherd Safety,” he said. “Our mission is simple. Keep government officials and their families safe.” It would be no different than how the city monitors its citizens using Flock cameras, he said; he planned to launch satellites that would use AI to monitor “where government officials go",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d4c95d1df9",
+    "rejectedAt": "2026-07-29T09:36:02.675619+00:00",
+    "date": "2026-07-28",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/2026-phase-1a-irap-report-is-now-available-on-aws-artifact-for-australian-customers/",
+    "headline": "2026 Phase 1a IRAP report is now available on AWS Artifact for Australian customers",
+    "summary": "Amazon Web Services (AWS) is excited to announce that the latest version of Information Security Registered Assessors Program (IRAP) report (Phase 1a – full assessment) is now available through AWS Artifact. An independent Australian Signals Directorate (ASD) certified IRAP assessor completed the IRAP assessment of AWS in June 2026. The new IRAP report includes four […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
     "id": "reject-6edbc708ba",
     "rejectedAt": "2026-07-28T09:31:35.229794+00:00",
     "date": "2026-07-24",
