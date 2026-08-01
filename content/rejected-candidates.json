@@ -1,5 +1,1080 @@
 [
   {
+    "id": "reject-1ee6ce8f07",
+    "rejectedAt": "2026-08-01T09:00:44.233004+00:00",
+    "date": "2026-07-31",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/astra-alternatives",
+    "headline": "Top Astra Security alternatives for automated pentesting in 2026",
+    "summary": "Astra is a Penetration Testing as a Service (PTaaS) platform that delivers a compliance certificate. For small teams that want a human pentest so they can be audit-ready, it does the job. But according to Aikido's 2026 State of AI in Pentesting report, more than half of security leaders say manual pentests often or always miss logic flaws, broken access controls and multi-step vulnerabilities, rising to 92% for teams shipping multiple times per day. Most teams today are looking for AI pentesting, which allows deeper tests to run more frequently. In Aikido's Autonomous vs. Manual Pentesting Ben",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-ceadf4af1d",
+    "rejectedAt": "2026-08-01T09:00:49.478865+00:00",
+    "date": "2026-07-31",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/top-enterprise-sast-tools",
+    "headline": "Top enterprise SAST tools 2026",
+    "summary": "An estimated 72% of enterprises with 500+ employees have integrated SAST tools into their development pipelines but many face issues with false positives and developer friction. Untuned SAST tools can produce false positive rates of 30-60% , and at enterprise scale, that noise compounds. As Mike Wilkes, Enterprise CISO at Aikido, wrote , when tools generate overwhelming noise, engineers disengage. Beyond developer adoption, enterprise SAST also has to hold up under audit. Compliance frameworks like SOC 2, ISO 27001, and PCI DSS require documented evidence that code is tested for vulnerabilitie",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f0a323973e",
+    "rejectedAt": "2026-08-01T09:00:50.906562+00:00",
+    "date": "2026-07-31",
+    "source": "Bishop Fox blog",
+    "url": "https://bishopfox.com/blog/what-security-leaders-think-about-frontier-ai-models-firsthand-mythos",
+    "headline": "What Security Leaders Think About Frontier AI Models: Firsthand of Mythos",
+    "summary": "Frontier AI models are raising the ceiling for skilled attackers and lowering the bar for everyone else. Leaders from Vista Equity, Cisco, and Bishop Fox share what that shift looks like in practice, how the existing security stack needs to change, and how long defenders will stay at a disadvantage.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c3ec41310a",
+    "rejectedAt": "2026-08-01T09:00:52.557304+00:00",
+    "date": "2026-07-31",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/31/oxide-and-friends/#atom-everything",
+    "headline": "Oxide and Friends: The Open Weight Revolution with Simon Willison",
+    "summary": "Oxide and Friends: The Open Weight Revolution with Simon Willison\nOn Monday Bryan Cantrill and Adam Leventhal invited me to join their podcast to talk about the wild week we've had - with Kimi K3 showing open weight models can stand toe-to-toe with proprietary frontier ones, accidental cybersecurity attacks, and public letters about Open Weights and American AI Leadership signed by almost every big name in AI (with one notable exception).\nIt was a great conversation, even though it's already out-of-date! DeepSeek V4 Flash 0731 and Anthropic's own embarrassing cyber incident would absolutely have made the cut if we had recorded just a few days later.\nWe also talk about Golden Gate Claude, the Zizians, Alameda wild turkey attacks, Soviet Marburg virus research, the Lead-crime hypothesis, and a bunch of other worthy digressions.\nFinally, we revisited some of our predictions from January, and we added a new Pope prediction:\n\nPrediction by the end of this year: the Pope says something about",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1310d77c86",
+    "rejectedAt": "2026-08-01T09:00:54.144433+00:00",
+    "date": "2026-07-31",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/31/smevals/#atom-everything",
+    "headline": "smevals - a small eval suite for evaluating models, prompts, and harnesses",
+    "summary": "smevals - a small eval suite for evaluating models, prompts, and harnesses\nI've been working with Jesse Vincent's Prime Radiant applied AI research lab building out this evals framework to help answer questions about the capabilities of different models.\nThe result is smevals, a new tool for running small eval suites across different model configurations and grading the results.\nThe blog entry describes the tool in detail. Here's the 10 second version:\n\nTell your coding agent to run uvx smevals docs to learn the tool (this outputs the README)\nThen tell it to build you an eval suite\n\nOnce you've created an eval - which takes the form of a directory with some YAML files - you can run it against models like this:\nuvx smevals run path-to-eval/ -m gpt-5.5 -m claude-opus-4.6\n\nRuns are treated separately from grading operations - you can grade your runs (against your defined set of checks) using:\nuvx smevals grade path-to-eval/\n\nThen you can run a localhost web server to explore the results:\n",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-49a3b4c1ef",
+    "rejectedAt": "2026-08-01T09:00:55.222334+00:00",
+    "date": "2026-07-31",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/#atom-everything",
+    "headline": "deepseek-ai/DeepSeek-V4-Flash-0731",
+    "summary": "deepseek-ai/DeepSeek-V4-Flash-0731\nThe latest release in DeepSeek's V4 family, \"with substantially enhanced agentic capabilities\". It's 304 billion parameters - 167GB on Hugging Face - but it appears to punch well above its weight.\nArtificial Analysis rank it ahead of MiniMax M3 - a 428B model. It's $0.14/million input and $0.27/million output pricing means this may currently be the best value-per-intelligence model out there. It's looking very good on the Intelligence Index vs. Cost per Intelligence Index Task chart:\n\nI got a disappointing pelican from it using the default reasoning level via OpenRouter:\n\nBut when I bumped reasoning level up to high I got something much better:\nllm -m openrouter/deepseek/deepseek-v4-flash-0731 -t pelican -o reasoning_effort high\n\n\n    Via Hacker News\n\n\n    Tags: ai, generative-ai, llms, pelican-riding-a-bicycle, deepseek, llm-release, openrouter, ai-in-china, artificial-analysis",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8a507da161",
+    "rejectedAt": "2026-08-01T09:00:57.426546+00:00",
+    "date": "2026-07-31",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/31/datasette-agent/#atom-everything",
+    "headline": "datasette-agent 0.4a0",
+    "summary": "Release: datasette-agent 0.4a0\n        \n\nNew await context.browser_task() mechanism allowing agent tools to run code directly in the user's browser. #33\n\n\nThis is an exciting new capability: it makes it easy for Datasette Agent plugins to provide tools that execute custom JavaScript in the user's browser.\n    \n    \n        Tags: datasette, llm-tool-use, datasette-agent",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b4abdb1547",
+    "rejectedAt": "2026-08-01T09:00:58.541193+00:00",
+    "date": "2026-07-31",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything",
+    "headline": "Stateless MCP has recaptured my interest (and inspired mcp-explorer and datasette-mcp)",
+    "summary": "Tuesday was Stateless MCP day - the rollout of MCP 2.0, or the 2026-07-28 Model Context Protocol specification to use the more formal but less memorable name. This is the most significant change to the MCP spec since it first launched, and has also served to reignite my personal interest in the protocol.\nFor background: MCP is the Model Context Protocol, which describes a standard way to expose new tools to LLM-powered agent frameworks. It was introduced by Anthropic back in November 2024, had a huge spike of interest through much of 2025, and then became somewhat eclipsed by Skills (another Anthropic invention) when it became apparent that an agent harness with access to a terminal and curl could do most of what MCP did in a more flexible way. I wrote about that in my review of 2025.\nI'm coming back around to MCP now. Giving an agent a shell environment with the ability to access the internet is fraught with risk, and requires a strong model that is capable of effectively driving such",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b6db68b695",
+    "rejectedAt": "2026-08-01T09:00:59.601800+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-1259",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen ermöglichen Denial of Service und unspezifischen Angriff",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen im Linux-Kernel ausnutzen, um einen Denial-of-Service-Zustand zu erzeugen oder einen unspezifischen Angriff durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ca42fcb845",
+    "rejectedAt": "2026-08-01T09:01:01.150004+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-1197",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen ermöglichen Denial of Service und unspezifische Angriffe",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen im Linux-Kernel ausnutzen, um einen Denial-of-Service-Zustand zu erzeugen oder unspezifische Angriffe durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ed37e3352c",
+    "rejectedAt": "2026-08-01T09:01:02.134381+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0047",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen ermöglichen Denial of Service",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen im Linux-Kernel ausnutzen, um einen Denial-of-Service-Zustand zu erzeugen und weitere nicht spezifizierte Angriffe zu starten.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2c56b37002",
+    "rejectedAt": "2026-08-01T09:01:03.650827+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-3251",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen ermöglichen Denial of Service",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Linux Kernel ausnutzen, um einen Denial of Service Angriff durchzuführen oder andere, nicht näher bekannte Auswirkungen zu erzielen..",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-97b03adbcd",
+    "rejectedAt": "2026-08-01T09:01:05.761627+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-1008",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen ermöglichen Denial of Service",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um einen Denial of Service Angriff durchzuführen oder sonstige Auswirkungen zu verursachen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-204e6bd9d1",
+    "rejectedAt": "2026-08-01T09:01:06.822842+00:00",
+    "date": "2026-07-30",
+    "source": "EDPB news",
+    "url": "https://www.edpb.europa.eu/news/stakeholder-event-on-guidelines-on-the-interplay-between-data-protection-and-competition-law-0_en",
+    "headline": "Stakeholder event on guidelines on the interplay between data protection and competition law: express your interest",
+    "summary": "Brussels, 30 July – The EDPB and the European Commission organise a remote stakeholder event in the context of their joint work on upcoming guidelines on the interplay between competition and data protection. The event will take place on 15 October 2026 and is an opportunity for stakeholders to inform and support the ongoing work on this topic.The event reflects the EDPB’s commitment to stakeholder engagement and cross-regulatory cooperation, as outlined in the Helsinki statement and in the EDPB Strategy 2024-2027.Who can participate?The EDPB and the European Commission welcome participation from individuals and organisations with relevant expertise in the topic of the event.How to take part?You can find further information and express your interest here.If you have technical problems submitting the application, we invite you to refresh the page or open the form in a different browser.The call for interest is open until 28 August 2026.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a862023dd4",
+    "rejectedAt": "2026-08-01T09:01:09.303759+00:00",
+    "date": "2026-07-31",
+    "source": "FTC press releases",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2026/07/statements-grant-early-termination-ftcs-investigation-ionqs-proposed-acquisition-skywater",
+    "headline": "Statements on the Grant of Early Termination of the FTC’s Investigation of IonQ’s Proposed Acquisition of SkyWater",
+    "summary": "The Federal Trade Commission granted early termination of its review of quantum computing developer IonQ Inc.’s proposed acquisition of SkyWater Technologies Inc., a quantum chip fabrication company.View Press Release",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8b3c3fd01b",
+    "rejectedAt": "2026-08-01T09:01:13.862251+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://thehackernews.com/2026/04/anthropics-claude-mythos-finds.html",
+    "headline": "Anthropic's Claude Mythos Finds Thousands of Zero-Day Flaws Across Major Systems",
+    "summary": "Artificial Intelligence (AI) company Anthropic announced a new cybersecurity initiative called Project Glasswing that will use a preview version of its new frontier model, Claude Mythos, to find and address security vulnerabilities.\n\nThe mo ... (https://incidentdatabase.ai/cite/1613#7618)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-779eb43a87",
+    "rejectedAt": "2026-08-01T09:01:14.898744+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://media.lavozdegalicia.es/noticia/deza/silleda/2026/06/11/18-denuncias-jovenes-silleda-desnudos-falsos-ia/0003_202606D11C19914.htm",
+    "headline": "Ya son 18 las denuncias de jóvenes de Silleda por desnudos falsos con IA",
+    "summary": "Son ya 18 las denuncias que de momento han sido ya presentadas por jóvenes de Silleda por la divulgación de imágenes suyas falsas en las que aparecen desnudas, creadas con inteligencia artificial. Desde el instituto armado apuntan que la in ... (https://incidentdatabase.ai/cite/1614#7621)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-56aa03dab1",
+    "rejectedAt": "2026-08-01T09:01:16.179307+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://aapnews.aap.com.au/glance/news/charges-over-deepfake-sexual-images-posted-in-public",
+    "headline": "Women ‘listed for sex’ on alleged AI deepfake posters",
+    "summary": "Women's faces have been stolen and pasted onto pornographic images then advertised for sex in a \"callous and sickening\" deepfake campaign spanning years, police say.\n\nA man has been accused of using artificial intelligence to turn women int ... (https://incidentdatabase.ai/cite/1610#7611)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b9462aa1cb",
+    "rejectedAt": "2026-08-01T09:01:17.481622+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://www.wbrz.com/news/marrero-woman-arrested-for-ai-nude-photos-extortion-after-deputies-initially-thought-she-was-victim/",
+    "headline": "Woman arrested for AI nude photos, extortion, after LPSO deputies initially thought she was victim",
+    "summary": "LIVINGSTON --- A Marrero woman who was initially considered a victim in an online threats and extortion case has been arrested after investigators discovered she was actually behind the scheme herself, the Livingston Parish Sheriff's Office ... (https://incidentdatabase.ai/cite/1611#7615)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b94013c6f5",
+    "rejectedAt": "2026-08-01T09:01:18.490033+00:00",
+    "date": "2026-08-01",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/adobe-campaign-classic-cvss-100-flaw.html",
+    "headline": "Adobe Campaign Classic CVSS 10.0 Flaw Could Run Code Without User Interaction",
+    "summary": "Adobe has released security updates to address a maximum-severity security flaw in Campaign Classic (ACC), its enterprise-focused marketing automation platform, that could result in arbitrary code execution.\n\nThe vulnerability, tracked as CVE-2026-48449, carries a severity score of 10.0 on the CVSS scoring system.\n\nIt has been described as a case of incorrect authorization that could result in",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0c1f8895d7",
+    "rejectedAt": "2026-08-01T09:01:29.759986+00:00",
+    "date": "2026-07-31",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/googles-ai-agent-uncovers-13-year-old-chrome-flaw-amid-record-patching-pace/",
+    "headline": "Google AI Uncovers 13-Year-Old Chrome Flaw Amid Record Patching Pace",
+    "summary": "The internet giant has built an agent harness to find vulnerabilities across Chrome’s codebase.\nThe post Google AI Uncovers 13-Year-Old Chrome Flaw Amid Record Patching Pace appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-4a4b1613ef",
+    "rejectedAt": "2026-08-01T09:01:35.444821+00:00",
+    "date": "2026-07-31",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/security/2026/07/ai-scammers-outperform-humans-when-it-comes-to-building-trust/",
+    "headline": "AI scammers outperform humans when it comes to building trust",
+    "summary": "The notion that scammers can use AI to sharpen their deceptions, polish their language, and lubricate their banter with victims is now a reality for anyone fighting the fraud operations that steal tens of billions of dollars a year worldwide. But can AI fully replace a human scammer, autonomously building the web of deception leading up to the fake investment that defrauds the mark? One study’s experiment suggests that it can—and may even be able to carry out the majority of that long con more effectively than humans. Researchers from four universities—Amrita Vishwa Vidyapeetham in India, Fosc",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-fc02c7e08a",
+    "rejectedAt": "2026-08-01T09:01:40.104801+00:00",
+    "date": "2026-07-31",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/eset-tracks-rise-in-malicious-ai-skills-and-adaptable-malware/",
+    "headline": "ESET tracks rise in malicious AI skills and adaptable malware",
+    "summary": "Attackers are adapting established techniques to AI platforms, emerging technologies, and changing user behavior. ESET's new threat report examines the rise of malicious AI skills, AI-assisted malware, ClickFix attacks, record quishing activity, and ransomware tools designed to disable security software. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8e306e9cb7",
+    "rejectedAt": "2026-08-01T09:01:41.155706+00:00",
+    "date": "2026-07-31",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/researchers-report-84-flaws-in-4g-and.html",
+    "headline": "Researchers Report 84 Flaws in 4G and 5G Cores, Including a Session Hijacking Flaw",
+    "summary": "An academic study has disclosed a \"widespread class\" of security vulnerabilities impacting 4G and 5G core networks that, if successfully exploited, could trigger denial-of-service (DoS) attacks and even session hijacking, allowing an attacker to seize control of a user's network session.\n\nThe findings have been released by a group of researchers from Singapore's Nanyang Technological University",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-122a974b1c",
+    "rejectedAt": "2026-08-01T09:01:44.398599+00:00",
+    "date": "2026-07-31",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/chinese-hacker-commands-deepseek-via.html",
+    "headline": "Chinese Hacker Commands DeepSeek via Telegram to Launch Autonomous Attacks",
+    "summary": "A Chinese-speaking threat actor used DeepSeek through the open-source Hermes Agent framework to conduct autonomous attacks after issuing a single Telegram instruction. The agent independently identified internet-facing systems, selected public exploits, and executed attacks without further operator input. Palo Alto Networks' Unit 42 documented the incident.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "low_relevance"
+    ],
+    "relevanceScore": 95,
+    "confidenceScore": 100,
+    "sourceQualityScore": 82,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "excessive-agency",
+      "prompt-injection"
+    ],
+    "vendor": "DeepSeek via Hermes Agent framework"
+  },
+  {
+    "id": "reject-3322af8ceb",
+    "rejectedAt": "2026-08-01T09:01:46.148093+00:00",
+    "date": "2026-07-31",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-066-aws/",
+    "headline": "Incomplete fix for CVE-2025-4318 code injection in Amazon &commat;aws-amplify/codegen-ui-react",
+    "summary": "Bulletin ID: 2026-066-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/30/2026 11:00 AM PDT Description: Amplify Codegen UI is a library that generates React components and themes from schema definitions for use in AWS Amplify projects. We identified CVE-2026-18245 , an issue that exists in the amplify-codgen-ui-react package that could allow an authenticated user to run arbitrary JavaScript code during the component rendering and build process. Impacted versions: <2.20.6 Resolution: This issue has been addressed in @aws-amplify/codegen-ui-react version 2.20.6 .",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a29a28602d",
+    "rejectedAt": "2026-08-01T09:01:48.081415+00:00",
+    "date": "2026-07-31",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/hipaa-security-rule-on-aws-technical-safeguards-implementation-and-readiness-guidance/",
+    "headline": "HIPAA Security Rule on AWS – Technical Safeguards Implementation and Readiness Guidance",
+    "summary": "Today, we’re releasing the HIPAA Security Rule on AWS: Technical Safeguards Implementation and Readiness Guidance. This helps covered entities and business associates configure, implement, and evidence compliance with the HIPAA Security Rule Technical Safeguard requirements (45 CFR §164.312) when building healthcare workloads on AWS. The HIPAA Security Rule’s Technical Safeguards (§164.312) define five standards and […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-694406d65e",
+    "rejectedAt": "2026-08-01T09:01:49.129249+00:00",
+    "date": "2026-07-31",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/moq-relays/",
+    "headline": "An API for MoQ: provision your own isolated relays",
+    "summary": "Last year, we enabled Media over QUIC (MoQ) on every Cloudflare server and opened the network for anyone to test. It provided a global MoQ endpoint, but not the isolation and access controls needed to run an application. Today, we’re adding those isolation and access controls. The new MoQ provisioning API lets you create an isolated relay for your application and issue separate credentials for publishers and subscribers. The relays you create are available across Cloudflare’s network within seconds, with no servers to deploy, size, or load balance. Cloudflare now supports the draft-14 and draf",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3ab87184f2",
+    "rejectedAt": "2026-08-01T09:01:51.736120+00:00",
+    "date": "2026-07-31",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/backstage-lakebase-part-3",
+    "headline": "Backstage with Lakebase, part 3",
+    "summary": "In the first part of this series, running Backstage on Databricks Lakebase gave us one-second database branching. In part two, meanwhile, Unity Catalog absorbed that operational database into the enterprise governance plane. But here’s the payoff that actually changes the org chart. In a normal stack, answering ‘who owns the infrastructure running up our cloud spend, and what did it cost?’ crosses two boundaries. The ownership graph lives in Backstage (owned by platform engineering), while the cost data lives in a data warehouse (governed by the data team). Answering the question requires an E",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6d58997b46",
+    "rejectedAt": "2026-08-01T09:01:53.206496+00:00",
+    "date": "2026-08-01",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/ten-advances-in-mathematics",
+    "headline": "Ten advances in mathematics and theoretical computer science",
+    "summary": "OpenAI shares new results on long-standing open problems in mathematics and theoretical computer science, including advances in geometry, cryptography, and complexity.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c5ad624a6f",
+    "rejectedAt": "2026-08-01T09:01:56.412613+00:00",
+    "date": "2026-07-31",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-criminal-scam-operation",
+    "headline": "Disrupting a Criminal Scam Operation",
+    "summary": "OpenAI disrupted a Cambodia-based criminal scam operation that used ChatGPT to automate investment, romance, gambling, and impersonation fraud schemes. The operation leveraged the model's text generation capabilities to scale social engineering attacks.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 100,
+    "sourceQualityScore": 70,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "excessive-agency"
+    ],
+    "vendor": "ChatGPT"
+  },
+  {
+    "id": "reject-6e145b017b",
+    "rejectedAt": "2026-08-01T09:01:57.471651+00:00",
+    "date": "2026-07-31",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/building-abundant-intelligence",
+    "headline": "Building abundant intelligence",
+    "summary": "A full-stack approach to making advanced AI more capable, more affordable, and more widely useful.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2e1a8c8f35",
+    "rejectedAt": "2026-08-01T09:01:58.519051+00:00",
+    "date": "2026-07-30",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/hackers-exploit-anysign4pc-via-hacked.html",
+    "headline": "Hackers Exploit AnySign4PC via Hacked Korean Sites to Install Backdoors Without Prompts",
+    "summary": "South Korean authorities and four security firms have disclosed a state-sponsored campaign that compromised trusted domestic websites. The attackers used those sites to exploit locally installed financial-security software and infect targeted visitors with SIGNBT or COPPERHEDGE backdoors.\n\nA compromised page could infect a system running a vulnerable AnySign4PC version without a prompt or",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9d5306398d",
+    "rejectedAt": "2026-08-01T09:01:59.603206+00:00",
+    "date": "2026-07-31",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/data-privacy/drop-platform-lets-californians-ditch-their-data",
+    "headline": "DROP Platform Lets Californians Reduce Digital Footprint",
+    "summary": "Hundreds of thousands of California residents have already registered for the Delete Request and Opt-out Platform (DROP), which launches Aug. 1. Other states could follow if the process goes smoothly.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5fd2c79165",
+    "rejectedAt": "2026-08-01T09:02:04.892283+00:00",
+    "date": "2026-07-31",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/games/2026/jul/31/clean-start-thought-provoking-tidying-sim-tells-immigrants-tale",
+    "headline": "‘A universal human story’: Clean Start’s thought-provoking tidying sim tells immigrant’s tale",
+    "summary": "Playing as recent arrival Lena, your challenges include learning a new language and uncovering family secrets – its developer hopes it will spread ‘a little more compassion’The cosy house-sorting sim has become a much-loved staple of the PC indie scene. Titles such as Unpacking, A Little to the Left and Momento charm players with their detailed interiors and quiet narratives of lives lived and shared within the same four walls. For Clean Start, Polish developer Serious Sim has taken a different approach – here you play as domestic cleaner, Lena, an immigrant who has arrived in an unspecified western country with little knowledge of the local language, and a family to support back home.From here, you’re tasked with cleaning a series of houses and apartments, polishing tables, tidying shelves and scrubbing muddy pawprints from kitchen floors. It seems you’re able to rearrange the rooms, giving them a personal feel, which is after all one of the most pleasing elements of the genre. You ca",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-58970b535e",
+    "rejectedAt": "2026-08-01T09:02:06.022036+00:00",
+    "date": "2026-07-31",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/online-ad-firm-adforms-script-compromised-to-steal-cryptocurrency/",
+    "headline": "Online ad firm Adform’s script compromised to steal cryptocurrency",
+    "summary": "Online advertising firm Adform suffered a supply-chain attack that delivered cryptocurrency-stealing scripts to websites using its ad platform, replacing wallet addresses copied to visitors' clipboards with ones controlled by an attacker. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4b4c01933a",
+    "rejectedAt": "2026-08-01T09:02:07.218285+00:00",
+    "date": "2026-07-31",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/arch-linux-disables-aur-package-adoption-to-stop-malware-flood/",
+    "headline": "Arch Linux disables AUR package adoption to stop malware flood",
+    "summary": "The Arch Linux project has temporarily disabled adoption of Arch User Repository (AUR) packages after a surge in malicious takeovers of existing packages. The decision was announced on the distribution's mailing list by contributor Robin Candau, who said that the situation is temporary until a solution is found. “Due to the current influx of malicious package adoptions and follow-up commits made via the AUR, package adoption is currently disabled while we are handling the situation,” announced Candau . “We will send a follow-up once we're able to. In the meantime, feel free to report suspiciou",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1e197764be",
+    "rejectedAt": "2026-08-01T09:02:08.888823+00:00",
+    "date": "2026-07-31",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/amgen-says-cloud-data-breach-exposed-patient-health-proprietary-info/",
+    "headline": "Amgen says cloud data breach exposed patient health, proprietary info",
+    "summary": "Pharmaceutical company Amgen says it suffered a data breach after threat actors stole corporate data and patient information stored in multiple cloud systems operated by third-party service providers. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-be779bdb0b",
+    "rejectedAt": "2026-08-01T09:02:09.904203+00:00",
+    "date": "2026-07-31",
+    "source": "404 Media",
+    "url": "https://www.404media.co/youtube-asmr-ban-sex-and-nudity-policy/",
+    "headline": "YouTube Bans Popular ASMR Artists, Accusing Them of Making 'Sexually Gratifying' Content",
+    "summary": "YouTube told ASMR artists including Bunnii, Slight Sounds, Rose, and others that their content broke the platform's sex and nudity policy. Creators say these bans are unfair and potentially life-altering.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ddfbc3229b",
+    "rejectedAt": "2026-08-01T09:02:10.876048+00:00",
+    "date": "2026-07-31",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/in-other-news-openai-open-source-tool-aws-links-hacks-to-north-korea-mythos-crypto-research/",
+    "headline": "In Other News: OpenAI Open Source Tool, AWS Links Hacks to North Korea, Mythos Crypto Research",
+    "summary": "Noteworthy stories that might have slipped under the radar: parcel delivery company OnTrac hacked, Adobe patches, UK Department for Education loses 607,000 records.\nThe post In Other News: OpenAI Open Source Tool, AWS Links Hacks to North Korea, Mythos Crypto Research appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c81043d927",
+    "rejectedAt": "2026-08-01T09:02:11.847152+00:00",
+    "date": "2026-07-31",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/eu-to-crack-down-on-ai-deepfakes-illicit-imagery-and-hacking-with-new-team-in-brussels/",
+    "headline": "EU to Crack Down on AI Deepfakes, Illicit Imagery and Hacking With New Team in Brussels",
+    "summary": "When the AI Act comes into force, AI companies will be required to make clear to consumers with labels or digital watermarks that chatbots or imagery are generated with AI.\nThe post EU to Crack Down on AI Deepfakes, Illicit Imagery and Hacking With New Team in Brussels appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2b050ff807",
+    "rejectedAt": "2026-08-01T09:02:13.434392+00:00",
+    "date": "2026-07-31",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/jul/31/ai-labels-to-be-compulsory-on-authentic-looking-content-under-eu-rules",
+    "headline": "AI labels to be compulsory on authentic-looking content under EU rules",
+    "summary": "Companies must ensure people know when they are interacting with artificially generated images, audio and text designed to look realFrom apparently conspiring to steal elections to abusing staff or performing embarrassing dance moves, the last few years have seen plenty of fake content made about politicians intended to malign its targets and mislead the public.Now EU rules aim to stem the flood of this deceptive content: starting from Sunday, artificially generated images, audio and text designed to look authentic must be labelled. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d9c910afd6",
+    "rejectedAt": "2026-08-01T09:02:14.753174+00:00",
+    "date": "2026-07-30",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/us-news/2026/jul/30/controversial-flock-ai-surveillance-camera-risk",
+    "headline": "Flock surveillance cameras can pose a crash risk for drivers, US experts say",
+    "summary": "Roadside safety advocates say some automated license plate readers may not meet highway safety standardsFlock Safety cameras have been pilloried for facilitating the AI-powered surveillance of private citizens and for targeting immigrants for years. But now safety advocates are also claiming that their physical location can pose potential roadside hazards.At the bottom of a tree-lined hill on a narrow, two lane rural road in Greene county, Ohio, stands a black metal rod with a camera and solar panel attached at the top. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6c10c5e15f",
+    "rejectedAt": "2026-08-01T09:02:18.288085+00:00",
+    "date": "2026-07-31",
+    "source": "404 Media",
+    "url": "https://www.404media.co/google-earths-new-ai-lets-anyone-fabricate-completely-bullshit-satellite-images/",
+    "headline": "Google Earth’s New AI Lets Anyone Fabricate Completely Bullshit Satellite Images",
+    "summary": "Google Earth introduced an AI feature that generates fabricated satellite imagery, enabling users to create misleading or inaccurate images—such as fake drone strikes or nonexistent nuclear facilities. The feature poses a significant disinformation risk to OSINT analysts and the public.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 100,
+    "sourceQualityScore": 55,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "hallucination-and-reliability",
+      "insecure-output-handling"
+    ],
+    "vendor": "Google Earth"
+  },
+  {
+    "id": "reject-588b1872b5",
+    "rejectedAt": "2026-08-01T09:02:19.481881+00:00",
+    "date": "2026-07-31",
+    "source": "404 Media",
+    "url": "https://www.404media.co/ai-company-training-scanning-books-database-isbndb/",
+    "headline": "Company Offering Printed Books to Train AI Stops After 404 Media Coverage",
+    "summary": "Following 404 Media’s reporting that book database company ISBNdb claimed to source printed books to then sell to AI companies for AI training, the company deleted the part of its website offering the service and walked back claims that it would train AI models, and instead called it “a test of market interest.” On July 30, nine days after 404 Media’s reporting, ISBNdb added a note to its homepage and an update on its news page about the change. “We've seen the recent coverage about a marketing landing page on our site, and we understand the concern it raised. The facts: ISBNdb has never purch",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7748f1e6ae",
+    "rejectedAt": "2026-08-01T09:02:21.047769+00:00",
+    "date": "2026-07-31",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/defcon-34-badge-baochip-andrew-bunnie-huang/",
+    "headline": "The New Defcon Badges Pack a Unique Open Source Chip That Doubles as a Security Key",
+    "summary": "It’s been a longtime feature of the annual Defcon hacker conference that attendees come away not only with knowledge of new software vulnerabilities and hacking techniques but also an elaborately designed conference badge—often electronic masterpieces embedded with intricate puzzles , complex crypto challenges, hidden Easter eggs , and even the mechanical gear trains of a watch. Each year’s badge creator endeavors to top previous designs and blow the minds of hard-to-impress hackers. But this year’s badges take a different tack. Instead of the badge designs being the star, it’s what is inside ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f8d403c850",
+    "rejectedAt": "2026-08-01T09:02:22.068870+00:00",
+    "date": "2026-07-31",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/cyberattacks-on-minnesota-water-systems-investigated-as-officials-warn-about-iranian-hackers/",
+    "headline": "Cyberattacks on Minnesota Water Systems Investigated as Officials Warn About Iranian Hackers",
+    "summary": "Iran has the “geopolitical motivations” and a recent history of targeting water systems, experts pointed out.\nThe post Cyberattacks on Minnesota Water Systems Investigated as Officials Warn About Iranian Hackers appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2866d27e28",
+    "rejectedAt": "2026-08-01T09:02:24.173394+00:00",
+    "date": "2026-07-31",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/identity-access-management-security/usa-fencing-hidden-identity-challenge-amateur-sports",
+    "headline": "USA Fencing Lunges Into the Hidden Identity Challenge in Amateur Sports",
+    "summary": "The organization behind Team USA's Olympic/Paralympic fencing teams has automated identity verification to handle growing membership, cutting manual review time while ensuring athletes compete in the correct categories.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f6bd5a50d7",
+    "rejectedAt": "2026-08-01T09:02:25.864521+00:00",
+    "date": "2026-07-30",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/threat-intelligence/se-asian-cybercriminal-syndicates-global-power",
+    "headline": "SE Asian Cybercriminal Syndicates Become a Global Power",
+    "summary": "The organized crime groups have moved from goods to services and continue to traffic people from at least 80 countries, costing nations in the region at least $88 billion in 2025 alone.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d00616698c",
+    "rejectedAt": "2026-08-01T09:02:26.894559+00:00",
+    "date": "2026-07-30",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/thefilter/2025/mar/28/best-cordless-vacuum-cleaners-uk",
+    "headline": "The best cordless vacuum cleaners for a spotless home: 10 tried and tested favourites",
+    "summary": "Stick vacuums are a convenient alternative to corded designs, but which model wins for overall cleaning prowess? Our expert reveals all• The best robot vacuums• How to make your vacuum last longerChoosing a cordless vacuum isn’t a decision that should be taken lightly. You’re likely to keep a vacuum cleaner for years, relying heavily on its ability to suck up dust, crumbs, mud, pet hair and any other dry spillages or sheddings that end up on your floor. Choosing the right model can be the difference between an effective cleaner that’s a delight to pull out of the cupboard and a dud that you dread having to unblock, detangle and clean after every use.In this review, I took 16 of the leading cordless vacuum cleaners from a range of manufacturers and at various prices and inflicted the same cleaning tests on each one. That takes all the guesswork out of picking your next cleaner: I can tell you exactly which ones picked up the most mess.Best cordless vacuum cleaner overall: Shark PowerDet",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9d7a513b2b",
+    "rejectedAt": "2026-08-01T09:02:28.286154+00:00",
+    "date": "2026-07-30",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/jul/30/crackdown-claims-firms-spam-car-finance-scandal-payouts",
+    "headline": "Raids across UK in crackdown on nuisance car finance texts",
+    "summary": "Laptops, phones and documents seized as information commissioner acts on messages about mis-selling scandalLaptops, mobile phones and documents have been seized after officials carried out search warrants in a crackdown on claims companies plaguing people with spam text messages about the car finance mis-selling scandal.The UK’s Information Commissioner’s Office (ICO) executed warrants at homes and businesses linked to five companies in London, Liverpool, Bolton, Burnley and Swansea on Wednesday. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0db5ea2b8c",
+    "rejectedAt": "2026-08-01T09:02:29.254402+00:00",
+    "date": "2026-07-30",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/a-civilian-plane-crashed-in-new-mexico-was-the-militarys-tech-to-blame/",
+    "headline": "A Civilian Plane Crashed in New Mexico. Was the Military’s Tech to Blame?",
+    "summary": "This past May, a twin-engine Beechcraft King Air medevac plane took off from Roswell, New Mexico, and headed west to the town of Ruidoso to pick up a patient. It shouldn’t have been a challenging flight for the two pilots and two nurses aboard. The temperature was 69 degrees; the sky was clear. The 60-mile journey normally takes a half hour, at most. But once airborne, the plane ran into trouble. At the White Sands Missile Range that night, US military personnel were conducting a GPS jamming exercise that left the King Air pilots—and anyone else within hundreds of miles—unable to use modern na",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8e5deb56c1",
+    "rejectedAt": "2026-08-01T09:02:30.244869+00:00",
+    "date": "2026-07-31",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyber-risk/morning-after-we-pull-root-of-trust-nobody-owns-it",
+    "headline": "The Morning After We Pull a Root of Trust, Nobody Owns It",
+    "summary": "The most valuable move any security team can make is building a certificate and key inventory.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e102c01793",
+    "rejectedAt": "2026-08-01T09:02:31.322218+00:00",
+    "date": "2026-07-31",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cybersecurity-operations/interpol-leverages-global-system-curtail-fraud-payments",
+    "headline": "Interpol Leverages Global System to Curtail Fraud Payments",
+    "summary": "When a fraudulent transaction occurs, law enforcement agencies must work quickly to halt payments before cybercriminals cash out.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-eec3752b06",
+    "rejectedAt": "2026-08-01T09:02:32.384287+00:00",
+    "date": "2026-07-31",
+    "source": "The Record",
+    "url": "https://therecord.media/finland-russia-fiber-optic-disconnection",
+    "headline": "Finland to disconnect fiber-optic link to Russia as lease expires",
+    "summary": "Finland's national electricity transmission operator has confirmed it will disconnect a fiber-optic telecommunications link to Russia, removing another piece of cross-border infrastructure that remained in place after electricity trade between the two countries ended following Moscow's full-scale invasion of Ukraine. State-owned grid operator Fingrid told Recorded Future News on Friday that the telecommunications connection will be taken out of service when the current lease agreement expires, reportedly at the end of the year. \"The two telecommunications connections were part of the cross-bor",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e604f8e3a3",
+    "rejectedAt": "2026-08-01T09:02:35.038445+00:00",
+    "date": "2026-07-31",
+    "source": "The Record",
+    "url": "https://therecord.media/cyber-command-plans-silicon-valley-office-to-drive-innovation",
+    "headline": "Cyber Command plans Silicon Valley office to drive innovation",
+    "summary": "U.S. Cyber Command is looking to open an outpost in Silicon Valley as a way to build new relationships with the tech sector and bolster a major pillar of its internal modernization overhaul. Officials hope to establish the satellite office, dubbed Cyber Command-West (CC-W), as soon as possible, according to three people familiar with the planning. It will initially be co-located at the existing Defense Innovation Unit — the Pentagon’s high-profile innovation arm — and feature a handful of personnel before expanding, these people, who spoke on the condition of anonymity, said. It will have its ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f77c233a4a",
+    "rejectedAt": "2026-08-01T09:02:36.171178+00:00",
+    "date": "2026-07-31",
+    "source": "The Record",
+    "url": "https://therecord.media/cisa-warns-of-spike-in-water-system-attacks",
+    "headline": "CISA warns of spike in attacks on water systems as Minnesota incidents probed",
+    "summary": "The Cybersecurity and Infrastructure Security Agency said in a public alert on Thursday that facilities should “remove publicly exposed PLCs and other operational technology (OT) from the internet as soon as possible.\"",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f203083ab6",
+    "rejectedAt": "2026-08-01T09:02:37.121911+00:00",
+    "date": "2026-07-31",
+    "source": "404 Media",
+    "url": "https://www.404media.co/dark-dimension-hypothesis-study/",
+    "headline": "A Hidden 'Dark Dimension' Could Rewrite Our Understanding of the Universe",
+    "summary": "Scientists have proposed the existence of a fifth “dark dimension” that governs the behavior of both dark energy and dark matter—and which may be observationally detected in the near future, according to a recent preprint study . The dark dimension hypothesis could potentially provide an elegant solution to some of the biggest mysteries in science, including the nature of dark matter, an unidentified substance that makes up most mass in the universe, and dark energy, the term for whatever is causing the universe to expand at an accelerating rate. The idea arose from string theory, a decades-ol",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9b657b6bfa",
+    "rejectedAt": "2026-08-01T09:02:38.384043+00:00",
+    "date": "2026-07-31",
+    "source": "404 Media",
+    "url": "https://www.404media.co/behind-the-blog-silent-retreat/",
+    "headline": "Behind the Blog: Silent Retreat",
+    "summary": "This is Behind the Blog, where we share our behind-the-scenes thoughts about how a few of our top stories of the week came together. This week, we discuss going into the woods, a \"he admit it\" moment, and a tofu sandwich. JOSEPH: Thank you to everyone who came to Thursday’s FOIA Forum. It was a great turnout with a ton of really good questions. We spoke mostly about mining city council meetings for tips or context you can then use to fuel your public records requests. I’ll upload the video soon and put it on the site for everyone to watch. The other 404 Media co-founders have been writing in B",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
     "id": "reject-01d4f38984",
     "rejectedAt": "2026-07-31T09:37:31.343668+00:00",
     "date": "2026-07-30",
