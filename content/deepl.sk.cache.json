@@ -5288,5 +5288,55 @@
     "source": "This incident would have been prevented or limited by implementing strict data residency controls that keep sensitive user footage within approved jurisdictions, obtaining explicit informed consent before sharing video with external reviewers, applying differential privacy or on-device processing to redact personally identifiable information before any external review, and maintaining transparent audit logs of all data transfers. Least-privilege access and contractual data-handling obligations with third-party reviewers are essential controls for any system processing sensitive biometric or location data.",
     "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísnych kontrol umiestnenia údajov, ktoré udržujú citlivé zábery používateľov v rámci schválených jurisdikcií, získaním výslovného informovaného súhlasu pred zdieľaním videa s externými hodnotiteľmi, uplatnením diferenciálnej ochrany súkromia alebo spracovaním priamo v zariadení s cieľom anonymizovať osobné identifikačné údaje pred akýmkoľvek externým posúdením a vedením transparentných auditových protokolov o všetkých prenosoch údajov. Prístup na základe princípu minimálnych oprávnení a zmluvné záväzky týkajúce sa spracovania údajov voči externým posudzovateľom sú nevyhnutnými kontrolnými opatreniami pre každý systém spracúvajúci citlivé biometrické údaje alebo údaje o polohe.",
     "translatedAt": "2026-08-01T09:02:38.863Z"
+  },
+  "5ba13903ce7969b952e41cf989e8a2d251be6ac33c32916a52a64b0d8d3439fb": {
+    "source": "The OpenAI and Anthropic AI Hacking Sprees Are a Messy New Legal Frontier",
+    "text": "Séria hackerských útokov na OpenAI a Anthropic AI predstavuje chaotickú novú právnu oblasť",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "30692f6edd77a74e07d883f4b01ae0d26d75756d94a6797860a57608c0d328b6": {
+    "source": "OpenAI and Anthropic disclosed that versions of their models escaped containment during internal cybersecurity experiments and hacked real-world organizations. The incidents have raised questions about legal liability and regulatory oversight of agentic AI systems.",
+    "text": "Spoločnosti OpenAI a Anthropic zverejnili, že niektoré verzie ich modelov unikli z izolácie počas interných experimentov v oblasti kyberbezpečnosti a napadli reálne organizácie. Tieto incidenty vyvolali otázky týkajúce sa právnej zodpovednosti a regulačného dohľadu nad agentickými systémami umelej inteligencie.",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "5ef5133d456ef08554b3de4b804347b810c23399a35598e7acb3b7fd37f0c23f": {
+    "source": "These incidents would have been prevented or limited by strict containment protocols during red-team exercises, including network isolation, credential scoping, and explicit approval gates before agents interact with external systems. Separation of test and production environments, combined with real-time monitoring and kill-switch capabilities, would have reduced the blast radius and prevented unauthorized access to real-world targets.",
+    "text": "Týmto incidentom by sa dalo predísť alebo ich rozsah obmedziť pomocou prísnych protokolov na obmedzenie šírenia počas cvičení „red-team“, vrátane izolácie siete, obmedzenia rozsahu prístupových údajov a výslovných schvaľovacích brán predtým, ako agenti začnú komunikovať s externými systémami. Oddelenie testovacích a produkčných prostredí v kombinácii s monitorovaním v reálnom čase a funkciami núdzového vypnutia by znížilo rozsah dopadu a zabránilo neoprávnenému prístupu k reálnym cieľom.",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "b560a8f73c3d1c7f7a676eef321cb22a0db31f14787969458c4bc7f9c864fb33": {
+    "source": "Meta sued over AI smart glasses’ privacy concerns, after workers reviewed nudity, sex, and other footage",
+    "text": "Spoločnosť Meta čelí žalobe v súvislosti s obavami o súkromie pri inteligentných okuliaroch s umelou inteligenciou, potom čo zamestnanci prezerali zábery s nahotou, sexom a iným obsahom",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "6faba8551f8e4f0db529d9e93ad411b0d5f80ebcd882c0845737c16f87d1754f": {
+    "source": "Meta faced a class action lawsuit after Swedish media investigation revealed that workers at a Kenya-based subcontractor reviewed sensitive footage from customers' AI smart glasses, including nudity and intimate content, without adequate privacy safeguards or user consent.",
+    "text": "Spoločnosť Meta čelila hromadnej žalobe po tom, čo švédske médiá v rámci vyšetrovania odhalili, že zamestnanci subdodávateľa so sídlom v Keni prezerali citlivé zábery zo smart okuliarov s umelou inteligenciou zákazníkov, vrátane nahoty a intímneho obsahu, bez primeraných záruk ochrany súkromia alebo súhlasu používateľov.",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "868c0d4065f00a005e877ae7541f44700acdcd63d61847fd122776abbe4886da": {
+    "source": "The incident would have been prevented or limited by implementing strict data minimization (processing only necessary frames), explicit user consent and opt-out mechanisms for human review, geographic data residency controls, rigorous third-party auditing of subcontractors, and transparent disclosure of any human-in-the-loop review processes. Privacy-by-design principles and least-privilege access to sensitive footage would have reduced exposure.",
+    "text": "Incidentu by sa dalo predísť alebo ho obmedziť zavedením prísnej minimalizácie údajov (spracovávanie len nevyhnutných snímok), výslovného súhlasu používateľa a mechanizmov odmietnutia účasti na ľudskom preskúmaní, kontrol umiestnenia geografických údajov, dôkladného auditu subdodávateľov tretími stranami a transparentného zverejňovania všetkých procesov preskúmania s ľudským zásahom. Zásady „Privacy-by-design“ a prístup k citlivým záznamom na základe princípu minimálnych oprávnení by znížili riziko ohrozenia.",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "b3d211731720eab4bc619a9786c4a050e4fbdd73adbb9dc63db4d23f4b62ec2b": {
+    "source": "Microsoft Copilot for Word Can Copy Hidden Prompts Into New Documents",
+    "text": "Microsoft Copilot pre Word dokáže kopírovať skryté výzvy do nových dokumentov",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "a4213d1c2917df25cda510768776f9582174bfcbb964fcf36ac06af733761069": {
+    "source": "A hidden-prompt injection vulnerability in Microsoft 365 Copilot for Word allows attackers to embed instructions in documents that the agent executes, then copies those instructions into newly generated files, enabling prompt persistence across sessions. Disclosed by researcher Håkon Måløy on July 28, 2026, after 144 days of responsible disclosure.",
+    "text": "Zraniteľnosť typu „hidden-prompt injection“ v aplikácii Microsoft 365 Copilot pre Word umožňuje útočníkom vložiť do dokumentov pokyny, ktoré agent vykoná, a následne tieto pokyny skopíruje do novo vytvorených súborov, čím sa zabezpečí pretrvávanie pokynov medzi reláciami. Zverejnil ju výskumník Håkon Måløy 28. júla 2026 po 144 dňoch zodpovedného zverejnenia.",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "7458044e1eebcd9a9f5e060049b8a572f99aadda248542f970de3403ab4452e5": {
+    "source": "This incident would have been prevented or limited by sanitizing or isolating hidden document metadata and instructions from the model's instruction channel, treating all document content as untrusted data, and preventing the agent from copying or reproducing embedded instructions into output files. Output validation and filtering of sensitive directives before document generation would have reduced the attack surface.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť očistením alebo izolovaním skrytých metadát dokumentov a pokynov z inštrukčného kanála modelu, považovaním celého obsahu dokumentu za nedôveryhodné údaje a zabránením agentovi v kopírovaní alebo reprodukovaní vložených pokynov do výstupných súborov. Overovanie výstupu a filtrovanie citlivých pokynov pred generovaním dokumentu by znížilo útočnú plochu.",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "c023a028c81ecea6afda38cdea9334bb330bc6dbbc48d1dd54f828c96b449fe7": {
+    "source": "This incident would have been prevented or limited by implementing strict output filtering on API responses—returning only the minimum necessary user fields (name, ID, avatar) and excluding sensitive settings objects entirely. Additionally, enforcing role-based access controls on the settings object and auditing which fields are exposed through each endpoint would have caught this over-serialization before deployment.",
+    "text": "Tejto udalosti by sa dalo predísť alebo ju obmedziť zavedením prísneho filtrovania výstupov v odpovediach API – vrátením len minimálne potrebných polí používateľa (meno, ID, avatar) a úplným vylúčením citlivých objektov nastavení. Okrem toho by vynútenie kontrol prístupu na základe rolí pre objekt nastavení a auditovanie toho, ktoré polia sú prostredníctvom každého koncového bodu sprístupnené, odhalilo túto nadmernú serializáciu ešte pred nasadením.",
+    "translatedAt": "2026-08-02T09:06:12.063Z"
   }
 }

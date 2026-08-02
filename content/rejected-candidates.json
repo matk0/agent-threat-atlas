@@ -1,5 +1,658 @@
 [
   {
+    "id": "reject-44e3e0fe01",
+    "rejectedAt": "2026-08-02T09:05:13.212563+00:00",
+    "date": "2026-08-02",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/2/open-letters/#atom-everything",
+    "headline": "Open letters about AI development",
+    "summary": "Open letters about AI development\nI wrote this summary of the past few weeks of open letters as a section of my sponsors-only newsletter but I've decided to share it here as well.\nOpen Weights and American AI Leadership was shepherded by Microsoft, dated July 24th, and signed by 235 AI-adjacent companies including NVIDIA, Amazon, Y Combinator, The Linux Foundation and (a later signer) OpenAI.\nIt's clearly an argument designed to counter any instincts by the current US government to ban or limit open weight models over \"safety\" concerns - a reasonable consideration given what happened to Claude Fable 5!\n\nRelying solely on closed models is not inherently safe: they can be breached, misused, or fail in ways that outsiders cannot detect. And concentrating advanced AI capabilities behind a small number of closed models compounds that risk. It results in a small number of single points of failure, weakens competition, and leaves critical technology in the hands of a few providers. Open weigh",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ea51a590f5",
+    "rejectedAt": "2026-08-02T09:05:14.332740+00:00",
+    "date": "2026-08-01",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/1/greg-brockman/#atom-everything",
+    "headline": "Quoting Greg Brockman",
+    "summary": "at openai, many people hook their chatgpt up to slack.\npeople really don't like when a coworker's chatgpt contacts them asking for help with a task, even when they'd be perfectly happy doing that same work if asked by that coworker.\nreinforces how much people care about human relationships and helping each other, and want AI to give time back — or enhance time together — rather than become a layer separating people.\n&mdash; Greg Brockman, President and Co-Founder, OpenAI\n\n    Tags: ai-ethics, ai-misuse, generative-ai, openai, ai, llms",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-397ba82c5e",
+    "rejectedAt": "2026-08-02T09:05:16.002187+00:00",
+    "date": "2026-07-31",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/31/slack-emoji-maker/#atom-everything",
+    "headline": "Slack Emoji Maker",
+    "summary": "Tool: Slack Emoji Maker\n        I wanted to create a new Slack emoji, and their tool recommends a square that's 128x128 and has a transparent background... so I had Fable build me this simple image editor against those requirements.\n    \n    \n        Tags: tools, slack",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4f08835beb",
+    "rejectedAt": "2026-08-02T09:05:17.326019+00:00",
+    "date": "2026-08-02",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/2/july-newsletter/#atom-everything",
+    "headline": "July 2026 newsletter",
+    "summary": "The June edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here.\nThis month:\n\nAccidental cyberattacks by OpenAl and Anthropic models under test\nGPT-5.6 Sol, Terra, and Luna\nClaude Opus 5\nKimi K3 and DeepSeek-V4-Flash-0731\nOpen letters about Al development\nA fireside chat and a podcast\nReigniting my interest in MCP\nOther model releases\nMy projects\nWhat I'm using at the moment\n\nHere's a copy of the June newsletter as a preview of what you'll get. Pay $10/month to stay a month ahead of the free copy!\n\n    Tags: newsletter",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e2f861af97",
+    "rejectedAt": "2026-08-02T09:05:18.339925+00:00",
+    "date": "2026-08-01",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything",
+    "headline": "Ten advances in mathematics and theoretical computer science",
+    "summary": "Ten advances in mathematics and theoretical computer science\nA few days ago it was Anthropic discovering cryptographic weaknesses with Claude using Mythos Preview, spending $100,000 on tokens and with prompts that included \"again we are not looking for low hanging fruit, we want proper research to find genuinly hard findings.\"\nNow it's OpenAI's turn to flex. They set \"an internal version of Astra, our next major model\" on finding solutions to ten mathematical problems that \"have seen no progress on the main result for at least a decade\". They claim to have spent less than $2,000 at GPT-5.6 Sol token prices on each one.\n(No news on how many problems they spent $2,000 on without reaching a solution though.)\nThe openai/ten-proofs repository has Lean 4 formalizations of their results, and there's also a paper describing the solutions and an additional LLM-generated PDF where the model \"reconstructs how the proof came together\" based on the unpublished reasoning traces.\nThat's a decent leve",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-346abd3ca8",
+    "rejectedAt": "2026-08-02T09:05:19.688799+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-2173",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein lokaler Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um einen Denial of Service Angriff durchzuführen oder einen unspezifischen Angriff durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-47f7c0b238",
+    "rejectedAt": "2026-08-02T09:05:21.398675+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2603",
+    "headline": "[NEU] [niedrig] Apache Superset: Mehrere Schwachstellen",
+    "summary": "Ein entfernter, authentisierter Angreifer kann mehrere Schwachstellen in Apache Superset ausnutzen, um Sicherheitsvorkehrungen zu umgehen oder einen Denial of Service zu verursachen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b85197b565",
+    "rejectedAt": "2026-08-02T09:05:22.414940+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2605",
+    "headline": "[NEU] [mittel] OpenVPN: Schwachstelle ermöglicht DoS und die Offenlegung von Informationen",
+    "summary": "Ein entfernter, authentisierter Angreifer kann eine Schwachstelle in OpenVPN ausnutzen, um einen Denial of Service Angriff durchzuführen oder vertrauliche Informationen offenzulegen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8669cc5dfb",
+    "rejectedAt": "2026-08-02T09:05:23.541007+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2604",
+    "headline": "[NEU] [hoch] SQLite: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in SQLite ausnutzen, um beliebigen Programmcode auszuführen, vertrauliche Informationen offenzulegen oder einen Denial-of-Service-Zustand herbeizuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d9b548936e",
+    "rejectedAt": "2026-08-02T09:05:24.910642+00:00",
+    "date": "2026-07-31",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2607",
+    "headline": "[NEU] [hoch] Gladinet CentreStack: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Gladinet CentreStack ausnutzen, um beliebigen Programmcode auszuführen,SQL-Injection durchzuführen, Sicherheitsmaßnahmen zu umgehen, Daten zu manipulieren und vertrauliche Informationen offenzulegen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-98f6b417d6",
+    "rejectedAt": "2026-08-02T09:05:25.870647+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://www.forbes.com/sites/rashishrivastava/2026/07/29/why-this-startup-is-strapping-cameras-to-housekeepers-heads-in-india/",
+    "headline": "Why This Startup Is Strapping Cameras To Housekeepers’ Heads In India",
+    "summary": "On a Tuesday evening in early July, Anushka Ahuja, a dentist in Gurgaon, India, opens the door for the house help she booked ten minutes ago on Pronto, an app that provides instant professional cleaning services like sweeping, mopping and l ... (report_number: 7627)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2b884fdd64",
+    "rejectedAt": "2026-08-02T09:05:26.898733+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://www.reuters.com/world/africa/us-government-map-africa-mislabels-every-country-global-conference-2026-07-30/",
+    "headline": "US government map of Africa mislabels every country at global conference",
+    "summary": "July 30 (Reuters) - A U.S. government map of Africa mislabeled every country during a State Department presentation at ‌a global conference taking place in Brazil this week, causing a stir among attendees who took screenshots and posted the ... (https://incidentdatabase.ai/cite/1616#7626)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-38be4ebbf6",
+    "rejectedAt": "2026-08-02T09:05:29.084952+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://www.abc.net.au/news/2026-07-23/police-investigate-ai-generated-explicit-images/106950646",
+    "headline": "Police investigate AI-generated explicit images linked to Gold Coast teacher",
+    "summary": "Police are investigating explicit AI-generated content falsely depicting members of the A.B. Paterson school community, the school has said.\n\nIn a letter sent to parents of A.B. Paterson College on Thursday afternoon, principal Joanne Sheeh ... (https://incidentdatabase.ai/cite/1612#7616)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0e666e0b42",
+    "rejectedAt": "2026-08-02T09:05:32.072181+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://techjusticelaw.org/press-releases/pastor-sues-after-openai-ai-chatgpt-allegedly-discouraged-him-from-seeking-medical-care-during-life-threatening-blood-clots/",
+    "headline": "Pastor Seeks Accountability After ChatGPT Allegedly Discouraged Him From Seeking Medical Care During Life-Threatening Blood Clots",
+    "summary": "A pastor filed suit alleging that ChatGPT provided harmful medical advice, discouraging him from seeking hospital care during a life-threatening bilateral pulmonary embolism by leveraging his religious beliefs. The incident resulted in material health harm.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 100,
+    "sourceQualityScore": 72,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "hallucination-and-reliability",
+      "insecure-output-handling"
+    ],
+    "vendor": "ChatGPT"
+  },
+  {
+    "id": "reject-98fc443fa5",
+    "rejectedAt": "2026-08-02T09:05:35.830091+00:00",
+    "date": "2026-08-01",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/security-news-this-week-7-states-water-systems-hit-by-cyberattacks-likely-tied-to-iran/",
+    "headline": "7 States’ Water Systems Hit by Cyberattacks Likely Tied to Iran",
+    "summary": "This week, WIRED obtained a memo that tied dozens of cyberattacks against Minnesota water and wastewater utilities to Iran, the first official documentation of Iran’s likely responsibility for the most impactful campaign of cyberattacks to hit the US in the midst of the war that began nearly six months ago. In other news, more details have emerged about OpenAI’s “rogue” AI agent breach of Hugging Face’s platform. OpenAI disclosed that the AI agent hacked multiple third-party accounts and services as it sought to breach Hugging Face’s production database, which contained solutions for the cyber",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cd4deb3ebc",
+    "rejectedAt": "2026-08-02T09:05:36.898924+00:00",
+    "date": "2026-08-01",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/01/china-silicon-valley-white-house",
+    "headline": "China’s tech advances are causing chaos from Silicon Valley to the White House",
+    "summary": "New AI models, advanced robots and specialty computer chips are unsettling markets and the US tech industryOver the past month, a series of advancements in China’s artificial intelligence, chip manufacturing and robotics technologies have rattled financial markets, caused divisions among US tech moguls and left the Trump administration scrambling to respond.Silicon Valley has long pointed to China’s tech industry as a competitive threat and used its growth as rationale for why US firms should not face regulatory oversight that could slow them down. In recent weeks, however, China’s progress has pushed US tech CEOs past vague warnings and into open disagreement over how to address Chinese-made products upending their industry. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a2387078b1",
+    "rejectedAt": "2026-08-02T09:05:37.962950+00:00",
+    "date": "2026-08-01",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/hackers-poison-adform-script-to-swap.html",
+    "headline": "Hackers Poison Adform Script to Swap Crypto Wallet Addresses Across Customer Sites",
+    "summary": "Attackers modified a JavaScript file served by advertising technology company Adform, turning it into a browser-side tool that rewrites cryptocurrency wallet addresses.\n\nAdform detected the incident on July 27, 2026, removed the malicious code, notified affected clients, and reported it to authorities.\n\nAnyone who visited a site carrying the affected script on July 27 and copied a Bitcoin,",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0c050cb209",
+    "rejectedAt": "2026-08-02T09:05:39.409888+00:00",
+    "date": "2026-08-01",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/ruby-on-rails-patches-critical-vulnerability/",
+    "headline": "Ruby on Rails Patches Critical Vulnerability",
+    "summary": "The flaw can be exploited by unauthenticated attackers to read arbitrary files and potentially achieve remote code execution (RCE).\nThe post Ruby on Rails Patches Critical Vulnerability appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7f78909ba7",
+    "rejectedAt": "2026-08-02T09:05:40.627689+00:00",
+    "date": "2026-07-30",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/azure-cosmos-db-flaw-exposed-platform.html",
+    "headline": "Azure Cosmos DB Flaw Exposed Platform-Wide Key That Could Access Any Database",
+    "summary": "A now-patched vulnerability in Azure Cosmos DB could have let an attacker escape the service's Gremlin query sandbox and obtain full read and write access to databases across customer tenants, according to Wiz.\n\nWiz, which codenamed the chain CosmosEscape, said the exploit chain began with a crafted query against a Gremlin database controlled by the attacker. From there, code execution on a",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-612b12a16d",
+    "rejectedAt": "2026-08-02T09:05:42.212957+00:00",
+    "date": "2026-08-01",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/rails-patches-critical-active-storage-flaw-with-rce-potential/",
+    "headline": "Rails patches critical Active Storage flaw with RCE potential",
+    "summary": "A critical vulnerability in the Active Storage framework can allow an unauthenticated attacker to read arbitrary files from a Rails application, and potentially escalate to remote code execution (RCE). [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-84635cb2f0",
+    "rejectedAt": "2026-08-02T09:05:49.612907+00:00",
+    "date": "2026-08-01",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/02/australian-book-sellers-alarm-destruction-rare-titles-ai-supply-chain",
+    "headline": "‘More than just objects’: Australian booksellers raise alarm over ‘horrific’ destruction of rare titles to feed AI",
+    "summary": "Secondhand booksellers believe they may have been caught up in the AI supply chain that sees old books scanned then destroyedFollow our Australia news live blog for latest updatesGet our breaking news email, free app or daily news podcast“Sometimes books tell you more than the content,” says Tim White, as he lines up carefully dust-jacketed books and pamphlets in plastic sleeves on temporary shelves in Melbourne University’s Wilson Hall.He’s preparing his stall for this weekend’s Melbourne Rare Book Fair. For people like White, who runs independent bookshop Books for Cooks, the book as a physical object is just as important as what’s inside it. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ebdff910e4",
+    "rejectedAt": "2026-08-02T09:05:51.021735+00:00",
+    "date": "2026-07-31",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/books/2026/jul/31/crime-novel-deal-collapses-questions-ai-jerry-falade-call-me-ill-hide-the-body",
+    "headline": "$2m crime novel deal collapses amid questions over AI use",
+    "summary": "Agents withdraw Jerry Falade’s hotly anticipated debut after saying they can no longer authenticate ‘how the manuscript evolved’A high-profile publishing deal for a debut crime novel has collapsed after doubts emerged over whether artificial intelligence played a role in writing it.The hotly anticipated manuscript Call Me, I’ll Hide the Body, by Jerry Falade, was withdrawn from sale by its agent despite reportedly receiving an offer for more than $2m (£1.5m) from Minotaur, owned by Macmillan US, as part of a 14-way auction. The plan was to publish it in 2028. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d3b6dcbe88",
+    "rejectedAt": "2026-08-02T09:05:52.731873+00:00",
+    "date": "2026-07-30",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-claims-brinks-home-breach-threatens-to-leak-stolen-data/",
+    "headline": "ShinyHunters claims Brinks Home breach, threatens to leak stolen data",
+    "summary": "Residential security company Brinks Home has disclosed that hackers breached some of its systems and are threatening to leak allegedly stolen data. ​The company identified the attack on July 20 and immediately activated its incident response procedure to contain the breach. William Niles, CEO at Brinks Home, said that the company’s team was working with “leading forensics experts to address this issue.” The intrusion did not impact in any way the company’s alarm monitoring and system functionality. At the beginning of the week, the ShinyHunters extortion gang claimed the attack on Brinks Home,",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9987c9f75f",
+    "rejectedAt": "2026-08-02T09:05:53.711500+00:00",
+    "date": "2026-07-31",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-its-new-gpt-56-models-are-becoming-more-cost-efficient/",
+    "headline": "OpenAI says its new GPT 5.6 models are becoming more cost-efficient",
+    "summary": "OpenAI says it has reduced the price of two GPT-5.6 models, cutting Luna’s API price by 80% and Terra’s by 20% as it works to make its models more efficient. As per the updated pricing, GPT-5.6 Luna now costs $0.20 per million input tokens and $1.20 per million output tokens, down from $1 and $6. Likewise, Terra has dropped from $2.50 to $2 per million input tokens and from $15 to $12 per million output tokens. In a post on X, OpenAI also noted that the new prices affect how it counts usage in Codex and ChatGPT Work. For example, if new tasks use these models, they deduct less from customers’ ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a23c1dcb63",
+    "rejectedAt": "2026-08-02T09:05:55.405440+00:00",
+    "date": "2026-08-01",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/hijacked-hotel-wi-fi-pushes-fake.html",
+    "headline": "Hijacked Hotel Wi-Fi Pushes Fake Updates to Deliver Surveillance Malware",
+    "summary": "A fake browser update served over hijacked hotel Wi-Fi has been used to deliver CornFlake, a remote access trojan (RAT) that can capture webcam images, microphone audio, and keystrokes, Microsoft said in its latest report.\n\nResearchers track the operation as CaptiveCrunch and attribute it to Storm-2945. It assesses Storm-2945 to be an operational sub-cluster of Midnight Blizzard, also known as",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6e179e2105",
+    "rejectedAt": "2026-08-02T09:05:56.947770+00:00",
+    "date": "2026-08-01",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html",
+    "headline": "Coldcard Hardware Wallet Flaw Linked to $70 Million Bitcoin Theft in 41 Minutes",
+    "summary": "An attacker drained 1,196 Bitcoin addresses in 41 minutes on July 30, taking 1,082.65 BTC worth about $70.2 million at the time. Galaxy Research mapped the sweep and tied it to a firmware flaw in Coldcard, the Bitcoin-only hardware wallet made by Canadian firm Coinkite.\n\nA March 2021 firmware integration error routed seed generation to a deterministic software pseudorandom number generator (PRNG",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9796d68469",
+    "rejectedAt": "2026-08-02T09:05:58.043959+00:00",
+    "date": "2026-08-01",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/money/2026/aug/01/bookingcom-money-back-refund",
+    "headline": "‘We didn’t feel safe’: Booking.com users face battle to get money back",
+    "summary": "From melted electric sockets to shabby alternatives, readers tell of dealings with platform when things go wrongJane Ripley* spent some time researching the best apartment to stay in for her family’s trip to Batumi in Georgia, eventually settling on one with an “exceptional” rating on Booking.com.But when the Ripleys arrived at 11pm on the first day, they were directed to another property that was shabby and had stains on the furniture and ceiling. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d25d29afb9",
+    "rejectedAt": "2026-08-02T09:05:59.333742+00:00",
+    "date": "2026-08-01",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/01/great-british-switch-off-fun-freeing-ways-ditch-smartphone-doomscrolling",
+    "headline": "The great British switch-off: how floating retreats, mobile-free pubs and sauna book groups are freeing people from their smartphones",
+    "summary": "Sick of doomscrolling? From venues with smartphone swear jars to cabins with absolutely no signal, here are the fun and freeing ways to ditch your deviceThere’s a ritual at the start of every event hosted by the Offline Project. Run by Pelé Zachariah, the activities vary – it could be a group walk, a&nbsp;collage‑making class or a supper club – but each one begins in the same way, *with an invitation to hand over your phone. Devices go in a lockbox. Once they’re all in, Zachariah closes the door and turns the key. “I don’t place them in for people, because it’s nice for them to physically put it in the box themselves, walk away, and think: for the next two or three hours, I’m fully present.”He has been running these screen-free events in London since August 2025. First-timers can be apprehensive about being separated from their phone. “You can sense the vibe when they’re putting it away,” says Zachariah. “People have said to me, ‘I felt really weird’ or ‘I felt super uncomfortable for ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a89848ab1b",
+    "rejectedAt": "2026-08-02T09:06:00.494509+00:00",
+    "date": "2026-08-01",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/security/2026/08/defcons-new-badge-is-a-security-key-you-can-see-inside/",
+    "headline": "Defcon's new badge is a security key you can see inside",
+    "summary": "It’s been a longtime feature of the annual Defcon hacker conference that attendees come away not only with knowledge of new software vulnerabilities and hacking techniques but also an elaborately designed conference badge—often electronic masterpieces embedded with intricate puzzles , complex crypto challenges, hidden Easter eggs , and even the mechanical gear trains of a watch. Each year’s badge creator endeavors to top previous designs and blow the minds of hard-to-impress hackers. But this year’s badges take a different tack. Instead of the badge designs being the star, it’s what is inside ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cdc25be6bc",
+    "rejectedAt": "2026-08-02T09:06:03.052465+00:00",
+    "date": "2026-07-31",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cybersecurity-operations/cisa-issues-fresh-sbom-guidance",
+    "headline": "CISA Issues Fresh SBOM Guidance. Did They Get It Right?",
+    "summary": "A couple-dozen changes to SBOM fields will make them more comprehensive, but some argue that the framework lacks real risk-management improvements.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a521757c87",
+    "rejectedAt": "2026-08-02T09:06:04.626094+00:00",
+    "date": "2026-07-30",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/ics-ot-security/minnesota-water-utility-attacks-expose-sector-cyber-risks",
+    "headline": "Minnesota Water Utility Attacks Expose Sector's Cyber-Risks",
+    "summary": "A likely Iran-backed actor targeted more than 30 community water systems in Minnesota in a sobering reminder of rising threats to US critical infrastructure.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-19e39e3f5a",
+    "rejectedAt": "2026-08-02T09:06:05.861704+00:00",
+    "date": "2026-07-29",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/application-security/when-appsec-scanners-become-supply-chain-attack-vector",
+    "headline": "When AppSec Scanners Become a Supply Chain Attack Vector",
+    "summary": "New research shows how security scanners embedded in the software supply chain can be attacked to serve as a foothold for downstream attacks.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-73c01c356d",
+    "rejectedAt": "2026-08-02T09:06:06.828296+00:00",
+    "date": "2026-08-01",
+    "source": "404 Media",
+    "url": "https://www.404media.co/we-need-to-quarantine-aliens-on-the-moon-scientists-propose/",
+    "headline": "We Need to Quarantine Aliens on the Moon, Scientists Propose",
+    "summary": "Welcome to a special edition of the Abstract! I’m out on vacation for the next two weeks, which means it’s time to break out all of the weird and wild studies that have come out so far in 2026, but that slipped through the cracks for one reason or another. I’ve been saving these gems up for a special occasion and hope you enjoy the roundups this week and next! So without further delay, here are the studies this year that put aliens on lockdown, bedazzled their axes, undulated spermily, and captured shooting stars. First, scientists come up with a game plan to protect Earth from invasive extrat",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3317601b1f",
+    "rejectedAt": "2026-08-02T09:06:08.082089+00:00",
+    "date": "2026-07-31",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-cyberattacks-disrupting-us-water-utilities/",
+    "headline": "CISA warns of cyberattacks disrupting U.S. water utilities",
+    "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) is warning of a significant increase in attacks targeting internet-exposed programmable logic controllers (PLCs) in the water and wastewater systems sector. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c7665e71ff",
+    "rejectedAt": "2026-08-02T09:06:09.793557+00:00",
+    "date": "2026-07-30",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/amazon-links-debug-chalk-npm-supply-chain-attacks-to-north-korean-hackers/",
+    "headline": "Amazon links Debug, Chalk NPM supply-chain attacks to North Korean hackers",
+    "summary": "Amazon linked multiple high-profile open-source software supply chain attacks targeting the Node Package Manager (npm) ecosystem to North Korean hackers. The cloud computing giant linked the compromises of the typo-crypto, debug, chalk, and axios libraries to the Sapphire Sleet threat actor, also known as BlueNoroff and Stardust Chollima. Initial activity started with trojanizing the typo-crypto package in March 2025, which Amazon believes served as a testing ground. It then escalated in September of the same year with the compromise of the widely used debug and chalk packages , affecting an e",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-daed7d1838",
+    "rejectedAt": "2026-08-02T09:06:11.475254+00:00",
+    "date": "2026-08-01",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/balance-theory-raises-19-million-to-help-enterprises-manage-cybersecurity-investments/",
+    "headline": "Balance Theory Raises $19 Million to Help Enterprises Manage Cybersecurity Investments",
+    "summary": "The funding round was led by SYN Ventures, with participation from existing investors DataTribe and TEDCO. \nThe post Balance Theory Raises $19 Million to Help Enterprises Manage Cybersecurity Investments appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
     "id": "reject-1ee6ce8f07",
     "rejectedAt": "2026-08-01T09:00:44.233004+00:00",
     "date": "2026-07-31",
