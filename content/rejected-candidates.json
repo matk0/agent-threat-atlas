@@ -1,5 +1,711 @@
 [
   {
+    "id": "reject-9af221d9f2",
+    "rejectedAt": "2026-08-03T10:33:17.593916+00:00",
+    "date": "2026-08-02",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/2/condense-json/#atom-everything",
+    "headline": "condense-json 1.0",
+    "summary": "Release: condense-json 1.0\n        I'm trying to get braver at releasing 1.0 versions. This little library is a year and a half old now - I've applied some sensible and non-disruptive fixes and shipped the big 1.0 for it.\nHere's an example of what it can do, lifted from the README:\n{\n  \"foo\": {\n    \"bar\": {\n      \"string\": \"This is a string with foxes in it\",\n      \"nested\": {\n        \"more\": [\"Here is a string\", \"another with foxes in it too\"]\n      }\n    }\n  }\n}\nCombine that with a replacements object:\n{\"1\": \"with foxes in it\"}\nAnd condense_json(input_json, replacements) produces the following:\n{\n  \"foo\": {\n    \"bar\": {\n      \"string\": {\"$r\": [\"This is a string \", {\"$\": \"1\"}]},\n      \"nested\": {\n        \"more\": [\"Here is a string\", {\"$r\": [\"another \", {\"$\": \"1\"}, \" too\"]}]\n      }\n    }\n  }\n}\nIt scans for strings or substrings that are present in that replacements object and replaces those with a special {\"$r\": ...} syntax in the output.\nYou can reverse the effect with uncondense_jso",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3c55230ddf",
+    "rejectedAt": "2026-08-03T10:33:18.842311+00:00",
+    "date": "2026-07-30",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/30/llm-rc1/#atom-everything",
+    "headline": "llm 0.32rc1",
+    "summary": "Release: llm 0.32rc1\n        This RC for LLM 0.32 finishes the work that started in LLM 0.32a0 - it adds a new schema design that does a much better job of capturing the details of the prompts and responses returned by the latest model families.\nThe most important change is the use of content-addressable hash IDs for stored messages. This allows de-duplication in the database, and means that LLM can now represent trees of messages for forked conversations.\nSince it involves a significant schema change - new tables only, and old data should not be affected at all - it's worth running a backup of your existing logs.db before upgrading to the RC:\nllm logs backup logs-backup.db\n\nThe RC also adds support for gpt-5.6-sol, gpt-5.6-terra, and gpt-5.6-luna.\n    \n    \n        Tags: llm",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-68f6ae739f",
+    "rejectedAt": "2026-08-03T10:33:19.828178+00:00",
+    "date": "2026-07-31",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Jul/31/llm-mcp-client/#atom-everything",
+    "headline": "llm-mcp-client 0.1a0",
+    "summary": "31st July 2026 See this blog entry . This is a beat by Simon Willison, posted on 31st July 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments. Pay me to send you less!",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2290c5b63e",
+    "rejectedAt": "2026-08-03T10:33:21.126357+00:00",
+    "date": "2026-08-01",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/1/datasette-apps/#atom-everything",
+    "headline": "datasette-apps 0.2a0",
+    "summary": "Release: datasette-apps 0.2a0\n        \nChanges that improve Datasette Apps when created and edited using Datasette Agent:\n\nNew app_debug() tool allowing agent to open an app (invisibly) and test it using JavaScript. #33\nNew app_list() tool for listing apps the user has permission to edit, so the agent can edit them. #36\n\n\nThe app_debug() tool is pretty neat: it works by displaying the app in a opacity: 0 iframe with pointer-events: none (so it can't be seen or interacted with) and then executing agent-provided JavaScript inside that sandboxed iframe. This means the agent can smoke test that the app is working and even do things like measure the dimensions of different elements.\nThis uses the new context.browser_task() mechanism added in datasette-agent 0.4a0.\n    \n    \n        Tags: iframes, datasette, datasette-apps",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cce7e8851a",
+    "rejectedAt": "2026-08-03T10:33:22.164184+00:00",
+    "date": "2026-08-03",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0910",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen ermöglichen Denial of Service",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Linux Kernel ausnutzen, um einen Denial of Service Angriff durchzuführen oder andere, nicht näher spezifizierte Angriffe durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ec7fa1c61f",
+    "rejectedAt": "2026-08-03T10:33:24.482897+00:00",
+    "date": "2026-08-03",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1294",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um einen nicht näher spezifizierte Angriffe durchzuführen, die einen Denial-of-Service-Zustand, die Ausführung von Code oder eine Speicherbeschädigung verursachen können.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-98def0ed8e",
+    "rejectedAt": "2026-08-03T10:33:25.994338+00:00",
+    "date": "2026-08-03",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0950",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um nicht näher spezifizierte Angriffe durchzuführen, darunter möglicherweise Codeausführung, Denial-of-Service-Angriffe, die Umgehung von Sicherheitsmaßnahmen oder die Manipulation von Daten.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3bf226b5a9",
+    "rejectedAt": "2026-08-03T10:33:27.047596+00:00",
+    "date": "2026-08-03",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0809",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um nicht näher spezifizierte Angriffe durchzuführen, die möglicherweise zu einem Denial-of-Service-Zustand, zur Manipulation und Offenlegung von Daten oder zu einer Speicherbeschädigung führen können.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a428420fa0",
+    "rejectedAt": "2026-08-03T10:33:28.225116+00:00",
+    "date": "2026-08-03",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0790",
+    "headline": "[UPDATE] [mittel] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Linux Kernel ausnutzen, um nicht näher spezifizierte Angriffe durchzuführen, die möglicherweise zu einem Denial-of-Service-Zustand, einer Rechteausweitung oder einer Speicherbeschädigung führen können.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9bf45acb43",
+    "rejectedAt": "2026-08-03T10:33:29.227250+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://www.europapress.es/galicia/noticia-investigados-dos-hombres-fotos-falsas-ia-desnudos-mas-20-mujeres-silleda-20260716094338.html",
+    "headline": "Investigados dos hombres por las fotos falsas por IA de desnudos de más de 20 mujeres en Silleda",
+    "summary": "PONTEVEDRA, 16 Jul. (EUROPA PRESS) -\n\nLa Guardia Civil ha localizado a dos hombres como presuntos responsables de la creación y divulgación de fotos falsas por inteligencia artificial (IA) de desnudos y en escenas de contenido sexual de un  ... (https://incidentdatabase.ai/cite/1614#7622)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-daaa51e413",
+    "rejectedAt": "2026-08-03T10:33:30.452910+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://www.miragenews.com/intimate-image-stalking-charges-in-se-queensland-1715380/",
+    "headline": "Intimate Image, Stalking Charges in SE Queensland",
+    "summary": "A man has been charged following an extensive investigation into the creation and distribution of Artificial Intelligence (AI) generated posters targeting multiple women across South East Queensland since February 2021.\n\nInvestigations comm ... (https://incidentdatabase.ai/cite/1610#7612)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9072b90c39",
+    "rejectedAt": "2026-08-03T10:33:31.534995+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://www.infobae.com/espana/agencias/2026/07/16/identifican-a-autores-de-desnudos-creados-por-ia-que-afectaron-a-22-mujeres-de-pontevedra/",
+    "headline": "Identifican a autores de desnudos creados por IA que afectaron a 22 mujeres de Pontevedra",
+    "summary": "Pontevedra, 16 jul (EFE).- La Guardia Civil ha identificado a dos hombres que crearon y difundieron por internet imágenes elaboradas con inteligencia artificial en las que 22 mujeres de la provincia de Pontevedra aparecían desnudas.\n\nLa inv ... (https://incidentdatabase.ai/cite/1614#7623)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ef6c9bc344",
+    "rejectedAt": "2026-08-03T10:33:32.567664+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://7news.com.au/news/former-gold-coast-teacher-robert-john-thomas-charged-with-making-explicit-images-of-children-using-artificial-intelligence-c-22624094.amp",
+    "headline": "Former Gold Coast teacher Robert John Thomas charged with making explicit images of children using artificial intelligence",
+    "summary": "A Gold Coast school teacher has been charged after allegedly generating explicit images of children and adults using artificial intelligence.\n\nRobert John Thomas, 73, a former teacher at A.B. Paterson College in Arundel, has been accused of ... (https://incidentdatabase.ai/cite/1612#7617)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7f93e1ef5e",
+    "rejectedAt": "2026-08-03T10:33:36.675018+00:00",
+    "date": "2026-07-30",
+    "source": "AI Incident Database",
+    "url": "https://www.reuters.com/legal/government/chatgpts-advice-kept-man-seeking-medical-treatment-dangerous-condition-lawsuit-2026-07-22/",
+    "headline": "ChatGPT's advice kept man from seeking medical treatment for dangerous condition, lawsuit claims",
+    "summary": "A Florida pastor filed suit against OpenAI claiming ChatGPT provided inaccurate medical advice that delayed his treatment for a serious condition (recurrent dizzy spells leading to pulmonary complications). The lawsuit names OpenAI and CEO Sam Altman as defendants.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 100,
+    "sourceQualityScore": 72,
+    "status": "rejected",
+    "severity": "medium",
+    "threats": [
+      "hallucination-and-reliability"
+    ],
+    "vendor": "ChatGPT"
+  },
+  {
+    "id": "reject-ce34e236d6",
+    "rejectedAt": "2026-08-03T10:33:38.185568+00:00",
+    "date": "2026-08-03",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/thermo-fisher-patches-flaw-that-could.html",
+    "headline": "Thermo Fisher Patches Flaw That Could Make DNA File Tampering Nearly Undetectable",
+    "summary": "Thermo Fisher Scientific has patched a flaw in select Applied Biosystems human identification software that could allow data files to be altered before analysis software loads them.\n\nThe vendor's July 31 security bulletin says nearly undetectable changes to .fsa and .hid outputs could occur if laboratory controls are circumvented.\n\nThermo Fisher tracks the issue as CVE-2026-17583 and rates it",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a2a632f5c6",
+    "rejectedAt": "2026-08-03T10:33:39.443957+00:00",
+    "date": "2026-08-03",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html",
+    "headline": "N-able Says Attackers Take Over N-central Servers After Initial Fix Proves Incomplete",
+    "summary": "N-able said attackers exploited an authentication bypass in N-central to gain remote administrative access and reach the customer systems managed through those servers.\n\nIts first fix was incomplete. CVE-2026-18577 affects N-central builds prior to 2026.3.1.7. N-able shipped build 2026.3.1.7 on August 2 as the first unaffected version.\n\nN-central is the remote monitoring and management platform",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6e24c80f60",
+    "rejectedAt": "2026-08-03T10:33:45.414359+00:00",
+    "date": "2026-08-03",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/russian-state-apt-linked-to-recent-public-wi-fi-gateway-hacking/",
+    "headline": "Russian State APT Linked to Recent Public Wi-Fi Gateway Hacking",
+    "summary": "Midnight Blizzard has been stealing Microsoft account credentials via compromised Wi-Fi networks at hospitality organizations.\nThe post Russian State APT Linked to Recent Public Wi-Fi Gateway Hacking appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-92ed6a40e4",
+    "rejectedAt": "2026-08-03T10:33:47.076629+00:00",
+    "date": "2026-08-03",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/australia-news/live/2026/aug/03/australia-news-live-fuel-excise-cut-jim-chalmers-cost-of-living-anthony-albanese-labor-angus-taylor-coalition-one-nation-pauline-hanson-ntwnfb",
+    "headline": "Greens senator brands Pauline Hanson a ‘political coward’ over press conference bans – as it happened",
+    "summary": "This blog is now closedAngus Taylor and Anthony Albanese on leave this weekThe opposition leader, Angus Taylor, is on leave for most of this week, his office has announced, with the deputy leader, Jane Hume, acting in his stead.NSWRL owes a massive debt of gratitude to Laurie for the service he has given to his state as both a player and a coach.He has also led NSW to arguably two of the greatest Origin series wins of all time as a coach, after ending Queensland’s eight-year winning streak in 2014 and overcoming adversity to steer the Blues home in 2026. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f276842aa0",
+    "rejectedAt": "2026-08-03T10:33:49.035664+00:00",
+    "date": "2026-08-02",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/business/2026/aug/02/uk-state-investments-agency-data-breach",
+    "headline": "UK’s state investments agency hit by data breach",
+    "summary": "Security lapse leaves sensitive information and contact details of 51 government officials exposed for 40 hoursThe public body in charge of the UK’s state investments has been pushed to improve its internal security after a data breach left “high-level management information” publicly accessible for nearly two days.UK Government Investments (UKGI), the agency that manages the taxpayers’ interest in a swathe of companies including Channel 4 and the Post Office, said the security failure also left more than 50 government officials’ personal details exposed for nearly 40 hours. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-936da7906e",
+    "rejectedAt": "2026-08-03T10:33:50.766224+00:00",
+    "date": "2026-08-02",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/",
+    "headline": "COLDCARD wallet RNG flaw likely linked to $88 million Bitcoin theft",
+    "summary": "A vulnerability in COLDCARD hardware wallet firmware allowed attackers to steal an estimated $88.6 million in Bitcoin from thousands of wallets whose seeds were generated using a flawed random number generator. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7c96950894",
+    "rejectedAt": "2026-08-03T10:33:52.207669+00:00",
+    "date": "2026-08-02",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/02/stock-market-turmoil-nvidia-china-light-ai-economy",
+    "headline": "Stock market turmoil sheds stark light on the opaque AI economy",
+    "summary": "Investors scramble to make sense of a shock Chinese challenge to the dominance of western chipmakersEven for the rollercoaster world of AI, last week was particularly volatile as investors scrambled to keep up with developments that threatened the dominance of the largest western chipmakers.It began with a double whammy. On Monday, the Chinese memory chipmaker CXMT floated on the Shanghai stock market, soaring by 466% in value to 3.3tn yuan (£365bn). Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e5522ab0c0",
+    "rejectedAt": "2026-08-03T10:33:53.449647+00:00",
+    "date": "2026-08-03",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/RBNEWSSI138/",
+    "headline": "Sponsored: The intrusion signals hiding in plain sight",
+    "summary": "In this sponsored interview James Wilson chats with Permiso CTO Ian Ahl about detecting ShinyHunters-style attackers as they move through cloud and SaaS environments.\n\nIan explains how ordinary-looking events such as a password reset, a new MFA device, unusual searches and a first-time AWS role assumption can combine to reveal an intrusion. Permiso’s platform connects these signals across identity providers, cloud platforms and SaaS applications. They also discuss how AI is helping attackers move from initial access to extortion in just four hours.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-932e420643",
+    "rejectedAt": "2026-08-03T10:33:55.057634+00:00",
+    "date": "2026-08-03",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/RBNEWS595/",
+    "headline": "Risky Bulletin: Anthropic models also did the hacky-hacky",
+    "summary": "Presented by News Editor Newsreader Anthropic models also did the hacky-hacks, Coldcard was hacked for $70 million in Bitcoin, npm adds publish-time malware scanning, and Russia is behind the recent hotel WiFi hacks. Monitor All Identities In All Environments Risky Bulletin: Russia is behind the recent hotel WiFi hacks",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-40845b4956",
+    "rejectedAt": "2026-08-03T10:33:56.209514+00:00",
+    "date": "2026-08-02",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/agents-week-welcome/",
+    "headline": "Welcome to Agents Week",
+    "summary": "Agents Week explores how cloud infrastructure must evolve to serve autonomous agents rather than human browsers. Join us as we unpack the storage, execution, and security primitives needed for an agent-native web.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9ce9080d4b",
+    "rejectedAt": "2026-08-03T10:33:57.484289+00:00",
+    "date": "2026-08-03",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.28862",
+    "headline": "TextCloak: Thwarting Unauthorized LLM Exploitation via RL-Driven Unlearnable Text",
+    "summary": "arXiv:2607.28862v1 Announce Type: cross \nAbstract: The rapid development of Large Language Models (LLMs) has led to significant advances across a wide range of language tasks, while simultaneously raising growing concerns about unauthorized data exploitation and privacy leakage. Unlearnable examples (UEs) offer a promising defense by introducing carefully designed perturbations into data such that models trained on them exhibit degraded utility. However, existing methods for text protection are primarily designed for classification tasks (e.g., sentiment analysis) in discriminative language models and often rely on injecting class-specific linguistic cues, which limits their effectiveness in the open-ended generation settings of LLMs. In this work, we propose TextCloak, an RL-driven framework for protecting textual data against unauthorized LLM exploitation. TextCloak employs a generative policy that transforms batches of clean text into unlearnable examples while preserving semantic f",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a586c7b2b5",
+    "rejectedAt": "2026-08-03T10:33:59.822567+00:00",
+    "date": "2026-08-03",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.29167",
+    "headline": "Memory Provenance Laundering in LLM Agents: A Non-Amplification Firewall for Persistent Memory",
+    "summary": "arXiv:2607.29167v1 Announce Type: new \nAbstract: Long-term memory lets large language model(LLM) agents reuse prior preferences and work flows, but it also turns untrusted observations into persistent action context. We identify memory provenance laundering: during LLM-based memory consolidation, an external observation may be rewritten as apparent user history or workflow support, preserving an action trigger while erasing the low-trust source that should limit its authority. Existing prompt filters, content sanitizers, and tool guards do not enforce source-authority non-amplification after lossy memory consolidation. We formalize this boundary and instantiate it as Provenance-Preserving Memory Fire wall (PPMF), a lightweight memory middleware that preserves platform-maintained provenance and authorizes tool calls by matching action risk to the authority of action-relevant memories. In our schema-grounded evaluation with fixed risk policies, vulnerable consolidated memories reach up t",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-eff50feb02",
+    "rejectedAt": "2026-08-03T10:34:01.357944+00:00",
+    "date": "2026-08-03",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.29019",
+    "headline": "GoldenRetriever: Non-Interactive Homomorphic Encrypted Retrieval for Privacy-Preserving RAG",
+    "summary": "arXiv:2607.29019v1 Announce Type: new \nAbstract: Retrieval-Augmented Generation (RAG) enhances large language models by incorporating external knowledge, but existing pipelines typically operate on plaintext data, raising significant privacy concerns. Prior work on privacy-preserving retrieval leverages cryptographic techniques such as homomorphic encryption (HE) and private information retrieval (PIR), but often relies on interactive protocols or ranking-based selection mechanisms that incur high latency and potential information leakage. In this paper, we propose a practical non-interactive encrypted retrieval framework for RAG based on threshold selection. Instead of performing expensive top-$k$ ranking under encryption, our approach selects documents whose similarity scores exceed a predefined threshold, reducing computational complexity from quadratic to linear in the corpus size. We implement this design using CKKS-based homomorphic computation, enabling fully encrypted similarit",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-db6ca44236",
+    "rejectedAt": "2026-08-03T10:34:02.319159+00:00",
+    "date": "2026-08-03",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.28878",
+    "headline": "YazSes: An Offline, Privacy-First, Cross-Platform Hold-to-Talk Voice-Dictation System",
+    "summary": "arXiv:2607.28878v1 Announce Type: new \nAbstract: Cloud voice-dictation services deliver strong accuracy but require streaming a user's speech to a remote provider, an unacceptable trade-off in privacy-sensitive professions and offline or air-gapped settings; the leading on-device alternatives are either platform-locked or aimed at expert scripting rather than plug-and-play dictation. We present YazSes, an open-source (Apache-2.0) hold-to-talk voice dictation daemon that runs entirely on-device, with a single codebase targeting Linux, macOS, and Windows through a protocol-based platform abstraction. YazSes transcribes speech locally with faster-whisper (CPU, int8) and injects the result into the focused application; a fast regex command grammar, backed by an optional small-language-model router, maps utterances to editor and terminal actions. Nothing leaves the machine: recording is push-to-talk rather than always-listening, there is no telemetry, and an opt-in personalization loop keep",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-eb0b7d05b0",
+    "rejectedAt": "2026-08-03T10:34:03.342336+00:00",
+    "date": "2026-08-03",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2607.28757",
+    "headline": "Partial Derandomization for Leakage-Resilient Shamir's Secret Sharing over Composite Order Fields",
+    "summary": "arXiv:2607.28757v1 Announce Type: new \nAbstract: We make progress on the question of constructing explicit evaluation places for leakage-resilient Shamir's secret sharing, over composite order fields. Previously, Maji et al. (EUROCRYPT 2024) showed that random evaluation places yield Shamir's secret sharing over the composite order field $\\mathbb{F}_{p^d}$ that is statistically secure against physical-bit leakage. Later, Nguyen (EUROCRYPT 2025) established a dichotomy that linear code-based secret-sharing scheme over the field $\\mathbb{F}_{p^d}$ is either statistically secure or completely insecure against such leakage.\n  Building upon Nguyen's dichotomy, we present a partial derandomization of evaluation places, improving upon the Maji et al. result for a restricted regime of parameters. We replace the random choice of $n$ independent evaluation places by the iterates $x_j = \\Phi^j(x_0)$ of a simple fixed rational function $\\Phi$, where the initial point $x_0 \\in \\mathbb{F}_{p^d}^*$ i",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-108095480e",
+    "rejectedAt": "2026-08-03T10:34:04.408454+00:00",
+    "date": "2026-08-02",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-teases-astra-its-next-major-ai-model-after-it-solves-10-long-standing-math-problems/",
+    "headline": "OpenAI teases Astra, its next major AI model, after it solves 10 long-standing math problems",
+    "summary": "OpenAI has revealed Astra, an unreleased model designed to tackle complex, long-running tasks, after an internal version produced ten significant advances in mathematics and theoretical computer science. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d7b2d7d221",
+    "rejectedAt": "2026-08-03T10:34:05.464603+00:00",
+    "date": "2026-08-03",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/ice-dna-collection-fbi-codis/",
+    "headline": "ICE Collected Nearly 1 Million People’s DNA Last Year—Including Young Children",
+    "summary": "Internal documents show ICE's DNA collection has skyrocketed in the second Trump administration. Now hundreds of thousands of people never convicted of a crime are in an FBI criminal database forever.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-02f11597b2",
+    "rejectedAt": "2026-08-03T10:34:07.027589+00:00",
+    "date": "2026-08-03",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/us-water-cyberattacks-extend-beyond-minnesota-to-at-least-6-other-states/",
+    "headline": "US Water Cyberattacks Extend Beyond Minnesota to at Least 6 Other States",
+    "summary": "Michigan, South Dakota, and Georgia are reportedly on the list of states whose water systems have been targeted by Iran-linked hackers.\nThe post US Water Cyberattacks Extend Beyond Minnesota to at Least 6 Other States appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-140aba46cc",
+    "rejectedAt": "2026-08-03T10:34:08.178922+00:00",
+    "date": "2026-07-31",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/suspected-chinese-speaking-hackers.html",
+    "headline": "Suspected Chinese-Speaking Hackers Target Central Asian Governments With OctLurk and SilkLurk",
+    "summary": "A Chinese-speaking threat actor is suspected to be behind a fresh wave of cyber attacks targeting government organizations mainly located in Central Asia, including Afghanistan, Kyrgyzstan, Tajikistan, Uzbekistan, Kazakhstan, and the Syrian Arab Republic, since January 2025.\n\nThese targeted organizations operate across several sectors, such as healthcare, research, government offices,",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c5b4ee777b",
+    "rejectedAt": "2026-08-03T10:34:09.223821+00:00",
+    "date": "2026-07-31",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/07/hollowframe-loader-deploys-matryoshka.html",
+    "headline": "HollowFrame Loader Deploys Matryoshka Backdoor in Spear-Phishing Attack on Law Firm",
+    "summary": "Cybersecurity researchers have shed light on a previously undocumented Go-based loader framework called HollowFrame and a Rust-based malware family tracked as Matryoshka.\n\nAccording to Blackpoint Cyber, the intrusion sequence begins with a spear-phishing message containing a link to an encrypted archive, which holds a Windows Shortcut (LNK). Executing the file triggers a multi-stage chain that",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-367b5d2f25",
+    "rejectedAt": "2026-08-03T10:34:10.260237+00:00",
+    "date": "2026-08-03",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/games/2026/aug/03/the-end-of-the-world-how-players-mourn-the-death-of-their-favourite-online-games",
+    "headline": "The end of the world: how players mourn the death of their favourite online games",
+    "summary": "Online multiplayer changed the trajectory of games, but the cost of keeping servers running means every virtual world is doomed to die – sooner or laterNevan Hagarty had an idea. If he and other Halo 3 players stayed online the night of 13 January 2022, they could delay the impending server shutdown. Players knew this was coming: it had happened to Halo 2 when its Xbox Live servers were turned off in 2010, and a group managed to stay logged into the multiplayer servers for weeks.And so, players gathered online before the server shutdown to pay homage and to mourn the game they loved so dearly. And, maybe, to keep it online for a little longer. “I must have played ’til about 4am the night of the shutdown, trading stories with so many players about their love of the game and their experiences over the last 15 years,” says Hagarty, 22. “It was a really wholesome experience I won’t forget.” Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-76dee05daf",
+    "rejectedAt": "2026-08-03T10:34:11.213417+00:00",
+    "date": "2026-08-02",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/lifeandstyle/2026/aug/02/what-do-you-wish-you-could-buy-in-vending-machines",
+    "headline": "What do you wish you could buy in vending machines?",
+    "summary": "The long-running series in which readers answer other readers’ questions commits the cash and presses the buttons on a vital consumer dilemmaRead this week’s replies: What is the true Breakfast of Champions?I’ve heard that in Germany you can buy sausages in vending machines. What should be sold in machines that isn’t offered at the moment? Sybil Freestone, OregonPost your answers (and new questions) below or send them to nq@theguardian.com. A selection will be published next Sunday. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f099b0751e",
+    "rejectedAt": "2026-08-03T10:34:12.315571+00:00",
+    "date": "2026-08-02",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/best-password-managers/",
+    "headline": "8 Best Password Managers (2026), Tested and Reviewed",
+    "summary": "Passwords are a classic catch-22: If they’re good, they’re hard to remember. But if they’re easy to recall, they aren’t effective. Because we are an eminently practical species, most of us err on the side of convenience. “Password” and “123456” have been the two most commonly used passwords on the web (“admin” also ranks high), and in 2026, sadly, that’s still the case. It doesn’t have to be this way. In this article, I’ll teach you how to memorize hundreds of random 16-character strings and keep track of which works where. Just kidding. That might work for Memory Grand Master Ed Cooke , but i",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-35e86acd79",
+    "rejectedAt": "2026-08-03T10:34:13.508211+00:00",
+    "date": "2026-07-29",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyber-risk/cybersecurity-then-now",
+    "headline": "Cybersecurity, Then &amp; Now",
+    "summary": "Since 2006, Dark Reading has been at the forefront of covering cybersecurity. The more things change, the more they stay the same.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-aca1354564",
+    "rejectedAt": "2026-08-03T10:34:14.601427+00:00",
+    "date": "2026-08-02",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/google/google-chrome-may-soon-block-new-tab-hijacker-extensions-by-default/",
+    "headline": "Google Chrome may soon block New Tab hijacker extensions by default",
+    "summary": "Google is preparing a new Chrome security feature that would block policy-installed extensions from hijacking the New Tab page or changing the default search engine. BleepingComputer spotted the protection in a chain of work-in-progress Chromium Gerrit changes. It has not shipped yet, but Google plans to enable it by default once the changes are approved. \"In low-trust environments (unmanaged consumer devices), enterprise policy force-installs and recommendations are abused to lock in search engine or new tab page hijackers,\" Anunoy Ghosh, who works at Google, wrote in a post. \"This CL enables",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
     "id": "reject-44e3e0fe01",
     "rejectedAt": "2026-08-02T09:05:13.212563+00:00",
     "date": "2026-08-02",

@@ -5338,5 +5338,30 @@
     "source": "This incident would have been prevented or limited by implementing strict output filtering on API responses—returning only the minimum necessary user fields (name, ID, avatar) and excluding sensitive settings objects entirely. Additionally, enforcing role-based access controls on the settings object and auditing which fields are exposed through each endpoint would have caught this over-serialization before deployment.",
     "text": "Tejto udalosti by sa dalo predísť alebo ju obmedziť zavedením prísneho filtrovania výstupov v odpovediach API – vrátením len minimálne potrebných polí používateľa (meno, ID, avatar) a úplným vylúčením citlivých objektov nastavení. Okrem toho by vynútenie kontrol prístupu na základe rolí pre objekt nastavení a auditovanie toho, ktoré polia sú prostredníctvom každého koncového bodu sprístupnené, odhalilo túto nadmernú serializáciu ešte pred nasadením.",
     "translatedAt": "2026-08-02T09:06:12.063Z"
+  },
+  "d21f5db8cc6f48c5889c3285b76835ace41e44e9dae0aa8ea2d955fe64b291f4": {
+    "source": "Hugging Face Diffusers Flaws Could Let Model Repositories Execute Arbitrary Code",
+    "text": "Chyby v nástroji Hugging Face Diffusers by mohli umožniť repozitárom modelov spúšťať ľubovoľný kód",
+    "translatedAt": "2026-08-03T10:34:15.175Z"
+  },
+  "e4e89b1521322bfd2420b4edf1e0d3bcf8a495389863ac5fd9dd1a6393f6c284": {
+    "source": "Three high-severity flaws in Hugging Face Diffusers allow crafted model repositories to execute arbitrary code on machines loading them, bypassing the trust_remote_code safeguard designed to prevent unreviewed code execution.",
+    "text": "Tri chyby s vysokou závažnosťou v Hugging Face Diffusers umožňujú špeciálne upraveným repozitárom modelov spúšťať ľubovoľný kód na zariadeniach, ktoré ich načítajú, čím obchádzajú bezpečnostnú ochranu trust_remote_code určenú na zabránenie spúšťaniu neprevereného kódu.",
+    "translatedAt": "2026-08-03T10:34:15.175Z"
+  },
+  "d589f0c289dee11a66f6baec1b3680f97b908982fe2a3364a426b16c280bb3f8": {
+    "source": "These vulnerabilities would have been prevented or limited by enforcing strict model deserialization controls, sandboxing model loading in isolated processes with minimal privileges, cryptographically signing trusted model artifacts, and maintaining an allowlist of approved model sources rather than relying solely on a trust flag that can be bypassed.",
+    "text": "Týmto zraniteľnostiam by sa dalo predísť alebo ich obmedziť zavedením prísnych kontrol deserializácie modelov, spúšťaním modelov v izolovaných procesoch s minimálnymi oprávneniami v prostredí sandboxu, kryptografickým podpisovaním dôveryhodných artefaktov modelov a vedením zoznamu schválených zdrojov modelov namiesto spoliehania sa výlučne na indikátor dôveryhodnosti, ktorý je možné obísť.",
+    "translatedAt": "2026-08-03T10:34:15.175Z"
+  },
+  "b31cd7c1ef550a2fe7a5a48870cbf9d09eb30e0498873a5de635e6fbe855a71e": {
+    "source": "Open WebUI's /api/v1/channels/{id}/members endpoint exposes full user models including sensitive admin-only credentials (webhook URLs, tool server keys) to any channel participant. A regular user can retrieve other members' settings via this endpoint, bypassing access controls on standard user info APIs.",
+    "text": "Koncový bod /api/v1/channels/{id}/members v Open WebUI sprístupňuje všetkým účastníkom kanála kompletné modely používateľov vrátane citlivých prihlasovacích údajov určených výlučne pre správcov (URL adresy webhookov, kľúče nástrojových serverov). Bežný používateľ môže prostredníctvom tohto koncového bodu získať nastavenia ostatných členov, čím obíde kontrolné mechanizmy prístupu v štandardných API rozhraniach s informáciami o používateľoch.",
+    "translatedAt": "2026-08-03T10:34:15.175Z"
+  },
+  "2f093b859e26480f1ff3695722885dfde56f3952a799f834325b894d5951039b": {
+    "source": "This incident would have been prevented or limited by implementing strict output filtering to exclude sensitive credential fields from API responses, enforcing role-based access control on settings objects, and separating admin-only configuration from user model serialization. Principle of least privilege—returning only the minimum required fields for the endpoint's documented purpose—would have blocked credential exposure.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísneho filtrovania výstupov s cieľom vylúčiť citlivé polia s prihlasovacími údajmi z odpovedí API, vynútením kontroly prístupu na základe rolí pre objekty nastavení a oddelením konfigurácie určenej výlučne pre správcov od serializácie užívateľského modelu. Zásada minimálnych oprávnení – vrátenie iba minimálne potrebných polí na zdokumentovaný účel koncového bodu – by zabránila odhaleniu prihlasovacích údajov.",
+    "translatedAt": "2026-08-03T10:34:15.175Z"
   }
 }
