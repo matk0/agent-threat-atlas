@@ -1,5 +1,1103 @@
 [
   {
+    "id": "reject-537e92891d",
+    "rejectedAt": "2026-08-08T07:41:35.653588+00:00",
+    "date": "2026-08-07",
+    "source": "GitHub Security Advisory Database",
+    "url": "https://github.com/advisories/GHSA-9hj4-r449-hfvc",
+    "headline": "Ruby JSON: JSON::ResumableParser#partial_value dereferences a freed input buffer and crashes on truncated duplicate-key streams",
+    "summary": "### Summary\n\nRuby's JSON native C extension clears the consumed `JSON::ResumableParser` input buffer but leaves `state.start`, `state.cursor`, and `state.end` pointing into released storage.\n\nWhen `partial_value` reconstructs an incomplete object containing duplicate keys, the duplicate-key warning path calls `cursor_position`, which dereferences those stale pointers. This results in a heap-use-after-free and can terminate the Ruby process.\n\nAn attacker who can supply JSON stream data to an application using `JSON::ResumableParser` may cause process termination when the application calls `partial_value` on incomplete attacker-controlled input containing duplicate object keys.\n\nThe issue was reproduced in the native C extension from the official RubyGems releases:\n\n* JSON 2.20.0\n* JSON 2.21.0\n* JSON 2.21.1\n\nThe attached evidence demonstrates:\n\n* an AddressSanitizer-confirmed heap-use-after-free;\n* a native `SIGSEGV` using the official JSON 2.21.1 RubyGem;\n* an end-to-end loopback TCP at",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 95,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-c0bbe76f12",
+    "rejectedAt": "2026-08-08T07:41:43.982822+00:00",
+    "date": "2026-08-04",
+    "source": "OSV.dev AI package vulnerabilities",
+    "url": "https://osv.dev/vulnerability/GHSA-3cg5-48j3-v4gv",
+    "headline": "GHSA-3cg5-48j3-v4gv: Open WebUI: A folder write-collaborator can permanently delete the owner's chats by deleting a shared subfolder",
+    "summary": "## Summary\nA user granted write access to a shared chat folder could permanently delete chats and messages belonging to the folder's owner. Deleting a folder cascades into the owner's chats and the entire subfolder subtree, and the deletion handler required only write access on subfolders instead of ownership. Root folders were restricted to the owner or an admin, subfolders were not.\n\n## Preconditions\nThe Folders Sharing permission (`user.permissions.sharing.folders`) must be enabled; it is off by default. The victim must have shared a folder with the attacker at write access. `features.folders` and the `chat.delete` permission are enabled by default and are both required. Deployments that leave folder sharing disabled are not affected, and neither are single-user instances.\n\n## Impact\nPermanent, irreversible destruction of another user's chat history within and beneath a shared folder. With `delete_contents=false` the same request instead force-moved the owner's chats out of the fold",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 95,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-11fab7eed4",
+    "rejectedAt": "2026-08-08T07:41:48.417753+00:00",
+    "date": "2026-08-07",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/7/pdfs-are-terrible/#atom-everything",
+    "headline": "The Tokenpocalypse Is Here: Companies Are Scrambling To Stop Spending So Much on AI",
+    "summary": "The Tokenpocalypse Is Here: Companies Are Scrambling To Stop Spending So Much on AI\nThere's a fun anecdote from Accenture (apparently via leaked meeting audio recordings) in this 404 Media piece from June 24th:\n\n“We’re seeing from some of the data internally at least that it’s actually not our engineers that are driving the token consumption. It’s a lot of the non-engineers that are doing some of those behaviors [...] you were talking about,” Justice Kwak, Accenture’s agentic AI strategy lead, said [...]\nStuart Henderson, Accenture’s client group lead, interrupts. He jokes he hopes Kwak didn’t just convert a PDF into images and then into markdown files. “I’m learning that’s one of the big token chewers,” Henderson says. “Turning PDFs into markdown: is that right?”\nThat’s when Kwak says that’s what Accenture’s own data shows.\n\nMaybe if Accenture figure out that PDFs are a terrible medium for communicating information they'll be able to push that message out to the rest of the business w",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6897ab4f3e",
+    "rejectedAt": "2026-08-08T07:41:53.626178+00:00",
+    "date": "2026-08-07",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/7/moonlight-mayhem/#atom-everything",
+    "headline": "Moonlight & Mayhem (Raccoon Heist by Codex + GPT-5.6 Sol Ultra)",
+    "summary": "Moonlight &amp; Mayhem (Raccoon Heist by Codex + GPT-5.6 Sol Ultra)\nOn Wednesday I wrote about One-shotting a Raccoon Heist game using Claude Fable 5, where I had Claude Fable 5 build a full working game from a premise I generated with GPT-3 and DALL-E four years ago.\nI decided to pose the exact same prompt to Codex Desktop running GPT-5.6 Sol Ultra - the mode where Sol makes aggressive use of sub-agents - to see how it would do.\nIt produced a much better game! Here's Moonlight &amp; Mayhem - GitHub repository here, including the textures and prompts it generated using gpt-image-2.\n\n    \n    Your browser does not support HTML5 video.\n  \n\n\nThe original GPT-3 generated game description included:\n\nIn “Raccoon Heist”, you and your team of thieving raccoons are tasked with pulling off a series of daring heists. From robbing banks to stealing priceless art, no job is too big or too small for your furry crew.\n\nFable's version had you as a single raccoon running around a back yard collecting c",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b7ef50202e",
+    "rejectedAt": "2026-08-08T07:41:55.419405+00:00",
+    "date": "2026-08-06",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/what-is-ai-harness-engineering",
+    "headline": "What is AI harness engineering?",
+    "summary": "While the models get most of the attention, the harnesses that run them are equally important. Harness engineering is the practice of building the layer, including code, that turns an AI model from a text generator into an agent that can take actions. In short, an AI agent is a model plus a harness. The model decides what to do next, and the harness makes it happen, connecting the model to tools, context, external systems, and validation. In a lot of practical work, and especially in security work, the harness decides the quality of the output more than the choice of model does. A harness is t",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-bdef73cd55",
+    "rejectedAt": "2026-08-08T07:41:56.461169+00:00",
+    "date": "2026-08-08",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/8/john-gruber/#atom-everything",
+    "headline": "Quoting John Gruber",
+    "summary": "Me, I try to get into the mindset of playing live music, not recording a studio album. Except when I’m writing a piece where I really want it to be an album. Those aren’t rare, per se, but they’re occasional. If I tried to make every post a hall-of-famer I’d never get anything out.\nI’m aiming for professionalism. I’m performing live in front of an audience — not just jamming in my garage or bedroom, fucking around. So I’m careful and concentrate. I want to hit every note, in time. But at my best I’m moving from song to song.\n&mdash; John Gruber, responding to my blogging tips\n\n    Tags: john-gruber, blogging",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-54ba1ba464",
+    "rejectedAt": "2026-08-08T07:42:00.175061+00:00",
+    "date": "2026-08-07",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1300",
+    "headline": "[UPDATE] [mittel] GNU libc: Mehrere Schwachstellen",
+    "summary": "Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in GNU libc ausnutzen, um beliebigen Programmcode auszuführen, einen Denial-of-Service-Zustand zu verursachen oder vertrauliche Informationen offenzulegen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ac6eee653d",
+    "rejectedAt": "2026-08-08T07:42:01.946313+00:00",
+    "date": "2026-08-07",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0421",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux-Kernel ausnutzen, um nicht näher spezifizierte Angriffe durchzuführen, die möglicherweise zu einer Denial-of-Service- Bedingung führen oder eine Speicherbeschädigung verursachen können.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-654e5cdd55",
+    "rejectedAt": "2026-08-08T07:42:03.112966+00:00",
+    "date": "2026-08-07",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-2868",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen, um nicht näher spezifizierte Angriffe durchzuführen, die möglicherweise zu einer Denial-of-Service- Bedingung führen oder eine Speicherbeschädigung verursachen können.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8306d9cb5c",
+    "rejectedAt": "2026-08-08T07:42:04.533144+00:00",
+    "date": "2026-08-07",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0086",
+    "headline": "[UPDATE] [hoch] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen im Linux Kernel ausnutzen um nicht näher spezifizierte Angriffe durchzuführen, die möglicherweise zu einer Denial-of-Service- Bedingung führen oder eine Speicherbeschädigung verursachen können.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3f45fc0554",
+    "rejectedAt": "2026-08-08T07:42:05.629449+00:00",
+    "date": "2026-08-07",
+    "source": "FTC press releases",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2026/08/ftc-ditches-disparate-impact",
+    "headline": "FTC Ditches ‘Disparate Impact’",
+    "summary": "Commission will no longer bring claims under this pernicious legal theory\nThe Federal Trade Commission today announced a policy statement clarifying that the Commission will not pursue claims based on disparate-impact or “unfair discrimination” theories.View Press Release",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d4fa171fab",
+    "rejectedAt": "2026-08-08T07:42:09.245769+00:00",
+    "date": "2026-08-07",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/new-wordpress-pre-auth-xss-could-lead.html",
+    "headline": "New WordPress Pre-Auth XSS Could Lead to PHP Code Execution - Patch ASAP",
+    "summary": "WordPress has fixed a pre-authentication reflected cross-site scripting (XSS) flaw in its login screen that affects every version of the content management system. pwn.ai demonstrated how the flaw can be chained into PHP code execution on the server when a logged-in administrator interacts with an attacker-controlled page.\n\nTracked as&nbsp;CVE-2026-64638&nbsp;(CVSS score: 8.9), the",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 90,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-da919a7909",
+    "rejectedAt": "2026-08-08T07:42:10.755282+00:00",
+    "date": "2026-08-07",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
+    "headline": "Nearly 800 Malicious npm Packages Deliver Cross-Platform RAT and Infostealer",
+    "summary": "A cluster of nearly 800 malicious packages has been published to the npm registry as part of a new campaign designed to deliver cross-platform malware targeting Windows, Mac, and Linux systems.\n\n\"These packages appear to use AI slop squatted, or randomly generated typo-squatting package names, but all of them deliver a powerful RAT and infostealer payload,\" OpenSourceMalware researcher Paul",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2615fb26ee",
+    "rejectedAt": "2026-08-08T07:42:14.843366+00:00",
+    "date": "2026-08-07",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/in-other-news-ai-slop-limits-apple-bounties-north-carolina-port-attacks-hackers-target-wall-street/",
+    "headline": "In Other News: AI Slop Limits Apple Bounties, North Carolina Port Attacks, Hackers Target Wall Street",
+    "summary": "Noteworthy stories that might have slipped under the radar: ban on Chinese data center tech, QuickFox VPN supply chain attack, IEH Corporation mailbox breached via phishing.\nThe post In Other News: AI Slop Limits Apple Bounties, North Carolina Port Attacks, Hackers Target Wall Street appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-655262c612",
+    "rejectedAt": "2026-08-08T07:42:16.002328+00:00",
+    "date": "2026-08-07",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/07/white-house-ai",
+    "headline": "The White House’s plan to vet potentially dangerous AI is cloaked in secrecy",
+    "summary": "A Trump administration framework on AI testing leaves a lack of transparency – and plenty of open questionsAfter months of talking with tech industry leaders, the Trump administration finalized a framework this week for how it will test new artificial intelligence models for safety and cybersecurity risks. So far, the White House is keeping details of the framework private, in a blow to transparency and potential boon for secretive AI companies.On Tuesday, staff from OpenAI, Anthropic, Meta, Google, Nvidia and Microsoft attended a private meeting with White House officials to review the AI framework. Multiple outlets have since reported that although the volunteer vetting process for new AI models has been settled, the White House does not plan to release its policy publicly and will only share testing criteria with a select few tech companies. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a89bc40cca",
+    "rejectedAt": "2026-08-08T07:42:17.082304+00:00",
+    "date": "2026-08-07",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/application-security/ai-generated-patches-fail-half-time",
+    "headline": "AI-Generated Patches Fail Half the Time",
+    "summary": "A study of more than 6,000 patches found that even working patches can introduce new bugs, break something else, or are open to bypass.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 65,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3193878ce9",
+    "rejectedAt": "2026-08-08T07:42:18.263116+00:00",
+    "date": "2026-08-07",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/microsoft-365-aitm-phishing-hijacks.html",
+    "headline": "Microsoft 365 AitM Phishing Hijacks Accounts to Collect Payroll and Finance Emails",
+    "summary": "Cybersecurity researchers have called attention to an active \"widespread email-driven phishing campaign\" that employs adversary-in-the-middle (AitM) techniques to take control of Microsoft 365 accounts with an aim to identify key personnel involved in financial workflows and gather related email.\n\n\"The campaign uses residential proxies to disguise malicious sign-ins as ordinary consumer traffic,",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-0e3a028652",
+    "rejectedAt": "2026-08-08T07:42:19.305000+00:00",
+    "date": "2026-08-07",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
+    "headline": "ClickFix Attacks Deliver macOS Stealer That Can Drain Crypto Wallets",
+    "summary": "ClickFix-style attacks are being used to deliver a Go-based malware capable of stealing cryptocurrency assets, as well as browser-stored passwords, Apple iCloud Keychain data, and cached credentials.\n\nThe macOS-focused infection chain is designed to deliver a shell script that profiles the host and then fetches a macOS malware payload that's compatible with the computer's CPU architecture.\n\n\"",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1d3756e39e",
+    "rejectedAt": "2026-08-08T07:42:20.677053+00:00",
+    "date": "2026-08-07",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/truck-brake-controllers-safety-recall-doubled-as-hidden-security-fix/",
+    "headline": "Truck Brake Controller’s Safety Recall Doubled as Hidden Security Fix",
+    "summary": "NMFTA research shows a Bendix EC80 brake controller safety recall also patched remote code execution and DoS vulnerabilities.\nThe post Truck Brake Controller&#8217;s Safety Recall Doubled as Hidden Security Fix appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6005ee1079",
+    "rejectedAt": "2026-08-08T07:42:21.673594+00:00",
+    "date": "2026-08-07",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/microsoft-apple-release-fresh-security-updates/",
+    "headline": "Microsoft, Apple Release Fresh Security Updates",
+    "summary": "Microsoft fixed critical vulnerabilities across Azure, Entra, and SharePoint, while Apple patched a high-severity authentication bypass.\nThe post Microsoft, Apple Release Fresh Security Updates appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-04c3e54772",
+    "rejectedAt": "2026-08-08T07:42:32.013695+00:00",
+    "date": "2026-08-06",
+    "source": "AI Incident Database",
+    "url": "https://casp.ac/reports/ai-enabled-terrorism",
+    "headline": "“God has helped us, and so will AI”: How the Terrorist Group Boko Haram Uses Frontier AI",
+    "summary": "AIID editor's note: Please see the original source for the full report, which is also accessible at the following URL: https://casp.ac/\\__l5e/assets-v1/8e5796ad-c373-4dea-8470-466263cd2125/ai-enabled-terrorism-report.pdf.\n\nAbstract\n\nHow are ... (https://incidentdatabase.ai/cite/1624#7664)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f075b7594e",
+    "rejectedAt": "2026-08-08T07:42:33.147947+00:00",
+    "date": "2026-08-06",
+    "source": "AI Incident Database",
+    "url": "https://www.classaction.org/news/walmart-lawsuit-claims-retailer-illegally-collects-illinois-residents-biometric-voiceprints-from-phone-calls",
+    "headline": "Walmart Lawsuit Claims Retailer Illegally Collects Illinois Residents’ Biometric Voiceprints From Phone Calls",
+    "summary": "Walmart faces a proposed class action lawsuit that claims the mega-retailer unlawfully collects, stores, and uses without consent the voiceprints of Illinois consumers who place a phone call to their local store.\n\nThe 15-page lawsuit allege ... (https://incidentdatabase.ai/cite/1622#7655)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-371ff3623c",
+    "rejectedAt": "2026-08-08T07:42:34.854285+00:00",
+    "date": "2026-08-08",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-6879",
+    "headline": "CVE-2026-6879 Quadratic Behavior in xml.etree.ElementPath Index Predicates",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9bdf759cf6",
+    "rejectedAt": "2026-08-08T07:42:35.842994+00:00",
+    "date": "2026-08-08",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68480",
+    "headline": "CVE-2026-68480 x86/bugs: Make Safe-RET robust against interrupt injection",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-bfa8c9e46f",
+    "rejectedAt": "2026-08-08T07:42:37.553789+00:00",
+    "date": "2026-08-08",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-55995",
+    "headline": "CVE-2026-55995 Double-free in the iSNS attribute decoder in open-iscsi",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-68868eb895",
+    "rejectedAt": "2026-08-08T07:42:38.464346+00:00",
+    "date": "2026-08-08",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-48524",
+    "headline": "CVE-2026-48524 PyJWT: PyJWKClient unbounded JWKS endpoint requests via attacker-controlled kid values (DoS)",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-664138fb3b",
+    "rejectedAt": "2026-08-08T07:42:39.416139+00:00",
+    "date": "2026-08-08",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-44944",
+    "headline": "CVE-2026-44944 iscsiuio control-socket authentication bypass in open-iscsi",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2ee94000fe",
+    "rejectedAt": "2026-08-08T07:42:40.579747+00:00",
+    "date": "2026-08-07",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/hsp-gruppe",
+    "headline": "How HSP GRUPPE builds AI capabilities for tax advisory",
+    "summary": "Discover how HSP GRUPPE uses ChatGPT Enterprise to boost productivity, improve work quality, and create more capacity for tax advisory and client service.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 65,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-833934ee3b",
+    "rejectedAt": "2026-08-08T07:42:41.765248+00:00",
+    "date": "2026-08-07",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
+    "headline": "Responding to the next frontier of critical cyber capabilities",
+    "summary": "OpenAI is sharing preliminary cybersecurity evaluations for Astra and the steps we’re taking to strengthen safeguards and security controls.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d49ae6b35f",
+    "rejectedAt": "2026-08-08T07:42:44.192479+00:00",
+    "date": "2026-08-07",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/securing-your-amazon-s3-buckets-identifying-and-remediating-over-permissioned-access/",
+    "headline": "Securing your Amazon S3 buckets: Identifying and remediating over-permissioned access",
+    "summary": "Misconfigured Amazon Simple Storage Service (Amazon S3) buckets can expose your data to unauthorized access. Without proactive review, S3 bucket policies or Access Control Lists (ACLs) configured with broad access may go unnoticed in your environment. In this post, you learn how to identify and fix over-permissioned S3 buckets across your AWS environment, along with […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-045c0b3f08",
+    "rejectedAt": "2026-08-08T07:42:45.251879+00:00",
+    "date": "2026-08-06",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/media/ng-interactive/2026/aug/06/aj-daulerio-gawker-sobriety-addiction",
+    "headline": "‘I have an ego that needs to be put in check’: ex-Gawker editor AJ Daulerio on life after addiction",
+    "summary": "After his fall from grace, media’s former enfant terrible is now sober and helping others with his addiction recovery newsletter and podcast, The Small BowEvery other Tuesday, AJ Daulerio wakes up at 5.30am and meditates for five to 20 minutes before beginning his multistep daily journaling protocol: reading a selection from a poetry anthology, then a passage from one of his daily wisdom readers (his go-to is a heavily annotated copy of Leo Tolstoy’s A Calendar of Wisdom); writing his Fear of the Day and gratitude list, then sharing his spiritual takeaway in a note to his three kids.After a banana and coffee, Daulerio trains Brazilian jujitsu before hitting a 9.45am meditation at Besant Lodge – a community center just below the Hollywood sign that once served as a meeting place for mid-century mystics – immediately followed by him leading a recovery meeting of his own through Zoom. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-557f61f032",
+    "rejectedAt": "2026-08-08T07:42:46.625354+00:00",
+    "date": "2026-08-07",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/unlimited-technology-systems-breach-impacts-38-million-people/",
+    "headline": "Unlimited Technology Systems breach impacts 3.8 million people",
+    "summary": "Healthcare software company Unlimited Technology Systems reported that more than 3.8 million people were impacted by a data breach incident that occurred in October 2025. The organization submitted data breach notification samples to the authorities this year on July 1st without revealing the exact number of impacted individuals. An entry on the breach notification portal of the U.S. Dept. of Health and Human Services now shows that a company server was breached and data of 3,803,750 people was exposed to an unauthorized party. Unlimited Technology Systems is a software company specializing in",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1faea6d610",
+    "rejectedAt": "2026-08-08T07:42:48.326889+00:00",
+    "date": "2026-08-07",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/real-emails-hijacked-payments-two-h1-2026-attack-chains/",
+    "headline": "Real emails, hijacked payments: Two H1 2026 attack chains",
+    "summary": "Gen's H1 2026 Threat Report examines two separate attack chains. One used compromised business inboxes and browser manipulation in a banking-malware campaign, while the other used clipboard hijacking to redirect cryptocurrency payments. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-85f2ec6e2d",
+    "rejectedAt": "2026-08-08T07:42:49.388678+00:00",
+    "date": "2026-08-07",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/",
+    "headline": "Metabase SQLi zero-day exploited in customer data-theft attacks",
+    "summary": "A critical Metabase SQL injection vulnerability was exploited in zero-day attacks to breach customer instances in data theft attacks, known to impact Framework and Tally. Metabase disclosed the attacks on Thursday, warning that its Metabase Cloud SaaS platform was compromised through a previously unknown vulnerability affecting versions 1.58 and above. The company warns that self-hosted installations are also vulnerable. \"We recently identified that Metabase Cloud was attacked by someone utilizing an unknown (\"0-day\") security vulnerability in versions 1.58 and above,\" Metabase CEO Sameer Al-S",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e891a70d02",
+    "rejectedAt": "2026-08-08T07:42:53.671015+00:00",
+    "date": "2026-08-04",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/05/ai-generated-stories-rated-better-quality-than-human-written-ones-study-finds",
+    "headline": "AI-generated stories rated better quality than human-written ones, study finds",
+    "summary": "Researcher says simpler writing by AI is easier to read and digest, but this does not mean human authors are obsoleteFrom Homer’s Odyssey to Agatha Christie’s crime fiction, humans have produced plenty of tales to grace the bookshelf. But research suggests artificial intelligence may now be providing some competition.In a study published in the journal Judgment and Decision Making, 1,682 adults were asked to read one of six short stories, three of which were written by humans and three by ChatGPT. Each AI story had a similar theme to one of the human-authored works. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8e0f76e10d",
+    "rejectedAt": "2026-08-08T07:42:54.714752+00:00",
+    "date": "2026-08-06",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/meta-ai-escapes-lab-hacking-joyride",
+    "headline": "Déjà Vu? Meta's AI Escapes Testing Lab in Hacking Joyride",
+    "summary": "In the span of three weeks, OpenAI, Anthropic, and Meta have all disclosed AI agent sandbox escape events affecting real organizations.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-dec9e83f87",
+    "rejectedAt": "2026-08-08T07:42:55.885935+00:00",
+    "date": "2026-08-07",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/good-and-bad-agentic-behaviors/",
+    "headline": "Unveiling good and bad behaviors on the Agentic Internet",
+    "summary": "Cloudflare is shifting bot mitigation from point-in-time Risk assessment to continuous Trust evaluation. Learn how new good and bad behaviors from bots and agents are assessed by our systems, including BotBase and Precursor — and try out our Precursor Trace simulation to see how your own cursor movements would be assessed as human or bot.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-055cea9023",
+    "rejectedAt": "2026-08-08T07:42:57.047160+00:00",
+    "date": "2026-08-07",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/workers-ai-gateway-unification/",
+    "headline": "Unifying Workers AI and AI Gateway into a single AI control plane",
+    "summary": "Cloudflare is unifying AI Gateway and Workers AI into a single control plane, giving developers observability, billing, and dynamic routing across both managed GPUs and external providers. Learn how unified bindings and model-first routing simplify building resilient AI applications.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f4b27696b3",
+    "rejectedAt": "2026-08-08T07:42:58.676184+00:00",
+    "date": "2026-08-07",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/introducing-radar-researcher/",
+    "headline": "Introducing Radar Researcher: An AI tool for exploring Internet data in plain language",
+    "summary": "Cloudflare Radar Researcher is a new AI-powered tool that lets you explore global Internet trends and traffic data using plain language. Built entirely on Cloudflare's Developer Platform, it turns natural language queries into real, interactive charts.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-92756350fc",
+    "rejectedAt": "2026-08-08T07:42:59.667689+00:00",
+    "date": "2026-08-07",
+    "source": "The Record",
+    "url": "https://therecord.media/irregular-ai-security-company-incidents",
+    "headline": "Irregular, firm behind AI hacking incidents, won't say if there were more",
+    "summary": "Irregular — the cybersecurity evaluation firm behind tests in which AI models from Anthropic, OpenAI and Meta compromised real-world computer systems — has declined to say whether any of its other clients were also affected by the same underlying flaw. Asked directly whether the publicly known companies were the only ones to have experienced the problem, a spokesperson said the company’s investigation was ongoing and that they could not “go into further details.” The company’s silence over the matter comes as policymakers and the public continue to express alarm over the potential harmful use ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-817a151e1a",
+    "rejectedAt": "2026-08-08T07:43:01.002445+00:00",
+    "date": "2026-08-06",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/how-ai-exposed-a-browser-security-gap-that-enterprises-cannot-ignore/",
+    "headline": "How AI Exposed a Browser Security Gap that Enterprises Cannot Ignore",
+    "summary": "AI did not create a new browser security problem. It exposed one that enterprises have long been able to ignore. Skyhigh Security explains why browsers have become a critical control point for governing data movement, AI interactions, and modern work. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1a71d2febe",
+    "rejectedAt": "2026-08-08T07:43:02.024895+00:00",
+    "date": "2026-08-07",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/vishing-extortion-group-unc6671-rebrands-after-making-millions/",
+    "headline": "Vishing Extortion Group UNC6671 Rebrands After Making Millions",
+    "summary": "Initially calling itself BlackFile, the group has expanded operations to the Redact, Pink, Helix, and Falcon brands.\nThe post Vishing Extortion Group UNC6671 Rebrands After Making Millions appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-fd5b733b35",
+    "rejectedAt": "2026-08-08T07:43:03.548159+00:00",
+    "date": "2026-08-07",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/allenai/tutormoments",
+    "headline": "TutorMoments: Do AI tutors know when to help and when to hold back?",
+    "summary": "📄 Tech Report: https://tutormoments.allen.ai/static/paper/tutormoments-preview.pdf | 📊 Data: https://huggingface.co/datasets/allenai/tutormoments-preview | 💻 Code: https://github.com/allenai/tutormoments Today we're introducing a preview of TutorMoments , a framework to measure whether cutting-edge LLMs can balance one of the hardest trade-offs in education: when to step in and help a student and when to hold back and let the student do more of the work. TutorMoments is a replay-based evaluation built off real one-on-one math tutoring sessions. Experienced math teachers go through transcripts ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-39a8a93863",
+    "rejectedAt": "2026-08-08T07:43:04.434129+00:00",
+    "date": "2026-08-07",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/what-is-an-ai-assistant",
+    "headline": "What is an AI Assistant?",
+    "summary": "AI assistants use language models, data retrieval, and reasoning to understand requests and take action on behalf of users. For enterprise data teams, this means generating SQL, building dashboards, troubleshooting pipelines, and automating repetitive work without requiring everyone to write code. The market reflects how quickly organizations have moved from experimentation to production: the global AI assistant market was valued at $19.1 billion in 2025 and is projected to reach $114.1 billion by 2035. What separates a useful assistant from a novelty is depth of integration: one that understa",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4fffe91913",
+    "rejectedAt": "2026-08-08T07:43:05.830454+00:00",
+    "date": "2026-08-07",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/managing-ai-coding-costs-scale",
+    "headline": "Managing AI Coding Costs at Scale",
+    "summary": "AI coding tools deliver immense value: at Databricks, agentic coding has measurably improved every velocity metric we track and, in some teams, driven an order-of-magnitude gains in output. But nearly every company deploying AI tools at scale has hit the same wall: exponentially growing costs . That curve is unsustainable - left unchecked it will eventually overtake revenue. The spend explosion has left enterprises in a paradoxical situation: on the one hand, desiring to maximally push AI transformation and put powerful tools in the hands of employees, and on the other hand, having to reconcil",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4612abd7cd",
+    "rejectedAt": "2026-08-08T07:43:07.056366+00:00",
+    "date": "2026-08-06",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/podcast-compliance-wont-save-you-the-future-of-cyber-risk-with-edna-conway/",
+    "headline": "Podcast: Compliance Won’t Save You: The Future of Cyber Risk with Edna Conway",
+    "summary": "(Video) In this podcast, we share insights from Edna Conway, a recognized leader in cybersecurity and supply chain resilience with over 40 years of experience in the field. \nThe post Podcast: Compliance Won’t Save You: The Future of Cyber Risk with Edna Conway appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3aff26fd47",
+    "rejectedAt": "2026-08-08T07:43:08.473402+00:00",
+    "date": "2026-08-06",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cybersecurity-operations/from-bobmojis-to-bobbleheads-how-the-democratic-party-built-a-security-first-culture",
+    "headline": "From Bobmojis to Bobbleheads: How the Democratic Party Built a Security-First Culture",
+    "summary": "Two former chief security officers of the Democratic National Committee explain that a strong security-first mindset requires executive support — and a dose of absurdity.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8aa924fe28",
+    "rejectedAt": "2026-08-08T07:43:09.518821+00:00",
+    "date": "2026-08-07",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/us-news/2026/aug/07/trump-orders-tariff-solar-panels-microchips-manufacturing-ingredient",
+    "headline": "Trump orders new 15% tariff on key material for solar panels and microchips",
+    "summary": "Move to raise levy on goods made with polysilicon aims to protect domestic US supply chains from China, the major producerDonald Trump has ordered a new 15% tariff on imported products made of polysilicon, an important ingredient in microchip manufacturing that is primarily produced by China.The new tariff, which will take effect on 4 December, is aimed at supporting US chip and solar panel supply chains to compete with Beijing on artificial intelligence and energy. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-56f370db98",
+    "rejectedAt": "2026-08-08T07:43:10.789769+00:00",
+    "date": "2026-08-06",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/us-news/2026/aug/06/exclusive-palmer-luckey-political-fundraising",
+    "headline": "Exclusive: Major Republican fundraiser winning contracts from Trump administration, emails reveal",
+    "summary": "Palmer Luckey has donated $5.9m to Republicans and bundled more, while reaping billions in Pentagon contractsWealthy Republicans on the west coast received an emailed invitation in July to an upcoming fundraiser titled “Keep the Senate”. The email, obtained by the Guardian, described the event as a “private roundtable and dinner with the National Republican Senatorial Committee” where donors can pledge $50,000 for seats at the head table, and mingle with legislative heavy hitters from Capitol Hill including the Senator majority leader, John Thune, and Mike Rogers, who is running for Senate in Michigan with Donald Trump’s endorsement.One of the organizers listed on the invite was the defense industry tycoon Palmer Luckey, the 33-year-old co-founder of sprawling weapons manufacturer Anduril Industries. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4a841271b8",
+    "rejectedAt": "2026-08-08T07:43:11.757525+00:00",
+    "date": "2026-08-06",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/coordination-gap-attackers-outpacing-law-enforcement",
+    "headline": "The Coordination Gap: How Attackers Are Outpacing Law Enforcement",
+    "summary": "The fight against cybercrime continues because threat actors have adapted their strategies to avoid deterrents, but law enforcement still operates in silos.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5c33b3ba9e",
+    "rejectedAt": "2026-08-08T07:43:12.806217+00:00",
+    "date": "2026-08-07",
+    "source": "The Record",
+    "url": "https://therecord.media/water-watch-center-utilities-def-con-franklin-nrwa",
+    "headline": "Water utilities group partners with DEF CON offshoot for Water Watch Center",
+    "summary": "A national water association is creating a program designed to provide threat intelligence and cybersecurity services to underfunded water and wastewater systems across the U.S. On Friday, the National Rural Water Association (NRWA) launched a partnership with DEF CON Franklin — an organization that has sought to pair volunteer cybersecurity experts with cash-strapped water systems in need of their expertise. The Water Watch Center (WWC) will provide direct support to smaller water utilities to mitigate attacks, including the recent string of incidents that have impacted water systems in at le",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-15cbdd13d9",
+    "rejectedAt": "2026-08-08T07:43:15.249730+00:00",
+    "date": "2026-08-07",
+    "source": "The Record",
+    "url": "https://therecord.media/new-mexico-judge-orders-meta-567-million-kids-safety",
+    "headline": "New Mexico judge orders Meta to pay $567 million in kids online safety case",
+    "summary": "A New Mexico judge on Thursday ordered Meta to pay $567 million and overhaul how youth use its platform, the latest development in a long-running lawsuit focused on negative impacts of social media on children. The money will be used to create a fund to mitigate social media harms, including by carving out $420 million for treatment for New Mexico youth who have been hurt on the platforms. The balance of the money will be used to raise public awareness and prevent future harms. The case is considered a bellwether because it is the first of dozens brought against Meta by state attorneys general",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-92076282f4",
+    "rejectedAt": "2026-08-08T07:43:16.443087+00:00",
+    "date": "2026-08-07",
+    "source": "The Record",
+    "url": "https://therecord.media/military-device-manufacturer-discloses-cyber-incident",
+    "headline": "Military device manufacturer discloses cyber incident to SEC",
+    "summary": "Hackers obtained access to the email inbox of a military device manufacturer, according to documents filed with regulators on Thursday. IEH Corporation — which produces specialized products used in military satellites, missiles and fighter jets — said it discovered a cyberattack on Tuesday and immediately tried to contain it. The company told investors that an employee fell victim to a phishing attack that gave intruders access to their mailbox, which included “email messages, attachments, customer communications, purchase orders, engineering-related documentation, and potentially export-contr",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-13e5a32082",
+    "rejectedAt": "2026-08-08T07:43:17.405608+00:00",
+    "date": "2026-08-07",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/north-carolina-ports-confirms-cyberattack-disrupting-operations/",
+    "headline": "North Carolina Ports confirms cyberattack disrupting operations",
+    "summary": "The North Carolina Ports Authority has confirmed that a cyberattack disrupted IT systems and slowed operations at the Port of Wilmington, Port of Morehead City, and Charlotte Inland Port. The three facilities are all part of the port, constituting two principal commercial deepwater seaports and an inland hub. The Port of Wilmington, which is the most significant of the three, has nine berths and a 600,000 TEU annual container capacity, handling an average of 5,000 container gate moves per week. Wilmington and Morehead together handle 4.4 million short tons of bulk/breakbulk cargo yearly, servi",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5f7075086e",
+    "rejectedAt": "2026-08-08T07:43:18.359569+00:00",
+    "date": "2026-08-07",
+    "source": "404 Media",
+    "url": "https://www.404media.co/flock-pitched-a-plan-to-turn-uber-and-lyft-drivers-into-roaming-surveillance-vehicles/",
+    "headline": "Flock Pitched a Plan To Turn Uber and Lyft Drivers Into Roaming Surveillance Vehicles",
+    "summary": "Flock planned to use dashcams installed in hundreds of thousands Uber, Lyft, and delivery drivers’ vehicles to scan license plates those drivers travelled passed, essentially turning Uber and Lyft drivers into roaming surveillance vehicles, according to a Flock presentation shared with 404 Media. The document provides more details on Flock’s planned partnership with Nexar, a popular dashcam company. 404 Media first revealed the intended partnership last August when multiple sources provided information on the plan. The presentation shows Flock was actively pitching this partnership, and its us",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9332091257",
+    "rejectedAt": "2026-08-08T07:43:19.449452+00:00",
+    "date": "2026-08-07",
+    "source": "The Record",
+    "url": "https://therecord.media/adam-cassady-confirmed-senate-cyber-ambassador",
+    "headline": "US cyber ambassador nominee Cassady confirmed in Senate",
+    "summary": "The Senate on Friday confirmed Adam Cassady to serve as the next U.S. ambassador for cyber and digital policy. The chamber confirmed Cassady in a 51-47 vote on a package of more than 70 nominees . He is only the second person to hold the ambassador-at-large post, which has been vacant since the State Department’s inaugural cyber diplomat stepped down at the start of the current Trump administration. It’s unclear how much influence Cassady, who currently serves as a senior official at the National Telecommunications and Information Administration, will actually yield as his role’s responsibilit",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-fab8d41c8c",
+    "rejectedAt": "2026-08-08T07:43:20.561071+00:00",
+    "date": "2026-08-07",
+    "source": "404 Media",
+    "url": "https://www.404media.co/city-that-arrested-person-for-clapping-at-data-center-meeting-moves-to-virtual-townhalls-for-public-safety/",
+    "headline": "City That Arrested Person for Clapping at Data Center Meeting Moves to Virtual Meetings for 'Public Safety'",
+    "summary": "The small town that arrested a person who clapped during a city council meeting about a hyperscale data center held its meeting on Wednesday virtually and had no public comment period in the name of “public safety.” It says it will do the same for another meeting later this month. The city, Emporia, Kansas, announced the change just two days before the meeting. “In the interest of public safety, the Emporia City Commission meetings scheduled for Wednesday, August 5, 2026, and Wednesday, August 19, 2026, will be conducted virtually,” Emporia said in a post about the change on Facebook. “No publ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f5d0d5fccc",
+    "rejectedAt": "2026-08-08T07:43:21.785885+00:00",
+    "date": "2026-08-07",
+    "source": "404 Media",
+    "url": "https://www.404media.co/behind-the-blog-rare-books-and-baseball-brain/",
+    "headline": "Behind the Blog: Rare Books and Baseball Brain",
+    "summary": "This is Behind the Blog, where we share our behind-the-scenes thoughts about how a few of our top stories of the week came together. This week, we discuss Flock blogging, \"rare\" books, and Jesus Christ. EMANUEL: I was out last Friday so I want to talk about the story I published two weeks ago about AI companies buying printed books so they can scan them for training data . The story has gone mega viral on X, but mostly in the form of a post from an engagement farming account that both misrepresented my article and didn’t properly link back to our website. This is frustrating because it means a",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-bab42365c8",
+    "rejectedAt": "2026-08-08T07:43:23.978341+00:00",
+    "date": "2026-08-06",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/ai-search-easier/",
+    "headline": "Cloudflare AI Search: give your agents a search engine for your data",
+    "summary": "AI Search makes search easier than ever, with no Cloudflare primitives to stitch together. Point it at your data to create a search for your own files and websites. We're also sharing a preview of our new pricing model.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-292ff5d3d1",
+    "rejectedAt": "2026-08-08T07:43:25.823732+00:00",
+    "date": "2026-08-07",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/a-decade-of-enterprise-identity-in-the-cloud-with-aws-managed-microsoft-ad/",
+    "headline": "A decade of enterprise identity in the cloud with AWS Managed Microsoft AD",
+    "summary": "Ten years ago, we launched AWS Directory Service for Microsoft Active Directory, a fully managed Microsoft Active Directory in the AWS Cloud. In that original announcement, Jeff Barr described a straightforward promise: “You will spend less time administering and more time working on your applications and your business.” A decade later, AWS Managed Microsoft AD […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b0c81176aa",
+    "rejectedAt": "2026-08-08T07:43:27.102215+00:00",
+    "date": "2026-08-07",
+    "source": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/community-program-refresh/",
+    "headline": "Announcing Cloudflare Ambassadors, Community Engineers, and another $1M in open-source funding",
+    "summary": "We are launching updated community programs, including Cloudflare Ambassadors and Community Engineers, backed by $1M in open-source funding. Learn how we are supporting maintainers and scaling our developer community.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
     "id": "reject-e36aa14a96",
     "rejectedAt": "2026-08-07T08:07:40.352798+00:00",
     "date": "2026-08-06",
