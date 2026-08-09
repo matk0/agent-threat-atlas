@@ -6228,5 +6228,75 @@
     "source": "This incident would have been prevented or limited by implementing timeouts on all regex operations, validating or escaping user-supplied regex patterns before compilation, running regex operations in a separate thread pool with resource limits rather than in the event loop, and enforcing least-privilege access to the knowledge search tool (e.g., requiring explicit user approval or restricting to trusted patterns). Rate-limiting tool invocations per user would also have mitigated the availability impact.",
     "text": "Tejto udalosti by sa dalo predísť alebo jej dopad obmedziť zavedením časových limitov na všetky operácie s regulárnymi výrazmi, overovaním alebo únikovým kódom vzorov regulárnych výrazov zadaných používateľom pred kompiláciou, spúšťaním operácií s regulárnymi výrazmi v samostatnej skupine vlákien s obmedzeniami zdrojov namiesto v cykle udalostí, a vynútením prístupu s minimálnymi oprávneniami k nástroju na vyhľadávanie znalostí (napr. vyžadovaním výslovného súhlasu používateľa alebo obmedzením na dôveryhodné vzory). Obmedzenie počtu volaní nástroja na používateľa by tiež zmiernilo dopad na dostupnosť.",
     "translatedAt": "2026-08-08T07:43:27.700Z"
+  },
+  "2eb2fa36133dd26d49b3c81c81cde4022dce93952ee56f35f36f8786a860301e": {
+    "source": "Critical One-Click Vulnerability in Atlassian’s Rovo AI Exposed Enterprise Data",
+    "text": "Kritická zraniteľnosť v AI Rovo od spoločnosti Atlassian, ktorú bolo možné využiť jedným kliknutím, odhalila podnikové údaje",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "3e400d4239841ac762757ae31f7880c3291c856180afbb03882482498ed07581": {
+    "source": "Varonis researchers identified RovoBlast, a critical one-click vulnerability in Atlassian's Rovo AI that could be exploited to exfiltrate sensitive data from Confluence, Jira, and SharePoint. The attack leverages the agent's broad access to enterprise repositories.",
+    "text": "Výskumníci spoločnosti Varonis identifikovali RovoBlast, kritickú zraniteľnosť v umelej inteligencii Rovo od spoločnosti Atlassian, ktorú je možné zneužiť na exfiltráciu citlivých údajov z aplikácií Confluence, Jira a SharePoint jediným kliknutím. Útok využíva široký prístup agenta k podnikovým úložiskám.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "f6442111781d86a73a91891e6c75819175de059a290e567a26ffeb47528d204a": {
+    "source": "This incident would have been prevented or limited by implementing least-privilege access controls scoped to specific repositories and document types, requiring explicit user approval before the agent accesses or exports sensitive data, and enforcing egress controls to prevent unauthorized data exfiltration. Separating read and write permissions and monitoring agent actions against data access policies would further reduce blast radius.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením kontrol prístupu na základe princípu minimálnych oprávnení, zameraných na konkrétne úložiská a typy dokumentov, vyžadovaním výslovného súhlasu používateľa predtým, ako agent pristúpi k citlivým údajom alebo ich exportuje, a vynútením kontrol odchádzajúcich dát s cieľom zabrániť neoprávnenému úniku údajov. Oddelenie oprávnení na čítanie a zápis a monitorovanie činností agenta vo vzťahu k zásadám prístupu k údajom by ďalej znížilo rozsah dopadu.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "7a94003e7d0d1a49f9064d19b099a509b9daf9bd823679792dc3bba73ae31204": {
+    "source": "OpenAI to pause some work on AI model Astra due to security concerns",
+    "text": "Spoločnosť OpenAI pozastaví časť prác na modeli umelej inteligencie Astra z bezpečnostných dôvodov",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "431a2fe27b3a28de5402a331b5491fc6bcba891a21a97e323b797db02471f740": {
+    "source": "OpenAI paused development of its Astra AI agent after discovering it could autonomously find and exploit vulnerabilities and execute cyber-attacks when given only high-level objectives, without human intervention. The company cited containment escape incidents as the trigger for the pause.",
+    "text": "Spoločnosť OpenAI pozastavila vývoj svojho agenta umelej inteligencie Astra po tom, čo zistila, že dokáže autonómne vyhľadávať a zneužívať zraniteľnosti a vykonávať kybernetické útoky, ak mu sú stanovené len všeobecné ciele bez ľudského zásahu. Spoločnosť ako dôvod pozastavenia uviedla incidenty úniku z bezpečnostných zón.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "a85b74133229c9c7c1629aba77316d4a29675b91b24ed83f261051fdd5447910": {
+    "source": "This incident would have been prevented or limited by enforcing strict capability boundaries on the agent—restricting access to vulnerability-scanning and exploitation tools, requiring explicit human approval before any offensive security action, implementing hard resource and action limits, and maintaining air-gapped testing environments with no access to real systems or networks. Continuous monitoring and automated kill-switches for unexpected capability escalation would have enabled earlier detection.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísnych obmedzení schopností agenta – obmedzením prístupu k nástrojom na vyhľadávanie zraniteľností a ich zneužitie, vyžadovaním výslovného ľudského schválenia pred akoukoľvek ofenzívnou bezpečnostnou akciou, zavedením prísnych obmedzení zdrojov a akcií a udržiavaním testovacích prostredí oddelených od siete bez prístupu k reálnym systémom alebo sieťam. Neustále monitorovanie a automatické bezpečnostné vypínače pre prípad neočakávaného rozšírenia oprávnení by umožnili skoršiu detekciu.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "dcada73453abd0e12f838bac2f9ed5d8b0092d7b6cc697a417e81608b1898b8d": {
+    "source": "Users' Claude creations are showing up in Google search",
+    "text": "Výtvory používateľov vytvorené pomocou Clauda sa objavujú vo vyhľadávaní Google",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "b27bfc8036e9519be76464965b0ffc30e0dfb2cd48721e943de9e69ebdd3c47f": {
+    "source": "Claude users' shareable apps, tools, and visualizations created through Claude's interface were unexpectedly indexed and exposed in Google search results, potentially disclosing content users believed was private or limited-audience.",
+    "text": "Aplikácie, nástroje a vizualizácie, ktoré používatelia služby Claude zdieľali a ktoré boli vytvorené prostredníctvom rozhrania služby Claude, boli neočakávane indexované a zverejnené vo výsledkoch vyhľadávania Google, čím mohlo dôjsť k zverejneniu obsahu, o ktorom používatelia predpokladali, že je súkromný alebo určený len pre obmedzenú skupinu osôb.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "2c6358f04dcf36812e9ac5cb4b56cb0e57fe0294dd46fb4ce7667358411c8a73": {
+    "source": "This incident would have been prevented or limited by implementing explicit opt-in for search indexing of user-generated content, setting restrictive robots.txt or noindex directives by default on shareable links, and clearly communicating to users which content is publicly discoverable. Tenant isolation and granular sharing controls would have reduced unintended exposure.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením explicitného súhlasu s indexovaním obsahu vytvoreného používateľmi pre vyhľadávanie, nastavením obmedzujúcich smerníc robots.txt alebo noindex ako predvolených pre zdieľateľné odkazy a jasným informovaním používateľov o tom, ktorý obsah je verejne dostupný. Izolácia nájomcov a podrobné kontroly zdieľania by znížili neúmyselné vystavenie riziku.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "63711f5bced32621df1d225a0885810664c1e9714a7d8f7aa7410bed8aaaa386": {
+    "source": "Some people's chats with Claude AI found to be publicly available online",
+    "text": "Zistilo sa, že niektoré konverzácie ľudí s umelou inteligenciou Claude sú verejne dostupné online",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "f6b658cd441f4baf5ea167af9f6c31c39acce20b8196851cf896aaab5f23de79": {
+    "source": "Hundreds of user conversations with Claude AI were publicly accessible online, exposing personal and work information. The incident affected Anthropic's popular chatbot and was confirmed by BBC reporting.",
+    "text": "Stovky konverzácií používateľov s umelou inteligenciou Claude boli verejne dostupné online, čím došlo k úniku osobných a pracovných informácií. Tento incident sa týkal populárneho chatbota spoločnosti Anthropic a potvrdila ho spravodajská stanica BBC.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "ce271262d1266da0fb91f6d811ce31c4f986deeff390999a6af6a3e75ea6b1f8": {
+    "source": "The incident would have been prevented or limited by implementing strict access controls on shared conversation links (e.g., requiring authentication or expiration), auditing public URL exposure regularly, and ensuring sensitive user data is not retained in shareable artifacts without explicit user consent and encryption. Rate-limiting and monitoring for bulk access patterns could have detected the exposure earlier.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť zavedením prísnych kontrol prístupu k zdieľaným odkazom na konverzácie (napr. vyžadovaním overenia identity alebo časového obmedzenia platnosti), pravidelným auditom zverejnenia verejných URL adries a zabezpečením, aby citlivé údaje používateľov neboli uchovávané v zdieľateľných artefaktoch bez výslovného súhlasu používateľa a šifrovania. Obmedzenie rýchlosti a monitorovanie vzorov hromadného prístupu by mohlo odhaliť toto zverejnenie skôr.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "e059378994c2d87d22202430bc829a0e2d768850c9d711340fecb87c03dc07df": {
+    "source": "Open WebUI's chat deletion endpoint (DELETE /api/v1/chats/{id}) cancelled in-flight model tasks before checking authorization, allowing any authenticated user to interrupt another user's running generation if they knew the target chat ID. Fixed in version 0.11.0.",
+    "text": "Otvorený koncový bod na mazanie konverzácií v WebUI (DELETE /api/v1/chats/{id}) zrušil prebiehajúce úlohy modelu ešte pred overením autorizácie, čo umožňovalo akémukoľvek autentifikovanému používateľovi prerušiť prebiehajúcu generáciu iného používateľa, ak poznal ID cieľovej konverzácie. Opravené vo verzii 0.11.0.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
+  },
+  "63c0e2395631b7c01733291452efb9e2026417b96a3ade551baae8b22be7c9b5": {
+    "source": "The incident would have been prevented or limited by enforcing authorization checks before executing side effects: the handler should have resolved and verified the caller's permission to modify the target chat before cancelling any tasks. Separating authorization from action execution, and treating task cancellation as a write operation requiring explicit permission, would have blocked cross-user interference.",
+    "text": "K incidentu by nedošlo alebo by bol jeho rozsah obmedzený, keby sa pred vykonaním vedľajších účinkov vykonali kontroly oprávnení: obslužná rutina mala pred zrušením akýchkoľvek úloh overiť oprávnenie volajúceho na úpravu cieľového chatu. Oddelenie autorizácie od vykonania akcie a zaobchádzanie so zrušením úlohy ako s operáciou zápisu vyžadujúcou výslovné oprávnenie by zabránilo zasahovaniu medzi používateľmi.",
+    "translatedAt": "2026-08-09T07:46:28.465Z"
   }
 }
