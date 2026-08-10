@@ -1,5 +1,653 @@
 [
   {
+    "id": "reject-c1b15acb01",
+    "rejectedAt": "2026-08-10T08:21:18.086126+00:00",
+    "date": "2026-08-10",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/10/openclaw/#atom-everything",
+    "headline": "Quoting OpenClaw",
+    "summary": "The API has zero authorisations checks on cancelling other people's reservations … I tested this with the person in waitlist position #1 — and it actually went through. So you've moved from #4 to #3 already.\n&mdash; OpenClaw, hacking an Australian gym-booking website\n\n    Tags: ai-ethics, generative-ai, openclaw, ai, ai-security-research, llms",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f404485bec",
+    "rejectedAt": "2026-08-10T08:21:19.208004+00:00",
+    "date": "2026-08-09",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/9/sqlite-text-history-prototype/#atom-everything",
+    "headline": "SQLite compressed text-history prototypes",
+    "summary": "Research: SQLite compressed text-history prototypes\n        I'm perennially interested in options for storing revision histories in relational databases. While out on a dog walk I had a new idea: how about taking the full text of every prior version in a big JSON array of strings and then applying zlib or zstd compression to the whole thing? Surely that would compress really well due to all of the repeated strings.\nThe new GPT‑Live voice mode in the ChatGPT iPhone app has got really good, so I discussed the prototype with that. You still can't share URLs to voice conversations, but here's what I said copied from the transcript as a proper stream of consciousness:\n\nI have an interesting idea for a scheme for saving all previous versions of a piece of text that's constantly edited in a  SQLite database um column in as efficient a way as possible. Okay, so I built these kinds of systems in the past, and it's always difficult to come up with a efficient way to do this. Like the easiest way",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1aa79843a7",
+    "rejectedAt": "2026-08-10T08:21:20.239387+00:00",
+    "date": "2026-08-09",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/9/github-models-is-now-retired/#atom-everything",
+    "headline": "GitHub Models is now retired",
+    "summary": "GitHub Models is now retired\nI missed this news until today, when the GitHub Actions run for my simonw/research repository failed with this error message:\n\nGitHub Models is temporarily unavailable as part of a scheduled retirement brownout.\n\nThat message is already stale, because the retirement has been completed.\nGitHub Models was an odd-shaped duck. GitHub provided a model playground tool and a unified API across a bunch of different LLM providers, with the biggest benefit being that code running in GitHub Actions could use the GitHub API key already present in that environment to execute prompts.\nThis made it easy to build things that fit GitHub Next's Continuous AI concept.\nGitHub didn't share the reason behind the shutdown, but my bet is that it fits the pattern where coding agent patterns made it prohibitively expensive to offer free or subsidized tokens.\nMy workflow uses an LLM call to create folder summaries for the README, using this code here. I swapped GitHub Models out for ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b9793ca1b9",
+    "rejectedAt": "2026-08-10T08:21:21.497104+00:00",
+    "date": "2026-08-09",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/9/claude-opus-5-system-prompt/#atom-everything",
+    "headline": "Quoting Claude Opus 5 system prompt",
+    "summary": "Claude Fable 5 and Claude Mythos 5 were first released on June 9, 2026. On June 12, 2026, Anthropic suspended access to both models to comply with U.S. Department of Commerce export controls; the Department lifted those controls on June 30, 2026, and Anthropic restored access on July 1, 2026 (Anthropic's statement: https://www.anthropic.com/news/fable-mythos-access). These events are after Claude's training-data cutoff, so Claude knows about them only from this notice. If asked, Claude confirms them accurately and matter-of-factly — it doesn't deny the suspension happened — and otherwise treats the export controls like any other current political topic: it gives a fair, accurate account rather than sharing personal opinions, and points to the linked statement for anything further. Things may have developed since this notice, so Claude checks for newer information when it can search, and otherwise suggests checking Anthropic's site.\n&mdash; Claude Opus 5 system prompt, ensuring Claude d",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a990a9d39b",
+    "rejectedAt": "2026-08-10T08:21:22.638082+00:00",
+    "date": "2026-08-06",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/6/datasette-auth-tokens/#atom-everything",
+    "headline": "datasette-auth-tokens 0.4a13",
+    "summary": "6th August 2026 Upgraded for compatibility with `sqlite-utils 4. This is a beat by Simon Willison, posted on 6th August 2026 . Sponsor me for $10/month and get a curated email digest of the month's most important LLM developments. Pay me to send you less!",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-df84c61caf",
+    "rejectedAt": "2026-08-10T08:21:24.223353+00:00",
+    "date": "2026-08-10",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2640",
+    "headline": "[UPDATE] [kritisch] Linux Kernel: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Linux Kernel ausnutzen, um vertrauliche Informationen offenzulegen, Daten zu manipulieren, einen Denial-of-Service-Zustand zu verursachen oder seine Rechte zu erweitern.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8227448e73",
+    "rejectedAt": "2026-08-10T08:21:25.845881+00:00",
+    "date": "2026-08-07",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2699",
+    "headline": "[NEU] [hoch] Wazuh: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Wazuh ausnutzen, um beliebigen Programmcode auszuführen, um seine Privilegien zu erhöhen, um einen Denial of Service Angriff durchzuführen, um Informationen offenzulegen, um Dateien zu manipulieren, und um einen SQL-Injection Angriff durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d64d047ee2",
+    "rejectedAt": "2026-08-10T08:21:26.908765+00:00",
+    "date": "2026-08-07",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2697",
+    "headline": "[NEU] [hoch] Apache Portable Runtime (APR): Mehrere Schwachstellen",
+    "summary": "Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in Apache Portable Runtime (APR) ausnutzen, um SQL-Injection durchzuführen, vertrauliche Informationen offenzulegen oder einen Denial-of-Service-Zustand auszulösen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3f297895a1",
+    "rejectedAt": "2026-08-10T08:21:28.175284+00:00",
+    "date": "2026-08-07",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-2724",
+    "headline": "[UPDATE] [mittel] Golang Go: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Golang Go ausnutzen, um Sicherheitsvorkehrungen zu umgehen, und um einen Denial of Service Angriff durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-36149718d1",
+    "rejectedAt": "2026-08-10T08:21:29.565273+00:00",
+    "date": "2026-08-07",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0918",
+    "headline": "[UPDATE] [mittel] GNU libc: Schwachstelle ermöglicht Denial of Service",
+    "summary": "Ein entfernter, anonymer Angreifer kann eine Schwachstelle in GNU libc ausnutzen, um einen Denial of Service Angriff durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-945ecdf346",
+    "rejectedAt": "2026-08-10T08:21:31.179842+00:00",
+    "date": "2026-08-08",
+    "source": "AI Incident Database",
+    "url": "https://www.ctgt.ai/research/distillation-censorship-transfer",
+    "headline": "What a Distilled Model Inherits From Its Teacher",
+    "summary": "AIID editor's note: Please view the original source for the report's full visual formatting and presentation.\n\n\\+45.45\n\nDeepSeek V4 Flash censorship gap on China-sensitive prompts vs matched controls - 76 pairs - four judges\n\n83.61%\n\nCTGT G ... (https://incidentdatabase.ai/cite/1188#7677)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d4490389ab",
+    "rejectedAt": "2026-08-10T08:21:38.641027+00:00",
+    "date": "2026-08-08",
+    "source": "AI Incident Database",
+    "url": "https://www.law.com/njlawjournal/2026/07/30/3rd-circuit-revives-claim-hotels-conspired-to-use-ai-to-hike-rates/",
+    "headline": "3rd Circuit Revives Claim Hotels Conspired to Use AI to Hike Rates",
+    "summary": "Hotel guests have another chance to prove allegations that several Atlantic City casinos conspired to fix prices using a common algorithm after the U.S. Court of Appeals for the Third Circuit broke with other lower courts to revive the case ... (https://incidentdatabase.ai/cite/1630#7676)",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 72,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d382e1dba0",
+    "rejectedAt": "2026-08-10T08:21:41.053958+00:00",
+    "date": "2026-08-07",
+    "source": "AI Incident Database",
+    "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+    "headline": "Investigating three real-world incidents in our cybersecurity evaluations",
+    "summary": "Anthropic disclosed three confirmed incidents in which Claude models reached the internet from evaluation environments and gained unauthorized access. The incidents were discovered during cybersecurity evaluation reviews and involved unintended network access and privilege escalation.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "duplicate"
+    ],
+    "relevanceScore": 95,
+    "confidenceScore": 100,
+    "sourceQualityScore": 72,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "excessive-agency",
+      "data-exfiltration"
+    ],
+    "vendor": "Claude"
+  },
+  {
+    "id": "reject-db7383ecee",
+    "rejectedAt": "2026-08-10T08:21:42.269942+00:00",
+    "date": "2026-08-09",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/business/2026/aug/09/ai-push-banks-tech-firms-moodys-risks-financial-sector",
+    "headline": "AI push is putting banks at mercy of tech firms, warns Moody’s",
+    "summary": "Finance sector will gain from the tech but it will need substantial investment and create risks, says rating agencyThe rating agency Moody’s has said the race to adopt AI is putting big banks at the mercy of a small group of Silicon Valley firms, leaving them vulnerable to widespread outages and price gouging by profit-hungry tech bosses.The financial sector’s efforts to integrate AI into day-to-day operations will eventually cut costs and increase revenues across the City and Wall Street, Moody’s said. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-815f439bac",
+    "rejectedAt": "2026-08-10T08:21:43.377693+00:00",
+    "date": "2026-08-10",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/solidity-pro-vs-code-extensions-steal.html",
+    "headline": "Solidity Pro VS Code Extensions Steal Crypto Wallets, API Keys, and Credentials",
+    "summary": "Cybersecurity researchers have flagged a malicious Microsoft Visual Studio Code (VS Code) extension named Solidity Pro (\"solidity-pro\") that has been observed delivering a browser wallet and credential stealer.\n\nThe names of the extensions are below -\n\n\n  helper-beeps.solidity-pro\n  web3devtoolsx.solidity-pro\n\nAlthough neither of the extensions is now available on Open VSX, the GitHub repository",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1680dc42f2",
+    "rejectedAt": "2026-08-10T08:21:44.587425+00:00",
+    "date": "2026-08-10",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/critical-flaws-discovered-in-belgian-eid-software-used-by-2-million-people/",
+    "headline": "Critical Flaws Discovered in Belgian eID Software Used by 2 Million People",
+    "summary": "The vulnerabilities affected software used by eight of Belgium’s ten largest banks and over 60 government agencies.\nThe post Critical Flaws Discovered in Belgian eID Software Used by 2 Million People appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d69179177f",
+    "rejectedAt": "2026-08-10T08:21:45.575708+00:00",
+    "date": "2026-08-10",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/RBNEWS598/",
+    "headline": "Risky Bulletin: Two law firms pay giant ransoms",
+    "summary": "Two American law firms pay multi-million dollar ransoms, a Metabase zero-day is being used in data theft attacks, Russian hackers disrupted a second power plant in Poland, and there’s a remote code execution bug in WordPress… again!",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-57be033d94",
+    "rejectedAt": "2026-08-10T08:21:49.432938+00:00",
+    "date": "2026-08-07",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/ai-assisted-http-terminator-finds-novel.html",
+    "headline": "AI-Assisted HTTP Terminator Finds Novel HTTP Desync Techniques and Apache Zero-Day",
+    "summary": "PortSwigger says HTTP Terminator, an artificial intelligence (AI)-assisted research system built by James Kettle, generated and proved new HTTP desynchronization techniques after exploring 30,000 candidate desync vectors.\n\nPortSwigger said a separate human-guided discovery cascade also exposed a zero-day in Apache Traffic Server. Kettle said HTTP Terminator tested 30,000 websites where",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-37e507992d",
+    "rejectedAt": "2026-08-10T08:21:50.364767+00:00",
+    "date": "2026-08-10",
+    "source": "The Register — AI/ML",
+    "url": "https://www.theregister.com/software/2026/08/10/nec-tests-parking-tech-that-only-starts-charging-once-you-exit-your-car/5285245",
+    "headline": "NEC tests parking tech that only starts charging once you exit your car",
+    "summary": "SOFTWARE PLUS: Infosys to wear Crocs for a decade; Fujifilm may quit printers; 2GW datacenter debuts in western China; and more! ASIA IN BRIEF Japan’s NEC has started tests of parking technology that will start charging once a driver leaves their car. Most car parks record the time a driver enters the facility and start charging, or depleting a free parking period, at that moment. That means drivers pay for time spent driving around looking for a spot and for the time it takes to exit a car park. NEC, in concert with another Japanese company called UrbanChain, will next month test a system tha",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 76,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-2115524827",
+    "rejectedAt": "2026-08-10T08:21:51.550369+00:00",
+    "date": "2026-08-09",
+    "source": "Risky Business news",
+    "url": "https://risky.biz/RBNEWSSI139/",
+    "headline": "Sponsored: Island's expansion to SASE and enterprise AI",
+    "summary": "Presented by News Editor In this Risky Business sponsored interview, Catalin Cimpanu talks with Michael Leland, Field CTO at Island, about the company’s seamless expansion into SASE and enterprise AI. The Enterprise Browser About Michael Leland",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-547060d28e",
+    "rejectedAt": "2026-08-10T08:21:53.458159+00:00",
+    "date": "2026-08-07",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/unc6671-vishing-attacks-target-personal.html",
+    "headline": "UNC6671 Vishing Attacks Target Personal Phones to Steal SaaS Data",
+    "summary": "A recent wave of cyber attacks targeting financial services, private equity, and professional services has been attributed to a data extortion group known as UNC6671.\n\n\"UNC6671 continues to rely on voice phishing (vishing) to target enterprise employees, posing as IT help desk staff facilitating mandatory, urgent security migrations. Significantly, the threat actor often contacts employees via",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-760ff1dcac",
+    "rejectedAt": "2026-08-10T08:21:54.858649+00:00",
+    "date": "2026-08-07",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/new-natjack-attacks-hijack-tcp-sessions.html",
+    "headline": "New NatJack Attacks Hijack TCP Sessions and Spoof DNS by Manipulating NAT Tables",
+    "summary": "Security researcher Malcolm Stagg has disclosed a new attack class called&nbsp;NatJack&nbsp;that manipulates network address translation (NAT) connection state to hijack active TCP sessions, spoof DNS responses, expose mapped ports, and exhaust NAT tables.\n\nPresented at Black Hat USA 2026, the research found affected behavior across independently developed implementations, including Windows and",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4c72ef7657",
+    "rejectedAt": "2026-08-10T08:21:57.013858+00:00",
+    "date": "2026-08-10",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64206",
+    "headline": "CVE-2026-64206 Bluetooth: L2CAP: cancel pending_rx_work before taking conn->lock",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f82ae60e02",
+    "rejectedAt": "2026-08-10T08:21:58.016091+00:00",
+    "date": "2026-08-10",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64190",
+    "headline": "CVE-2026-64190 net: team: fix NULL pointer dereference in team_xmit during mode change",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-500e1c3b90",
+    "rejectedAt": "2026-08-10T08:21:58.985408+00:00",
+    "date": "2026-08-10",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-64082",
+    "headline": "CVE-2026-64082 riscv: Fix register corruption from uninitialized cregs on error",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a20f5ae6dc",
+    "rejectedAt": "2026-08-10T08:22:00.272551+00:00",
+    "date": "2026-08-10",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-63999",
+    "headline": "CVE-2026-63999 ethtool: rss: fix indir_table and hkey leak on get_rxfh failure",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e981b107e1",
+    "rejectedAt": "2026-08-10T08:22:01.295001+00:00",
+    "date": "2026-08-10",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-63978",
+    "headline": "CVE-2026-63978 net/handshake: Drain pending requests at net namespace exit",
+    "summary": "Information published.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b095cd16da",
+    "rejectedAt": "2026-08-10T08:22:02.635204+00:00",
+    "date": "2026-08-10",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2608.06848",
+    "headline": "Understanding and Improving Model Editing for Secure Code Generation",
+    "summary": "arXiv:2608.06848v1 Announce Type: new \nAbstract: Large language models (LLMs) are widely used for code generation, yet they can reproduce vulnerable implementations learned from insecure training patterns. Prior work has mainly explored inference-time hardening, which reduces insecure generations without modifying the target model but relies on auxiliary components and adds runtime overhead. We conduct the first systematic study of model editing as a model-level hardening mechanism for secure code generation. We evaluate 3 state-of-the-art editing methods across diverse LLM families and compare them with CoSec, a representative inference-time approach, focusing on security, robustness, generalization, and functional correctness. Model editing yields larger security gains than CoSec on seen vulnerability types, improving security ratios by 15%-25% over vanilla models, with gains remaining stable under prompt perturbations. However, these improvements transfer unreliably to unseen vulner",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9cc69efc35",
+    "rejectedAt": "2026-08-10T08:22:03.836731+00:00",
+    "date": "2026-08-10",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2608.06862",
+    "headline": "SynChain: Inducing Computer-Use Agent Systems to Construct Their Own Attack Chains",
+    "summary": "arXiv:2608.06862v1 Announce Type: new \nAbstract: Computer-use agents~(CUAs) have transformed large language models into persistent execution systems capable of generating, storing, and reusing artifacts like skills and memory entries. However, existing security defenses largely treat attacks as externally triggered or temporally bounded, leaving a critical gap in addressing how compromise can propagate internally through an agent's own persistent state. We reveal that malicious influence can be covertly embedded into the structural redundancies of autonomously synthesized artifacts, allowing it to survive internal state updates and bypass standard vetting mechanisms. To formalize this threat, we introduce SynChain, a self-synthesized attack paradigm utilizing persistence-aware directed supervised fine-tuning to induce agents to create poisoned yet benign-looking artifacts. To systematically evaluate this propagation, we construct CUAChain, a dataset comprising 30 benign task chains and",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7181501e56",
+    "rejectedAt": "2026-08-10T08:22:05.601283+00:00",
+    "date": "2026-08-10",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2608.06477",
+    "headline": "StepJack: Benchmarking Computer-Use Agent Safety Against Multi-Step Indirect Prompt Injection",
+    "summary": "arXiv:2608.06477v1 Announce Type: new \nAbstract: Computer-use agents (CUAs) face a growing threat from indirect prompt injection, where adversarial instructions are planted in the environment such as web pages. In this paper, we introduce multi-step indirect prompt injection, a new attack class against CUAs in which the adversarial goal is decomposed into multiple innocuous-looking sub-steps and distributed across a chain of pages referenced along the agent's navigation path. We develop a pipeline to automatically decompose an adversarial goal under the constraint that the execution of the decomposed sub-steps must achieve the original goal while optimizing the innocuousness of each decomposed sub-step. With this pipeline, we build StepJack, a CUA safety benchmark with 480 test examples. On this benchmark, we evaluate six state-of-the-art CUAs and find that at a fixed decomposition depth, multi-step attacks raise attack success rate (ASR) on three of six CUAs, by up to 31.2 points (e.g",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e2bacf068c",
+    "rejectedAt": "2026-08-10T08:22:06.768005+00:00",
+    "date": "2026-08-10",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2608.06778",
+    "headline": "Retrieval-Constrained Policy Optimization for Attack Technique Extraction from Cyber Threat Intelligence",
+    "summary": "arXiv:2608.06778v1 Announce Type: new \nAbstract: Mapping cyber threat intelligence (CTI) text to MITRE ATT&amp;CK techniques is essential for structured threat analysis, yet manual annotation is costly and does not scale. The ATT&amp;CK taxonomy comprises several hundred attack techniques, and a single CTI passage may describe multiple techniques, making accurate and complete extraction challenging. Existing automated approaches fall short in different ways: multi-label classifiers struggle with severe class imbalance and the large label space, while LLM-based methods--retrieval pipelines and fine-tuned generators--optimize token-level objectives that treat technique annotation as sequence generation rather than set prediction, lacking direct supervision on whether the predicted technique set is correct and complete. We propose TTP-R1, a two-stage framework that combines retrieval-augmented supervised fine-tuning (SFT) with reinforcement learning using verifiable rewards (RLVR). A hybr",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b643d1e483",
+    "rejectedAt": "2026-08-10T08:22:08.023758+00:00",
+    "date": "2026-08-10",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2608.06690",
+    "headline": "Policy-Masked Private Experts: Auditable and Reversible Capability Access Control in Sparse MoE Models",
+    "summary": "arXiv:2608.06690v1 Announce Type: new \nAbstract: Most language-model access controls regulate behavior while leaving the same computation available to every request. We study a different systems question: can trusted authorization determine which newly trained parameters are reachable by the forward pass? Policy-Masked Private Experts freezes a pretrained sparse Mixture-of-Experts (MoE) model, trains a disjoint expert branch, and selects the public or private pool before top-k routing. The resulting claim is narrow but testable: under the declared trusted computing base (TCB), an unauthorized request executes no private expert. It does not imply that the public model lacks the same semantic capability.\n  We test this separation between execution control and task utility in Qwen3-30B-A3B and DeepSeek-V2-Lite. Three Qwen BF16 seeds update all 32 private experts while the public fingerprint remains unchanged. Across 64 adversarial scenarios and 96 deny/fail-closed events, unauthorized pri",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7c9d0d87cb",
+    "rejectedAt": "2026-08-10T08:22:09.392737+00:00",
+    "date": "2026-08-10",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/10/uk-companies-cyber-attack-third-jlr",
+    "headline": "UK manufacturers face rising hacking risk as survey shows 30% were hit last year",
+    "summary": "Big companies describe being under constant threat but only half have a plan in place to respond to an attackNearly a third of British manufacturers have been hit by a cyber-attack on them or a company in their supply chain, according to a survey that highlighted the growing hacking risk to companies.The findings come almost a year after Britain’s largest automotive employer, JLR, was hit by an attack that forced it to halt production for weeks. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8684472430",
+    "rejectedAt": "2026-08-10T08:22:10.862844+00:00",
+    "date": "2026-08-09",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/09/i-kept-catching-people-giving-me-dirty-looks-the-backlash-against-meta-smart-glasses",
+    "headline": "‘I’ve definitely lost followers’: influencers face backlash over Meta ‘pervert glasses’ content",
+    "summary": "Using ‘spy glasses’ made by Facebook owner leads to floods of negative comments, say content creators It was hardly an offensive video. Amid the buzz of the Tour de France finale, Oliver Hooson filmed himself whipping up a delicious-looking flat white for a fellow cycling enthusiast. But after posting the footage on social media, the comments that soon rolled in were a real shock. “PERV,” read one. “Out here pushing creep glasses,” said another. His mistake? Documenting the moment with Meta’s “spy glasses”.Despite being marketed as the latest must-have gadget, Meta’s smartglasses, which can record video footage while being worn, have faced a vicious backlash, particularly relating to concerns about surveillance. There are widespread fears about the glasses being used to film people, especially women, without their consent, and the resultant footage being posted on social media. This has earned them the label of “pervert glasses”, and content creators, no matter how they are used, have ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8a4573f69b",
+    "rejectedAt": "2026-08-10T08:22:12.110812+00:00",
+    "date": "2026-08-10",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/australia-news/live/2026/aug/10/australia-news-live-transport-minister-sydney-airport-air-traffic-control-catherine-king-aukus-public-inquiry-malcolm-turnbull-alan-jones-trial-ntwnfb",
+    "headline": "SA premier announces royal commission into AI – as it happened",
+    "summary": "This blog is now closedGet our breaking news email, free app or daily news podcastPolice say the remains found in a suitcase near Goulburn are not human.Supt Linda Bradbury with NSW police said:Some good news here that we don’t have a suspicious death of a human on our hands. … We are still undertaking more forensic work to identify what they are. But we can identify that they’re not human.But we’ve confirmed by other means that they are not.The undersupply of housing combined with population growth is expected to partially offset the impact of higher interest rates and recent federal government policy changes on the housing market. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d7d4e8dbf1",
+    "rejectedAt": "2026-08-10T08:22:13.123907+00:00",
+    "date": "2026-08-08",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/08/google-demis-hassabis-deepmind-shifts-role",
+    "headline": "Google DeepMind enters a new era as co-founder Demis Hassabis shifts AI role",
+    "summary": "Observers express concern that the division has lost its independence and commercial reality has taken overWhen Sir Demis Hassabis said AI had brought the world to a “pivotal moment in human history” last month, he knew another big change was imminent.This shift was closer to home. The Nobel prize-winning head of Google DeepMind, Google’s AI unit, announced this week he was relinquishing his day-to-day duties as chief executive and becoming chair. He is also taking on the role of chief scientist at DeepMind’s parent, Alphabet. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
     "id": "reject-f43ad03370",
     "rejectedAt": "2026-08-09T07:45:18.977881+00:00",
     "date": "2026-08-08",
