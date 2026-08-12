@@ -6423,5 +6423,35 @@
     "source": "The incident would have been prevented or limited by enforcing authorization checks before executing side effects (task cancellation) rather than after, and by applying the principle of least privilege—ensuring that destructive or disruptive operations require explicit permission grants. Separating authorization from action execution and validating caller permissions on the target resource before any state change would have blocked the cross-user interruption.",
     "text": "K incidentu by nedošlo alebo by bol jeho rozsah obmedzený, keby sa kontroly oprávnení vykonávali pred vykonaním vedľajších účinkov (zrušenie úlohy) a nie až po nich, a keby sa uplatňoval princíp minimálnych oprávnení – zabezpečenie toho, aby deštruktívne alebo rušivé operácie vyžadovali výslovné udelenie oprávnení. Oddelenie autorizácie od vykonania akcie a overenie oprávnení volajúceho na cieľový zdroj pred akoukoľvek zmenou stavu by zabránilo prerušeniu medzi používateľmi.",
     "translatedAt": "2026-08-11T08:06:36.029Z"
+  },
+  "1bf77d6db0dca727b880b67fa7f408bf7e968f52e16cec38dde4199c3d275294": {
+    "source": "Stealing Reasoning Traces from Proprietary LLM APIs",
+    "text": "Krádež stôp uvažovania z proprietárnych rozhraní LLM",
+    "translatedAt": "2026-08-12T08:11:43.109Z"
+  },
+  "5ff1904dcf13aaefc6a5fe5a781b7c5b5ad401f792efb4d13c6a7a45617ed0d1": {
+    "source": "Researchers discovered that Anthropic, OpenAI, and Google's proprietary LLM APIs return encrypted chain-of-thought reasoning blocks that can be replayed across sessions and users. By replaying traces into weaker model variants and exploiting jailbreak techniques, attackers can recover the stronger model's hidden reasoning in plaintext. The vulnerability stems from all models in the same family sharing identical encryption keys.",
+    "text": "Výskumníci zistili, že proprietárne LLM API spoločností Anthropic, OpenAI a Google vracajú šifrované bloky uvažovania v reťazci myšlienok, ktoré je možné prehrávať naprieč reláciami a používateľmi. Prehrávaním stôp do slabších variantov modelov a využívaním techník „jailbreak“ môžu útočníci obnoviť skryté uvažovanie silnejšieho modelu v čitateľnej podobe. Táto zraniteľnosť vyplýva zo skutočnosti, že všetky modely v tej istej rodine používajú identické šifrovacie kľúče.",
+    "translatedAt": "2026-08-12T08:11:43.109Z"
+  },
+  "2751a3c82f7215f24881f4fe9db98da859f646390f4850ba4ecc8eb0c1375884": {
+    "source": "This incident would have been prevented or limited by using unique, session-bound encryption keys for each model variant and user, implementing strict access controls on reasoning trace replay functionality, and validating that reasoning blocks are only decryptable by the original requesting user and model. Additionally, reasoning traces should not be replayable across model families or versions without explicit re-authorization.",
+    "text": "Tejto udalosti by sa dalo predísť alebo jej rozsah obmedziť použitím jedinečných šifrovacích kľúčov viazaných na reláciu pre každú variantu modelu a každého používateľa, zavedením prísnych kontrol prístupu k funkcii prehrávania stôp uvažovania a overením, že bloky uvažovania je možné dešifrovať iba pôvodným používateľom, ktorý o to požiadal, a pôvodným modelom. Okrem toho by sa stopy uvažovania nemali dať prehrávať v rámci rôznych rodín alebo verzií modelov bez výslovného opätovného autorizovania.",
+    "translatedAt": "2026-08-12T08:11:43.109Z"
+  },
+  "bbe8a92894afbff36cba02224f5d7564e04e55a0cba34d048ff92d9dcfbcf052": {
+    "source": "Open WebUI's DELETE /api/v1/chats/{id} endpoint cancelled in-flight chat tasks before authorization checks, allowing any authenticated user to interrupt another user's model generation, title generation, or tag generation without write access. Fixed in version 0.11.0.",
+    "text": "Otvorený koncový bod DELETE /api/v1/chats/{id} v rozhraní WebUI zrušil úlohy prebiehajúceho chatu ešte pred overením oprávnení, čo umožňovalo akémukoľvek overenému používateľovi prerušiť generovanie modelu, názvu alebo značiek iného používateľa bez prístupových oprávnení na zápis. Opravené vo verzii 0.11.0.",
+    "translatedAt": "2026-08-12T08:11:43.109Z"
+  },
+  "cb2e0478a6d2a678825c82f5f9181feb4b39168b872017e92375448dbd64e8a4": {
+    "source": "The incident would have been prevented or limited by enforcing authorization checks before executing side effects (task cancellation), not after. Implementing a pattern where all permission gates run before any state mutation—including cancellation of async operations—would have blocked the cross-user interruption. Role-based access control (RBAC) should apply uniformly to all operations on a resource, not just the primary action.",
+    "text": "Incidentu by sa dalo predísť alebo ho obmedziť vynútením autorizačných kontrol pred vykonaním vedľajších účinkov (zrušenie úlohy), nie až po nich. Implementácia modelu, v ktorom by sa všetky kontroly oprávnení vykonávali pred akoukoľvek zmenou stavu – vrátane zrušenia asynchrónnych operácií – by zabránila prerušeniu medzi používateľmi. Kontrola prístupu na základe rolí (RBAC) by sa mala jednotne uplatňovať na všetky operácie s daným zdrojom, nielen na primárnu akciu.",
+    "translatedAt": "2026-08-12T08:11:43.109Z"
+  },
+  "357633441a24030aee26dc0d854f5b8b757b3db300e303b344e90031cb307936": {
+    "source": "The incident would have been prevented or limited by enforcing authorization checks before executing side effects (task cancellation) rather than after, following the principle of least privilege and explicit permission validation. Separating read and write authorization checks, and ensuring that destructive or disruptive operations require the same permission level as the primary action, would have blocked the cross-user interruption.",
+    "text": "K incidentu by nedošlo alebo by bol obmedzený, keby sa kontroly oprávnení vykonávali pred spustením vedľajších účinkov (zrušenie úlohy) a nie až po nich, v súlade so zásadou minimálnych oprávnení a explicitného overovania oprávnení. Oddelenie kontrol oprávnení na čítanie a zápis a zabezpečenie toho, aby deštruktívne alebo rušivé operácie vyžadovali rovnakú úroveň oprávnení ako primárna akcia, by zabránilo prerušeniu medzi používateľmi.",
+    "translatedAt": "2026-08-12T08:11:43.109Z"
   }
 }
