@@ -1,6 +1,6 @@
 # Agent Threat Atlas
 
-A live, public reference of agentic AI security incidents — each mapped to the threat category it exemplifies and the controls that would have prevented it. Built and maintained by [Matej Lukasik](https://matejlukasik.com) / [Clawforce One](https://clawforceone.ai) as an asset to send to clients before security conversations.
+A live, public reference of agentic AI security incidents — each mapped to the threat category it exemplifies and the controls that would have prevented it. Built and maintained by [Matej Lukášik](https://matejlukasik.com/) to help teams understand real agent failures before deployment.
 
 The site does three things:
 
@@ -8,7 +8,7 @@ The site does three things:
 2. **Maps** real public incidents to those categories and to the controls that would have prevented them.
 3. **Stays current** via a daily scraper that pulls from ~70 sources (CVE feeds, vendor advisories, regulators, security research, trade press) and writes back to `content/incidents.ts`.
 
-Hosted at `atlas.clawforceone.ai`. All editorial content lives in `content/*.ts` and the brand lives in `lib/site.ts`.
+Live at [atlas.matejlukasik.sk](https://atlas.matejlukasik.sk/). All editorial content lives in `content/*.ts` and the site configuration lives in `lib/site.ts`.
 
 ---
 
@@ -94,7 +94,7 @@ Edit `lib/site.ts`. The favicon / logo lives in `components/Logo.tsx` (inline SV
 
 ## The daily incident scraper
 
-The site ships with a curated set of demo incidents. Wire up real automation any of these ways.
+The incident feed is maintained by a scheduled GitHub Actions workflow. It checks the configured sources, classifies qualifying incidents, updates the localized content, and deploys the site.
 
 ### Architecture (recommended)
 
