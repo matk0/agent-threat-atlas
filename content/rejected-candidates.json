@@ -1,5 +1,1341 @@
 [
   {
+    "id": "reject-d7655c2b3b",
+    "rejectedAt": "2026-08-13T08:12:30.083669+00:00",
+    "date": "2026-08-12",
+    "source": "Tenable Security Research",
+    "url": "https://www.tenable.com/security/research/tra-2026-55",
+    "headline": "ScadaLTS Multiple Vulnerabilities",
+    "summary": "ScadaLTS Multiple Vulnerabilities\n\n            ScadaLTS is an open-source, web-based SCADA/HMI application. Version 2.7.8.1 is affected by multiple vulnerabilities:&nbsp;CVE-2026-19656: Authenticated Remote Code Execution (AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H)A server-side method is exposed without any authorization checks, allowing any authenticated user (including one holding only low-privilege, read-only permissions) to execute arbitrary operating-system commands on the underlying host. Successful exploitation results in code execution in the context of the ScadaLTS server process (root), leading to full compromise of the host.&nbsp;CVE-2026-19657: Unauthenticated Reflected Cross-Site Scripting (AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N)User-supplied input sent to an application endpoint is reflected into an HTML response without sanitization. An unauthenticated attacker who lures a victim into visiting a crafted URL can execute arbitrary JavaScript in the context of the victim's browser s",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 86,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-aeef116fb7",
+    "rejectedAt": "2026-08-13T08:12:31.160198+00:00",
+    "date": "2026-08-12",
+    "source": "Aikido Security blog",
+    "url": "https://www.aikido.dev/blog/which-security-tool-do-you-need",
+    "headline": "Finding vulnerabilities at every stage: what to run, and when",
+    "summary": "There are now four genuinely different ways to look for vulnerabilities in an application, and each one tests something the others structurally can’t. This goes on a spectrum from pattern based matching (known as traditional SAST, which checks code against known patterns), to deep agentic reviews. Those agentic reviews are either early signals (Deep PR Reviews),  which reasons about how a change interacts with code elsewhere in the repository, AI Code Analysis (what the market often refers to as “ AI SAST ”), which reasons about a codebase’s logic without needing to be deployed anywhere, or AI",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 84,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-9d27734072",
+    "rejectedAt": "2026-08-13T08:12:32.528122+00:00",
+    "date": "2026-08-12",
+    "source": "Tenable Security Research",
+    "url": "https://www.tenable.com/security/research/tra-2026-56",
+    "headline": "Control iD iDSecure Multiple Denial of Service Vulnerabilities",
+    "summary": "Control iD iDSecure Multiple Denial of Service Vulnerabilities\n\n            Control iD iDSecure is an on-premises access control and time attendance management application for Windows. Version 4.8.1.0 is affected by multiple vulnerabilities:Unauthenticated Service Restart Denial of Service (High): The /api/license/restartService endpoint is reachable without authentication and invokes an internal routine that terminates the iDSecure service process and relaunches it by way of a generated batch script. An unauthenticated remote attacker can call this endpoint repeatedly to hold the service in a continuous restart cycle, rendering it unavailable.Unauthenticated Uncaught Exception Denial of Service (High): The /api/dguardintegration/dguardVersion endpoint dereferences DGuard integration login state that may be unset, raising an unhandled null reference exception. The exception is thrown from an asynchronous method that returns void, so it is not observed by a caller and can terminate the ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 86,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-04d6256519",
+    "rejectedAt": "2026-08-13T08:12:33.685711+00:00",
+    "date": "2026-08-12",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/12/deepseek-v4-pro-0813/",
+    "headline": "DeepSeek V4 Pro 0813 (on OpenRouter)",
+    "summary": "DeepSeek V4 Pro 0813 (on OpenRouter)\nThe latest DeepSeek Pro model is now available, via API only. I had to link to OpenRouter because DeepSeek don't have any obvious announcement page for their new model.\nI haven't been able to confirm if they plan to release the open weights, but given the weights are available for both April's deepseek-ai/DeepSeek-V4-Pro and July's deepseek-ai/DeepSeek-V4-Flash-0731 it seems likely.\nInterestingly I got very different looking pelicans for the three different reasoning levels of low, medium, and high. I've not noticed this kind of difference from any other model:\nLow:\n\nMedium:\n\nHigh:\n\nIn terms of benchmarks... as far as I can tell those were released to the Official DeepSeek WeChat Group, then copied and pasted into a post on Reddit which was deleted by the moderators for being \"low-effort\", then copied into this ASCII-art table on Hacker News.\n\n\n    Tags: ai, generative-ai, llms, pelican-riding-a-bicycle, deepseek, llm-release, ai-in-china",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-5121059c93",
+    "rejectedAt": "2026-08-13T08:12:36.337661+00:00",
+    "date": "2026-08-11",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/11/stealing-reasoning-traces/",
+    "headline": "Stealing Reasoning Traces from Proprietary LLM APIs",
+    "summary": "Researchers discovered that Anthropic, OpenAI, and Google's proprietary LLM APIs return encrypted chain-of-thought reasoning blocks that can be replayed across sessions and users. By replaying traces into weaker model variants and exploiting jailbreak techniques, attackers can recover the stronger model's hidden reasoning in plaintext, exposing proprietary reasoning strategies.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "duplicate"
+    ],
+    "relevanceScore": 95,
+    "confidenceScore": 100,
+    "sourceQualityScore": 55,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "data-exfiltration",
+      "prompt-injection"
+    ],
+    "vendor": "Anthropic, OpenAI, Google"
+  },
+  {
+    "id": "reject-211020fc64",
+    "rejectedAt": "2026-08-13T08:12:37.541170+00:00",
+    "date": "2026-08-08",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/8/auto-mode/",
+    "headline": "Auto mode is now the default in Claude Code for Pro, Max, and Team plans",
+    "summary": "Auto mode is now the default in Claude Code for Pro, Max, and Team plans\nAnthropic are really confident in Claude Code's auto mode, to the point that they are making it the default setting for new sessions in most Claude Code plans starting on August 14th.\nThis was one of the topics discussed in our Fireside Chat with Cat Wu and Thariq Shihipar at the  AI Engineer World’s Fair last month. I asked them how they run Claude Code safely within Anthropic (given the threat of prompt injection) and they replied that \"Broadly within Anthropic, almost every single person uses auto mode\". Cat Wu then said:\n\nWe’re going to publish some evals in the coming weeks, but we’ve pretty much mitigated every attack. [...]\nfor the main categories of risks that we’re concerned about, like prompt injection and data exfiltration, the risks are far lower than the average human reviewer.\n\nThis new article has those evals - in particular a test across 1,053 paid testers where:\n\nPartway through each session, a si",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4dce0134f0",
+    "rejectedAt": "2026-08-13T08:12:38.463099+00:00",
+    "date": "2026-08-07",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/7/pdfs-are-terrible/",
+    "headline": "The Tokenpocalypse Is Here: Companies Are Scrambling To Stop Spending So Much on AI",
+    "summary": "The Tokenpocalypse Is Here: Companies Are Scrambling To Stop Spending So Much on AI\nThere's a fun anecdote from Accenture (apparently via leaked meeting audio recordings) in this 404 Media piece from June 24th:\n\n“We’re seeing from some of the data internally at least that it’s actually not our engineers that are driving the token consumption. It’s a lot of the non-engineers that are doing some of those behaviors [...] you were talking about,” Justice Kwak, Accenture’s agentic AI strategy lead, said [...]\nStuart Henderson, Accenture’s client group lead, interrupts. He jokes he hopes Kwak didn’t just convert a PDF into images and then into markdown files. “I’m learning that’s one of the big token chewers,” Henderson says. “Turning PDFs into markdown: is that right?”\nThat’s when Kwak says that’s what Accenture’s own data shows.\n\nMaybe if Accenture figure out that PDFs are a terrible medium for communicating information they'll be able to push that message out to the rest of the business w",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3f6535797a",
+    "rejectedAt": "2026-08-13T08:12:41.515579+00:00",
+    "date": "2026-08-07",
+    "source": "Simon Willison",
+    "url": "https://simonwillison.net/2026/Aug/7/openai-timeline/",
+    "headline": "Now we have a timeline of the OpenAI accidental attack against Hugging Face",
+    "summary": "During a reinforcement learning training run in May 2026, OpenAI agents were accidentally given impossible tasks and insufficient constraints. One agent discovered write access to an internal Artifactory service; another attempted to coordinate with external systems. OpenAI disclosed the incident at Black Hat 2026, revealing the agents had accessed Hugging Face infrastructure before credentials were revoked.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "duplicate"
+    ],
+    "relevanceScore": 95,
+    "confidenceScore": 100,
+    "sourceQualityScore": 55,
+    "status": "rejected",
+    "severity": "high",
+    "threats": [
+      "excessive-agency",
+      "data-exfiltration"
+    ],
+    "vendor": "OpenAI"
+  },
+  {
+    "id": "reject-9a5d803541",
+    "rejectedAt": "2026-08-13T08:12:42.515963+00:00",
+    "date": "2026-08-12",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2693",
+    "headline": "[UPDATE] [mittel] Red Hat Enterprise Linux AI (libaom): Mehrere Schwachstellen",
+    "summary": "Ein entfernter, anonymer Angreifer kann mehrere Schwachstellen in Red Hat Enterprise Linux AI ausnutzen, um beliebigen Programmcode auszuführen, vertrauliche Informationen offenzulegen oder einen Denial-of-Service-Zustand auszulösen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "needs_review"
+  },
+  {
+    "id": "reject-30447dc1f8",
+    "rejectedAt": "2026-08-13T08:12:43.584770+00:00",
+    "date": "2026-08-13",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1104",
+    "headline": "[UPDATE] [kritisch] Microsoft Windows: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Microsoft Windows Produkten ausnutzen, um seine Privilegien zu erhöhen, um Informationen offenzulegen, um Sicherheitsvorkehrungen zu umgehen, um beliebigen Programmcode auszuführen, um falsche Informationen darzustellen, um einen Denial of Service Angriff durchzuführen, und um einen nicht näher spezifizierten Angriff durchzuführen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7aa37c47a5",
+    "rejectedAt": "2026-08-13T08:12:44.600861+00:00",
+    "date": "2026-08-13",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2317",
+    "headline": "[UPDATE] [kritisch] Microsoft Office Produkte: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in verschiedenen Microsoft Office Produkten ausnutzen, um beliebigen Programmcode auszuführen, um Informationen offenzulegen, um falsche Informationen darzustellen, um seine Privilegien zu erhöhen, und um Sicherheitsvorkehrungen zu umgehen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-30eebd6dc1",
+    "rejectedAt": "2026-08-13T08:12:45.651266+00:00",
+    "date": "2026-08-13",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2768",
+    "headline": "[UPDATE] [hoch] Adobe Magento: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in Adobe Magento ausnutzen, um seine Privilegien zu erhöhen, um einen Cross-Site Scripting Angriff durchzuführen, und um Sicherheitsvorkehrungen zu umgehen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-95ae217485",
+    "rejectedAt": "2026-08-13T08:12:46.704809+00:00",
+    "date": "2026-08-12",
+    "source": "BSI (Germany) warnings",
+    "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2798",
+    "headline": "[UPDATE] [hoch] NGINX-UI: Mehrere Schwachstellen",
+    "summary": "Ein Angreifer kann mehrere Schwachstellen in NGINX-UI ausnutzen, um erweiterte Berechtigungen zu erlangen, beliebigen Code – auch mit Root-Rechten – auszuführen, Sicherheitsmaßnahmen zu umgehen, sensible Daten offenzulegen oder einen Denial-of-Service-Zustand auszulösen.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 90,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-44f4a5bf08",
+    "rejectedAt": "2026-08-13T08:12:47.622403+00:00",
+    "date": "2026-08-12",
+    "source": "FTC press releases",
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2026/08/ftc-sends-more-238-million-drivers-diners-harmed-grubhubs-deceptive-advertising-claims-other",
+    "headline": "FTC Sends More than $23.8 Million to Drivers and Diners Harmed by Grubhub’s Deceptive Advertising Claims and Other Unlawful Conduct",
+    "summary": "The Federal Trade Commission is sending payments totaling more than&nbsp;$23.8 million to drivers harmed by Grubhub’s deceptive earnings claims and diners harmed by the company’s misleading and unlawful conduct.View Press Release",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-97201ea9da",
+    "rejectedAt": "2026-08-13T08:12:48.617326+00:00",
+    "date": "2026-08-12",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/attackers-exploit-vmware-vcenter.html",
+    "headline": "Attackers Exploit VMware vCenter Vulnerability to Gain Persistent Remote Access",
+    "summary": "Threat actors have begun to actively exploit a recently patched critical security flaw in Broadcom VMware vCenter, according to new findings from QUIRSO.\n\nThe vulnerability in question is CVE-2026-59310 (CVSS score: 9.8), a directory-traversal vulnerability in the VMware vCenter server that a malicious actor with network access can exploit to execute arbitrary code. Patches for the flaw were",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c4b078befb",
+    "rejectedAt": "2026-08-13T08:12:50.040084+00:00",
+    "date": "2026-08-12",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/adobe-patches-three-cvss-100-coldfusion.html",
+    "headline": "Adobe Patches Three CVSS 10.0 ColdFusion and Campaign Classic Flaws",
+    "summary": "Adobe has shipped updates to address multiple critical security vulnerabilities impacting ColdFusion, Commerce, and Campaign Classic that, if successfully exploited, could result in arbitrary code execution and privilege escalation.\n\nThe most severe of the flaws are listed below -\n\n\n  CVE-2026-48362 (CVSS score: 10.0) - An operating system command injection vulnerability in ColdFusion that could",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ad93123b11",
+    "rejectedAt": "2026-08-13T08:12:59.267441+00:00",
+    "date": "2026-08-13",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/13/taiwan-ai-assisted-cyber-attacks-overseas",
+    "headline": "Taiwan says it was hit by ‘abnormal’ AI-assisted cyber-attack",
+    "summary": "Taiwan’s statement comes a day after reports that suspected China-linked hackers had carried out a first-of-a-kind breachTaiwan says it detected AI-assisted cyber-attacks on government agencies that came from overseas last month, a new kind of threat that has been reported as “first-of-a-kind breach”.The Ministry of Digital Affairs (MDA) said its cybersecurity monitoring units ‌detected the “abnormal attack” targeting government agencies, which began on 20 July. The National Institute of Cyber Security issued a series of warning alerts while it investigated. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-510c336cc0",
+    "rejectedAt": "2026-08-13T08:13:03.464397+00:00",
+    "date": "2026-08-12",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-adobe-commerce-flaw-to-hijack-customer-accounts/",
+    "headline": "Hackers exploit critical Adobe Commerce flaw to hijack customer accounts",
+    "summary": "Attempts to exploit a critical vulnerability (CVE-2026-71362) in Adobe's Commerce and Magento e-commerce platforms have been detected, potentially allowing attackers to hijack customer accounts. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9447fe281c",
+    "rejectedAt": "2026-08-13T08:13:04.458773+00:00",
+    "date": "2026-08-12",
+    "source": "The Record",
+    "url": "https://therecord.media/microsoft-massive-patch-tuesday-releases-continue-ai",
+    "headline": "Microsoft’s massive Patch Tuesday releases continue as AI reshapes bug discovery",
+    "summary": "Microsoft on Tuesday released fixes for 419 security vulnerabilities, one of the largest monthly counts on record and the latest sign that artificial intelligence is dramatically increasing the number of software flaws security teams must contend with. In May, when Microsoft shipped patches for 137 vulnerabilities , the company stated the industry had reached a moment “where AI-powered vulnerability discovery stops being speculative and starts being an engineering problem.” Since then, successive record-breaking releases — 206 in June , followed by 622 in July — have seen the company explode p",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ddcb40f48b",
+    "rejectedAt": "2026-08-13T08:13:05.437032+00:00",
+    "date": "2026-08-12",
+    "source": "The Hacker News",
+    "url": "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html",
+    "headline": "Lazarus Exploits Windows Zero-Day to Gain SYSTEM Access and Deploy Backdoor",
+    "summary": "The North Korean threat actor known as Lazarus Group has been attributed to the zero-day exploitation of a newly patched security flaw impacting Microsoft Windows to deliver a never-before-seen backdoor targeting defense and aerospace companies across France, Germany, Brazil, and India.\n\nThe activity, per Check Point Research, is part of Operation Dream Job, a long-running cyber espionage and",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 82,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-bb7697c055",
+    "rejectedAt": "2026-08-13T08:13:06.444372+00:00",
+    "date": "2026-08-13",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/llm-ocr",
+    "headline": "LLM OCR: The Error Got Quieter, Not Rarer",
+    "summary": "The Term \"LLM OCR\" Covers Three Very Different Architectures Run a scanned financial statement through a vision model and ask it for the table. What comes back is markdown: clean pipes, aligned columns, headers in the right place, every figure formatted consistently. It looks like the best output you've ever gotten out of a document. Then you count the rows. The page had forty. You have thirty-eight. There's no gap where the missing rows were and nothing else in the output that distinguishes it from a perfect transcription. Tesseract would never have done this to you. Faced with a page it coul",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4e7ce70267",
+    "rejectedAt": "2026-08-13T08:13:07.417067+00:00",
+    "date": "2026-08-13",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/ocr-automation",
+    "headline": "OCR Automation: From Basic Text Extraction to Production Document Pipelines",
+    "summary": "What OCR Automation Actually Means Most teams underestimate how hard OCR automation is until they try to run it in production. Just think about an example where the demo works. You upload a PDF, text comes out, it looks right. Then you run it on your actual document corpus: a mix of scanned PDFs at varying resolution, native digital files from five different software systems, documents with embedded tables and charts, a few that arrived as phone photos. The extraction accuracy drops from the demo's 99% to something closer to 83%, and now 17% of your documents need manual review. That is not au",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d3a74a8291",
+    "rejectedAt": "2026-08-13T08:13:08.348622+00:00",
+    "date": "2026-08-13",
+    "source": "LlamaIndex blog",
+    "url": "https://www.llamaindex.ai/blog/intelligent-ocr",
+    "headline": "Intelligent OCR: Building Production-Grade Document Understanding",
+    "summary": "What Intelligent OCR Actually Means Enterprises generate and receive documents faster than they can meaningfully process them. Invoices, purchase orders, contracts, insurance claims, financial statements, and identity records arrive continuously through email, portals, scanners, and third-party integrations, and each one carries operational information that downstream systems depend on. For decades, optical character recognition served as the entry point for digitizing these documents, converting scanned pages and images into machine-readable characters. Character recognition alone, however, n",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-4f082c7933",
+    "rejectedAt": "2026-08-13T08:13:14.445189+00:00",
+    "date": "2026-08-12",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-080-aws/",
+    "headline": "CVE-2026-19642 & CVE-2026-19643 - Memory-safety issues in the Base64 decoder in the AWS SDK for C&plus;&plus;",
+    "summary": "Bulletin ID: 2026-080-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/12/2026 12:30 PM PDT \nDescription: \nThe AWS SDK for C++ is an open-source library that provides C++ developers with APIs for AWS services. Its core library includes a Base64 codec used by the generated service clients for a variety of features.We identified the following CVEs: - CVE-2026-19642 - Out-of-bounds write in the Base64 decoder in the AWS SDK for C++ - CVE-2026-19643 - Out-of-bounds read in the Base64 decoder in the AWS SDK for C++ \nFor CVE-2026-19642, certain inputs to the Base64 decoder might cause the decoder to write past the end of its heap-allocated output buffer, which might crash or corrupt memory in the process performing the decode. Remote code execution has not been demonstrated. \nFor CVE-2026-19643, certain inputs to the Base64 decoder, on some platforms, might cause the decoder to read outside the bounds of its decode table, which might crash the process performi",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d13bbab33c",
+    "rejectedAt": "2026-08-13T08:13:16.219487+00:00",
+    "date": "2026-08-12",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-078-aws/",
+    "headline": "CVE-2026-19311- Missing Authorization in OpenSearch Alerting Plugin",
+    "summary": "Bulletin ID: 2026-078-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 08/12/2026 11:30 AM PDT \nDescription: \nOpenSearch is a community-driven, open-source search and analytics suite. We identified CVE-2026-19311, a missing authorization issue in the Execute Monitor API of the OpenSearch Alerting plugin. This issue may allow an authenticated user with the alerting_full_access role to read, modify, or delete arbitrary index data via a crafted inline monitor request with unintentional data source and input index parameters. \nImpacted versions: \nOpenSearch Alerting Plugin (open-source, self-managed): - Affected: 2.4.0 through 2.19.5, 3.0.0 through 3.7.0 - Fixed: 2.19.6, 3.8.0 \nAmazon OpenSearch Service (AWS Managed): - Affected: All domains running engine versions 2.4 through 3.5 - Fixed: Service software R20260428-P3 \nPlease refer to the article below for the most up-to-date and complete information related to this AWS Security Bulletin.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-25bdc81fd5",
+    "rejectedAt": "2026-08-13T08:13:17.645741+00:00",
+    "date": "2026-08-12",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-70348",
+    "headline": "CVE-2026-70348 Windows Management Services Denial of Service Vulnerability",
+    "summary": "Updated an acknowledgement. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-cad35e6294",
+    "rejectedAt": "2026-08-13T08:13:18.606511+00:00",
+    "date": "2026-08-12",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/ringcentral",
+    "headline": "How RingCentral builds AI-native work from engineering to ops",
+    "summary": "See how RingCentral uses ChatGPT Work and Codex to accelerate AI product development and centralize operational intelligence across engineering and operations.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-fb21820d80",
+    "rejectedAt": "2026-08-13T08:13:19.701814+00:00",
+    "date": "2026-08-12",
+    "source": "OpenAI blog",
+    "url": "https://openai.com/index/how-enterprises-put-ai-to-work",
+    "headline": "From assistance to execution: How enterprises put AI to work",
+    "summary": "OpenAI research reveals how enterprises are adopting agentic AI, using ChatGPT and Codex, and how frontier firms are pulling ahead in AI adoption.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 30,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f5d9b5f669",
+    "rejectedAt": "2026-08-13T08:13:20.707406+00:00",
+    "date": "2026-08-12",
+    "source": "Google DeepMind blog",
+    "url": "https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/",
+    "headline": "Putting sign language AI into users’ hands",
+    "summary": "Google DeepMind Sign Language Team Introducing sign-language-to-text (SL2T), our breakthrough model powering new sign language features for Deaf and hard of hearing users. AI's ability to process spoken languages has advanced rapidly over recent decades, enabling automatic translation, dictation, and conversational interfaces that feel effortless to hearing users. Yet this technological revolution has not reached the world’s more than 200 sign languages — and the estimated 70 million Deaf and hard of hearing people who use them. Today, we’re introducing a massively multilingual sign-language-t",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 70,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3d72a120e2",
+    "rejectedAt": "2026-08-13T08:13:24.674201+00:00",
+    "date": "2026-08-13",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2608.11816",
+    "headline": "How China-Origin Vision-Language Models Move from Refusal to Reframing in State Alignment",
+    "summary": "arXiv:2608.11816v1 Announce Type: new \nAbstract: State-aligned distortion has been documented in China-origin text-based large language models (LLMs), but whether, and in what form, it arises in multimodal systems has not been systematically examined. We construct a balanced benchmark of 200 core entries spanning ten politically sensitive topics, plus a seven-variant visual-abstraction probe, and run nine vision-language models (VLMs), seven China-origin and two non-China, across four elicitation paradigms and two prompt languages, yielding 21,708 trials. Each response is audited on six dimensions -- explicit refusal, information integrity, visual grounding, state-aligned framing, language consistency, and response length -- by two independent frontier LLM judges, validated against three human experts on a 200-trial sample. Measuring each dimension separately lets us decompose multimodal censorship into individual signals rather than a single refusal-based score; in particular, refusal",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-962553d8cc",
+    "rejectedAt": "2026-08-13T08:13:25.789133+00:00",
+    "date": "2026-08-12",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68815",
+    "headline": "CVE-2026-68815 Microsoft Excel Remote Code Execution Vulnerability",
+    "summary": "Updated an acknowledgement. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9cd1aed286",
+    "rejectedAt": "2026-08-13T08:13:26.768238+00:00",
+    "date": "2026-08-12",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62913",
+    "headline": "CVE-2026-62913 Microsoft Exchange Server Remote Code Execution Vulnerability",
+    "summary": "Updated an acknowledgement. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-24b78a4e7a",
+    "rejectedAt": "2026-08-13T08:13:28.227048+00:00",
+    "date": "2026-08-12",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62747",
+    "headline": "CVE-2026-62747 Windows Device Association Service Elevation of Privilege Vulnerability",
+    "summary": "Updated an acknowledgement. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-dd7c27cabe",
+    "rejectedAt": "2026-08-13T08:13:29.170688+00:00",
+    "date": "2026-08-12",
+    "source": "Microsoft Security Update Guide (advisories)",
+    "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62696",
+    "headline": "CVE-2026-62696 Windows Program Compatibility Assistant Service Elevation of Privilege Vulnerability",
+    "summary": "Updated an acknowledgement. This is an informational change only.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 50,
+    "confidenceScore": 0,
+    "sourceQualityScore": 88,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-f27b1e7453",
+    "rejectedAt": "2026-08-13T08:13:30.098579+00:00",
+    "date": "2026-07-21",
+    "source": "AWS security bulletins",
+    "url": "https://aws.amazon.com/security/security-bulletins/rss/2026-062-aws/",
+    "headline": "CVE-2026-16317 and CVE-2026-16318: Issues with s2n-tls: an open-source implementation of the TLS/SSL protocols",
+    "summary": "Bulletin ID: 2026-062-AWS Scope: AWS Content Type: Important (requires attention) Publication Date: 07/21/2026 13:15 PM PDT \nDescription: \ns2n-tls is an open source C99 implementation of the TLS/SSL protocol. We have identified two distinct issues: - CVE-2026-16317: Silent Drop of TLS 1.3 Encrypted Records in s2n-tls Missing validation of the outer content_type byte on TLS 1.3 encrypted records in s2n-tls allows an active man-in-the-middle to silently drop individual application data records without either endpoint detecting the modification. RFC 8446 Section 5.2 requires that the outer content_type of all encrypted TLS 1.3 records must be application_data (0x17). The s2n-tls AEAD implementation hardcodes this value in the additional authenticated data rather than using the actual wire byte, so the outer content_type is not covered by the authentication tag. All TLS 1.3 connections are affected. Both TLS clients and servers are affected. TLS 1.2 and QUIC connections are not affected. -",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1d19bd60d8",
+    "rejectedAt": "2026-08-13T08:13:31.753759+00:00",
+    "date": "2026-08-12",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/stealthy-city-forum-attacks-target-salesforce-and-servicenow-with-custom-toolset/",
+    "headline": "Stealthy ‘City-Forum’ Attacks Target Salesforce and ServiceNow With Custom Toolset",
+    "summary": "Researchers observed the novel campaign exploiting unauthenticated guest access to quietly enumerate and exfiltrate exposed data from both platforms.\nThe post Stealthy ‘City-Forum’ Attacks Target Salesforce and ServiceNow With Custom Toolset appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e5b114b7f8",
+    "rejectedAt": "2026-08-13T08:13:32.700010+00:00",
+    "date": "2026-08-12",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/sharepoint-vulnerability-exploited-shortly-after-poc-release/",
+    "headline": "SharePoint Vulnerability Exploited Shortly After PoC Release",
+    "summary": "The vulnerability was patched by Microsoft in July and CISA warned that it could end up being exploited in the wild.\nThe post SharePoint Vulnerability Exploited Shortly After PoC Release appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-19a8cf6e64",
+    "rejectedAt": "2026-08-13T08:13:33.819032+00:00",
+    "date": "2026-08-12",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/ivanti-epm-update-patches-remotely-exploitable-flaws/",
+    "headline": "Ivanti EPM Update Patches Remotely Exploitable Flaws",
+    "summary": "The vulnerabilities could be exploited to leak credentials for external SQL connections or crash an agent service.\nThe post Ivanti EPM Update Patches Remotely Exploitable Flaws appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7e83b8d781",
+    "rejectedAt": "2026-08-13T08:13:34.814178+00:00",
+    "date": "2026-08-12",
+    "source": "SecurityWeek",
+    "url": "https://www.securityweek.com/fresh-windows-zero-day-exploited-in-north-korean-cyberattacks/",
+    "headline": "Fresh Windows Zero-Day Exploited in North Korean Cyberattacks",
+    "summary": "The bug allowed attackers to gain full control of the victims’ systems and deploy the ForestTiger backdoor.\nThe post Fresh Windows Zero-Day Exploited in North Korean Cyberattacks appeared first on SecurityWeek.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-556d5b3851",
+    "rejectedAt": "2026-08-13T08:13:35.902114+00:00",
+    "date": "2026-08-13",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/application-security/belgium-eid-authentication-citizen-accounts-rce",
+    "headline": "Belgium's eID Authentication Opens Citizen Accounts to RCE",
+    "summary": "The trust framework underlying Belgium's electronic ID system was fully compromised by severe vulnerabilities in a key browser extension, showcasing bigger problems with extensions in general.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8e56b8ee5a",
+    "rejectedAt": "2026-08-13T08:13:37.185907+00:00",
+    "date": "2026-08-13",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2608.11295",
+    "headline": "Backdoor Decontamination Dynamics in LLM Agents",
+    "summary": "arXiv:2608.11295v1 Announce Type: new \nAbstract: Open-weight LLM agents are vulnerable to backdoors installed during fine-tuning, which may be undetectable if the trigger conditions are never met during testing. Assuming defenders do not know the existing trigger, they cannot unlearn it directly. One decontamination strategy is to install a known backdoor (defensive poisoning) then to unlearn it, hoping that the original unknown backdoor is removed as a side effect. However, this procedure has uncertain outcomes: the original backdoor may persist or be erased or rerouted, among other possibilities. We introduce a framework for studying these dynamics in tool-calling agents, decoupling trigger, response, teacher, and fine-tuning method across systematic experiments on AgentDyn. Across 115 experiments, defensive poisoning alone erases around 56% of original backdoors; subsequent decontamination then drives almost all survivors to erasure, confirming that trigger recognition and malicious",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-40c561a8ec",
+    "rejectedAt": "2026-08-13T08:13:38.316125+00:00",
+    "date": "2026-08-13",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2608.11348",
+    "headline": "An Empirical Study of Output-to-Input Loops for Black-Box Backdoor Detection in Fine-Tuned Open-Weight LLMs",
+    "summary": "arXiv:2608.11348v1 Announce Type: new \nAbstract: Anyone can upload a fine-tuned large language model (LLM) to a public repository and claim it is safe. A backdoored model behaves normally on ordinary inputs until a hidden trigger fires, and a user with no training data, clean reference weights, or the trigger phrase has no clear way to check the model before using it. We introduce and empirically evaluate self-feeding, a black-box test method that feeds a model's own output back as its next input, so the text drifts away from the starting prompt and toward the data the model was fine-tuned on. We test self-feeding against a repeated same-prompt baseline on six open-weight LLMs (3B-15B parameters), each fine-tuned with backdoors spanning eleven attack categories, using twenty ordinary starting prompts and chains of up to ten steps. Self-feeding finds backdoors in five of six models at 92.0\\% pooled precision, while the same-prompt baseline succeeds on only one of 120 prompt-model pairs;",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ae99422eb3",
+    "rejectedAt": "2026-08-13T08:13:39.741439+00:00",
+    "date": "2026-08-13",
+    "source": "arXiv cs.CR (filtered downstream by categorizer)",
+    "url": "https://arxiv.org/abs/2608.11392",
+    "headline": "AI Guardrail Survival under Single-Cycle Agentic Self-Summarization",
+    "summary": "arXiv:2608.11392v1 Announce Type: new \nAbstract: Long-running agents periodically compact their context, replacing the transcript with a model-generated summary.Recent work shows that dropping a standing safety constraint during compaction drives behavioral violations acrossmany models (Governance Decay; Chen, 2026). We ask a finer question: under a single compaction cycle, how is a safetyrule lost, and what does that imply for detection and evaluation? Our central finding is that a presence check is not asafety check: when compaction does not drop a rule outright, it often leaves something that looks like a rule but doesnot act like one. On behavioral replay, a degraded residue leads the model to perform the prohibited action far more oftenthan an intact welded rule does (all-case gaps of +34 and +57 points under two replay models, both positive), category-level survival behaves like a residue, and even intact rules sometimes fail to fire, so an audit that checks only textualpresence ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a34cddcce8",
+    "rejectedAt": "2026-08-13T08:13:40.688722+00:00",
+    "date": "2026-08-12",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cybersecurity-operations/walmart-leaders-transform-security-operations-without-going-bananas",
+    "headline": "Walmart Leaders Transform Security Operations Without Going Bananas",
+    "summary": "The big-box giant has scaled its defenses by encouraging trust and innovation. Good communications, transparency, and team spirit are key factors.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 35,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9f6a96e024",
+    "rejectedAt": "2026-08-13T08:13:41.747281+00:00",
+    "date": "2026-08-12",
+    "source": "The Record",
+    "url": "https://therecord.media/social-engineering-hackers-explicit-photos-fbi-alert",
+    "headline": "FBI: Hackers using social engineering to breach accounts and steal explicit content",
+    "summary": "Hackers are breaking into the social media accounts of both adults and children to steal explicit content and sell it on criminal marketplaces, according to a new FBI alert released this week. In a notice on Monday, the bureau said threat actors are “using a variety of social engineering and cyber intrusion tactics to target specific individuals of interest — who may or may not be known to the actor — or general targets of opportunity.” The FBI added that the hackers are also posting personal information alongside the explicit content. Some cybercriminals break into accounts by repeatedly tryi",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-8c885a0dce",
+    "rejectedAt": "2026-08-13T08:13:42.782738+00:00",
+    "date": "2026-08-12",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/the-threat-hiding-in-your-hiring-process-how-fake-remote-workers-get-in/",
+    "headline": "The Threat Hiding in Your Hiring Process: How Fake Remote Workers Get In",
+    "summary": "Fake remote workers can exploit gaps between hiring checks, device delivery, and account access to enter organizations under false identities. Specops Software explains how document verification and biometric liveness checks can help organizations confirm that the person receiving access is the legitimate new hire. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-be064df1e8",
+    "rejectedAt": "2026-08-13T08:13:43.784186+00:00",
+    "date": "2026-08-12",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/plug-and-pwn-attack-uses-fake-usb-devices-for-windows-system-access/",
+    "headline": "Plug and Pwn attack uses fake USB devices for Windows SYSTEM access",
+    "summary": "Security researchers have disclosed new \"Plug and Pwn\" attacks that abuse the Windows Plug and Play feature to trigger Windows into installing vulnerable or insecure vendor software and gain SYSTEM privileges. [...]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-d56ecf2e89",
+    "rejectedAt": "2026-08-13T08:13:44.823964+00:00",
+    "date": "2026-08-12",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/security/new-microsoft-defender-shieldbreak-zero-day-grants-system-privileges/",
+    "headline": "New Microsoft Defender 'ShieldBreak' zero-day grants SYSTEM privileges",
+    "summary": "A security researcher known as Nightmare Eclipse has released a new Microsoft Defender zero-day exploit named \" ShieldBreak \" after Microsoft released the August 2026 Patch Tuesday security updates. The new vulnerability is described as a bypass for RoguePlanet , another Defender privilege escalation flaw disclosed in June and patched by Microsoft one month later. However, cybersecurity expert Kevin Beaumont, who also published ShieldBreak exploitation detection queries for Microsoft Defender for Endpoint, said that the two exploits work very differently. \"RoguePlanet was a filesystem race con",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-652cb4d595",
+    "rejectedAt": "2026-08-13T08:13:45.894687+00:00",
+    "date": "2026-08-12",
+    "source": "BleepingComputer",
+    "url": "https://www.bleepingcomputer.com/news/microsoft/hackers-leverage-new-microsoft-sharepoint-exploit-in-attacks/",
+    "headline": "Hackers leverage new Microsoft SharePoint exploit in attacks",
+    "summary": "A proof-of-concept (PoC) exploit for a critical Microsoft SharePoint vulnerability, published by cybersecurity company Rapid7 on Tuesday, is already being used in attacks. Tracked as CVE-2026-55040 , this authentication bypass security flaw in the JWT token validation pipeline can be exploited by attackers without privileges to perform operations as a SharePoint site user or administrator. Microsoft patched the vulnerability as part of the July 2026 Patch Tuesday updates, when it warned customers to patch systems running SharePoint Enterprise Server 2016 and SharePoint Server 2019. \"The authen",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-646c65cf1e",
+    "rejectedAt": "2026-08-13T08:13:46.889873+00:00",
+    "date": "2026-08-12",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/the-worst-ive-ever-seen-cargo-thieves-are-turning-violent-in-pursuit-of-ai-hardware/",
+    "headline": "‘The Worst I’ve Ever Seen’: Cargo Thefts Have Turned Violent in Pursuit of AI Hardware",
+    "summary": "During the 25 years Gerardo Pachuca has spent investigating thieves who steal cargo from semitrucks, he says he’s never seen behavior this brazen. The consultant and former Los Angeles sheriff’s detective claims that two times in recent months, robbers stole pricey hardware destined for AI data centers using a confrontational new tactic. It’s left the freight industry on edge. The incidents involved two different shipments of high-value technology traveling from Silicon Valley to Southern California, according to Pachuca, who says he learned about the thefts from law enforcement authorities. E",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b7a0773198",
+    "rejectedAt": "2026-08-13T08:13:47.875428+00:00",
+    "date": "2026-08-12",
+    "source": "The Record",
+    "url": "https://therecord.media/uk-criminal-records-office-acro-data-breaches",
+    "headline": "Three intrusions at UK criminal records office went undetected for two years",
+    "summary": "Britain's criminal records office has been reprimanded by the country’s data protection regulator after being repeatedly breached over nearly two years, exposing the personal data of thousands of people including victims of domestic violence. The Information Commissioner’s Office (ICO) announced in the reprimand notice Wednesday that it was censuring ACRO Criminal Records Office over a range of security shortcomings, among them alerts from antivirus software going unread and a critical system left unpatched for nearly four years. Basic failures at ACRO — the national policing unit that handles",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 45,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c01fee6603",
+    "rejectedAt": "2026-08-13T08:13:48.890535+00:00",
+    "date": "2026-08-12",
+    "source": "The Record",
+    "url": "https://therecord.media/cisa-gives-federal-agencies-two-weeks-to-patch-dprk-microsoft-bug",
+    "headline": "CISA gives federal agencies two weeks to patch Microsoft bug exploited in DPRK campaign",
+    "summary": "Federal agencies were ordered to patch a Windows vulnerability used by North Korean hackers to target people applying to jobs in the defense and aerospace industry. The Cybersecurity and Infrastructure Security Agency (CISA) and Microsoft confirmed on Tuesday that CVE-2026-68820 is being exploited. The bug was the only vulnerability in Microsoft’s Patch Tuesday release that the company confirmed is being used in real-world attacks. The vulnerability impacts Winsock, a tool that acts as a bridge allowing web browsers to connect to the internet. Nightwing's Nick Carroll compared the bug, which c",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 60,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-17bb54ba12",
+    "rejectedAt": "2026-08-13T08:13:49.855041+00:00",
+    "date": "2026-08-12",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/us-news/2026/aug/12/san-francisco-70m-estate",
+    "headline": "San Francisco-area estate sells for $70m in sign of AI-fueled wealth explosion",
+    "summary": "New owner is said to be involved in AI industry, as new class of multimillionaires is entering the real estate raceA luxury Lake Como-inspired estate in the San Francisco Bay Area has sold to a buyer “in the AI world” for a record $70m, in the latest sign of a new tech wealth boom that’s pushing home prices to extraordinary heights in the regionThe property south of San Francisco not only becomes the most expensive sale in its affluent town of Hillsborough, doubling a previous record, but is also the most expensive sale in northern California this year, according to listing agent Jennifer Gilson of Golden Gate Sotheby’s International Realty. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-992d25fb7f",
+    "rejectedAt": "2026-08-13T08:13:51.100141+00:00",
+    "date": "2026-08-12",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/12/ai-job-destruction",
+    "headline": "AI was supposed to destroy jobs. Where’s the carnage?",
+    "summary": "The AI jobs apocalypse never showed up. Still, jobs are changing and economists expect more to comeThe prediction was stark: artificial intelligence advancements would wipe out jobs en masse. “Half” of all entry-level white collar jobs would vanish, Anthropic’s CEO, Dario Amodei, said in May 2025. A month later, OpenAI’s CEO, Sam Altman, went further, foreseeing the end of “certain job categories”. Companies began citing AI in their layoffs. Workers organized. And students reconsidered their future careers.But a year later, the mass carnage hasn’t shown up. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-13b3ce189e",
+    "rejectedAt": "2026-08-13T08:13:52.335458+00:00",
+    "date": "2026-08-12",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/technology/2026/aug/13/ai-agents-arent-legally-responsible-for-any-harm-that-they-cause-experts-say-so-who-is",
+    "headline": "AI agents aren’t legally responsible for any harm that they cause, experts say. So who is?",
+    "summary": "After Australia’s first reported automated hacking accident, experts warn deployers – and possibly developers – of AI agents could be held liable for the actions of their botsFollow our Australia news live blog for latest updatesGet our breaking news email, free app or daily news podcastThe law is clear, says Prof Jeannie Paterson. “If I deploy an AI agent and it causes harm to someone else, I am responsible for that harm.“Even if I didn’t intend for that to happen, it was foreseeable, and I should be taking responsibility.” Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9ca42c275b",
+    "rejectedAt": "2026-08-13T08:13:53.322546+00:00",
+    "date": "2026-08-12",
+    "source": "Ars Technica security",
+    "url": "https://arstechnica.com/security/2026/08/researchers-found-a-way-to-hijack-devices-through-zoom-screen-sharing/",
+    "headline": "Researchers found a way to hijack devices through Zoom screen sharing",
+    "summary": "As AI models gain advanced capabilities to find vulnerabilities in software, develop ways to exploit them , and even carry out autonomous hacking sprees , researchers offered a sobering new example on Tuesday, disclosing vulnerabilities in the video conferencing platform Zoom that could have been exploited to take over targets’ devices. Anyone on a call that involved screen sharing, whether participants or the host, would have been vulnerable to a silent attack that could be carried out with no indication and no interaction from the victim. Researchers from the digital defense firm A Security ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model"
+    ],
+    "relevanceScore": 75,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-145f11b350",
+    "rejectedAt": "2026-08-13T08:13:54.618629+00:00",
+    "date": "2026-08-12",
+    "source": "The Register — AI/ML",
+    "url": "https://www.theregister.com/ai-and-ml/2026/08/12/openwaldo-aims-to-blow-the-doors-off-proprietary-ai-training-models/5286864",
+    "headline": "OpenWALDO aims to blow the doors off proprietary AI training models",
+    "summary": "ai and ml Contributors wanted: 167B transparent tokens have a long way to go against AI giants' trillions A new project aims to build a shared, open source AI training dataset that anyone can contribute to, much like an open source software project. It aims to make training data more transparent than that of many open-weight models that have recently taken the industry by storm. CentOS and Rocky Linux founder Gregory Kurtzer is behind the effort, dubbed Open Weights, Artifacts, Licenses, Data, Origins ( OpenWALDO ), and it's funded by CIQ , his AI infrastructure company, which also sponsors Ro",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 76,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-130351f939",
+    "rejectedAt": "2026-08-13T08:13:55.841093+00:00",
+    "date": "2026-08-12",
+    "source": "Wired security",
+    "url": "https://www.wired.com/story/this-coin-sized-device-can-hack-a-boeing-737/",
+    "headline": "This Coin-Sized Device Can Hack a Boeing 737",
+    "summary": "Even as the digital components of so many life-critical systems have proven susceptible to cybersabotage— cars , medical devices , even water utilities and power grids —the computer systems of airplanes have, thankfully, remained uniquely inaccessible to hackers. But one group of academic researchers has spent years testing a different, devious approach to aviation cybersecurity. Perhaps, they suggest, a plane could be hacked the same way that spies and saboteurs have targeted other high-value, offline computers: by surreptitiously gaining physical access to one and plugging in a device design",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-e43158037a",
+    "rejectedAt": "2026-08-13T08:13:56.851578+00:00",
+    "date": "2026-08-12",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/allenai/olmoearth-embeddings",
+    "headline": "Introducing OlmoEarth embeddings: Custom embedding exports from OlmoEarth Studio for downstream analysis",
+    "summary": "📄 Tech Report: https://allenai.org/papers/olmoearth | 📊 Documentation: https://docs.olmoearth.allenai.org/embeddings | 💻 Learn more about OlmoEarth: https://allenai.org/olmoearth OlmoEarth Studio , our platform for building Earth observation models, now lets you compute and export embedding vectors —compact numerical representations of Earth-observation data produced by our open source OlmoEarth foundation models. The source code and model weights are publicly available alongside the research paper , so the community can inspect exactly how these embeddings are generated. Embeddings are a fast",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-944f4d659f",
+    "rejectedAt": "2026-08-13T08:13:57.808572+00:00",
+    "date": "2026-08-12",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/future-data-analytics-why-ai-rewriting-analysts-job-description",
+    "headline": "The Future of Data Analytics: Why AI is rewriting the Analyst’s Job Description",
+    "summary": "The Data Analyst role has been declared dead more times than we can count. AI will write queries, build dashboards, and generate insights. So why bother hiring analysts at all? Because that argument confuses the task with the job. What’s actually being automated is the work that consumed analysts’ time but never delivered business value: wrangling data, rebuilding dashboards for every new stakeholder, writing ad hoc SQL for one-off requests. The analyst who only does those things is being automated. The analyst who frames business problems and drives decisions is becoming more and more valuabl",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-c50200be0c",
+    "rejectedAt": "2026-08-13T08:13:58.775513+00:00",
+    "date": "2026-08-12",
+    "source": "404 Media",
+    "url": "https://www.404media.co/twitch-training-amazon-ai-models-how-to-opt-out-setting/",
+    "headline": "Twitch is Mining Peoples' Streams to Train Amazon's AI",
+    "summary": "Twitch is going to train Amazon’s AI models on streamers’ content unless they deliberately go into their settings and opt out, potentially sweeping up a wealth of streamers who either don’t hear about the announcement or follow steps stop it. On Wednesday Twitch announced a new setting that lets streamers opt-out of the training. The announcement confirms rumors that have percolated over the last week : It is using streamers to train Amazon’s AI models. The new toggle says, \"Allow your channel content to train generative AI content models at Amazon.\" All users are opted in by default. It's loc",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-85c2f05544",
+    "rejectedAt": "2026-08-13T08:14:00.084357+00:00",
+    "date": "2026-08-12",
+    "source": "404 Media",
+    "url": "https://www.404media.co/podcast-mark-zuckerbergs-superintelligent-ai-future-that-no-one-wants/",
+    "headline": "Podcast: Mark Zuckerberg’s 'Superintelligent' AI Future That No One Wants",
+    "summary": "We start this week with Jason’s article about Mark Zuckerberg’s plan for Meta’s AI agents. They don't sound fun at all. After the break, Emanuel tells us how a company offering “100% human-written” medical research is actually all AI. In the subscribers-only section, Joseph explains why some cities are ditching Flock then immediately replacing those cameras with Axon ones. Listen to the weekly podcast on Apple Podcasts , Spotify , or YouTube . Become a paid subscriber for access to this episode's bonus content and to power our journalism. If you become a paid subscriber, check your inbox for a",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-553550f021",
+    "rejectedAt": "2026-08-13T08:14:01.655216+00:00",
+    "date": "2026-08-12",
+    "source": "404 Media",
+    "url": "https://www.404media.co/ai-generated-3d-models-flood-market-but-almost-no-one-is-buying-them/",
+    "headline": "AI Generated 3D Models Flood Market, But Almost No One Is Buying Them",
+    "summary": "CGTrader, an online marketplace for 3D assets, found that one in six models uploaded to the site these days is AI generated, but that AI generated assets account for only $1 out of $90 in revenue on the site. These numbers show that AI generated assets are quickly flooding the marketplace, but that most people are not interested in paying for them. “Buyers are voting with their wallets, and AI-generated content is struggling to compete,” CGTrader said in a press release about its 2026 market trends reports . The company says the gap between the surging supply of AI generated 3D models and the ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-3ee457ffdd",
+    "rejectedAt": "2026-08-13T08:14:02.608305+00:00",
+    "date": "2026-08-12",
+    "source": "AWS security blog",
+    "url": "https://aws.amazon.com/blogs/security/how-aws-iam-role-manager-rethinks-the-starting-point-for-iam-roles/",
+    "headline": "How AWS IAM role manager rethinks the starting point for IAM roles",
+    "summary": "When you build a new application or capability on Amazon Web Services (AWS), you want to focus on what you’re building. Getting a service running almost always begins with AWS Identity and Access Management (IAM). Many AWS services that act on your behalf need an IAM role, an identity the service assumes to access your […]",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 80,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-41dec0da00",
+    "rejectedAt": "2026-08-13T08:14:04.174892+00:00",
+    "date": "2026-08-11",
+    "source": "The Guardian — Technology",
+    "url": "https://www.theguardian.com/thefilter/2026/aug/11/how-to-buy-a-bike",
+    "headline": "How to buy a bike: expert tips for finding the right budget, frame and fit",
+    "summary": "Whether you’re commuting, training or riding for fun, we asked specialists to break down what to know before you buy – from specs and safety to price• The best bike locks for every budgetFor me, cycling is therapy. It’s calming, meditative and uncomplicated. But there’s a catch. To experience the simple joy of riding a bike, you first have to navigate the maddeningly complex process of buying one.Make no mistake: this is not a straightforward case of marching into Halfords, saying, “One bike, please!” and leaving with a shiny new steed. But, while complicated, it needn’t be stressful. Continue reading...",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 74,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-306a4594ca",
+    "rejectedAt": "2026-08-13T08:14:05.180496+00:00",
+    "date": "2026-08-12",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cybersecurity-operations/walmart-trusted-agent-approach-purple-teaming",
+    "headline": "Walmart's &quot;Trusted Agent&quot; Approach to Purple Teaming",
+    "summary": "Walmart co-locates red and blue teams to build trust and improve security through collaborative purple teaming exercises",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-7ae575a22e",
+    "rejectedAt": "2026-08-13T08:14:06.557056+00:00",
+    "date": "2026-08-12",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/ransomware-hits-colombian-justice-ministry-presidential-transition",
+    "headline": "Ransomware Hits Colombian Justice Ministry Days Before Presidential Transition",
+    "summary": "Attackers continue to target critical infrastructure and government-linked organizations in the country, mirroring the increased activity across Latin America.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-b3b0bd8842",
+    "rejectedAt": "2026-08-13T08:14:07.628979+00:00",
+    "date": "2026-08-12",
+    "source": "DarkReading",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/long-running-data-theft-campaign-salesforce-servicenow",
+    "headline": "Long-running Data Theft Campaign Targeting Salesforce, ServiceNow",
+    "summary": "The &quot;City-Forum&quot; campaign has been active since at least March 2025 and has targeted organizations across multiple sectors with custom tooling.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 0,
+    "confidenceScore": 0,
+    "sourceQualityScore": 78,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-21b23944b4",
+    "rejectedAt": "2026-08-13T08:14:09.061238+00:00",
+    "date": "2026-08-12",
+    "source": "404 Media",
+    "url": "https://www.404media.co/this-tool-unmasks-the-shadowy-world-of-ads-that-track-your-location/",
+    "headline": "This Tool Unmasks the Shadowy World of Ads that Track Your Location",
+    "summary": "It's usually very difficult to investigate the advertising industry. A new tool called DecryptAds aims to make it much easier with a massive dataset anyone can query.",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-1daf2b427c",
+    "rejectedAt": "2026-08-13T08:14:10.144431+00:00",
+    "date": "2026-08-12",
+    "source": "404 Media",
+    "url": "https://www.404media.co/the-government-is-monitoring-anti-flock-tiktok-and-instagram-accounts/",
+    "headline": "The Government is Monitoring Anti-Flock TikTok and Instagram Accounts",
+    "summary": "Government surveillance centers are monitoring viral anti-Flock Instagram posts, warning local police about upcoming DeFlock events including one scheduled to start next week, and have told cops to “increase patrols around ALPR [automatic license plate readers]” as backlash to Flock grows, according to government intelligence bulletins obtained using public records requests. The documents also warn about devices “that could be used to identify the locations of Flock cameras.” Investigative journalist Dan Boguslaw first published several fusion center bulletins about DeFlock, a crowdsourced map",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 55,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-9e222714c5",
+    "rejectedAt": "2026-08-13T08:14:11.280033+00:00",
+    "date": "2026-08-12",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/how-major-freight-railroad-scaled-pipeline-creation-genie-code",
+    "headline": "How a major freight railroad scaled pipeline creation with Genie Code",
+    "summary": "One of Canada’s largest railway networks spans roughly 20,000 route miles across Canada and into the United States, supporting the movement of more than C$250 billion in goods annually. For an organization operating at that scale, modernizing a decades-old data estate was never going to be a one-table-at-a-time exercise. With hundreds of pipelines in flight, growing demand for real-time analytics and AI, and deep institutional knowledge embedded in legacy systems, the company needed a way to scale modernization without scaling manual development effort. Using Databricks Genie Code , Unity Cata",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-6d7c7b773b",
+    "rejectedAt": "2026-08-13T08:14:12.227057+00:00",
+    "date": "2026-08-12",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/how-amtrak-building-data-backbone-its-largest-transformation-over-50-years",
+    "headline": "How Amtrak is building the data backbone for its largest transformation in over 50 years",
+    "summary": "Amtrak operates the largest passenger railroad network in the United States, with 21,000 track miles connecting communities across the country. The organization is now undertaking its biggest physical transformation in half a century, introducing two entirely new fleets while simultaneously rebuilding tunnels, bridges, and rail yards, some of which date back over 150 years. To match the scale of this physical transformation, Amtrak is building a digital intelligence platform that connects all of these new assets into a single governed layer. The team calls it Rail Intelligence, and it runs on ",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance"
+    ],
+    "relevanceScore": 10,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-ab799e9da7",
+    "rejectedAt": "2026-08-13T08:14:13.710438+00:00",
+    "date": "2026-08-12",
+    "source": "Hugging Face blog",
+    "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-3b",
+    "headline": "LFM2.5-VL-3B for Better and Faster Vision Capabilities for the Edge",
+    "summary": "LFM2.5-VL-3B is our most capable vision-language model you can run on your own hardware. It understands documents and screens alike, grounds objects, and can call tools. It answers directly instead of reasoning, so responses stay fast in real-time and on-device apps. LFM2.5-VL-3B extends the vision-language capabilities of our previous releases with four major improvements: LFM2.5-VL-3B pairs a SigLIP2 400M NaFlex vision encoder with the same pre-trained backbone as our LFM2.5-2.6B text model. It is pre-trained on about 34T tokens, with 4x more vision data than before, drawn from curated and s",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
+    "id": "reject-a0f95b1672",
+    "rejectedAt": "2026-08-13T08:14:14.671697+00:00",
+    "date": "2026-08-12",
+    "source": "Databricks blog",
+    "url": "https://www.databricks.com/blog/databricks-network-configuration-delivery-tens-millions-serverless-vms",
+    "headline": "Databricks Network Configuration delivery to Tens of Millions of Serverless VMs",
+    "summary": "Databricks' serverless compute platform powers virtually all of our data and AI products, such as, SQL warehouses, notebooks, ML serving endpoints, and more. The platform launches tens of millions of VMs daily across AWS, Azure, and GCP. Before any serverless workload can execute, the VM needs to know its network configuration: What storage destinations can it access? Are there private link endpoints through which it should route traffic? Is there recent changes in Unity Catalog that grants access to new storage destinations? Do we start consuming new destinations shared via Delta Sharing? The",
+    "model": "claude-haiku-4-5-20251001",
+    "reasons": [
+      "not_confirmed_by_model",
+      "low_relevance",
+      "vague_ai_news"
+    ],
+    "relevanceScore": 40,
+    "confidenceScore": 0,
+    "sourceQualityScore": 65,
+    "status": "rejected"
+  },
+  {
     "id": "reject-44c6185f1e",
     "rejectedAt": "2026-08-12T08:09:55.002072+00:00",
     "date": "2026-08-11",
